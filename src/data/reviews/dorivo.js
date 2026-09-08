@@ -1,0 +1,88 @@
+// Dorivo review — copy written from dorivo-au.net's published material (scraped 2026-09-08).
+export default {
+  slug: 'dorivo',
+  name: 'Dorivo',
+  domain: 'dorivo-au.net',
+  tagline: 'Market Intelligence, Engineered for Speed',
+  headline: 'Is Dorivo Safe, Legit or a Scam? Our 2026 Review',
+  deck: 'Dorivo is not a trading platform in the usual sense — it is a market-intelligence toolkit that plugs into your existing broker. That changes the questions we asked, and the answers matter.',
+  date: 'Sep 2, 2026',
+  readTime: '9 min read',
+  byline: 'The Editorial Desk',
+  accent: '#334155',
+  verdict: 'SAFE — WITH CONDITIONS',
+  targetMarket: 'International (traders, analysts, teams)',
+  minimumDeposit: 'Not applicable — toolkit, not an account platform',
+  depositMethods: 'Not applicable — connects to your broker or exchange',
+  support: '24/7 live chat claim (<2 min median response)',
+  scorecard: { easeOfUse: 4.4, features: 4.6, transparency: 4.0, security: 4.5, support: 4.0 },
+  intro: [
+    'Dorivo is the outlier in this review table, and it is worth saying so before anything else. Where every other platform we cover asks for your money to trade on your behalf, Dorivo asks for your time: it is a market-intelligence and automation toolkit — “market intelligence, engineered for speed” — that connects to the broker or exchange you already use and layers real-time feeds, rule-based automation and risk controls on top.',
+    'The numbers it leads with are engineering numbers, not marketing numbers: 120+ markets covered, 99.99% platform uptime, sub-50-millisecond median latency, and a claimed 150k+ traders and analysts. Its audience is day traders, swing traders, quant analysts and teams — professionals, or people who want to work like professionals.',
+    'Because Dorivo does not hold client funds, the safety questions change shape. Our review of dorivo-au.net focused on what the toolkit claims, whether its published material supports those claims, and what a prospective subscriber should verify before paying.',
+  ],
+  whatItClaims: [
+    'Unified real-time market feeds across equities, crypto and FX — 120+ markets streamed to one dashboard.',
+    'Rule-based workflow automation: set conditions, and the platform watches the market and executes for you.',
+    'Built-in risk controls — position limits, exposure alerts and stop-loss rules inside every workflow.',
+    'Bank-grade security: 256-bit encryption, hardware-key 2FA and SOC 2 compliant infrastructure.',
+    'A developer API (REST + WebSocket) with typed SDKs, webhooks and a sandbox mode.',
+    '24/7 live-chat support staffed by engineers, with a claimed median first response under two minutes.',
+    'A client list including Vantage, Northstar, Quantia, Helios, Meridian, Orbital, Novapay and Atlas Capital.',
+  ],
+  whatWeChecked: [
+    'The positioning: the site is honest that Dorivo is a toolkit — signup asks for a name and email, not a deposit, and the first step is connecting your existing broker or data source.',
+    'The uptime and latency claims: 99.99% uptime and <50ms latency are published, but no third-party status page or measurement methodology is linked.',
+    'The SOC 2 claim: “SOC 2 compliant infrastructure” is stated, but no audit report or auditor name is published.',
+    'The client logos: eight company wordmarks appear under “Powering teams at” — unverifiable from the page itself, since no case studies or quotes from those companies are linked.',
+    'Pricing: no pricing page, plan table or trial terms appear on the homepage we reviewed.',
+    'Support: the 24/7 live-chat promise is specific, but there is no public chat endpoint to test before signing up.',
+  ],
+  pros: [
+    'Refreshingly different model: your funds stay at your broker, which removes the custody risk entirely.',
+    'Concrete engineering claims — 120+ markets, 99.99% uptime, <50ms latency — aimed at people who can check them.',
+    'Risk controls (position limits, stop-loss rules) are built into the core product, not bolted on.',
+    'Developer offering is real: REST + WebSocket API, SDKs, webhooks and a sandbox mode.',
+    'Audience segmentation is clear and useful — day traders, swing traders, quants and teams each get a named fit.',
+  ],
+  cons: [
+    'No pricing is published — subscription cost, tiers and trial terms are all unknowns before signup.',
+    'The SOC 2 compliance claim has no linked audit report to back it.',
+    'Uptime and latency figures are self-reported without methodology or a public status page.',
+    'The client-logo wall is unverifiable — no case studies or named quotes from those companies.',
+    'The “150k+ traders & analysts” claim carries no source.',
+  ],
+  redFlags: [
+    '“SOC 2 compliant infrastructure” is a strong claim that is not backed by any published audit or auditor name.',
+    'The client-logo section implies enterprise adoption that cannot be confirmed from anything on the page.',
+    'A paid product with no published pricing is a friction point — and in this market, it is the kind of gap that matters.',
+    'The 99.99% uptime and sub-50ms latency claims are precise enough to sound measured, but no measurement is shown.',
+  ],
+  faqs: [
+    {
+      q: 'Is Dorivo safe, legit or a scam?',
+      a: 'Dorivo’s model sidesteps the biggest scam risk in this segment — it never asks for trading deposits. The residual questions are commercial, not custodial: unverified compliance and client claims, and no published pricing. We rate it safe to trial, with the conditions in this review.',
+    },
+    {
+      q: 'Does Dorivo hold my money?',
+      a: 'No. Dorivo connects to the broker or exchange you already use and normalises their feeds into one dashboard. Your funds stay where they are, which is a structurally safer arrangement than a deposit-taking trading platform.',
+    },
+    {
+      q: 'How much does Dorivo cost?',
+      a: 'The homepage does not publish pricing. The signup flow collects your details to “get started,” but no plan table, tier list or trial terms are shown on the public page. Confirm pricing before you commit.',
+    },
+    {
+      q: 'Is Dorivo SOC 2 compliant?',
+      a: 'The site claims SOC 2 compliant infrastructure but does not publish an audit report or name an auditor. Ask for the report — a legitimate provider will share it under NDA.',
+    },
+    {
+      q: 'Who is Dorivo for?',
+      a: 'The site names four audiences: day traders, swing traders, quant analysts and growing teams. If you want automation on top of an existing broker account rather than a new trading account, this is the review table’s only entry that fits that description.',
+    },
+  ],
+  bottomLine: [
+    'Dorivo is the most structurally low-risk product in this table because it never touches your money. That alone makes it worth a look for traders who already have a broker relationship and want better feeds, automation and risk controls without custody risk.',
+    'The conditions sit on the commercial side. No pricing, no linked SOC 2 report, no verifiable client evidence and no public status page for its uptime claims mean you are being asked to trust the brochure before the product. Dorivo’s own advice works well here: sandbox mode exists, and a trial is the right way to answer the open questions.',
+  ],
+  visitUrl: 'https://dorivo-au.net',
+}

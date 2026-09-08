@@ -1,0 +1,86 @@
+// Lyra Vestgrove review — copy written from lyravestgrove-au.com's published material (scraped 2026-09-08).
+export default {
+  slug: 'lyra-vestgrove',
+  name: 'Lyra Vestgrove',
+  domain: 'lyravestgrove-au.com',
+  tagline: 'AI-Powered Trading Platform',
+  headline: 'Is Lyra Vestgrove Safe, Legit or a Scam? Our 2026 Review',
+  deck: '“Trading, on autopilot” is the pitch, but signup runs through a “our team will be in touch” step and the minimum deposit is never published. The caution points, examined.',
+  date: 'Sep 1, 2026',
+  readTime: '9 min read',
+  byline: 'The Editorial Desk',
+  accent: '#be123c',
+  verdict: 'CAUTION — LIMITED DISCLOSURE',
+  targetMarket: 'Australia (verified residents only)',
+  minimumDeposit: 'Not published',
+  depositMethods: 'Not published',
+  support: 'Team contact after registration; no public address shown',
+  scorecard: { easeOfUse: 4.2, features: 4.2, transparency: 3.4, security: 4.4, support: 3.8 },
+  intro: [
+    'Lyra Vestgrove describes itself in two words on the hero: “Trading, on autopilot.” Beneath that sits a promise of automated strategies paired with real-time market intelligence, backed by the three badges every platform in this segment reaches for — 2FA protected, SSL encrypted, cold storage.',
+    'Then the flow takes a turn. Where most platforms convert a signup form into an account in minutes, Lyra Vestgrove’s form says “Register now and our team will be in touch,” and the fine print adds that registration is currently limited to verified residents of Australia. The headline statistics are familiar territory — 4M+ registered users, 98+ countries reached, $500M+ in customer deposits — but the onboarding model is genuinely different.',
+    'We reviewed every public page on lyravestgrove-au.com. This review explains why the verdict below is more cautious than the badge row suggests it should be.',
+  ],
+  whatItClaims: [
+    'Automated trading strategies paired with real-time market intelligence — “grow your portfolio without watching charts all day.”',
+    '4M+ registered users, 98+ countries reached and $500M+ in customer deposits.',
+    '2FA protection, SSL encryption and cold storage as standard on every account.',
+    'Three promises: discipline without screen time, signals that respect your time, and security that never sleeps.',
+    'Registration limited to verified residents of Australia, with the team contacting you after signup.',
+  ],
+  whatWeChecked: [
+    'The minimum deposit: it is not published anywhere on the pages we reviewed — no figure appears in the signup, the FAQ or the feature sections.',
+    'The onboarding model: the form explicitly says the team will be in touch after registration, which means a human verification step before any account is opened — unusual for this segment, and worth understanding before you submit details.',
+    'The statistics: 4M+ users and $500M+ deposits are self-published with no source, and “98+ countries reached” sits oddly next to the Australia-only registration rule.',
+    'Security: 2FA, SSL and cold storage are stated in the hero badges and the security section, but no custody detail or audit is provided.',
+    'Licensing: no ASIC, AFSL or other licence appears anywhere we read.',
+    'Fees: no fee, spread or withdrawal schedule is published.',
+  ],
+  pros: [
+    'The security trio (2FA, SSL, cold storage) is stated plainly and treated as standard, not a premium add-on.',
+    'The assisted-onboarding model means a human reviews your application — a different risk profile from instant account opening.',
+    'The “discipline without screen time” framing is honest about what automation is for.',
+    'Australia-only registration is at least a defined boundary, stated in the open.',
+    'The copy is clear that signals are prioritised, not buried in jargon.',
+  ],
+  cons: [
+    'No minimum deposit, funding methods or fee schedule are published anywhere.',
+    'The “team will be in touch” step means you hand over personal details with no clear picture of what happens next.',
+    '“98+ countries reached” conflicts with Australia-only registration — one of the two claims is loose.',
+    'No licence or regulator is named.',
+    'No public support channel, email address or phone number appears on the pages we reviewed.',
+  ],
+  redFlags: [
+    'The complete absence of deposit, fee and funding information is the largest disclosure gap in our current table.',
+    'A signup flow that collects personal details before explaining account terms, minimums or costs puts the burden on the applicant.',
+    'The self-published user and deposit statistics are unverifiable, and the countries-reached figure contradicts the Australia-only rule.',
+    'No regulatory status or company registration is published.',
+  ],
+  faqs: [
+    {
+      q: 'Is Lyra Vestgrove safe, legit or a scam?',
+      a: 'We found no evidence of a scam, but we also found less published information than any other platform in our table: no minimum deposit, no fees, no funding methods, no licence. That is not how a scam reads — it is how an unfinished disclosure page reads. Our verdict is caution until those basics are published.',
+    },
+    {
+      q: 'What is Lyra Vestgrove’s minimum deposit?',
+      a: 'It is not published on the site. The signup flow asks for your name, email and phone, and says the team will be in touch — presumably the minimum is explained at that stage. Ask before you commit to anything.',
+    },
+    {
+      q: 'Why does registration say “our team will be in touch”?',
+      a: 'Lyra Vestgrove appears to use an assisted-onboarding model: you register interest, a team member contacts you, and access follows verification — limited to Australian residents. This adds friction, but it also means a human checks who is opening the account.',
+    },
+    {
+      q: 'Is Lyra Vestgrove available outside Australia?',
+      a: 'Not according to its own fine print: registration is “currently limited to verified residents of Australia,” despite the site also claiming 98+ countries reached. The Australian boundary is the one to trust.',
+    },
+    {
+      q: 'What fees does Lyra Vestgrove charge?',
+      a: 'None are published. No fee table, spread schedule or withdrawal costs appear on the public pages. Until the platform publishes a fee schedule, treat the cost of trading here as unknown — which is exactly why this review carries a caution verdict.',
+    },
+  ],
+  bottomLine: [
+    'Lyra Vestgrove is a platform in the middle of a disclosure gap. The product story — automation, prioritised signals, standard security — is coherent, and the Australia-only, human-verified onboarding is arguably the most careful gate in this table. But a trading platform that asks for your details before it publishes a minimum deposit, funding methods or a single fee is asking for trust it has not yet earned.',
+    'The caution verdict reflects that gap, not a suspicion of wrongdoing. The fix is cheap: publish the numbers. Until then, our advice is the obvious version — if the team contacts you, ask for the minimum deposit, the fee schedule and the licence status in writing, and decide only after the answers arrive.',
+  ],
+  visitUrl: 'https://lyravestgrove-au.com',
+}

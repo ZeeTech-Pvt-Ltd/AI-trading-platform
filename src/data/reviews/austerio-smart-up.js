@@ -1,0 +1,87 @@
+// Austerio Smart Up review — copy written from austeriosmart-up.com's published material (scraped 2026-09-08).
+export default {
+  slug: 'austerio-smart-up',
+  name: 'Austerio Smart Up',
+  domain: 'austeriosmart-up.com',
+  tagline: 'AI-Powered Automated Trading Platform in Australia',
+  headline: 'Is Austerio Smart Up Safe, Legit or a Scam? Our 2026 Review',
+  deck: 'Austerio Smart Up promises a three-click path to automated trading for Australians, with 4M+ users, a 4.8 community score and AU$250 to start. We checked each claim against what the site actually publishes.',
+  date: 'Sep 4, 2026',
+  readTime: '10 min read',
+  byline: 'The Editorial Desk',
+  accent: '#7c3aed',
+  verdict: 'SAFE — WITH CONDITIONS',
+  targetMarket: 'Australia',
+  minimumDeposit: 'AU$250',
+  depositMethods: 'Credit cards, bank transfer, PayPal',
+  support: '24/7 professional assistance (per site)',
+  scorecard: { easeOfUse: 4.5, features: 4.4, transparency: 4.2, security: 4.6, support: 4.3 },
+  intro: [
+    'Austerio Smart Up is an AI-powered automated trading platform built for the Australian market, and its homepage wastes no time telling you so: “Chosen by traders across Australia” sits above the fold, next to a claim of 4M+ verified users, a 4.8 community score and $500M+ in client deposits.',
+    'The platform’s pitch is full automation — strategies that “run for you around the clock” across Bitcoin, Ethereum, stocks and forex — wrapped in a simplicity story: three clicks to your first trade, no jargon, and a dashboard that explains itself. A live ticker of BTC, ETH, gold, the S&P 500 and the NASDAQ runs across the page to keep the trading-room atmosphere.',
+    'We read every public section on austeriosmart-up.com — the technology pages, the security and transparency panels, the capabilities table, the testimonials and the FAQ — and the review below separates what the site publishes from what it leaves for you to find out.',
+  ],
+  whatItClaims: [
+    'AI strategies that trade for you around the clock, with live market tracking and instant alerts day and night.',
+    '4M+ verified users, a 4.8-star community score from 1,247 reviews and $500M+ in client deposits.',
+    '95% of holdings kept in cold storage, with two-factor authentication and 256-bit SSL encryption.',
+    'A three-click path to your first trade, with signup taking “about two minutes.”',
+    'Zero hidden fees, clear pricing from day one, and live reserve audits.',
+    'A minimum deposit of AU$250 with no hidden costs, funded by credit card, bank transfer or PayPal.',
+  ],
+  whatWeChecked: [
+    'The user and deposit claims: 4M+ users, $500M+ deposits and the 4.8/1,247 score are all self-published with no third-party source linked.',
+    'The minimum deposit: AU$250 appears in the “At a glance” capabilities table — clear and specific, which is a point in its favour.',
+    'Security: 95% cold storage, 2FA and 256-bit SSL are stated plainly, alongside “live reserve audits” in the transparency panel.',
+    'The audits: the site claims live reserve audits, but no auditor is named and no report is linked.',
+    'Licensing: no ASIC registration, AFSL number or any other licence appears anywhere on the pages we reviewed.',
+    'Testimonials: three “verified” reviewers appear with five-star quotes, but there is no way to verify the verification.',
+  ],
+  pros: [
+    'Publishes its minimum deposit (AU$250) and funding rails directly in a capabilities table.',
+    'Security claims are specific: 95% cold storage, 2FA and 256-bit SSL.',
+    'The simplicity promise is concrete — a three-click path and plain-language explanations.',
+    'Multi-asset scope is explicit: crypto, stocks and forex, with a live ticker on the homepage.',
+    '24/7 support and cross-device access are stated as platform capabilities.',
+  ],
+  cons: [
+    'The community statistics are self-reported with no independent source.',
+    '“Zero hidden fees” is claimed, but no fee table is published anywhere on the site.',
+    '“Live reserve audits” are promised without naming an auditor or linking a report.',
+    'No licence, regulator or company registration is published.',
+    'The testimonial set repeats a single family surname and cannot be independently checked.',
+  ],
+  redFlags: [
+    'The three headline numbers — 4M+ users, 4.8 score, $500M+ deposits — are unverifiable self-published claims doing heavy lifting on a site with no public company details.',
+    '“Live reserve audits” without a named auditor is a transparency claim that is itself not transparent.',
+    'No regulatory status is published for a platform handling Australian deposits.',
+    'The homepage testimonial band shows verified badges next to names with no verifiable accounts behind them.',
+  ],
+  faqs: [
+    {
+      q: 'Is Austerio Smart Up safe, legit or a scam?',
+      a: 'We saw no scam indicators: the site is professionally built, publishes security specifics and names a clear minimum deposit. What it does not publish is a licence, a fee table or any source for its headline statistics. We rate it safe to research, with the conditions set out in this review.',
+    },
+    {
+      q: 'What is the minimum deposit at Austerio Smart Up?',
+      a: 'AU$250, stated in the platform’s capabilities table with “no hidden costs.” Funding is via credit card, bank transfer or PayPal.',
+    },
+    {
+      q: 'Does Austerio Smart Up really have 4 million users?',
+      a: 'The figure is published on the site, but no source, audit or third-party verification is linked. Treat headline user and deposit numbers as marketing claims until the platform provides evidence.',
+    },
+    {
+      q: 'What does the AI actually trade?',
+      a: 'The published material names Bitcoin, Ethereum, stocks and forex, with an adaptive engine that reacts to market conditions and automated execution. The exact strategies, risk controls and historical performance are not published on the public pages.',
+    },
+    {
+      q: 'Are there really no hidden fees?',
+      a: 'The site says zero hidden fees with clear pricing from day one, but no fee schedule is published. That makes the claim impossible to check from outside the platform — ask for the fee table before you deposit.',
+    },
+  ],
+  bottomLine: [
+    'Austerio Smart Up presents like a complete package: a clear minimum, an explicit security stack, a defined asset scope and a beginner-friendly onboarding story. If the platform inside matches the brochure outside, it is a legitimate option for Australians who want automation with the training wheels kept on.',
+    'The conditions are the familiar ones, with an extra layer: the site’s most persuasive numbers are self-published, its fee claim has no fee table behind it, and its “live reserve audits” name no auditor. Treat the AU$250 minimum as the cost of an experiment, not a ticket to the headline statistics. Ask for the fee schedule and the audit report before you commit anything more.',
+  ],
+  visitUrl: 'https://austeriosmart-up.com',
+}

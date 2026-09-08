@@ -1,0 +1,87 @@
+// Zephgain review — copy written from zephgain-au.com's published material (scraped 2026-09-08).
+export default {
+  slug: 'zephgain',
+  name: 'Zephgain',
+  domain: 'zephgain-au.com',
+  tagline: 'AI-Powered Automated Trading Platform in Australia',
+  headline: 'Is Zephgain Safe, Legit or a Scam? Our 2026 Review',
+  deck: 'Zephgain says what most platforms won’t: it provides technology only, not personal financial advice, and it names its minimum deposit. The rest of the review, without the polish.',
+  date: 'Sep 3, 2026',
+  readTime: '9 min read',
+  byline: 'The Editorial Desk',
+  accent: '#d97706',
+  verdict: 'SAFE — WITH CONDITIONS',
+  targetMarket: 'Australia (verified residents)',
+  minimumDeposit: 'AU$250',
+  depositMethods: 'Credit/debit cards, bank transfer, e-wallets',
+  support: '24/7 support claim; contact page only',
+  scorecard: { easeOfUse: 4.4, features: 4.3, transparency: 4.2, security: 4.4, support: 4.2 },
+  intro: [
+    'Zephgain is an AI-powered automated trading platform aimed at Australian residents, and its “What is Zephgain?” section contains one of the most candid sentences we have seen in this market: the platform “provides technology and information tools only — it does not give personal financial advice.” Most competitors imply that caveat; Zephgain prints it.',
+    'The product pitch is familiar territory done carefully: 24/7 monitoring across crypto, forex, equities and commodities, with a choice between fully automatic trading and manual control, a minimum deposit of AU$250, and no subscription fee. A dashboard mock-up labelled “Zephgain AI Live” shows a portfolio value rising 12.4% with the AI “Active 24/7.”',
+    'We reviewed every public page on zephgain-au.com — the three-step onboarding, the security and transparency panels, the community reviews and the FAQ — and the verdict below weighs the candour against the gaps.',
+  ],
+  whatItClaims: [
+    'AI strategies that trade for you around the clock, or hand you signals to trade manually — your choice.',
+    '4M+ verified users, a 4.8 community score from 1,247 reviews and $500M+ in client deposits.',
+    '95% of funds in cold storage, with two-factor authentication and 256-bit SSL encryption.',
+    'A three-step start: create an account in minutes, deposit from AU$250, and begin trading.',
+    'Zero hidden fees, no monthly subscriptions, withdrawals whenever you like.',
+    'Technology and information tools only — no personal financial advice.',
+  ],
+  whatWeChecked: [
+    'The advice disclaimer: genuinely published and specific — a rare, welcome piece of candour.',
+    'The minimum deposit: AU$250 is stated in the steps section, funded by cards, bank transfer and e-wallets.',
+    'The dashboard figures: the “AI Live” widget shows a +12.4% portfolio and a $12,840.90 balance — illustrative interface numbers, not audited results, though the page does not label them as examples.',
+    'The user statistics: 4M+ users, $500M+ deposits and the 4.8/1,247 score are self-published with no third-party source.',
+    'Licensing: no ASIC registration, AFSL number or other licence appears anywhere we read.',
+    'Testimonials: three verified-user quotes carry the same names found on a near-identical platform page in this segment, which suggests shared template copy rather than independent community feedback.',
+  ],
+  pros: [
+    'Publishes the clearest “we are not financial advisers” statement in the segment.',
+    'Names its minimum deposit (AU$250) and funding methods in the onboarding steps.',
+    'Offers both automated and manual trading modes, with the user in control.',
+    'Security specifics are concrete: 95% cold storage, 2FA and 256-bit SSL.',
+    'Zero-subscription pricing is a fair model for a technology-only service.',
+  ],
+  cons: [
+    'Per-trade fees are not published anywhere on the site.',
+    'The live-dashboard gains (+12.4%) are shown without a label marking them as examples.',
+    'Headline statistics (4M+ users, $500M+ deposits) are unverifiable self-published claims.',
+    'No licence or regulator is named.',
+    'The community-review section overlaps suspiciously with another platform’s page — identical names, near-identical quotes.',
+  ],
+  redFlags: [
+    'The community reviews appear templated: the same three names and five-star quotes appear on a separate platform’s site, which undermines the “verified user” framing.',
+    'Portfolio values and percentage gains in the “AI Live” widget are not marked as illustrations.',
+    'No regulatory status or company registration is published for a platform holding Australian deposits.',
+    '“Zero hidden fees” is claimed, but there is no fee table to check it against.',
+  ],
+  faqs: [
+    {
+      q: 'Is Zephgain safe, legit or a scam?',
+      a: 'We found no scam indicators, and the platform’s explicit “no personal financial advice” disclosure is a sign of a careful operator. The concerns are editorial: unverifiable statistics, no licence named and a review section that looks templated. We rate it safe to research with the conditions in this review.',
+    },
+    {
+      q: 'What is the minimum deposit at Zephgain?',
+      a: 'AU$250, stated in the onboarding steps, via credit or debit card, bank transfer or leading e-wallets. The site says deposits reach your account within minutes.',
+    },
+    {
+      q: 'Does Zephgain trade automatically or manually?',
+      a: 'Both, according to the site: fully automatic mode where the AI places trades on your behalf, or manual mode where you receive signals and act yourself. The choice is presented as yours at every step.',
+    },
+    {
+      q: 'Is Zephgain a financial adviser?',
+      a: 'No — and it says so itself. The site states that Zephgain provides technology and information tools only and does not give personal financial advice. That distinction is exactly right, and it means you carry the decisions.',
+    },
+    {
+      q: 'Are Zephgain’s community reviews genuine?',
+      a: 'We could not verify them, and the same names and near-identical quotes appear on another platform’s page in this segment. Treat the review section as marketing copy until the platform links its reviews to an independent third-party source.',
+    },
+  ],
+  bottomLine: [
+    'Zephgain earns its conditions mostly on candour: it admits what it is not (a financial adviser), names what it charges (no subscription), and publishes its AU$250 starting point. Those are the disclosures we want to see from a technology-only trading service, and they set a standard other platforms in this table could copy.',
+    'What keeps the rating from going higher is the marketing layer around the product. Unverifiable user statistics, an “AI Live” dashboard showing gains without an “example” label, and a community-review section that appears to share template copy with another site — those details chip at trust without touching the underlying offer. If you proceed, do it like the platform suggests: as your own decision, with your own research, starting small.',
+  ],
+  visitUrl: 'https://zephgain-au.com',
+}
