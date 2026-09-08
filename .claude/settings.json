@@ -18,7 +18,12 @@
       "Bash(npm run *)",
       "Bash(node scripts/verify.mjs)",
       "Bash(node -e ' *)",
-      "Bash(node scripts/gen-sitemap.mjs)"
+      "Bash(node scripts/gen-sitemap.mjs)",
+      "Bash(nslookup ai-trading-platform.com)",
+      "Bash(nslookup www.ai-trading-platform.com)",
+      "Bash(curl -sI -m 20 https://ai-trading-platform.com/)",
+      "Bash(curl -sI -m 20 http://ai-trading-platform.com/)",
+      "Bash(npx --no-install vercel --version)"
     ]
   }
 }
