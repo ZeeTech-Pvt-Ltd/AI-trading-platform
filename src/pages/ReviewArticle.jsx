@@ -60,7 +60,7 @@ export default function ReviewArticle() {
   const review = getReview(slug)
 
   useMeta({
-    title: review ? `${review.name} Review 2026 — Safe, Legit or a Scam?` : 'Review not found',
+    title: review ? review.headline : 'Review not found',
     description: review ? review.deck : null,
     path: `review/${slug}`,
   })

@@ -47,14 +47,14 @@ const overflow =
     : ''
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <rect width="${W}" height="${H}" fill="#faf6ee"/>
-  <rect x="0" y="0" width="${W}" height="10" fill="#b3261e"/>
-  <rect x="0" y="${H - 10}" width="${W}" height="10" fill="#b3261e"/>
+  <rect width="${W}" height="${H}" fill="#f7f5f2"/>
+  <rect x="0" y="0" width="${W}" height="10" fill="#ea6a1f"/>
+  <rect x="0" y="${H - 10}" width="${W}" height="10" fill="#ea6a1f"/>
 
-  <text x="600" y="96" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="22" letter-spacing="9" fill="#b3261e">AI TRADING PLATFORM REVIEWS &amp; VERDICTS</text>
+  <text x="600" y="96" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="22" letter-spacing="9" fill="#ea6a1f">AI TRADING PLATFORM REVIEWS &amp; VERDICTS</text>
 
   <text x="600" y="196" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#1a1712">AI Trading Platform</text>
-  <text x="600" y="238" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-style="italic" fill="#b3261e">Reviews &amp; Verdicts</text>
+  <text x="600" y="238" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-style="italic" fill="#ea6a1f">Reviews &amp; Verdicts</text>
 
   <rect x="360" y="276" width="480" height="3" fill="#d8d0bd"/>
   <rect x="360" y="282" width="480" height="1" fill="#d8d0bd"/>

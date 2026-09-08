@@ -4,7 +4,7 @@ export default {
   name: 'Rendaven',
   domain: 'rendaven.com',
   tagline: 'AI-Powered Crypto Trading Platform — Now in Australia',
-  headline: 'Is Rendaven Safe, Legit or a Scam? Our 2026 Review',
+  headline: 'Rendaven Review 2026: Can You Trust the 85% Accuracy Claim?',
   deck: 'Rendaven publishes more numbers than most — an 85% accuracy claim, a cold-storage figure and a public earnings calculator. We went through all of them.',
   date: 'Sep 8, 2026',
   readTime: '10 min read',

@@ -76,7 +76,9 @@ for (const r of REVIEWS) {
   await page.goto(`${BASE}/review/${r.slug}`, { waitUntil: 'networkidle' })
   await check(`review/${r.slug}: headline renders`, async () => {
     const h1 = await page.locator('.article-head__title').innerText()
-    if (!h1.includes('Safe, Legit or a Scam?')) throw new Error(`h1 was "${h1.slice(0, 60)}"`)
+    if (!h1.includes(r.name) || !h1.includes('2026')) {
+      throw new Error(`h1 was "${h1.slice(0, 60)}"`)
+    }
   })
   await check(`review/${r.slug}: visit link → ${r.visitUrl}`, async () => {
     const href = await page.locator('.aside-card a.btn--green').first().getAttribute('href')

@@ -4,7 +4,7 @@ export default {
   name: 'Gem Wealthholm',
   domain: 'gemwealth-holm.com',
   tagline: 'AI Market Insights & Smarter Investing',
-  headline: 'Is Gem Wealthholm Safe, Legit or a Scam? Our 2026 Review',
+  headline: 'Gem Wealthholm Review 2026: Does “See the Market with Clarity” Hold Up?',
   deck: 'Gem Wealthholm sells clarity rather than speed — an AI engine that scans 65+ markets and turns dense data into plain signals. We read every published page to see what sits behind the calm.',
   date: 'Sep 6, 2026',
   readTime: '9 min read',

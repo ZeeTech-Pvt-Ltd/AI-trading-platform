@@ -14,8 +14,8 @@ export default function LogoMark({ size = 40 }) {
     >
       <defs>
         <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#0d3a27" />
-          <stop offset="1" stopColor="#0e7a4f" />
+          <stop offset="0" stopColor="#b84c0f" />
+          <stop offset="1" stopColor="#ea6a1f" />
         </linearGradient>
       </defs>
       <rect width="48" height="48" rx="13" fill={`url(#${gradId})`} />
@@ -24,7 +24,7 @@ export default function LogoMark({ size = 40 }) {
         cy="24"
         r="12.5"
         fill="none"
-        stroke="#4ade80"
+        stroke="#ffd3ad"
         strokeWidth="3.2"
         strokeLinecap="round"
         strokeDasharray="67 79"

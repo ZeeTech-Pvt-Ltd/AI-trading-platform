@@ -4,7 +4,7 @@ export default {
   name: 'Zephgain',
   domain: 'zephgain-au.com',
   tagline: 'AI-Powered Automated Trading Platform in Australia',
-  headline: 'Is Zephgain Safe, Legit or a Scam? Our 2026 Review',
+  headline: 'Zephgain Review 2026: Honest About What It Isn’t — That’s Rare',
   deck: 'Zephgain says what most platforms won’t: it provides technology only, not personal financial advice, and it names its minimum deposit. The rest of the review, without the polish.',
   date: 'Sep 3, 2026',
   readTime: '9 min read',

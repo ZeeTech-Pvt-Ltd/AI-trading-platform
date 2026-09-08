@@ -5,20 +5,20 @@
    ============================================================ */
 
 :root {
-  --bg: #f4f6f8;
+  --bg: #f7f5f2;
   --surface: #ffffff;
-  --surface-2: #f7f9fb;
+  --surface-2: #faf9f7;
   --ink: #0d1520;
   --ink-soft: #33414f;
   --muted: #66727f;
   --line: #e3e8ee;
   --line-dark: #c9d2dc;
-  --green: #0e7a4f;
-  --green-deep: #0a5f3d;
-  --green-soft: #e6f4ec;
-  --amber: #b45309;
-  --amber-deep: #92400e;
-  --amber-soft: #fdf2e0;
+  --primary: #ea6a1f;
+  --primary-deep: #b84c0f;
+  --primary-soft: #fdeee2;
+  --amber: #c98a00;
+  --amber-deep: #8a6200;
+  --amber-soft: #fdf6e0;
   --red: #d14334;
   --red-soft: #fdece9;
   --heading: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -61,12 +61,12 @@ svg {
 }
 
 a {
-  color: var(--green);
+  color: var(--primary);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--green-deep);
+  color: var(--primary-deep);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -111,12 +111,12 @@ button {
 }
 
 ::selection {
-  background: var(--green);
+  background: var(--primary);
   color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--green);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
@@ -128,8 +128,8 @@ button {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--green-deep);
-  background: var(--green-soft);
+  color: var(--primary-deep);
+  background: var(--primary-soft);
   border-radius: 999px;
   padding: 5px 13px;
 }
@@ -153,7 +153,7 @@ button {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--primary);
   flex-shrink: 0;
 }
 
@@ -191,7 +191,7 @@ button {
 .logo-mark {
   flex-shrink: 0;
   border-radius: var(--radius-sm);
-  box-shadow: 0 2px 6px -2px rgba(13, 42, 33, 0.45);
+  box-shadow: 0 2px 6px -2px rgba(110, 55, 12, 0.45);
 }
 
 .header__name {
@@ -233,7 +233,7 @@ button {
 }
 
 .header__links a.active {
-  color: var(--green);
+  color: var(--primary);
 }
 
 .header__cta {
@@ -266,12 +266,12 @@ button {
 }
 
 .btn--green {
-  background: var(--green);
+  background: var(--primary);
   color: #fff;
 }
 
 .btn--green:hover {
-  background: var(--green-deep);
+  background: var(--primary-deep);
   color: #fff;
 }
 
@@ -326,7 +326,7 @@ button {
   font-size: 14px;
   letter-spacing: 0.02em;
   flex-shrink: 0;
-  background: var(--accent, var(--green));
+  background: var(--accent, var(--primary));
 }
 
 .tile--lg {
@@ -354,7 +354,7 @@ button {
 }
 
 .score-ring__fill {
-  stroke: var(--green);
+  stroke: var(--primary);
   stroke-linecap: round;
 }
 
@@ -378,7 +378,7 @@ button {
 }
 
 .score-ring--light .score-ring__fill {
-  stroke: #4ade80;
+  stroke: #ffa05c;
 }
 
 .score-ring--light .score-ring__num {
@@ -413,8 +413,8 @@ button {
 }
 
 .chip--safe {
-  color: var(--green-deep);
-  background: var(--green-soft);
+  color: var(--primary-deep);
+  background: var(--primary-soft);
 }
 
 .chip--caution {
@@ -423,8 +423,8 @@ button {
 }
 
 .chip--dark {
-  color: #d7f5e5;
-  background: rgba(34, 197, 94, 0.14);
+  color: #ffe2cc;
+  background: rgba(234, 106, 31, 0.2);
 }
 
 .chip--dark-caution {
@@ -492,7 +492,7 @@ button {
 
 .hero {
   background:
-    radial-gradient(1100px 500px at 85% -10%, rgba(14, 122, 79, 0.07), transparent 60%),
+    radial-gradient(1100px 500px at 85% -10%, rgba(234, 106, 31, 0.08), transparent 60%),
     var(--surface);
   border-bottom: 1px solid var(--line);
   padding: 96px 0 88px;
@@ -513,7 +513,7 @@ button {
 
 .hero__title em {
   font-style: normal;
-  color: var(--green);
+  color: var(--primary);
 }
 
 .hero__deck {
@@ -591,7 +591,7 @@ button {
 }
 
 .hero__side-row a:hover {
-  color: var(--green);
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -608,7 +608,7 @@ button {
   font-family: var(--heading);
   font-weight: 800;
   font-size: 15px;
-  color: var(--green);
+  color: var(--primary);
   flex-shrink: 0;
 }
 
@@ -619,7 +619,7 @@ button {
 /* ---------- featured banner ---------- */
 
 .featured {
-  background: linear-gradient(140deg, #0b2117 0%, #0e2e1f 55%, #0d3a27 100%);
+  background: linear-gradient(140deg, #2b1709 0%, #3d200c 55%, #52290c 100%);
   color: #e8f3ec;
 }
 
@@ -645,9 +645,9 @@ button {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #9fe8c3;
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #ffd3ad;
+  background: rgba(234, 106, 31, 0.16);
+  border: 1px solid rgba(234, 106, 31, 0.35);
   border-radius: 999px;
   padding: 5px 13px;
 }
@@ -661,7 +661,7 @@ button {
 .featured__deck {
   font-size: 16px;
   line-height: 1.7;
-  color: #b6c9bd;
+  color: #d9c3ab;
   max-width: 60ch;
   margin: 0 0 24px;
 }
@@ -669,7 +669,7 @@ button {
 .featured__meta {
   font-size: 13.5px;
   font-weight: 500;
-  color: #8fb3a0;
+  color: #c9a087;
   margin: 0 0 30px;
 }
 
@@ -692,7 +692,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #8fb3a0;
+  color: #c9a087;
 }
 
 /* ---------- review cards ---------- */
@@ -779,7 +779,7 @@ button {
 }
 
 .review-card__title a:hover {
-  color: var(--green);
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -835,8 +835,8 @@ button {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-sm);
-  background: var(--green-soft);
-  color: var(--green-deep);
+  background: var(--primary-soft);
+  color: var(--primary-deep);
   display: grid;
   place-items: center;
   font-family: var(--heading);
@@ -862,8 +862,8 @@ button {
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  background: var(--green-soft);
-  border: 1px solid #cfe8da;
+  background: var(--primary-soft);
+  border: 1px solid #f6dcc2;
   border-radius: var(--radius);
   padding: 20px 24px;
   margin-top: 36px;
@@ -874,7 +874,7 @@ button {
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--green-deep);
+  color: var(--primary-deep);
   white-space: nowrap;
   flex-shrink: 0;
   padding-top: 2px;
@@ -911,7 +911,7 @@ button {
 }
 
 .article-head__crumb a {
-  color: var(--green);
+  color: var(--primary);
 }
 
 .article-head__platform {
@@ -1035,7 +1035,7 @@ button {
   width: 44px;
   height: 4px;
   border-radius: 2px;
-  background: var(--green);
+  background: var(--primary);
   margin-top: 10px;
 }
 
@@ -1063,9 +1063,9 @@ button {
   gap: 10px;
   font-size: 13.5px;
   font-weight: 800;
-  color: var(--green-deep);
-  background: var(--green-soft);
-  border-bottom: 1px solid #cfe8da;
+  color: var(--primary-deep);
+  background: var(--primary-soft);
+  border-bottom: 1px solid #f6dcc2;
   padding: 13px 22px;
 }
 
@@ -1074,7 +1074,7 @@ button {
   width: 8px;
   height: 8px;
   border-radius: 2px;
-  background: var(--green);
+  background: var(--primary);
 }
 
 .facts__grid {
@@ -1156,7 +1156,7 @@ button {
   width: 8px;
   height: 8px;
   border-radius: 2px;
-  background: var(--green);
+  background: var(--primary);
 }
 
 /* scorecard bars */
@@ -1199,7 +1199,7 @@ button {
 .scorecard__bar-fill {
   height: 100%;
   border-radius: 999px;
-  background: var(--green);
+  background: var(--primary);
   transition: width 0.7s ease;
 }
 
@@ -1227,7 +1227,7 @@ button {
 .proscons__col {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-top: 3px solid var(--green);
+  border-top: 3px solid var(--primary);
   border-radius: var(--radius);
   padding: 26px;
 }
@@ -1242,7 +1242,7 @@ button {
   gap: 10px;
   font-size: 15px;
   font-weight: 800;
-  color: var(--green-deep);
+  color: var(--primary-deep);
   margin: 0 0 14px;
 }
 
@@ -1256,8 +1256,8 @@ button {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--green-soft);
-  color: var(--green-deep);
+  background: var(--primary-soft);
+  color: var(--primary-deep);
   font-size: 13px;
   flex-shrink: 0;
 }
@@ -1296,7 +1296,7 @@ button {
 
 .proscons__col:not(.proscons__col--cons) .proscons__list li::before {
   content: '✓';
-  color: var(--green);
+  color: var(--primary);
 }
 
 .proscons__col--cons .proscons__list li::before {
@@ -1308,7 +1308,7 @@ button {
 
 .redflags {
   background: var(--amber-soft);
-  border: 1px solid #f3dcb8;
+  border: 1px solid #f2e4bd;
   border-left: 4px solid var(--amber);
   border-radius: var(--radius);
   padding: 26px 30px;
@@ -1346,7 +1346,7 @@ button {
 .bottomline {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-left: 4px solid var(--green);
+  border-left: 4px solid var(--primary);
   border-radius: var(--radius);
   padding: 30px 32px;
   margin: 40px 0;
@@ -1400,7 +1400,7 @@ button {
 }
 
 .faq__q:hover {
-  color: var(--green);
+  color: var(--primary);
 }
 
 .faq__icon {
@@ -1410,8 +1410,8 @@ button {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--green-soft);
-  color: var(--green-deep);
+  background: var(--primary-soft);
+  color: var(--primary-deep);
   font-size: 16px;
   font-weight: 700;
   transition: transform 0.2s;
@@ -1585,7 +1585,7 @@ button {
   width: 40px;
   height: 4px;
   border-radius: 2px;
-  background: var(--green);
+  background: var(--primary);
   margin-top: 8px;
 }
 
@@ -1647,8 +1647,8 @@ button {
   display: grid;
   place-items: center;
   border-radius: var(--radius-sm);
-  background: var(--green-soft);
-  color: var(--green-deep);
+  background: var(--primary-soft);
+  color: var(--primary-deep);
   font-size: 16px;
   font-weight: 700;
 }
@@ -1673,7 +1673,7 @@ button {
 }
 
 .contact-info__value a:hover {
-  color: var(--green);
+  color: var(--primary);
 }
 
 /* ---------- forms ---------- */
@@ -1729,9 +1729,9 @@ button {
 
 .form-field input:focus,
 .form-field textarea:focus {
-  outline: 2px solid var(--green);
+  outline: 2px solid var(--primary);
   outline-offset: -1px;
-  border-color: var(--green);
+  border-color: var(--primary);
 }
 
 .form-field textarea {
@@ -1765,7 +1765,7 @@ button {
   width: 16px;
   height: 16px;
   margin-top: 3px;
-  accent-color: var(--green);
+  accent-color: var(--primary);
   flex-shrink: 0;
 }
 
@@ -1791,9 +1791,9 @@ button {
 }
 
 .form-status--ok {
-  color: var(--green-deep);
-  border-color: #cfe8da;
-  background: var(--green-soft);
+  color: var(--primary-deep);
+  border-color: #f6dcc2;
+  background: var(--primary-soft);
 }
 
 .form-status--err {
@@ -1922,7 +1922,7 @@ button {
   font-size: 110px;
   font-weight: 800;
   line-height: 1;
-  color: var(--green);
+  color: var(--primary);
   opacity: 0.25;
 }
 

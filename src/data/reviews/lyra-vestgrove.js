@@ -4,7 +4,7 @@ export default {
   name: 'Lyra Vestgrove',
   domain: 'lyravestgrove-au.com',
   tagline: 'AI-Powered Trading Platform',
-  headline: 'Is Lyra Vestgrove Safe, Legit or a Scam? Our 2026 Review',
+  headline: 'Lyra Vestgrove Review 2026: Why We Flagged It as Caution',
   deck: '“Trading, on autopilot” is the pitch, but signup runs through a “our team will be in touch” step and the minimum deposit is never published. The caution points, examined.',
   date: 'Sep 1, 2026',
   readTime: '9 min read',

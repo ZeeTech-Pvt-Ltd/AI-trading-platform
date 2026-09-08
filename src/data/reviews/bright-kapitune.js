@@ -4,7 +4,7 @@ export default {
   name: 'Bright Kapitune',
   domain: 'bright-kapitune-au.com',
   tagline: 'Official Crypto Trading Platform Australia',
-  headline: 'Is Bright Kapitune Safe, Legit or a Scam? Our 2026 Review',
+  headline: 'Bright Kapitune Review 2026: Is “Australia’s Home for Crypto” Legit?',
   deck: '“Australia’s home for crypto trading” publishes a minimum deposit of A$347, a 4.7/5 community rating and a compliance promise. Here is what we found behind each one.',
   date: 'Sep 7, 2026',
   readTime: '10 min read',
