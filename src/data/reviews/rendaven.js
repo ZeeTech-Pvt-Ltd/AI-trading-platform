@@ -11,7 +11,7 @@ export default {
   deck: 'Rendaven publishes more numbers than most — an 85% accuracy claim, a cold-storage figure and a public earnings calculator. We went through all of them.',
   date: 'Sep 8, 2026',
   readTime: '10 min read',
-  byline: 'The Editorial Desk',
+  byline: 'George Soros',
   accent: '#0150cf',
   verdict: 'SAFE — WITH CONDITIONS',
   targetMarket: 'Australia',

@@ -33,7 +33,7 @@ function ArticleJsonLd({ review }) {
         bestRating: 5,
         worstRating: 1,
       },
-      author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+      author: { '@type': 'Person', name: review.byline },
       publisher: { '@type': 'Organization', name: SITE.name },
       datePublished: review.isoDate,
     })

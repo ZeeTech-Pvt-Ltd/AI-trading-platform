@@ -8,7 +8,7 @@ export default {
   deck: 'Zephgain says what most platforms won’t: it provides technology only, not personal financial advice, and it names its minimum deposit. The rest of the review, without the polish.',
   date: 'Sep 3, 2026',
   readTime: '9 min read',
-  byline: 'The Editorial Desk',
+  byline: 'Chris Coverdale',
   accent: '#d97706',
   verdict: 'SAFE — WITH CONDITIONS',
   targetMarket: 'Australia (verified residents)',

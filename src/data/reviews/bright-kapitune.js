@@ -8,7 +8,7 @@ export default {
   deck: '“Australia’s home for crypto trading” publishes a minimum deposit of A$347, a 4.7/5 community rating and a compliance promise. Here is what we found behind each one.',
   date: 'Sep 7, 2026',
   readTime: '10 min read',
-  byline: 'The Editorial Desk',
+  byline: 'Jesse Livermore',
   accent: '#155dfc',
   verdict: 'SAFE — WITH CONDITIONS',
   targetMarket: 'Australia',

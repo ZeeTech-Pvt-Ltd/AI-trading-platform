@@ -8,7 +8,7 @@ export default {
   deck: 'Austerio Smart Up promises a three-click path to automated trading for Australians, with 4M+ users, a 4.8 community score and AU$250 to start. We checked each claim against what the site actually publishes.',
   date: 'Sep 4, 2026',
   readTime: '10 min read',
-  byline: 'The Editorial Desk',
+  byline: 'Stanley Druckenmiller',
   accent: '#7c3aed',
   verdict: 'SAFE — WITH CONDITIONS',
   targetMarket: 'Australia',

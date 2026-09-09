@@ -64,9 +64,9 @@ export default function About() {
           <h2>The desk</h2>
           <p>
             AI Trading Platform Reviews is written by a small editorial desk based in Sydney,
-            Australia. Reviews are published under the desk byline — one standard, one
-            methodology, no bylined opinion columns. Corrections are always welcome and
-            usually fixed within two business days.
+            Australia, supported by a rotating team of reviewers. Each review carries its
+            author&rsquo;s byline — one standard, one methodology, whoever signs it.
+            Corrections are always welcome and usually fixed within two business days.
           </p>
         </div>
 

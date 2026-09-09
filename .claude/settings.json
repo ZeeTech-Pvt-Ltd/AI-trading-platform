@@ -24,6 +24,9 @@
       "Bash(curl -sI -m 20 https://ai-trading-platform.com/)",
       "Bash(curl -sI -m 20 http://ai-trading-platform.com/)",
       "Bash(npx --no-install vercel --version)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\samee\\.claude\\projects\\c--Users-samee\\memory"
     ]
   }
 }

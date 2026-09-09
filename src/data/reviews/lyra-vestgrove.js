@@ -8,7 +8,7 @@ export default {
   deck: '“Trading, on autopilot” is the pitch, but signup runs through a “our team will be in touch” step and the minimum deposit is never published. The caution points, examined.',
   date: 'Sep 1, 2026',
   readTime: '9 min read',
-  byline: 'The Editorial Desk',
+  byline: 'Shay Huang',
   accent: '#be123c',
   verdict: 'CAUTION — LIMITED DISCLOSURE',
   targetMarket: 'Australia (verified residents only)',

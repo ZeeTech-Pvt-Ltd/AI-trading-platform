@@ -8,7 +8,7 @@ export default {
   deck: 'Polar Zinsmere sells goal-based automated portfolios rather than raw trading speed — and it publishes the strongest risk language we have seen in this segment. The review, in full.',
   date: 'Sep 5, 2026',
   readTime: '10 min read',
-  byline: 'The Editorial Desk',
+  byline: 'Jim Simons',
   accent: '#0e7490',
   verdict: 'SAFE — WITH CONDITIONS',
   targetMarket: 'Australia (plus NZ, UK, US, SG and others)',

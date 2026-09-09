@@ -8,7 +8,7 @@ export default {
   deck: 'Gem Wealthholm sells clarity rather than speed — an AI engine that scans 65+ markets and turns dense data into plain signals. We read every published page to see what sits behind the calm.',
   date: 'Sep 6, 2026',
   readTime: '9 min read',
-  byline: 'The Editorial Desk',
+  byline: 'Paul Tudor Jones',
   accent: '#a3b80c',
   verdict: 'SAFE — WITH CONDITIONS',
   targetMarket: 'International, incl. Australia',

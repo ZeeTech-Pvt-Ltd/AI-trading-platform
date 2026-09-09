@@ -8,7 +8,7 @@ export default {
   deck: 'Dorivo is not a trading platform in the usual sense — it is a market-intelligence toolkit that plugs into your existing broker. That changes the questions we asked, and the answers matter.',
   date: 'Sep 2, 2026',
   readTime: '9 min read',
-  byline: 'The Editorial Desk',
+  byline: 'Takashi Kotegawa',
   accent: '#334155',
   verdict: 'SAFE — WITH CONDITIONS',
   targetMarket: 'International (traders, analysts, teams)',
