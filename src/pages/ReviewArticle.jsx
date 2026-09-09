@@ -64,6 +64,7 @@ export default function ReviewArticle() {
     title: review ? review.seoTitle || review.headline : 'Review not found',
     description: review ? review.seoDescription || review.deck : null,
     path: review ? review.path : null,
+    appendSite: false,
   })
 
   if (!review) return <NotFound />

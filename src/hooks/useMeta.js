@@ -13,9 +13,15 @@ function upsertMeta(attr, key, content) {
 }
 
 // Per-route SEO: title, description, canonical, Open Graph and Twitter tags.
-export default function useMeta({ title, description, path }) {
+// appendSite=false skips the "| AI Trading Platform Reviews" suffix (used on
+// review pages, where the platform name already carries the keyword).
+export default function useMeta({ title, description, path, appendSite = true }) {
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} - ${SITE.tagline}`
+    const fullTitle = title
+      ? appendSite
+        ? `${title} | ${SITE.name}`
+        : title
+      : `${SITE.name} - ${SITE.tagline}`
     document.title = fullTitle
 
     const desc = description || SITE.description
