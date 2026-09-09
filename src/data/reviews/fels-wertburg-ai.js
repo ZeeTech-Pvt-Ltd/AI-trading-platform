@@ -1,0 +1,86 @@
+// Fels Wertburg AI review - copy written from fels-wertburgai.com's published material (scraped 2026-09-09).
+export default {
+  slug: 'fels-wertburg-ai',
+  name: 'Fels Wertburg AI',
+  domain: 'fels-wertburgai.com',
+  tagline: 'AI Crypto Research Assistant for Australia',
+  headline: 'Fels Wertburg AI Review 2026: The Platform That Admits It Is Not a Platform',
+  deck: 'Fels Wertburg AI says out loud what most trading sites bury: it is not a brokerage, it holds no AFSL, and it gives no financial advice. For a research tool, that honesty is the product.',
+  date: 'Sep 9, 2026',
+  readTime: '9 min read',
+  byline: 'Takashi Kotegawa',
+  accent: '#059669',
+  verdict: 'SAFE - WITH CONDITIONS',
+  targetMarket: 'Australia',
+  minimumDeposit: 'None - research tool; no deposits taken',
+  depositMethods: 'Not applicable - not a brokerage',
+  support: 'support@fels-wertburgai.com; Mon-Fri, 9am-5pm AEST',
+  scorecard: { easeOfUse: 4.5, features: 4.1, transparency: 4.6, security: 4.2, support: 4.2 },
+  intro: [
+    'Fels Wertburg AI is the outlier in our review table, and it says so itself. It is not a trading platform. Its own FAQ describes it as "a research and education tool - not a brokerage, trading platform, wallet or investment service," and the site goes further: it openly states it does not hold an Australian financial services licence and provides general information only.',
+    'What it offers instead is a research workspace for Australian crypto watchers: AI-assisted market scanning, live prices for 60+ cryptocurrencies, watchlists, charting and a learning hub - with signup limited to a name, email and phone number. No passwords, no card details, no deposits, ever.',
+    'We reviewed every public page on fels-wertburgai.com. This review scores a different product than the rest of the table - and the honesty it is built on sets a standard the trading platforms above could copy.',
+  ],
+  whatItClaims: [
+    'AI-assisted market scanning, clear data, charts and educational resources for researching Bitcoin, Ethereum and 60+ other cryptocurrencies.',
+    'Free registration in under two minutes with basic contact details only - no passwords or card details at signup.',
+    'A research console: watchlists, market overviews, performance views, trend summaries and charting.',
+    'Based in Sydney, NSW, Australia, with support at support@fels-wertburgai.com, Mon-Fri 9am-5pm AEST.',
+    'Explicitly not a brokerage: no AFSL held, no financial advice given, no deposits taken.',
+    'All dashboard figures and quotes on the site are labelled illustrative - "not real data or advice."',
+  ],
+  whatWeChecked: [
+    'The positioning: the "not a brokerage" statement is published in the FAQ in plain terms, including the admission that no Australian financial services licence is held.',
+    'The Sydney claim: the site publishes a Sydney, NSW address and AEST support hours - rare, specific operational detail for this market.',
+    'The support email: support@fels-wertburgai.com is published in the FAQ and the contact section.',
+    'The illustrative labels: dashboard mock-ups, market figures and even the example quotes carry "illustrative example - not a real customer" markers - a labelling habit most trading platforms refuse to adopt.',
+    'The signup form: it asks only for name, email and phone - but the phone field defaults to a Pakistan dial code on an Australia-targeted site.',
+    'The one tension: the homepage hero says "Make More Informed Market Decisions" and the ticker shows figures, but the FAQ is clear that nothing on the platform is advice.',
+  ],
+  pros: [
+    'The most honest positioning in our table: openly not a brokerage, no AFSL claimed, no advice given.',
+    'Publishes a Sydney address and AEST support hours - operational transparency the trading platforms lack.',
+    'Free signup with no passwords or card details - there is nothing to lose in trying it.',
+    'Every figure and quote on the site is labelled illustrative, including "not a real customer."',
+    'A published support email and a sensible scope: research tools, watchlists and education.',
+  ],
+  cons: [
+    'It is not a trading platform - anyone expecting execution or accounts will be disappointed.',
+    'The AI-assisted scanning has no published methodology for how the analysis is generated.',
+    'The phone field defaults to a Pakistan dial code on an Australia-targeted site.',
+    'The "120+ assets scanned" and "60+ markets" figures are illustrative, so the real coverage is unclear.',
+    'No AFSL means the usual Australian investor protections do not apply - the site says this itself.',
+  ],
+  redFlags: [
+    'Almost none - and that is notable. The one flag is scope: a site that admits it holds no licence is fine for research, but readers must not mistake it for a regulated trading venue.',
+    'The AI scanning claims have no published methodology.',
+    'The signup form defaults to a non-Australian phone code, which sits oddly against the Sydney claim.',
+  ],
+  faqs: [
+    {
+      q: 'Is Fels Wertburg AI safe, legit or a scam?',
+      a: 'The question barely applies - it takes no deposits and asks for no card details. The site publishes a Sydney address, a support email and an explicit "we hold no AFSL" statement. We rate it safe to use for research, with the conditions in this review.',
+    },
+    {
+      q: 'Is Fels Wertburg AI a trading platform?',
+      a: 'No. Its own FAQ says it is a research and education tool - not a brokerage, trading platform, wallet or investment service. You cannot deposit, trade or withdraw anything there.',
+    },
+    {
+      q: 'Does Fels Wertburg AI hold an Australian financial services licence?',
+      a: 'No - and the site says so openly. That is the correct disclosure for a research tool, and it means the standard AFSL protections do not apply. It also means nothing on the platform is personal financial advice.',
+    },
+    {
+      q: 'What can I actually do on the platform?',
+      a: 'Research crypto markets: live prices, AI-assisted scanning, watchlists, charting and educational guides across 60+ assets. It is a workspace for understanding markets, not for trading them.',
+    },
+    {
+      q: 'How do I contact Fels Wertburg AI?',
+      a: 'The site publishes support@fels-wertburgai.com with support hours of Mon-Fri, 9am-5pm AEST, and states it is based in Sydney, NSW. That is more contact detail than most platforms in this table provide.',
+    },
+  ],
+  bottomLine: [
+    'Fels Wertburg AI is the control group our review table needed: a platform that discloses what it is not, publishes where it operates and labels its own numbers. Its honesty habit - "not a brokerage," "no AFSL," "not a real customer" - is the standard every trading platform in this segment should be measured against.',
+    'The conditions are mostly about expectations. It is a research tool, not a venue; its AI scanning has no published methodology; and the Pakistan-defaulting phone field is a small blemish on an otherwise careful site. If you want market context without custody risk, this is the safest entry in our table - because it never touches your money.',
+  ],
+  visitUrl: 'https://fels-wertburgai.com',
+}

@@ -8,6 +8,9 @@ import dorivo from './dorivo.js'
 import lyraVestgrove from './lyra-vestgrove.js'
 import gewinodeRaven from './gewinode-raven.js'
 import nexoraAiPlatform from './nexora-ai-platform.js'
+import keenAccruvance from './keen-accruvance.js'
+import cevsterflaxAi from './cevsterflax-ai.js'
+import felsWertburgAi from './fels-wertburg-ai.js'
 
 // Insertion order doubles as the listing order: new reviews are appended at the
 // end, so they land on the next pagination page automatically.
@@ -22,6 +25,9 @@ const RAW = [
   lyraVestgrove,
   gewinodeRaven,
   nexoraAiPlatform,
+  keenAccruvance,
+  cevsterflaxAi,
+  felsWertburgAi,
 ]
 
 // Overall rating = mean of the five scorecard dimensions, rounded to 1 dp.

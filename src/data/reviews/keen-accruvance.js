@@ -1,0 +1,87 @@
+// Keen Accruvance review - copy written from keen-accruvance.com's published material (scraped 2026-09-09).
+export default {
+  slug: 'keen-accruvance',
+  name: 'Keen Accruvance',
+  domain: 'keen-accruvance.com',
+  tagline: 'AI-Powered Crypto Trading Platform & Signals',
+  headline: 'Keen Accruvance Review 2026: The Platform That Labels Its Own Numbers',
+  deck: 'Keen Accruvance leads with a free demo account and AI signals with confidence scores - and it marks its own performance figures as illustrative. That honesty habit runs through the whole site, and we checked it.',
+  date: 'Sep 9, 2026',
+  readTime: '10 min read',
+  byline: 'Paul Tudor Jones',
+  accent: '#10b981',
+  verdict: 'SAFE - WITH CONDITIONS',
+  targetMarket: 'Global (98+ countries claimed)',
+  minimumDeposit: 'None to start - free demo first; funding minimum not published',
+  depositMethods: 'Not published',
+  support: 'Contact page only',
+  scorecard: { easeOfUse: 4.6, features: 4.5, transparency: 4.3, security: 4.4, support: 4.2 },
+  intro: [
+    'Keen Accruvance is an AI-powered crypto trading platform with a rare opening move: it lets you sign up for a free demo account - "no card, no funding required to explore" - before you ever deposit a dollar. The demo dashboard shows live prices, AI signals with confidence scores, and an auto-trader running a momentum strategy on sample balances.',
+    'What separates it from the pack is the labelling. The live-ticker demo figures, the +8.4% 30-day performance, the $24,380 sample portfolio and the +14.6% trailing twelve-month profit all carry "illustrative" or "demo data" markers. The testimonial section goes further, stating plainly that the reviews are provided for illustration only and are not a guarantee of any future outcome.',
+    'We reviewed every public page on keen-accruvance.com - the capabilities, the security section, the platform tour and the FAQ - and the verdict below asks whether the honesty habit extends to the things the site does not publish.',
+  ],
+  whatItClaims: [
+    'AI-driven automation, real-time market intelligence and security-first infrastructure in one platform.',
+    'AI signals with readable reasoning and confidence scores (e.g. "BTC - confidence 92%"), pattern and momentum detection across major assets.',
+    'A strategy builder with defined risk parameters, running automated execution 24/7 with full pause/stop control.',
+    'A free demo account with no deposit needed - two-factor authentication switched on from day one.',
+    'Encryption in transit and at rest (AES-256), two-factor authentication, device controls and round-the-clock anomaly monitoring.',
+    'A calm single dashboard: portfolio, live prices, charts and AI signals in one view, with multi-device sync.',
+  ],
+  whatWeChecked: [
+    'The demo-first approach: the signup flow really is demo-first - the page says no card and no funding is required to explore, which is the strongest trial posture in our table.',
+    'The labelling habit: portfolio values, performance percentages and even the testimonials carry "illustrative" disclaimers. That is more honest than most competitors.',
+    'The confidence scores: signals show percentages (92, 76, 68), but no methodology explains how confidence is computed or how past scores performed.',
+    'The headline counters: "0M+ registered users" and "$0M+ customer deposits" animate on the page and are explicitly labelled illustrative platform figures - a platform that admits its own stats are placeholders.',
+    'Licensing and funding: no licence, regulator or company registration is published, and the minimum deposit for a live account is not stated anywhere we read.',
+    'Support: no email address or phone number appears on the public pages - a contact page only.',
+  ],
+  pros: [
+    'Free demo account with no card and no funding - the best trial posture in our review table.',
+    'Labels its own numbers: performance figures, balances and testimonials are all marked illustrative.',
+    'AI signals carry confidence scores and plain-language reasoning rather than black-box claims.',
+    'Concrete security detail: AES-256 at rest, 2FA from day one, device controls, anomaly monitoring.',
+    'The strategy-builder framing - your rules, your risk limits - keeps control with the user.',
+  ],
+  cons: [
+    'No live-account minimum deposit or funding methods are published.',
+    'The confidence scores have no methodology behind them.',
+    'No licence, regulator or company registration is named.',
+    'No direct support channel is published.',
+    'The animated platform counters are placeholders by the site’s own admission.',
+  ],
+  redFlags: [
+    'A platform whose headline stats are labelled illustrative is honest - but it also means there is no verifiable track record at all.',
+    'The confidence scores (92%, 76%) are presented as precision without any published measurement.',
+    'No regulatory status or company registration appears anywhere on the site.',
+    'The demo-to-live transition is not documented: minimum deposit and funding rails only appear after signup, we assume.',
+  ],
+  faqs: [
+    {
+      q: 'Is Keen Accruvance safe, legit or a scam?',
+      a: 'We found no scam indicators, and several signs of a careful operator: a genuinely free demo, labelled illustrative figures and concrete security details. The gaps are commercial - no licence, no published funding minimum and no methodology for its confidence scores. We rate it safe to explore, with the conditions in this review.',
+    },
+    {
+      q: 'Do I need to deposit money to try Keen Accruvance?',
+      a: 'No. The site says signup gives you a demo dashboard with AI signals and automated strategies included, and no card or funding is required to explore. That is exactly the right way to evaluate a platform - and the demo-first posture is why this review scores it well.',
+    },
+    {
+      q: 'What is the minimum deposit for a live account?',
+      a: 'It is not published on the public pages. The demo experience is free, but the live-account minimum, funding methods and fees appear only after you sign up. Ask for those numbers before you fund anything.',
+    },
+    {
+      q: 'Are the AI confidence scores meaningful?',
+      a: 'The site publishes signal confidence (e.g. 92% on BTC) without explaining how confidence is calculated or how historical scores performed. Read them as the platform’s internal rating, not a measurable probability.',
+    },
+    {
+      q: 'Are the portfolio and profit figures real?',
+      a: 'No - and to its credit, the site says so. The portfolio balances, +8.4% 30-day figure and +14.6% twelve-month figure are labelled demo/illustrative. Anyone presenting those numbers as results would be misreading the page.',
+    },
+  ],
+  bottomLine: [
+    'Keen Accruvance earns its place near the top of our table on candour. A free demo with no card, disclaimers on its own performance figures, confidence-labelled signals and a strategy builder that keeps risk control with the user - that is the shape of a platform that wants to be evaluated rather than believed.',
+    'The conditions are the missing pieces around the edges: no licence, no published funding minimum, no support address and no methodology for the confidence scores. Use the demo exactly as offered, ask for the live-account terms in writing, and treat the illustrative labels as the platform’s best feature - not a bug.',
+  ],
+  visitUrl: 'https://keen-accruvance.com',
+}

@@ -1,0 +1,87 @@
+// Cevsterflax review - copy written from cevsterflax-ai.com's published material (scraped 2026-09-09).
+export default {
+  slug: 'cevsterflax-ai',
+  name: 'Cevsterflax',
+  domain: 'cevsterflax-ai.com',
+  tagline: 'AI Trading Platform - Crypto, Forex & Stocks',
+  headline: 'Cevsterflax Review 2026: An Exchange-Style Platform with a CAD Minimum',
+  deck: 'Cevsterflax publishes a 350 CAD minimum deposit, 1-3 business-day withdrawals and a real order-book interface - unusual specifics in this segment. We checked what sits behind them.',
+  date: 'Sep 9, 2026',
+  readTime: '9 min read',
+  byline: 'Jim Simons',
+  accent: '#0891b2',
+  verdict: 'SAFE - WITH CONDITIONS',
+  targetMarket: 'International (40+ country codes offered)',
+  minimumDeposit: '350 CAD',
+  depositMethods: 'Bank transfer, card, e-wallet, PayPal',
+  support: '24/7 professional assistance claim; contact page only',
+  scorecard: { easeOfUse: 4.4, features: 4.3, transparency: 4.1, security: 4.3, support: 4.0 },
+  intro: [
+    'Cevsterflax is an AI trading platform that covers crypto, forex, stocks and commodities from a single account, and its homepage does something almost no competitor does: it names a minimum deposit - 350 CAD - right in the hero, next to the signup form.',
+    'The platform positions itself as an exchange built for clarity: a live BTC/USDT order book with spread and depth, candlestick charts, portfolio tracking and one-tap execution. A five-step onboarding path ends with funding via bank transfer, card, e-wallet or PayPal, and the FAQ publishes withdrawal timelines of 1-3 business days.',
+    'We reviewed every public page on cevsterflax-ai.com - the product tour, the markets page, the funding section, the FAQ and the legal footer - and the verdict below weighs the published specifics against the usual gaps.',
+  ],
+  whatItClaims: [
+    'AI-assisted signals, automated trading bots and multi-market access (crypto, forex, stocks, commodities) in one platform.',
+    'A minimum deposit of 350 CAD, funded by bank transfer, card, e-wallet or PayPal.',
+    'Withdrawals processed in 1-3 business days, with fees and timelines shown before you confirm.',
+    'Bank-grade security: SSL encryption, two-factor authentication and secure fund handling.',
+    'Low-latency execution on optimised infrastructure, with real-time candlestick charts and portfolio/P&L views.',
+    '24/7 professional support and guided onboarding for beginners.',
+  ],
+  whatWeChecked: [
+    'The minimum deposit: 350 CAD is stated repeatedly - a rare, specific number, though it means the platform prices itself in Canadian dollars rather than AUD.',
+    'The withdrawal claim: 1-3 business days is published in the FAQ, with the promise that fees and timelines are shown before confirmation.',
+    'The interface claims: the page shows an order book with live BTC/USDT data, spread and buy/sell rails - an exchange-style UI rather than a brochure.',
+    'The FAQ self-assessment: the site answers "Is Cevsterflax safe and legitimate?" itself, citing its own SSL/2FA/payment processing - standard self-published reassurance, not independent evidence.',
+    'Licensing: no licence, regulator or company registration is published anywhere on the pages we reviewed.',
+    'The country selector offers 40+ dial codes including Australia, but the form defaults to Argentina - the platform’s actual operating base is not stated.',
+  ],
+  pros: [
+    'Publishes its minimum deposit (350 CAD) in the hero - the clearest entry cost in our table.',
+    'Publishes withdrawal timelines (1-3 business days) and promises upfront fee display.',
+    'Exchange-style interface with real order-book data, spread and charting.',
+    'Four markets in one account: crypto, forex, stocks and commodities.',
+    'A proper legal footer with a risk disclaimer and loss warning.',
+  ],
+  cons: [
+    'The minimum is priced in Canadian dollars, with no AUD figure for its international audience.',
+    'No licence, regulator or company registration is published.',
+    'The 24/7 support claim is not backed by any published contact channel.',
+    'The safety FAQ answers its own question - it is reassurance, not evidence.',
+    'The signup form defaults to Argentina while marketing globally.',
+  ],
+  redFlags: [
+    'The "Is Cevsterflax safe and legitimate?" FAQ is answered by the platform itself - the least independent source possible.',
+    'No regulatory status or company registration appears anywhere on the site.',
+    'A CAD-denominated minimum with a global country list suggests an unclear operating base - worth asking where the operator is registered.',
+    'The 24/7 professional support claim has no published email, phone or chat endpoint on the pages we read.',
+  ],
+  faqs: [
+    {
+      q: 'Is Cevsterflax safe, legit or a scam?',
+      a: 'We found no scam indicators: the site publishes its minimum deposit, withdrawal timelines and a real risk footer, and shows an exchange-style interface rather than a brochure. The gaps are licensing and contact details. We rate it safe to research, with the conditions in this review.',
+    },
+    {
+      q: 'What is the minimum deposit at Cevsterflax?',
+      a: '350 CAD, stated on the homepage and in the onboarding steps, funded by bank transfer, card, e-wallet or PayPal. Note the currency - the site prices itself in Canadian dollars, so factor conversion into your decision.',
+    },
+    {
+      q: 'What markets can I trade?',
+      a: 'Crypto, forex, global stocks and commodities from a single account, with manual trading or AI-assisted bots. The site shows live BTC/USDT and BTC/USD order-book data as proof of concept.',
+    },
+    {
+      q: 'How fast are withdrawals?',
+      a: 'The site publishes 1-3 business days depending on payment method, with fees and timelines shown before you confirm. That is a published policy - test it early with a small withdrawal rather than taking it on faith.',
+    },
+    {
+      q: 'Is Cevsterflax licensed or regulated?',
+      a: 'No licence, regulator or company registration is published on the site. For a platform holding deposits and offering CFD-style products, this is the question to resolve with the operator in writing before you fund an account.',
+    },
+  ],
+  bottomLine: [
+    'Cevsterflax gets the transactional basics right: a named minimum, named funding rails, a published withdrawal window and an interface that looks like an exchange rather than a slideshow. For a platform in this segment, those are exactly the details that matter first.',
+    'The conditions are the standard ones with a currency twist. No licence is named, the support promise has no published channel, and a CAD minimum with an Argentina-defaulting form leaves the operating base unclear. Ask where the operator is registered, confirm the AUD equivalent in writing, and start at the minimum if you proceed.',
+  ],
+  visitUrl: 'https://cevsterflax-ai.com',
+}
