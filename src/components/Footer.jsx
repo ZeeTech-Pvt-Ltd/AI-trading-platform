@@ -57,10 +57,6 @@ export default function Footer() {
           </nav>
         </div>
 
-        <span className="footer__watermark" aria-hidden="true">
-          Reviews &amp; Verdicts
-        </span>
-
         <div className="footer__bottom">
           <span>© 2026 {SITE.name}. All rights reserved.</span>
           <span>Some outbound links are affiliate links. Nothing on this site is financial advice.</span>
