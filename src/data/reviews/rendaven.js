@@ -1,6 +1,9 @@
 // Rendaven review — copy written from rendaven.com's published material (scraped 2026-09-08).
 export default {
   slug: 'rendaven',
+  // Custom URL: /trading/rendaven (user-requested 2026-09-09). Other reviews
+  // default to /review/<slug>.
+  path: '/trading/rendaven',
   name: 'Rendaven',
   domain: 'rendaven.com',
   tagline: 'AI-Powered Crypto Trading Platform — Now in Australia',

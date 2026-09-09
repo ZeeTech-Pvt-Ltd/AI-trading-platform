@@ -24,7 +24,7 @@ export default function ReviewCard({ review }) {
       </div>
 
       <h3 className="review-card__title">
-        <Link to={`/review/${review.slug}`}>{review.headline}</Link>
+        <Link to={review.path}>{review.headline}</Link>
       </h3>
       <p className="review-card__deck">{review.deck}</p>
 

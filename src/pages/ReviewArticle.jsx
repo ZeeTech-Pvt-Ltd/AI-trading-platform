@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import useMeta from '../hooks/useMeta.js'
 import { REVIEWS, getReview } from '../data/reviews/index.js'
 import { SITE } from '../data/site.js'
@@ -57,15 +57,19 @@ function initials(name) {
 
 export default function ReviewArticle() {
   const { slug } = useParams()
+  const { pathname } = useLocation()
   const review = getReview(slug)
 
   useMeta({
     title: review ? review.headline : 'Review not found',
     description: review ? review.deck : null,
-    path: `review/${slug}`,
+    path: review ? review.path : null,
   })
 
   if (!review) return <NotFound />
+  // Canonical URL: reviews with a custom path (e.g. Rendaven at /trading/)
+  // redirect here if opened through the default /review/ route — and vice versa.
+  if (pathname !== review.path) return <Navigate to={review.path} replace />
 
   const facts = [
     ['Platform', review.name],

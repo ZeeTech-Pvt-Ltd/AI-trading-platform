@@ -31,6 +31,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/review/:slug" element={<ReviewArticle />} />
+          <Route path="/trading/:slug" element={<ReviewArticle />} />
           <Route path="/about" element={<About />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />

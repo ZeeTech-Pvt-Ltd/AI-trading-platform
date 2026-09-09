@@ -17,7 +17,7 @@ const url = (loc, lastmod, changefreq, priority) =>
 
 const entries = [
   ...STATIC.map((s) => url(s.loc, s.lastmod, s.changefreq, s.priority)),
-  ...REVIEWS.map((r) => url(`/review/${r.slug}`, r.isoDate, 'monthly', '0.9')),
+  ...REVIEWS.map((r) => url(r.path, r.isoDate, 'monthly', '0.9')),
 ]
 
 writeFileSync(

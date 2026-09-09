@@ -24,7 +24,8 @@ export const REVIEWS = RAW.map((review) => {
   const dims = Object.values(review.scorecard)
   const rating = Math.round((dims.reduce((sum, d) => sum + d, 0) / dims.length) * 10) / 10
   const isoDate = new Date(`${review.date} UTC`).toISOString().slice(0, 10)
-  return { ...review, rating, isoDate }
+  const path = review.path || `/review/${review.slug}`
+  return { ...review, rating, isoDate, path }
 }).sort((a, b) => b.rating - a.rating)
 
 export const getReview = (slug) => REVIEWS.find((r) => r.slug === slug)

@@ -73,7 +73,10 @@ await page.screenshot({ path: 'screenshots/home-desktop.png', fullPage: true })
 
 // ---- review pages ----
 for (const r of REVIEWS) {
-  await page.goto(`${BASE}/review/${r.slug}`, { waitUntil: 'networkidle' })
+  await page.goto(`${BASE}${r.path}`, { waitUntil: 'networkidle' })
+  await check(`review/${r.slug}: URL is ${r.path}`, async () => {
+    if (!page.url().endsWith(r.path)) throw new Error(`url is ${page.url()}`)
+  })
   await check(`review/${r.slug}: headline renders`, async () => {
     const h1 = await page.locator('.article-head__title').innerText()
     if (!h1.includes(r.name) || !h1.includes('2026')) {
@@ -109,8 +112,14 @@ for (const r of REVIEWS) {
   }
 }
 
-// ---- scorecard bars are filled proportionally ----
+// ---- non-canonical URLs redirect to the review's own path ----
 await page.goto(`${BASE}/review/${REVIEWS[0].slug}`, { waitUntil: 'networkidle' })
+await check(`legacy URL redirects to ${REVIEWS[0].path}`, async () => {
+  if (!page.url().endsWith(REVIEWS[0].path)) throw new Error(`url is ${page.url()}`)
+})
+
+// ---- scorecard bars are filled proportionally ----
+await page.goto(`${BASE}${REVIEWS[0].path}`, { waitUntil: 'networkidle' })
 await check('article: scorecard bars have proportional widths', async () => {
   const widths = await page.$$eval('.scorecard__bar-fill', (els) =>
     els.map((el) => parseFloat(el.style.width)),
@@ -125,7 +134,7 @@ await check(`article: ring shows ${REVIEWS[0].rating.toFixed(1)} for ${REVIEWS[0
 })
 await check('article: canonical set to review URL', async () => {
   const href = await page.$eval('link[rel="canonical"]', (el) => el.href)
-  if (!href.endsWith(`/review/${REVIEWS[0].slug}`)) throw new Error(`canonical ${href}`)
+  if (!href.endsWith(REVIEWS[0].path)) throw new Error(`canonical ${href}`)
 })
 
 // ---- other routes ----

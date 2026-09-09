@@ -32,7 +32,7 @@ export default function Footer() {
             <ul className="footer__list">
               {REVIEWS.map((r) => (
                 <li key={r.slug}>
-                  <Link to={`/review/${r.slug}`}>
+                  <Link to={r.path}>
                     {r.name} <span className="footer__score">— {r.rating.toFixed(1)}</span>
                   </Link>
                 </li>

@@ -49,7 +49,7 @@ export default function Home() {
             </div>
             {REVIEWS.slice(0, 5).map((r, i) => (
               <div className="hero__side-row" key={r.slug}>
-                <Link to={`/review/${r.slug}`}>
+                <Link to={r.path}>
                   <span className="hero__side-rank">{String(i + 1).padStart(2, '0')}</span>
                   {r.name}
                 </Link>
@@ -68,7 +68,7 @@ export default function Home() {
           <Reveal className="featured__body">
             <span className="featured__chip">★ Lead review</span>
             <h2 className="featured__title">
-              <Link to={`/review/${FEATURED.slug}`} style={{ color: '#fff' }}>
+              <Link to={FEATURED.path} style={{ color: '#fff' }}>
                 {FEATURED.headline}
               </Link>
             </h2>
@@ -77,7 +77,7 @@ export default function Home() {
               By {FEATURED.byline} &nbsp;·&nbsp; {FEATURED.date} &nbsp;·&nbsp; {FEATURED.readTime}
             </p>
             <div className="featured__actions">
-              <Link to={`/review/${FEATURED.slug}`} className="btn btn--white">
+              <Link to={FEATURED.path} className="btn btn--white">
                 Read the review
                 <Icon name="arrow-right" size={15} />
               </Link>
