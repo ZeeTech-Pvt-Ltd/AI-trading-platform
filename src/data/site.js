@@ -12,8 +12,9 @@ export const SITE = {
 }
 
 export const NAV_LINKS = [
-  { label: 'Reviews', to: '/#reviews' },
+  { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
+  { label: 'Reviews', to: '/#reviews' },
 ]
 
 // The five dimensions behind every scorecard.
