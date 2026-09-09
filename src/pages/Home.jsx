@@ -174,7 +174,7 @@ export default function Home() {
       <section className="section" id="reviews">
         <div className="container">
           <SectionHead
-            kicker={isFirstPage ? 'Latest reviews' : 'The archive'}
+            kicker={isFirstPage ? 'Latest reviews' : ''}
             title={isFirstPage ? 'Every platform we’ve reviewed' : 'More platform reviews'}
             aside={isFirstPage ? 'New reviews added regularly' : `Page ${page} of ${TOTAL_PAGES}`}
           />
