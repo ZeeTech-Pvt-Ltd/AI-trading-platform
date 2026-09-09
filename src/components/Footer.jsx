@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
-import { REVIEWS } from '../data/reviews/index.js'
 import { SITE } from '../data/site.js'
 import LogoMark from './LogoMark.jsx'
 
-const PUBLICATION_LINKS = [
+const SITE_LINKS = [
+  { label: 'All reviews', to: '/#reviews' },
+  { label: 'How we rate', to: '/#method' },
   { label: 'About the desk', to: '/about' },
+]
+
+const LEGAL_LINKS = [
   { label: 'Advertising disclosure', to: '/advertising-disclosure' },
   { label: 'Risk disclosure', to: '/risk-disclosure' },
   { label: 'Privacy policy', to: '/privacy-policy' },
@@ -17,33 +21,34 @@ export default function Footer() {
       <div className="container">
         <div className="footer__grid">
           <div>
-            <div className="footer__brand">
-              <LogoMark size={38} />
-              <p className="footer__brand-name">AI Trading Platform Reviews</p>
-            </div>
+            <Link to="/" className="footer__brand">
+              <LogoMark size={40} />
+              <span className="footer__brand-name">
+                AI Trading Platform
+                <span className="footer__brand-sub">Reviews &amp; verdicts</span>
+              </span>
+            </Link>
             <p className="footer__brand-deck">
               Editorial reviews of AI-powered trading platforms. We read what each platform
               publishes, flag what it doesn&rsquo;t, and hand down a verdict.
             </p>
           </div>
 
-          <nav aria-label="Reviews">
-            <h2 className="footer__title">Reviews</h2>
+          <nav aria-label="Site">
+            <h2 className="footer__title">Site</h2>
             <ul className="footer__list">
-              {REVIEWS.map((r) => (
-                <li key={r.slug}>
-                  <Link to={r.path}>
-                    {r.name} <span className="footer__score">— {r.rating.toFixed(1)}</span>
-                  </Link>
+              {SITE_LINKS.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to}>{link.label}</Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <nav aria-label="Publication">
-            <h2 className="footer__title">Publication</h2>
+          <nav aria-label="Legal">
+            <h2 className="footer__title">Legal</h2>
             <ul className="footer__list">
-              {PUBLICATION_LINKS.map((link) => (
+              {LEGAL_LINKS.map((link) => (
                 <li key={link.to}>
                   <Link to={link.to}>{link.label}</Link>
                 </li>
@@ -52,10 +57,13 @@ export default function Footer() {
           </nav>
         </div>
 
+        <span className="footer__watermark" aria-hidden="true">
+          Reviews &amp; Verdicts
+        </span>
+
         <div className="footer__bottom">
           <span>© 2026 {SITE.name}. All rights reserved.</span>
-          <span>Reviews are editorial. Some outbound links are affiliate links.</span>
-          <span>Nothing on this site is financial advice.</span>
+          <span>Some outbound links are affiliate links. Nothing on this site is financial advice.</span>
         </div>
       </div>
     </footer>

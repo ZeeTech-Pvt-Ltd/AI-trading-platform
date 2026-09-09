@@ -1,24 +1,24 @@
-// Polar Zinsmere review — copy written from polar-zinsmere.com's published material (scraped 2026-09-08).
+// Polar Zinsmere review - copy written from polar-zinsmere.com's published material (scraped 2026-09-08).
 export default {
   slug: 'polar-zinsmere',
   name: 'Polar Zinsmere',
   domain: 'polar-zinsmere.com',
   tagline: 'Automated Investing Platform Australia',
   headline: 'Polar Zinsmere Review 2026: Is the $250 Robo-Advisor Retirement-Ready?',
-  deck: 'Polar Zinsmere sells goal-based automated portfolios rather than raw trading speed — and it publishes the strongest risk language we have seen in this segment. The review, in full.',
+  deck: 'Polar Zinsmere sells goal-based automated portfolios rather than raw trading speed - and it publishes the strongest risk language we have seen in this segment. The review, in full.',
   date: 'Sep 5, 2026',
   readTime: '10 min read',
   byline: 'Jim Simons',
   accent: '#0e7490',
-  verdict: 'SAFE — WITH CONDITIONS',
+  verdict: 'SAFE - WITH CONDITIONS',
   targetMarket: 'Australia (plus NZ, UK, US, SG and others)',
   minimumDeposit: '$250',
   depositMethods: 'Card, bank transfer, PayPal, crypto',
   support: '24/7 support claim; contact page only',
   scorecard: { easeOfUse: 4.6, features: 4.5, transparency: 4.2, security: 4.5, support: 4.2 },
   intro: [
-    'Polar Zinsmere is an automated investing platform aimed squarely at Australian investors who do not want to trade. Its pitch — “Set your goal, we build and rebalance the portfolio — you stay in control” — positions it closer to a robo-advisor than a trading terminal, with products for retirement planning, stocks and ETFs, and a new crypto sleeve.',
-    'The site is unusual in two ways. First, it publishes its starting point openly: a $250 minimum that “goes straight into your account,” with no subscription or registration fees. Second, it carries risk language most of its competitors avoid — “capital is at risk,” “past performance is not indicative of future results” — in the footer and inside a self-published 2026 review page.',
+    'Polar Zinsmere is an automated investing platform aimed squarely at Australian investors who do not want to trade. Its pitch - “Set your goal, we build and rebalance the portfolio - you stay in control” - positions it closer to a robo-advisor than a trading terminal, with products for retirement planning, stocks and ETFs, and a new crypto sleeve.',
+    'The site is unusual in two ways. First, it publishes its starting point openly: a $250 minimum that “goes straight into your account,” with no subscription or registration fees. Second, it carries risk language most of its competitors avoid - “capital is at risk,” “past performance is not indicative of future results” - in the footer and inside a self-published 2026 review page.',
     'We read every public page on polar-zinsmere.com: the four-step onboarding, the product cards, the security section, the testimonials and the FAQ. Here is the verdict, with the conditions spelled out.',
   ],
   whatItClaims: [
@@ -30,15 +30,15 @@ export default {
     'A live dashboard showing every investment, position and balance, with no restrictions on withdrawals.',
   ],
   whatWeChecked: [
-    'The minimum: $250 is stated repeatedly and consistently across the site — a genuinely clear starting point.',
+    'The minimum: $250 is stated repeatedly and consistently across the site - a genuinely clear starting point.',
     'The security stack: SSL, 2FA and segregated accounts are all published in a dedicated section, which is more than most competitors show.',
     'The “no hidden fees” claim: no subscription or registration costs are stated, but no product-level fee schedule (management fees for the robo-advisor, for example) is published.',
-    'The self-published review: the site hosts its own “Polar Zinsmere Review 2026: Is It Safe?” page — worth noting that this is marketing material, not an independent assessment.',
+    'The self-published review: the site hosts its own “Polar Zinsmere Review 2026: Is It Safe?” page - worth noting that this is marketing material, not an independent assessment.',
     'Licensing: no ASIC, AFSL or other licence number appears anywhere we read, despite the platform’s Australian focus.',
     'Testimonials: three named reviewers with professions (product designer, small business owner, physician) appear without any verifiable link to real accounts.',
   ],
   pros: [
-    'Strongest risk disclaimers we have seen in the segment — “capital is at risk” is stated, not buried.',
+    'Strongest risk disclaimers we have seen in the segment - “capital is at risk” is stated, not buried.',
     'Clear $250 starting point that goes into the account, with no registration or subscription fees claimed.',
     'Real product range: robo-advisor, retirement planning, stocks & ETFs and crypto, each described separately.',
     'Security details are concrete: SSL, 2FA and segregated client accounts are all named.',
@@ -47,20 +47,20 @@ export default {
   cons: [
     'No management or product-level fee schedule is published for the actual portfolios.',
     'No licence or regulator is named for an investment platform targeting Australians.',
-    'The “2026 Review” page is hosted on the platform’s own site — it is marketing, not an independent review.',
+    'The “2026 Review” page is hosted on the platform’s own site - it is marketing, not an independent review.',
     '“Thousands of investors use the platform daily” appears in the FAQ with no source.',
     'Testimonial identities cannot be verified against real accounts.',
   ],
   redFlags: [
     'An investing platform managing portfolios and retirement products for Australians publishes no AFSL, ASIC registration or licence of any kind.',
-    'The self-published “Review 2026: Is It Safe?” page answers the safety question for its own product — fine as FAQ material, but readers should know it is not independent.',
+    'The self-published “Review 2026: Is It Safe?” page answers the safety question for its own product - fine as FAQ material, but readers should know it is not independent.',
     '“No hidden fees” is claimed without a published fee schedule for the portfolios themselves.',
-    'The verified-identity onboarding promise sits oddly next to the absence of any named regulatory framework — verification against what, exactly, is not explained.',
+    'The verified-identity onboarding promise sits oddly next to the absence of any named regulatory framework - verification against what, exactly, is not explained.',
   ],
   faqs: [
     {
       q: 'Is Polar Zinsmere safe, legit or a scam?',
-      a: 'We found no scam indicators and several signs of a real product: a consistent $250 minimum, concrete security measures, explicit risk language and a sensible product range. The gap is licensing — no regulator is named. We rate it safe to consider, with the conditions in this review.',
+      a: 'We found no scam indicators and several signs of a real product: a consistent $250 minimum, concrete security measures, explicit risk language and a sensible product range. The gap is licensing - no regulator is named. We rate it safe to consider, with the conditions in this review.',
     },
     {
       q: 'What is the minimum to start with Polar Zinsmere?',
@@ -76,12 +76,12 @@ export default {
     },
     {
       q: 'Can I withdraw my money whenever I want?',
-      a: 'The FAQ says yes — no restrictions on timing or frequency, with withdrawals processed through the same payment providers as deposits. That is the platform’s published policy; the practical reality of withdrawal times is worth confirming early with a small test.',
+      a: 'The FAQ says yes - no restrictions on timing or frequency, with withdrawals processed through the same payment providers as deposits. That is the platform’s published policy; the practical reality of withdrawal times is worth confirming early with a small test.',
     },
   ],
   bottomLine: [
     'Polar Zinsmere is the most sober platform in our current table, and that is a compliment. Goal-based portfolios, a $250 start, segregated accounts, and risk disclaimers that actually say “capital is at risk” describe a product aimed at cautious Australians rather than adrenaline chasers. If you want automation without the trading-terminal energy, this is the review-adjacent option to shortlist.',
-    'The conditions are weighty. No licence is named for a platform that manages retirement money, no portfolio fee schedule is published, and the platform reviews itself on its own pages. Ask those questions first — in writing — then start with the $250 minimum and watch the dashboard for a month before adding a dollar more.',
+    'The conditions are weighty. No licence is named for a platform that manages retirement money, no portfolio fee schedule is published, and the platform reviews itself on its own pages. Ask those questions first - in writing - then start with the $250 minimum and watch the dashboard for a month before adding a dollar more.',
   ],
   visitUrl: 'https://polar-zinsmere.com',
 }

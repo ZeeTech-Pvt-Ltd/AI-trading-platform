@@ -1,6 +1,6 @@
 import LegalPage from '../components/LegalPage.jsx'
 
-// Template text — review with a lawyer before launch.
+// Template text - review with a lawyer before launch.
 export default function PrivacyPolicy() {
   return (
     <LegalPage title="Privacy Policy" kicker="Legal" updated="September 8, 2026">
@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
       </p>
 
       <h2>Information we collect</h2>
-      <p>When you use our contact form, we collect the details you submit: your name, email address, phone number (if provided) and message. When you browse the site, standard technical data — such as IP address, browser type and pages visited — may be recorded in server logs.</p>
+      <p>When you use our contact form, we collect the details you submit: your name, email address, phone number (if provided) and message. When you browse the site, standard technical data - such as IP address, browser type and pages visited - may be recorded in server logs.</p>
 
       <h2>How we use your information</h2>
       <ul>

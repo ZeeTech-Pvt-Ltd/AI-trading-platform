@@ -1,4 +1,4 @@
-// Generates public/og-image.png (1200x630) from the live reviews data —
+// Generates public/og-image.png (1200x630) from the live reviews data -
 // the platform list is built dynamically, so new reviews appear automatically.
 // Run: node scripts/rasterize-og.mjs
 import { chromium } from 'file:///C:/Users/samee/node_modules/playwright/index.mjs'
@@ -64,7 +64,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   ${listSvg}
   ${overflow}
 
-  <text x="600" y="580" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="16" letter-spacing="4" fill="#6b6455">SYDNEY — ${dateline}</text>
+  <text x="600" y="580" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="16" letter-spacing="4" fill="#6b6455">SYDNEY - ${dateline}</text>
 </svg>`
 
 const dataUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`

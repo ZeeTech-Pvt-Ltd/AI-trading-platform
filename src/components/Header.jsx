@@ -26,7 +26,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <Link to="/" className="btn btn--green btn--sm header__cta">
+        <Link to="/#reviews" className="btn btn--green btn--sm header__cta">
           All reviews
         </Link>
       </div>

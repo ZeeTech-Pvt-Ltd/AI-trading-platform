@@ -40,7 +40,7 @@ export default function ContactForm() {
     const input = phoneRef.current
 
     // intl-tel-input v29: attachUtils(loader) fires the loader immediately,
-    // so utils are attached lazily — on first focus or after 4s idle.
+    // so utils are attached lazily - on first focus or after 4s idle.
     const attach = () => {
       if (utilsLoadedRef.current) return
       pendingUtilsRef.current = intlTelInput.attachUtils(() =>
@@ -163,7 +163,7 @@ export default function ContactForm() {
         <p className="form-status form-status--sending">Sending…</p>
       )}
 
-      {/* Honeypot — real users never see this field */}
+      {/* Honeypot - real users never see this field */}
       <div className="form-honeypot" aria-hidden="true">
         <label>
           Website

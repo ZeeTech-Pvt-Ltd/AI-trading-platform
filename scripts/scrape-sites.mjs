@@ -30,10 +30,10 @@ for (const url of SITES) {
       return (el.innerText || '').replace(/\n{3,}/g, '\n\n').trim()
     })
     out[url] = { title, text: text.slice(0, 8000) }
-    console.log(`OK  ${url} — "${title}" (${text.length} chars)`)
+    console.log(`OK  ${url} - "${title}" (${text.length} chars)`)
   } catch (err) {
     out[url] = { title: 'ERROR', text: String(err).slice(0, 500) }
-    console.log(`ERR ${url} — ${String(err).slice(0, 200)}`)
+    console.log(`ERR ${url} - ${String(err).slice(0, 200)}`)
   }
 }
 

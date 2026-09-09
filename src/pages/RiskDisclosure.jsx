@@ -1,6 +1,6 @@
 import LegalPage from '../components/LegalPage.jsx'
 
-// Template text — review with a lawyer before launch.
+// Template text - review with a lawyer before launch.
 export default function RiskDisclosure() {
   return (
     <LegalPage title="Risk Disclosure" kicker="Legal" updated="September 8, 2026">
@@ -11,8 +11,8 @@ export default function RiskDisclosure() {
 
       <h2>Trading and investing involve risk</h2>
       <p>
-        Trading financial instruments — including cryptocurrencies, CFDs, forex, stocks and
-        commodities — carries a high level of risk. Prices move quickly and against you.
+        Trading financial instruments - including cryptocurrencies, CFDs, forex, stocks and
+        commodities - carries a high level of risk. Prices move quickly and against you.
         You can lose some or all of the money you deposit, and losses can exceed deposits
         where leverage is involved. Past performance, including any performance figures
         shown on reviewed platforms, is not a guarantee of future results.
@@ -31,7 +31,7 @@ export default function RiskDisclosure() {
       <p>
         Most platforms we review do not publish a licence, AFSL or registration number on
         their public pages. An absence of published licensing details does not by itself
-        prove a platform is unsafe — but it does mean regulatory protections such as
+        prove a platform is unsafe - but it does mean regulatory protections such as
         compensation schemes may not apply to you. Verify a platform&rsquo;s regulatory
         status directly with the platform and with the relevant authority before
         depositing.
@@ -39,7 +39,7 @@ export default function RiskDisclosure() {
 
       <h2>Our verdicts are not recommendations</h2>
       <p>
-        A verdict of “safe — with conditions” is an editorial assessment of what a platform
+        A verdict of “safe - with conditions” is an editorial assessment of what a platform
         publishes. It is not a guarantee of safety, a licence, or an endorsement of any
         trade. Only invest money you can afford to lose, and consider independent
         professional advice for your circumstances.

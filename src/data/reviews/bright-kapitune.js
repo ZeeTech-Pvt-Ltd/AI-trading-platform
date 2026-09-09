@@ -1,4 +1,4 @@
-// Bright Kapitune review — copy written from bright-kapitune-au.com's published material (scraped 2026-09-08).
+// Bright Kapitune review - copy written from bright-kapitune-au.com's published material (scraped 2026-09-08).
 export default {
   slug: 'bright-kapitune',
   name: 'Bright Kapitune',
@@ -10,7 +10,7 @@ export default {
   readTime: '10 min read',
   byline: 'Jesse Livermore',
   accent: '#155dfc',
-  verdict: 'SAFE — WITH CONDITIONS',
+  verdict: 'SAFE - WITH CONDITIONS',
   targetMarket: 'Australia',
   minimumDeposit: 'A$347',
   depositMethods: 'Card, bank transfer, e-wallet',
@@ -18,41 +18,41 @@ export default {
   scorecard: { easeOfUse: 4.8, features: 4.5, transparency: 4.2, security: 4.6, support: 4.4 },
   intro: [
     'Bright Kapitune calls itself “Australia’s home for crypto trading” and markets to one audience with unusual focus: Australians who have never traded before. The hero promises smart market analysis, instant order execution and a platform that runs 24/7, with a signup flow that opens accounts in minutes.',
-    'Two numbers anchor the pitch. The first is a 4.7-out-of-5 rating said to come from 189 reviews, and the second is a minimum deposit of A$347 — an oddly specific figure, priced in Australian dollars, that immediately separates this platform from the USD-denominated crowd. Below the fold, the site also claims 4 million members, 98+ countries covered and $500 million in processed deposits.',
-    'Our desk reviewed every public page on bright-kapitune-au.com, including the security section, the testimonials and the fine print. The verdict below reflects what the platform publishes — and, just as importantly, what it stops short of publishing.',
+    'Two numbers anchor the pitch. The first is a 4.7-out-of-5 rating said to come from 189 reviews, and the second is a minimum deposit of A$347 - an oddly specific figure, priced in Australian dollars, that immediately separates this platform from the USD-denominated crowd. Below the fold, the site also claims 4 million members, 98+ countries covered and $500 million in processed deposits.',
+    'Our desk reviewed every public page on bright-kapitune-au.com, including the security section, the testimonials and the fine print. The verdict below reflects what the platform publishes - and, just as importantly, what it stops short of publishing.',
   ],
   whatItClaims: [
     'A modern trading platform bringing crypto and traditional markets together for Australian users.',
     'Smart market analysis that watches global markets around the clock and surfaces worthwhile setups.',
-    'Orders executed instantly — “no queues, no friction, no waiting around.”',
+    'Orders executed instantly - “no queues, no friction, no waiting around.”',
     'A 4.7/5 rating from 189 reviews, 4m+ members worldwide and $500m+ in processed deposits.',
     'Clear, itemised fees shown before you commit to anything, and an Australia-based support team.',
     'A minimum deposit of A$347 via card, bank transfer or e-wallet, with BTC, SOL and USDT among the tradable assets.',
   ],
   whatWeChecked: [
-    'The compliance claim: the site says it is “operated with a strong focus on meeting the regulatory standards expected by Australian users” — but no ASIC registration, AFSL number or licence is named anywhere on the pages we read.',
+    'The compliance claim: the site says it is “operated with a strong focus on meeting the regulatory standards expected by Australian users” - but no ASIC registration, AFSL number or licence is named anywhere on the pages we read.',
     'The rating claim: 4.7/5 from 189 reviews is shown on the homepage and in a testimonial band, but no third-party review platform is linked, so the figure cannot be checked independently.',
     'The member and deposit claims: 4m+ members and $500m+ in deposits are self-reported with no source.',
-    'The minimum deposit: A$347 is stated in the three-step onboarding section — an unusual, specific amount that is at least published openly.',
+    'The minimum deposit: A$347 is stated in the three-step onboarding section - an unusual, specific amount that is at least published openly.',
     'Fees: the site promises itemised, upfront fees, but no actual fee table is published on the public pages we reviewed.',
     'Security: 256-bit SSL encryption is referenced under the signup form, and a dedicated security section expands on account protection.',
   ],
   pros: [
-    'Publishes a specific minimum deposit in Australian dollars — rare clarity in this segment.',
+    'Publishes a specific minimum deposit in Australian dollars - rare clarity in this segment.',
     'Explicitly beginner-first: the copy walks through signup, funding and first trade without jargon.',
     'States itemised-upfront-fee policy and an Australia-based support team as differentiators.',
     'Names its tradable assets (BTC, SOL, USDT) rather than hiding behind vague “300+ markets” language.',
-    'Testimonials carry Australian names, cities and claimed results — consistent with the AU-first positioning.',
+    'Testimonials carry Australian names, cities and claimed results - consistent with the AU-first positioning.',
   ],
   cons: [
     'The compliance section makes a regulatory-standards claim without naming any licence or regulator.',
     'No published fee table, despite promising itemised costs before each trade.',
     'The 4.7/5 and 4m+ member figures are self-reported and not linked to any independent source.',
-    'Crypto-only in practice — “traditional markets” is mentioned but no equities or forex details are shown.',
+    'Crypto-only in practice - “traditional markets” is mentioned but no equities or forex details are shown.',
     'No phone number or support email is published on the public pages we reviewed.',
   ],
   redFlags: [
-    '“Committed to compliance” is not the same as being licensed — and no licence, AFSL or registration number is published.',
+    '“Committed to compliance” is not the same as being licensed - and no licence, AFSL or registration number is published.',
     'The community rating and member counts cannot be verified against any third-party platform.',
     'Testimonials show specific percentage gains (+15.6%, +19.1%) alongside Sydney, Melbourne and Brisbane names, which reads as performance marketing rather than verifiable results.',
     'The A$347 minimum deposit is precise, but the fee structure it precedes is not published anywhere we could find.',
@@ -60,7 +60,7 @@ export default {
   faqs: [
     {
       q: 'Is Bright Kapitune safe, legit or a scam?',
-      a: 'We found no evidence of a scam: the site is professionally built, publishes its security measures and risk language, and is transparent about its Australian focus. What it lacks is licensing detail — a compliance commitment is not a licence. We rate it safe to consider, with the conditions listed in this review.',
+      a: 'We found no evidence of a scam: the site is professionally built, publishes its security measures and risk language, and is transparent about its Australian focus. What it lacks is licensing detail - a compliance commitment is not a licence. We rate it safe to consider, with the conditions listed in this review.',
     },
     {
       q: 'What is the minimum deposit at Bright Kapitune?',

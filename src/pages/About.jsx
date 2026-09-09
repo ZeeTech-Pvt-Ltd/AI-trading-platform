@@ -26,15 +26,15 @@ export default function About() {
           <h2>What we do</h2>
           <p>
             Every review on this site is a desk review: we go through each platform&rsquo;s
-            public pages — the signup flow, the feature sections, the security claims, the
-            testimonials, the FAQ and the fine print — and record what is published, what is
+            public pages - the signup flow, the feature sections, the security claims, the
+            testimonials, the FAQ and the fine print - and record what is published, what is
             promised, and what is missing. We then score the platform on five fixed
             dimensions and publish a verdict.
           </p>
           <p>
             We do not manage client funds, take deposits, or trade on any platform we
             review. When we cannot verify a claim from a platform&rsquo;s own material, we
-            say so — that is what the red-flag sections are for.
+            say so - that is what the red-flag sections are for.
           </p>
 
           <h2>How a platform is scored</h2>
@@ -65,7 +65,7 @@ export default function About() {
           <p>
             AI Trading Platform Reviews is written by a small editorial desk based in Sydney,
             Australia, supported by a rotating team of reviewers. Each review carries its
-            author&rsquo;s byline — one standard, one methodology, whoever signs it.
+            author&rsquo;s byline - one standard, one methodology, whoever signs it.
             Corrections are always welcome and usually fixed within two business days.
           </p>
         </div>

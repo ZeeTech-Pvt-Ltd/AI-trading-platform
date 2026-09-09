@@ -1,7 +1,7 @@
 // Generates public/sitemap.xml from the live reviews data + static routes.
 // Run after adding or removing a review: node scripts/gen-sitemap.mjs
 import { writeFileSync } from 'node:fs'
-import { REVIEWS } from '../src/data/reviews/index.js'
+import { REVIEWS, TOTAL_PAGES } from '../src/data/reviews/index.js'
 
 const STATIC = [
   { loc: '/', priority: '1.0', changefreq: 'weekly', lastmod: '2026-09-08' },
@@ -15,9 +15,15 @@ const STATIC = [
 const url = (loc, lastmod, changefreq, priority) =>
   `  <url><loc>https://ai-trading-platform.com${loc}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`
 
+// Archive pages beyond the homepage (/page/2, …)
+const archivePages = Array.from({ length: Math.max(0, TOTAL_PAGES - 1) }, (_, i) =>
+  url(`/page/${i + 2}`, '2026-09-09', 'monthly', '0.5'),
+)
+
 const entries = [
   ...STATIC.map((s) => url(s.loc, s.lastmod, s.changefreq, s.priority)),
   ...REVIEWS.map((r) => url(r.path, r.isoDate, 'monthly', '0.9')),
+  ...archivePages,
 ]
 
 writeFileSync(

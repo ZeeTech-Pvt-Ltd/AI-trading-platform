@@ -12,10 +12,19 @@ import AdvertisingDisclosure from './pages/AdvertisingDisclosure.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
+    // Hash links (e.g. /#reviews) scroll to the target section; anything else
+    // starts at the top of the page.
+    if (hash) {
+      const el = document.getElementById(hash.slice(1))
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+    }
     window.scrollTo(0, 0)
-  }, [pathname])
+  }, [pathname, hash])
   return null
 }
 
@@ -30,6 +39,7 @@ export default function App() {
       <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/page/:page" element={<Home />} />
           <Route path="/review/:slug" element={<ReviewArticle />} />
           <Route path="/trading/:slug" element={<ReviewArticle />} />
           <Route path="/about" element={<About />} />

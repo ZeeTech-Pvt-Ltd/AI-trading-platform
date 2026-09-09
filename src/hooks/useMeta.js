@@ -15,7 +15,7 @@ function upsertMeta(attr, key, content) {
 // Per-route SEO: title, description, canonical, Open Graph and Twitter tags.
 export default function useMeta({ title, description, path }) {
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`
+    const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} - ${SITE.tagline}`
     document.title = fullTitle
 
     const desc = description || SITE.description

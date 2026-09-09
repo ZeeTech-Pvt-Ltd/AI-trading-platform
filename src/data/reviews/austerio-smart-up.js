@@ -1,16 +1,16 @@
-// Austerio Smart Up review — copy written from austeriosmart-up.com's published material (scraped 2026-09-08).
+// Austerio Smart Up review - copy written from austeriosmart-up.com's published material (scraped 2026-09-08).
 export default {
   slug: 'austerio-smart-up',
   name: 'Austerio Smart Up',
   domain: 'austeriosmart-up.com',
   tagline: 'AI-Powered Automated Trading Platform in Australia',
-  headline: 'Austerio Smart Up Review 2026: Three Clicks to Your First Trade — Worth It?',
+  headline: 'Austerio Smart Up Review 2026: Three Clicks to Your First Trade - Worth It?',
   deck: 'Austerio Smart Up promises a three-click path to automated trading for Australians, with 4M+ users, a 4.8 community score and AU$250 to start. We checked each claim against what the site actually publishes.',
   date: 'Sep 4, 2026',
   readTime: '10 min read',
   byline: 'Stanley Druckenmiller',
   accent: '#7c3aed',
-  verdict: 'SAFE — WITH CONDITIONS',
+  verdict: 'SAFE - WITH CONDITIONS',
   targetMarket: 'Australia',
   minimumDeposit: 'AU$250',
   depositMethods: 'Credit cards, bank transfer, PayPal',
@@ -18,8 +18,8 @@ export default {
   scorecard: { easeOfUse: 4.5, features: 4.4, transparency: 4.2, security: 4.6, support: 4.3 },
   intro: [
     'Austerio Smart Up is an AI-powered automated trading platform built for the Australian market, and its homepage wastes no time telling you so: “Chosen by traders across Australia” sits above the fold, next to a claim of 4M+ verified users, a 4.8 community score and $500M+ in client deposits.',
-    'The platform’s pitch is full automation — strategies that “run for you around the clock” across Bitcoin, Ethereum, stocks and forex — wrapped in a simplicity story: three clicks to your first trade, no jargon, and a dashboard that explains itself. A live ticker of BTC, ETH, gold, the S&P 500 and the NASDAQ runs across the page to keep the trading-room atmosphere.',
-    'We read every public section on austeriosmart-up.com — the technology pages, the security and transparency panels, the capabilities table, the testimonials and the FAQ — and the review below separates what the site publishes from what it leaves for you to find out.',
+    'The platform’s pitch is full automation - strategies that “run for you around the clock” across Bitcoin, Ethereum, stocks and forex - wrapped in a simplicity story: three clicks to your first trade, no jargon, and a dashboard that explains itself. A live ticker of BTC, ETH, gold, the S&P 500 and the NASDAQ runs across the page to keep the trading-room atmosphere.',
+    'We read every public section on austeriosmart-up.com - the technology pages, the security and transparency panels, the capabilities table, the testimonials and the FAQ - and the review below separates what the site publishes from what it leaves for you to find out.',
   ],
   whatItClaims: [
     'AI strategies that trade for you around the clock, with live market tracking and instant alerts day and night.',
@@ -31,7 +31,7 @@ export default {
   ],
   whatWeChecked: [
     'The user and deposit claims: 4M+ users, $500M+ deposits and the 4.8/1,247 score are all self-published with no third-party source linked.',
-    'The minimum deposit: AU$250 appears in the “At a glance” capabilities table — clear and specific, which is a point in its favour.',
+    'The minimum deposit: AU$250 appears in the “At a glance” capabilities table - clear and specific, which is a point in its favour.',
     'Security: 95% cold storage, 2FA and 256-bit SSL are stated plainly, alongside “live reserve audits” in the transparency panel.',
     'The audits: the site claims live reserve audits, but no auditor is named and no report is linked.',
     'Licensing: no ASIC registration, AFSL number or any other licence appears anywhere on the pages we reviewed.',
@@ -40,7 +40,7 @@ export default {
   pros: [
     'Publishes its minimum deposit (AU$250) and funding rails directly in a capabilities table.',
     'Security claims are specific: 95% cold storage, 2FA and 256-bit SSL.',
-    'The simplicity promise is concrete — a three-click path and plain-language explanations.',
+    'The simplicity promise is concrete - a three-click path and plain-language explanations.',
     'Multi-asset scope is explicit: crypto, stocks and forex, with a live ticker on the homepage.',
     '24/7 support and cross-device access are stated as platform capabilities.',
   ],
@@ -52,7 +52,7 @@ export default {
     'The testimonial set repeats a single family surname and cannot be independently checked.',
   ],
   redFlags: [
-    'The three headline numbers — 4M+ users, 4.8 score, $500M+ deposits — are unverifiable self-published claims doing heavy lifting on a site with no public company details.',
+    'The three headline numbers - 4M+ users, 4.8 score, $500M+ deposits - are unverifiable self-published claims doing heavy lifting on a site with no public company details.',
     '“Live reserve audits” without a named auditor is a transparency claim that is itself not transparent.',
     'No regulatory status is published for a platform handling Australian deposits.',
     'The homepage testimonial band shows verified badges next to names with no verifiable accounts behind them.',
@@ -76,7 +76,7 @@ export default {
     },
     {
       q: 'Are there really no hidden fees?',
-      a: 'The site says zero hidden fees with clear pricing from day one, but no fee schedule is published. That makes the claim impossible to check from outside the platform — ask for the fee table before you deposit.',
+      a: 'The site says zero hidden fees with clear pricing from day one, but no fee schedule is published. That makes the claim impossible to check from outside the platform - ask for the fee table before you deposit.',
     },
   ],
   bottomLine: [

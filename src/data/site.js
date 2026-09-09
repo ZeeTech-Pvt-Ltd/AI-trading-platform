@@ -8,7 +8,7 @@ export const SITE = {
   byline: 'The Editorial Desk',
   contactEmail: 'contact@ai-trading-platform.com',
   description:
-    'AI trading platform reviews for 2026: we read what each platform claims, check what it publishes, and hand down a verdict — safe, legit or a scam.',
+    'AI trading platform reviews for 2026: we read what each platform claims, check what it publishes, and hand down a verdict - safe, legit or a scam.',
 }
 
 export const NAV_LINKS = [
@@ -21,7 +21,7 @@ export const RATING_DIMENSIONS = [
   {
     key: 'easeOfUse',
     name: 'Ease of use',
-    text: 'How quickly a newcomer can sign up, fund an account and place a first trade — and whether the dashboard explains itself as it goes.',
+    text: 'How quickly a newcomer can sign up, fund an account and place a first trade - and whether the dashboard explains itself as it goes.',
   },
   {
     key: 'features',
@@ -31,12 +31,12 @@ export const RATING_DIMENSIONS = [
   {
     key: 'transparency',
     name: 'Transparency',
-    text: 'Whether pricing, minimum deposits, risk warnings and company information are published openly — or need to be chased down.',
+    text: 'Whether pricing, minimum deposits, risk warnings and company information are published openly - or need to be chased down.',
   },
   {
     key: 'security',
     name: 'Security & regulation',
-    text: 'The security measures the platform discloses — encryption, 2FA, custody — and whether any regulator or licence is named on the site.',
+    text: 'The security measures the platform discloses - encryption, 2FA, custody - and whether any regulator or licence is named on the site.',
   },
   {
     key: 'support',
@@ -48,7 +48,7 @@ export const RATING_DIMENSIONS = [
 export const FAQ_GENERAL = [
   {
     q: 'What is AI Trading Platform Reviews?',
-    a: 'AI Trading Platform Reviews is an editorial publication that reviews AI-powered trading and investing platforms aimed at Australian users. Each review reads the platform’s own published material — features, fees, security claims and disclosures — and hands down a verdict you can act on.',
+    a: 'AI Trading Platform Reviews is an editorial publication that reviews AI-powered trading and investing platforms aimed at Australian users. Each review reads the platform’s own published material - features, fees, security claims and disclosures - and hands down a verdict you can act on.',
   },
   {
     q: 'Do you test the platforms yourself?',
@@ -56,7 +56,7 @@ export const FAQ_GENERAL = [
   },
   {
     q: 'How do you score a platform?',
-    a: 'Every platform is scored on five dimensions — ease of use, features, transparency, security & regulation, and support — each out of five. The overall rating is the average of those five scores, rounded to one decimal.',
+    a: 'Every platform is scored on five dimensions - ease of use, features, transparency, security & regulation, and support - each out of five. The overall rating is the average of those five scores, rounded to one decimal.',
   },
   {
     q: 'Are your reviews financial advice?',
@@ -64,6 +64,6 @@ export const FAQ_GENERAL = [
   },
   {
     q: 'Do you earn money from the platforms you review?',
-    a: 'Some outbound links on this site are affiliate links, which means we may receive a commission if you open an account through them. That never changes a score or a verdict — our scoring criteria are fixed and published. See our Advertising Disclosure page for details.',
+    a: 'Some outbound links on this site are affiliate links, which means we may receive a commission if you open an account through them. That never changes a score or a verdict - our scoring criteria are fixed and published. See our Advertising Disclosure page for details.',
   },
 ]

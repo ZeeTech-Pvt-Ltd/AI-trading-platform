@@ -1,0 +1,88 @@
+// Nexora AI Platform review - copy written from nexora-ai-platform.com's published material (scraped 2026-09-09).
+export default {
+  slug: 'nexora-ai-platform',
+  name: 'Nexora AI Platform',
+  domain: 'nexora-ai-platform.com',
+  tagline: 'AI-Powered Trading Platform for Australia',
+  headline: 'Nexora AI Platform Review 2026: A Template Twin with a Better Footer',
+  deck: 'Nexora AI Platform shares its entire template with another brand in this segment - but it also publishes a support email and a risk disclosure most competitors hide. The review, in full.',
+  date: 'Sep 9, 2026',
+  readTime: '9 min read',
+  byline: 'Chris Coverdale',
+  accent: '#0ea5e9',
+  verdict: 'SAFE - WITH CONDITIONS',
+  targetMarket: 'Australia (verified residents)',
+  minimumDeposit: 'A$250',
+  depositMethods: 'Not published',
+  support: '24/7 human & AI support claim; support@nexora-ai-platform.com published',
+  scorecard: { easeOfUse: 4.5, features: 4.2, transparency: 4.2, security: 4.5, support: 4.2 },
+  intro: [
+    'Nexora AI Platform is an AI-powered trading platform for verified Australian residents, and its homepage is word-for-word familiar: the “Live · Engine online · AU verified” badge, the intelligent-trading-platform headline, the 85% accuracy engine, the 95% cold storage, the A$250 start. If you have read our Gewinode Raven review, you have read most of this page already - the two sites share a template, down to the ticker.',
+    'That matters, and this review treats it as a finding rather than a secret. But Nexora also does two things its twin does not, and they change the score: it publishes a support email address on the site, and its footer carries a genuine risk disclosure - “operates as a technology services company and does not offer financial, investment or legal advice.”',
+    'We reviewed every public page on nexora-ai-platform.com. The verdict below weighs the template problem against the disclosure problem.',
+  ],
+  whatItClaims: [
+    'An AI engine that reads markets around the clock, opening and closing positions automatically at an 85% accuracy rate.',
+    '3.5M+ registered members, 120+ countries served and A$500M+ in customer deposits.',
+    '95% of customer funds in cold storage, with 2FA and 256-bit SSL encryption.',
+    'A three-click path from signup to a live, funded account - from A$250 - with zero hidden fees.',
+    '24/7 human and AI support, with support@nexora-ai-platform.com published in the footer.',
+    'Registration limited to verified residents of Australia.',
+  ],
+  whatWeChecked: [
+    'The risk footer: genuinely published and specific - a technology-services positioning with an explicit “no financial, investment or legal advice” line. Rare in this segment.',
+    'The support email: support@nexora-ai-platform.com appears in the footer contacts, which most platforms in this table do not publish.',
+    'The accuracy claim: 85% is stated but has no methodology, window or audit behind it.',
+    'The template: page copy, stats (3.5M+/120+/A$500M+), ticker and section structure are near-identical to gewinoderaven.com - two brands, one template.',
+    'The member figures: self-published with no source, and “120+ countries served” conflicts with the Australia-only registration gate.',
+    'Licensing and fees: no licence is named, and no fee schedule is published.',
+  ],
+  pros: [
+    'Publishes a support email address - a small thing that most reviewed platforms skip.',
+    'The footer risk disclosure is the clearest we have seen: tech services company, no financial advice.',
+    'Names its start (A$250) and security stack (2FA, SSL, 95% cold storage) in the open.',
+    'The AU-resident registration gate is stated plainly rather than implied.',
+    'The 24/7 “human & AI support” promise is at least paired with a real contact address.',
+  ],
+  cons: [
+    'Near-identical template to another brand in this segment - which raises the question of which platform is the original.',
+    'The 85% accuracy claim has no published backing.',
+    'No licence or regulator is named.',
+    'No fee schedule is published despite the zero-hidden-fees promise.',
+    'Self-reported member and deposit figures cannot be checked.',
+    'The registration form defaults to a non-Australian phone code on an Australia-only platform.',
+  ],
+  redFlags: [
+    'The site’s copy is template-shared with another platform in this table - two different brands selling the same text, stats and story.',
+    'The 85% accuracy headline is unbacked by any methodology or audit.',
+    '“120+ countries served” contradicts the platform’s own Australia-only registration rule.',
+    'No regulatory status or company registration is published.',
+  ],
+  faqs: [
+    {
+      q: 'Is Nexora AI Platform safe, legit or a scam?',
+      a: 'We found no scam indicators - and one meaningful positive: the site publishes both a support email and a real risk disclosure. The concerns are structural: template-shared copy, an unbacked accuracy claim and no licence. We rate it safe to research, with the conditions in this review.',
+    },
+    {
+      q: 'What is the minimum deposit at Nexora AI Platform?',
+      a: 'A$250, stated in the onboarding steps. The site does not publish its payment methods - confirm those during registration.',
+    },
+    {
+      q: 'Why does Nexora AI Platform look like Gewinode Raven?',
+      a: 'The two sites share page copy, statistics, tickers and section structure. That does not by itself prove anything about either operator - but it means the “founded by a team” stories and review sections cannot be treated as independent evidence for either brand.',
+    },
+    {
+      q: 'Is Nexora AI Platform a financial adviser?',
+      a: 'No - and its footer says so explicitly: it operates as a technology services company and does not offer financial, investment or legal advice. That disclosure is exactly right, and it means the decisions stay yours.',
+    },
+    {
+      q: 'How do I contact Nexora AI Platform support?',
+      a: 'The site publishes support@nexora-ai-platform.com and promises 24/7 human and AI support. That is more contact information than most platforms in this table provide.',
+    },
+  ],
+  bottomLine: [
+    'Nexora AI Platform is a curious case: a template twin with a better tail. The product story is borrowed, but the last hundred pixels - a published support email and a footer that actually discloses what the company is not - are more honest than most of this table. If the operator behind the template is the same, the disclosure improvement is worth noticing; if it is different, the copying is worth asking about.',
+    'The conditions are the standard ones. No licence, no fees published, an 85% accuracy claim with no backing, and a countries-served figure that contradicts the registration gate. Start at the A$250 minimum if you proceed, ask for the fee schedule in writing, and remember the platform itself says it is not giving you financial advice.',
+  ],
+  visitUrl: 'https://nexora-ai-platform.com',
+}

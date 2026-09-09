@@ -1,6 +1,6 @@
 import LegalPage from '../components/LegalPage.jsx'
 
-// Template text — review with a lawyer before launch.
+// Template text - review with a lawyer before launch.
 export default function TermsOfUse() {
   return (
     <LegalPage title="Terms of Use" kicker="Legal" updated="September 8, 2026">

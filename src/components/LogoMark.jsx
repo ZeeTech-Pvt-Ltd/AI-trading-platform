@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-// Brand mark: a "verified score" badge — gradient tile, partial score ring
+// Brand mark: a "verified score" badge - gradient tile, partial score ring
 // (echoes the ScoreRing used across the site) and a white check.
 export default function LogoMark({ size = 40 }) {
   const gradId = useId().replace(/[^a-zA-Z0-9]/g, '')

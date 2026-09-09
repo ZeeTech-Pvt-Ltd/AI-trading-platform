@@ -1,18 +1,18 @@
 import LegalPage from '../components/LegalPage.jsx'
 
-// Template text — review with a lawyer before launch.
+// Template text - review with a lawyer before launch.
 export default function AdvertisingDisclosure() {
   return (
     <LegalPage title="Advertising Disclosure" kicker="Legal" updated="September 8, 2026">
       <p>
         AI Trading Platform Reviews is reader-first, but it is not free to run. This page explains
-        exactly how the site makes money and what that does — and does not — change about
+        exactly how the site makes money and what that does - and does not - change about
         our reviews.
       </p>
 
       <h2>Affiliate links</h2>
       <p>
-        Some outbound links on this site — including the “Visit” buttons on review pages —
+        Some outbound links on this site - including the “Visit” buttons on review pages -
         are affiliate links. If you click one and later open an account with the platform,
         we may receive a commission. There is no cost to you.
       </p>
@@ -29,7 +29,7 @@ export default function AdvertisingDisclosure() {
       <p>
         The desk’s time and the site’s hosting have to be paid for. Affiliate commissions
         let the reviews stay free to read without the desk depending on any single platform
-        — and no single platform accounts for a meaningful share of the site.
+        - and no single platform accounts for a meaningful share of the site.
       </p>
 
       <h2>Our promise</h2>

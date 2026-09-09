@@ -68,7 +68,7 @@ export default function ReviewArticle() {
 
   if (!review) return <NotFound />
   // Canonical URL: reviews with a custom path (e.g. Rendaven at /trading/)
-  // redirect here if opened through the default /review/ route — and vice versa.
+  // redirect here if opened through the default /review/ route - and vice versa.
   if (pathname !== review.path) return <Navigate to={review.path} replace />
 
   const facts = [
@@ -94,10 +94,10 @@ export default function ReviewArticle() {
         <div className="container">
           <div className="article-head__crumb">
             <span>
-              <Link to="/">Home</Link> → Reviews → {review.name}
+              <Link to="/">Home</Link> → <Link to="/#reviews">Reviews</Link> → {review.name}
             </span>
             <span>
-              Review No. {String(index + 1).padStart(2, '0')} — {review.date}
+              Review No. {String(index + 1).padStart(2, '0')} - {review.date}
             </span>
           </div>
 
@@ -182,7 +182,7 @@ export default function ReviewArticle() {
             <ProsCons pros={review.pros} cons={review.cons} />
 
             <div className="redflags">
-              <p className="redflags__title">⚠ Red flags — what gave us pause</p>
+              <p className="redflags__title">⚠ Red flags - what gave us pause</p>
               <ul>
                 {review.redFlags.map((item, i) => (
                   <li key={i}>{item}</li>
@@ -241,7 +241,7 @@ export default function ReviewArticle() {
                 Visit {review.name} <Icon name="external" size={15} />
               </a>
               <p className="aside-card__note">
-                Affiliate link — see our advertising disclosure.
+                Affiliate link - see our advertising disclosure.
               </p>
             </div>
           </aside>
@@ -265,7 +265,7 @@ export default function ReviewArticle() {
 
           <div className="article-cta">
             <h2 className="article-cta__title">Ready to read the rest of the reviews?</h2>
-            <Link to="/" className="btn btn--green">
+            <Link to="/#reviews" className="btn btn--green">
               All reviews
               <Icon name="arrow-right" size={15} />
             </Link>

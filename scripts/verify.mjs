@@ -2,7 +2,7 @@
 // links correct, no console errors. Saves desktop screenshots to screenshots/.
 import { chromium } from 'file:///C:/Users/samee/node_modules/playwright/index.mjs'
 import { mkdirSync } from 'node:fs'
-import { REVIEWS } from '../src/data/reviews/index.js'
+import { REVIEWS, PAGINATED, PAGE_SIZE, TOTAL_PAGES } from '../src/data/reviews/index.js'
 
 const BASE = 'http://localhost:5185'
 
@@ -22,7 +22,7 @@ async function check(name, fn) {
     await fn()
     results.push(`PASS  ${name}`)
   } catch (err) {
-    results.push(`FAIL  ${name} — ${String(err).split('\n')[0].slice(0, 180)}`)
+    results.push(`FAIL  ${name} - ${String(err).split('\n')[0].slice(0, 180)}`)
   }
 }
 
@@ -39,13 +39,18 @@ await check('home: review-style fonts loaded (Plus Jakarta Sans)', async () => {
   })
   if (!ok) throw new Error('Plus Jakarta Sans not loaded')
 })
-await check(`home: ${REVIEWS.length} review cards render`, async () => {
+const page1Count = Math.min(PAGE_SIZE, PAGINATED.length)
+await check(`home: ${page1Count} review cards render on page 1`, async () => {
   const n = await page.locator('.review-card').count()
-  if (n !== REVIEWS.length) throw new Error(`found ${n} cards`)
+  if (n !== page1Count) throw new Error(`found ${n} cards`)
 })
-await check(`home: ${REVIEWS.length} score rings on cards`, async () => {
+await check(`home: ${page1Count} score rings on cards`, async () => {
   const n = await page.locator('.review-card .score-ring').count()
-  if (n !== REVIEWS.length) throw new Error(`found ${n} rings`)
+  if (n !== page1Count) throw new Error(`found ${n} rings`)
+})
+await check('home: pagination shows all pages', async () => {
+  const n = await page.locator('.pagination__num').count()
+  if (n !== TOTAL_PAGES) throw new Error(`found ${n} page numbers`)
 })
 await check('home: top-rated side card has 5 rows', async () => {
   const n = await page.locator('.hero__side-row').count()
@@ -110,6 +115,30 @@ for (const r of REVIEWS) {
   if (r.slug === REVIEWS[0].slug) {
     await page.screenshot({ path: 'screenshots/article-desktop.png', fullPage: true })
   }
+}
+
+// ---- pagination page 2 ----
+if (TOTAL_PAGES > 1) {
+  await page.goto(`${BASE}/page/2`, { waitUntil: 'networkidle' })
+  await check('page 2: renders remaining reviews', async () => {
+    const n = await page.locator('.review-card').count()
+    const expected = PAGINATED.length - PAGE_SIZE
+    if (n !== expected) throw new Error(`found ${n} cards, expected ${expected}`)
+  })
+  await check('page 2: active page number is 2', async () => {
+    const active = await page.locator('.pagination__num.is-active').innerText()
+    if (active !== '2') throw new Error(`active page ${active}`)
+  })
+  await check('page 2: no hero (archive layout)', async () => {
+    const hero = await page.locator('.hero').count()
+    if (hero !== 0) throw new Error('hero rendered on page 2')
+  })
+  await check('page 2: new reviews are on this page', async () => {
+    const text = await page.locator('#reviews').innerText()
+    if (!text.includes('Gewinode Raven') || !text.includes('Nexora AI Platform')) {
+      throw new Error('new reviews missing from page 2')
+    }
+  })
 }
 
 // ---- non-canonical URLs redirect to the review's own path ----
