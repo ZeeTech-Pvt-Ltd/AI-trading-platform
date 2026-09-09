@@ -4,7 +4,11 @@ export default {
   name: 'Gem Wealthholm',
   domain: 'gemwealth-holm.com',
   tagline: 'AI Market Insights & Smarter Investing',
-  headline: 'Gem Wealthholm Review 2026: Does “See the Market with Clarity” Hold Up?',
+  headline: 'Gem Wealthholm Review 2026: Features, Safety & Our Verdict',
+  // Indexed title and description can differ from the on-page copy.
+  seoTitle: 'Gem Wealthholm Review 2026: Is It Legit or a Scam?',
+  seoDescription:
+    'Discover our Gem Wealthholm review to explore its trading features, platform experience, security, and key factors to consider before getting started.',
   deck: 'Gem Wealthholm sells clarity rather than speed - an AI engine that scans 65+ markets and turns dense data into plain signals. We read every published page to see what sits behind the calm.',
   date: 'Sep 6, 2026',
   readTime: '9 min read',

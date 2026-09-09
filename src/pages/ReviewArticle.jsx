@@ -62,7 +62,7 @@ export default function ReviewArticle() {
 
   useMeta({
     title: review ? review.seoTitle || review.headline : 'Review not found',
-    description: review ? review.deck : null,
+    description: review ? review.seoDescription || review.deck : null,
     path: review ? review.path : null,
   })
 
