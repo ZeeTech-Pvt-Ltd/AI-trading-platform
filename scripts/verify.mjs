@@ -142,10 +142,12 @@ if (TOTAL_PAGES > 1) {
 }
 
 // ---- non-canonical URLs redirect to the review's own path ----
-await page.goto(`${BASE}/review/${REVIEWS[0].slug}`, { waitUntil: 'networkidle' })
-await check(`legacy URL redirects to ${REVIEWS[0].path}`, async () => {
-  if (!page.url().endsWith(REVIEWS[0].path)) throw new Error(`url is ${page.url()}`)
-})
+for (const r of [REVIEWS[0], REVIEWS[1]]) {
+  await page.goto(`${BASE}/review/${r.slug}`, { waitUntil: 'networkidle' })
+  await check(`legacy /review/${r.slug} redirects to ${r.path}`, async () => {
+    if (!page.url().endsWith(r.path)) throw new Error(`url is ${page.url()}`)
+  })
+}
 
 // ---- scorecard bars are filled proportionally ----
 await page.goto(`${BASE}${REVIEWS[0].path}`, { waitUntil: 'networkidle' })

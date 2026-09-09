@@ -32,12 +32,12 @@ const RAW = [
 
 // Overall rating = mean of the five scorecard dimensions, rounded to 1 dp.
 // isoDate derives the machine-readable date for JSON-LD from the display date.
-// path lets a review use a custom URL (Rendaven: /trading/rendaven).
+// path defaults to /trading/<slug>; a review can still override it.
 const computed = RAW.map((review) => {
   const dims = Object.values(review.scorecard)
   const rating = Math.round((dims.reduce((sum, d) => sum + d, 0) / dims.length) * 10) / 10
   const isoDate = new Date(`${review.date} UTC`).toISOString().slice(0, 10)
-  const path = review.path || `/review/${review.slug}`
+  const path = review.path || `/trading/${review.slug}`
   return { ...review, rating, isoDate, path }
 })
 
