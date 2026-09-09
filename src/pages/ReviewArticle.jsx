@@ -61,7 +61,7 @@ export default function ReviewArticle() {
   const review = getReview(slug)
 
   useMeta({
-    title: review ? review.headline : 'Review not found',
+    title: review ? review.seoTitle || review.headline : 'Review not found',
     description: review ? review.deck : null,
     path: review ? review.path : null,
   })
