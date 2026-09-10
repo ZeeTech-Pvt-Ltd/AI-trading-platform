@@ -20,21 +20,43 @@ page.on('pageerror', (err) => consoleErrors.push(String(err)))
 async function check(name, fn) {
   try {
     await fn()
-    results.push(`PASS  ${name}`)
+    const line = `PASS  ${name}`
+    results.push(line)
+    console.log(line)
   } catch (err) {
-    results.push(`FAIL  ${name} - ${String(err).split('\n')[0].slice(0, 180)}`)
+    const line = `FAIL  ${name} - ${String(err).split('\n')[0].slice(0, 180)}`
+    results.push(line)
+    console.log(line)
+  }
+}
+
+// domcontentloaded + a short settle instead of networkidle: third-party
+// requests (fonts, gtag) can occasionally stay in-flight forever, which made
+// networkidle hang the suite. Retries once on transient navigation errors
+// (e.g. Windows suspending a background tab: ERR_NETWORK_IO_SUSPENDED).
+async function open(url) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 })
+      await page.waitForTimeout(1500)
+      return
+    } catch (err) {
+      if (attempt === 1) throw err
+      await page.waitForTimeout(2500)
+    }
   }
 }
 
 // ---- home ----
-await page.goto(`${BASE}/`, { waitUntil: 'networkidle' })
+await open(`${BASE}/`)
 await check('home: title', async () => {
   const t = await page.title()
   if (!t.includes('AI Trading Platform')) throw new Error(`title was "${t}"`)
 })
 await check('home: review-style fonts loaded (Plus Jakarta Sans)', async () => {
   const ok = await page.evaluate(async () => {
-    await document.fonts.ready
+    // fonts.ready can hang if a third-party font request stalls - race it.
+    await Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 6000))])
     return document.fonts.check('800 16px "Plus Jakarta Sans"')
   })
   if (!ok) throw new Error('Plus Jakarta Sans not loaded')
@@ -78,7 +100,7 @@ await page.screenshot({ path: 'screenshots/home-desktop.png', fullPage: true })
 
 // ---- review pages ----
 for (const r of REVIEWS) {
-  await page.goto(`${BASE}${r.path}`, { waitUntil: 'networkidle' })
+  await open(`${BASE}${r.path}`)
   await check(`review/${r.slug}: URL is ${r.path}`, async () => {
     if (!page.url().endsWith(r.path)) throw new Error(`url is ${page.url()}`)
   })
@@ -119,7 +141,7 @@ for (const r of REVIEWS) {
 
 // ---- pagination page 2 ----
 if (TOTAL_PAGES > 1) {
-  await page.goto(`${BASE}/page/2`, { waitUntil: 'networkidle' })
+  await open(`${BASE}/page/2`)
   await check('page 2: renders remaining reviews', async () => {
     const n = await page.locator('.review-card').count()
     const expected = PAGINATED.length - PAGE_SIZE
@@ -143,14 +165,14 @@ if (TOTAL_PAGES > 1) {
 
 // ---- non-canonical URLs redirect to the review's own path ----
 for (const r of [REVIEWS[0], REVIEWS[1]]) {
-  await page.goto(`${BASE}/review/${r.slug}`, { waitUntil: 'networkidle' })
+  await open(`${BASE}/review/${r.slug}`)
   await check(`legacy /review/${r.slug} redirects to ${r.path}`, async () => {
     if (!page.url().endsWith(r.path)) throw new Error(`url is ${page.url()}`)
   })
 }
 
 // ---- scorecard bars are filled proportionally ----
-await page.goto(`${BASE}${REVIEWS[0].path}`, { waitUntil: 'networkidle' })
+await open(`${BASE}${REVIEWS[0].path}`)
 await check('article: scorecard bars have proportional widths', async () => {
   const widths = await page.$$eval('.scorecard__bar-fill', (els) =>
     els.map((el) => parseFloat(el.style.width)),
@@ -170,7 +192,7 @@ await check('article: canonical set to review URL', async () => {
 
 // ---- other routes ----
 for (const path of ['/about', '/privacy-policy', '/terms-of-use', '/risk-disclosure', '/advertising-disclosure', '/nope-404']) {
-  await page.goto(`${BASE}${path}`, { waitUntil: 'networkidle' })
+  await open(`${BASE}${path}`)
   await check(`route ${path}: renders`, async () => {
     const h1 = await page.locator('h1').first().innerText()
     if (!h1 || h1.length < 3) throw new Error('no h1')
@@ -184,7 +206,7 @@ await check('nav: no Contact link in header or footer', async () => {
   if (/contact/i.test(headerText)) throw new Error('header still links to Contact')
   if (/contact/i.test(footerText)) throw new Error('footer still links to Contact')
 })
-await page.goto(`${BASE}/contact`, { waitUntil: 'networkidle' })
+await open(`${BASE}/contact`)
 await check('route /contact: returns 404', async () => {
   const h1 = await page.locator('h1').first().innerText()
   if (!/spiked/i.test(h1)) throw new Error(`h1 was "${h1}"`)

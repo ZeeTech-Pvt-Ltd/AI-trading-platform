@@ -1,13 +1,14 @@
 // Rendaven review - copy written from rendaven.com's published material (scraped 2026-09-08).
 export default {
   slug: 'rendaven',
-  // Custom URL: /trading/rendaven (user-requested 2026-09-09). Other reviews
-  // default to /review/<slug>.
-  path: '/trading/rendaven',
+  // Custom URL: /trading/rendaven-review (user-requested 2026-09-09).
+  path: '/trading/rendaven-review',
   name: 'Rendaven',
   domain: 'rendaven.com',
   tagline: 'AI-Powered Crypto Trading Platform - Now in Australia',
-  headline: 'Rendaven Review 2026: Is This Trading Platform Legit?',
+  headline: 'Rendaven Review 2026: Can You Trust the 85% Accuracy Claim?',
+  // Indexed title can differ from the on-page H1.
+  seoTitle: 'Rendaven Review 2026: Is This Trading Platform Legit?',
   deck: 'Rendaven Review explores its trading features, platform safety, and user experience to help traders decide whether Rendaven is a legit trading platform.',
   date: 'Sep 8, 2026',
   readTime: '10 min read',

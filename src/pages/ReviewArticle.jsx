@@ -58,18 +58,21 @@ function initials(name) {
 export default function ReviewArticle() {
   const { slug } = useParams()
   const { pathname } = useLocation()
-  const review = getReview(slug)
+
+  // Match by exact path first (paths can carry a suffix like -review that
+  // differs from the slug); fall back to the slug for legacy /review/ URLs.
+  const review = REVIEWS.find((r) => r.path === pathname) || getReview(slug)
 
   useMeta({
     title: review ? review.seoTitle || review.headline : 'Review not found',
     description: review ? review.seoDescription || review.deck : null,
-    path: review ? review.path : null,
+    path: review ? review.path : pathname,
     appendSite: false,
   })
 
   if (!review) return <NotFound />
-  // Canonical URL: reviews with a custom path (e.g. Rendaven at /trading/)
-  // redirect here if opened through the default /review/ route - and vice versa.
+  // Canonical URL: legacy routes (e.g. /review/<slug> or an old path) redirect
+  // to the review's own path.
   if (pathname !== review.path) return <Navigate to={review.path} replace />
 
   const facts = [

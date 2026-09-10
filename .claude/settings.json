@@ -23,7 +23,11 @@
       "Bash(nslookup www.ai-trading-platform.com)",
       "Bash(curl -sI -m 20 https://ai-trading-platform.com/)",
       "Bash(curl -sI -m 20 http://ai-trading-platform.com/)",
-      "Bash(npx --no-install vercel --version)"
+      "Bash(npx --no-install vercel --version)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} in %{time_total}s\\\\n\" -m 10 http://localhost:5185/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} in %{time_total}s\\\\n\" -m 10 http://localhost:5185/trading/rendaven-review)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} in %{time_total}s\\\\n\" -m 10 http://localhost:5185/trading/lyra-vestgrove-review)",
+      "Bash(tasklist)"
     ],
     "additionalDirectories": [
       "C:\\Users\\samee\\.claude\\projects\\c--Users-samee\\memory"
