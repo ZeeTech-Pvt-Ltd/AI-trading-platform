@@ -7,7 +7,10 @@ export default {
   headline: 'Bright Kapitune Review 2026: Is “Australia’s Leading Crypto Platform” Legit?',
   // Indexed title can differ from the on-page H1.
   seoTitle: 'Bright Kapitune Review 2026: Is It Legit or a Scam?',
-  deck: 'Explore our Bright Kapitune review, covering its trading features, platform experience, safety, and key details to help you decide if it is legit or a scam.',
+  deck: '“Australia’s home for crypto trading” publishes a minimum deposit of A$347, a 4.7/5 community rating and a compliance promise. Here is what we found behind each one.',
+  // Indexed description can differ from the on-page paragraph.
+  seoDescription:
+    'Explore our Bright Kapitune review, covering its trading features, platform experience, safety, and key details to help you decide if it is legit or a scam.',
   date: 'Sep 7, 2026',
   readTime: '10 min read',
   byline: 'Jesse Livermore',

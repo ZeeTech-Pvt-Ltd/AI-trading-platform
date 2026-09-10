@@ -9,7 +9,10 @@ export default {
   headline: 'Rendaven Review 2026: Can You Trust the 85% Accuracy Claim?',
   // Indexed title can differ from the on-page H1.
   seoTitle: 'Rendaven Review 2026: Is This Trading Platform Legit?',
-  deck: 'Rendaven Review explores its trading features, platform safety, and user experience to help traders decide whether Rendaven is a legit trading platform.',
+  deck: 'Rendaven publishes more numbers than most - an 85% accuracy claim, a cold-storage figure and a public earnings calculator. We went through all of them.',
+  // Indexed description can differ from the on-page paragraph.
+  seoDescription:
+    'Rendaven Review explores its trading features, platform safety, and user experience to help traders decide whether Rendaven is a legit trading platform.',
   date: 'Sep 8, 2026',
   readTime: '10 min read',
   byline: 'George Soros',
