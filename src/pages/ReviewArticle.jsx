@@ -22,6 +22,11 @@ function ArticleJsonLd({ review }) {
     script.textContent = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Review',
+      headline: review.headline,
+      description: review.seoDescription || review.deck,
+      inLanguage: 'en-AU',
+      image: `${SITE.url}og-image.png`,
+      mainEntityOfPage: `${SITE.url}${review.path.replace(/^\//, '')}`,
       itemReviewed: {
         '@type': 'Product',
         name: review.name,
@@ -36,10 +41,44 @@ function ArticleJsonLd({ review }) {
       author: { '@type': 'Person', name: review.byline },
       publisher: { '@type': 'Organization', name: SITE.name },
       datePublished: review.isoDate,
+      dateModified: review.isoDate,
     })
     document.head.appendChild(script)
     return () => {
       const el = document.getElementById('review-jsonld')
+      if (el) el.remove()
+    }
+  }, [review])
+  return null
+}
+
+function BreadcrumbJsonLd({ review }) {
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.id = 'breadcrumb-jsonld'
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Reviews',
+          item: `${SITE.url}#reviews`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: review.name,
+          item: `${SITE.url}${review.path.replace(/^\//, '')}`,
+        },
+      ],
+    })
+    document.head.appendChild(script)
+    return () => {
+      const el = document.getElementById('breadcrumb-jsonld')
       if (el) el.remove()
     }
   }, [review])
@@ -68,6 +107,7 @@ export default function ReviewArticle() {
     description: review ? review.seoDescription || review.deck : null,
     path: review ? review.path : pathname,
     appendSite: false,
+    author: review ? review.byline : null,
   })
 
   if (!review) return <NotFound />
@@ -93,6 +133,7 @@ export default function ReviewArticle() {
   return (
     <>
       <ArticleJsonLd review={review} />
+      <BreadcrumbJsonLd review={review} />
 
       <article className="article-head">
         <div className="container">

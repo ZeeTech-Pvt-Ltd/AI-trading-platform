@@ -15,7 +15,7 @@ function upsertMeta(attr, key, content) {
 // Per-route SEO: title, description, canonical, Open Graph and Twitter tags.
 // appendSite=false skips the "| AI Trading Platform Reviews" suffix (used on
 // review pages, where the platform name already carries the keyword).
-export default function useMeta({ title, description, path, appendSite = true }) {
+export default function useMeta({ title, description, path, appendSite = true, author }) {
   useEffect(() => {
     const fullTitle = title
       ? appendSite
@@ -28,16 +28,20 @@ export default function useMeta({ title, description, path, appendSite = true })
     const url = `${SITE.url}${(path || '').replace(/^\//, '')}`
 
     upsertMeta('name', 'description', desc)
+    if (author) upsertMeta('name', 'author', author)
     upsertMeta('property', 'og:title', fullTitle)
     upsertMeta('property', 'og:description', desc)
     upsertMeta('property', 'og:url', url)
     upsertMeta('property', 'og:type', 'website')
     upsertMeta('property', 'og:site_name', SITE.name)
     upsertMeta('property', 'og:image', `${SITE.url}og-image.png`)
+    upsertMeta('property', 'og:image:width', '1200')
+    upsertMeta('property', 'og:image:height', '630')
     upsertMeta('name', 'twitter:card', 'summary_large_image')
     upsertMeta('name', 'twitter:title', fullTitle)
     upsertMeta('name', 'twitter:description', desc)
     upsertMeta('name', 'twitter:image', `${SITE.url}og-image.png`)
+    upsertMeta('name', 'twitter:image:alt', SITE.name)
 
     let canonical = document.head.querySelector('link[rel="canonical"]')
     if (!canonical) {
