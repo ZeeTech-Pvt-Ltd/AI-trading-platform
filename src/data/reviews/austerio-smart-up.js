@@ -4,7 +4,11 @@ export default {
   name: 'Austerio Smart Up',
   domain: 'austeriosmart-up.com',
   tagline: 'AI-Powered Automated Trading Platform in Australia',
-  headline: 'Austerio Smart Up Review 2026: Three Clicks to Your First Trade - Worth It?',
+  headline: 'Austerio Smart Up Review 2026: Exploring Its Features, Benefits & Risks',
+  // Indexed title and description can differ from the on-page copy.
+  seoTitle: 'Austerio Smart Up Review 2026: The Truth You Should Know',
+  seoDescription:
+    'Discover our Austerio Smart Up review to learn how this AI trading platform works, its key features, potential risks, and whether it may be worth trying!',
   deck: 'Austerio Smart Up promises a three-click path to automated trading for Australians, with 4M+ users, a 4.8 community score and AU$250 to start. We checked each claim against what the site actually publishes.',
   date: 'Sep 4, 2026',
   readTime: '10 min read',
