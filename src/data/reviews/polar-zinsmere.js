@@ -4,7 +4,11 @@ export default {
   name: 'Polar Zinsmere',
   domain: 'polar-zinsmere.com',
   tagline: 'Automated Investing Platform Australia',
-  headline: 'Polar Zinsmere Review 2026: Is the $250 Robo-Advisor Retirement-Ready?',
+  headline: 'Polar Zinsmere Review 2026: An In-Depth Look at the Trading Platform',
+  // Indexed title and description can differ from the on-page copy.
+  seoTitle: 'Polar Zinsmere Review 2026: Legit Trading Platform or Scam?',
+  seoDescription:
+    'Polar Zinsmere Review 2026: Explore its features, trading tools, and platform claims to see what traders should know before deciding whether it’s worth trying.',
   deck: 'Polar Zinsmere sells goal-based automated portfolios rather than raw trading speed - and it publishes the strongest risk language we have seen in this segment. The review, in full.',
   date: 'Sep 5, 2026',
   readTime: '10 min read',
