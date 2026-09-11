@@ -4,7 +4,11 @@ export default {
   name: 'Dorivo',
   domain: 'dorivo-au.net',
   tagline: 'Market Intelligence, Engineered for Speed',
-  headline: 'Dorivo Review 2026: The Trading Toolkit That Never Touches Your Money',
+  headline: 'Is Dorivo Legit? A Complete Trading Platform Review',
+  // Indexed title and description can differ from the on-page copy.
+  seoTitle: 'Dorivo Review: The Truth About This Trading Platform 2026',
+  seoDescription:
+    'Explore our Dorivo review to uncover its trading features, benefits, risks, and key facts, helping you decide if this platform is worth trying in 2026.',
   deck: 'Dorivo is not a trading platform in the usual sense - it is a market-intelligence toolkit that plugs into your existing broker. That changes the questions we asked, and the answers matter.',
   date: 'Sep 2, 2026',
   readTime: '9 min read',
