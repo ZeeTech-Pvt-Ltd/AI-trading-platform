@@ -38,7 +38,7 @@ export default function ArticlePage({ post }: { post: Post }) {
         <section className="btt-related" aria-label="More platform reviews">
           <div className="btt-related__inner">
             <h2 className="btt-related__title">More Platform Reviews</h2>
-            <div className="btt-stream__grid btt-stream__grid--1">
+            <div className="btt-stream__grid btt-stream__grid--2">
               {getRelatedCards('trading', post.slug, 6).map((c) => (
                 <PostCard key={`${c.type}/${c.slug}`} card={c} />
               ))}

@@ -65,7 +65,7 @@ export default function HomePage() {
       </section>
 
       <div className="lucky-container btt-home__container">
-        <PostStream cards={pages[0]} featured columns={1} />
+        <PostStream cards={pages[0]} featured columns={2} />
         <Pagination current={1} total={pages.length} base="" />
       </div>
     </main>

@@ -11,7 +11,7 @@ export default function Archive({
   total,
   base,
   featured = false,
-  columns = 1,
+  columns = 2,
 }: {
   cards: Card[];
   kicker: string;

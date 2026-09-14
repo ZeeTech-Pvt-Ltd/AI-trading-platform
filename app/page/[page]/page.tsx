@@ -40,7 +40,7 @@ export default async function HomePageNumbered({
   return (
     <main id="primary" className="lucky-site-main btt-home">
       <div className="lucky-container btt-home__container">
-        <PostStream cards={cards} columns={1} />
+        <PostStream cards={cards} columns={2} />
         <Pagination current={n} total={pages.length} base="" />
       </div>
     </main>
