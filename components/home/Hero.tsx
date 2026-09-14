@@ -1,4 +1,4 @@
-import { getAllCards, type Card } from '@/lib/data';
+import { getAllCards, cardDate } from '@/lib/data';
 import { formatDate } from '@/lib/format';
 import Section from './Section';
 
@@ -20,8 +20,7 @@ function latestReviewDate(): string {
   const cards = getAllCards();
   let latest = '';
   for (const card of cards) {
-    const modified = (card as Card & { dateModified?: string }).dateModified;
-    const d = modified ?? card.date;
+    const d = cardDate(card);
     if (d && (!latest || d > latest)) latest = d;
   }
   return latest;

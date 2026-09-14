@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+export type Verdict = 'safe' | 'warn' | 'risk' | 'na';
+
 export type Card = {
   type: 'trading' | 'bitcoin';
   slug: string;
@@ -10,6 +12,16 @@ export type Card = {
   authorSlug: string;
   date: string;
   readingTime: string;
+  /** Per-review modification date; not present in the current content (falls back to `date`). */
+  dateModified?: string;
+  /** Editorial verdict; not present in the current content. */
+  verdict?: Verdict;
+  /** Markets the platform accepts; not present in the current content. */
+  markets?: string[];
+  /** Single main reason for a high-risk flag; not present in the current content. */
+  riskReason?: string;
+  /** ISO date the review was last checked/verified; not present in the current content. */
+  lastChecked?: string;
 };
 
 export type Post = {
@@ -87,6 +99,20 @@ export function getAllPostSlugs(type: string): string[] {
 
 export function getAllCards(): Card[] {
   return getManifest().homePages.flat();
+}
+
+/** The per-review freshness date: `dateModified` when present, else publish `date`. */
+export function cardDate(card: Card): string {
+  return card.dateModified ?? card.date;
+}
+
+// "Quantum Investir Review: Honest Analysis Before You Register" -> "Quantum Investir"
+const BRAND_RE = /^(.+?)\s+Review:/;
+
+/** Bare brand name — the title text before " Review:". */
+export function brandName(title: string): string {
+  const m = title.match(BRAND_RE);
+  return m ? m[1].trim() : title;
 }
 
 export function getTypePages(type: 'trading' | 'bitcoin'): Card[][] {
