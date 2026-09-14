@@ -1,15 +1,15 @@
 /* ==========================================================================
    AI Trading Platform — Design System
-   Editorial blog + reviews site. Clean white, gold accent,
+   Editorial blog + reviews site. Clean neutral surface, navy accent,
    serif long-form reading, crisp sans UI.
    ========================================================================== */
 
 :root {
-	/* Brand — Gold */
-	--brand: #d4a017;
-	--brand-strong: #9a6e0a;
-	--brand-soft: #fcf4dc;
-	--brand-ink: #7a5606;
+	/* Brand — Navy */
+	--brand: #12355B;
+	--brand-strong: #0B2438;
+	--brand-soft: #E8EEF5;
+	--brand-ink: #0B2438;
 
 	/* Warm neutrals (stone) */
 	--ink: #1c1917;
@@ -17,9 +17,16 @@
 	--muted: #78716c;
 	--line: #e7e5e4;
 	--line-strong: #d6d3d1;
-	--surface: #ffffff;
+	--surface: #F6F7F9;
 	--surface-2: #fafaf9;
 	--surface-3: #f5f5f4;
+
+	/* Editorial tokens */
+	--text-ink: #151A21;
+	--text-muted: #5B6472;
+	--border: #E3E6EB;
+	--brand-link: #12355B;
+	--brand-link-hover: #0B2438;
 
 	/* Semantic */
 	--ok: #16a34a;
@@ -27,6 +34,20 @@
 	--bad: #dc2626;
 	--bad-soft: #fef2f2;
 	--star: #f59e0b;
+
+	/* Verdict tokens (safe / warn / risk / n/a) + bg/text variants */
+	--verdict-safe: #0F7B4F;
+	--verdict-safe-bg: #E6F3EC;
+	--verdict-safe-text: #0F7B4F;
+	--verdict-warn: #B26A00;
+	--verdict-warn-bg: #FBF1E2;
+	--verdict-warn-text: #8A5200;
+	--verdict-risk: #B3261E;
+	--verdict-risk-bg: #FBE9E7;
+	--verdict-risk-text: #8C1D18;
+	--verdict-na: #5B6472;
+	--verdict-na-bg: #ECEEF1;
+	--verdict-na-text: #5B6472;
 
 	/* Type */
 	--font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -2441,4 +2462,89 @@ body:has(.bd-review) {
 	.btt-compare__proscons {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* ==========================================================================
+   Homepage shell - ten named section slots (populated in later prompts)
+   ========================================================================== */
+
+:root {
+	--home-container: 1100px;                  /* max content width */
+	--home-measure: 68ch;                      /* body text measure (68-72 chars) */
+	--home-space: clamp(2.5rem, 5vw, 4.5rem);  /* vertical rhythm between sections */
+}
+
+.home-section {
+	padding-block: var(--home-space);
+}
+
+.home-container {
+	max-width: var(--home-container);
+	margin-inline: auto;
+	padding-inline: clamp(16px, 4vw, 24px);
+}
+
+.home-measure {
+	max-width: var(--home-measure);
+}
+
+/* ==========================================================================
+   Homepage - disclosure strip (above the H1, permanent furniture)
+   ========================================================================== */
+.home-section--disclosure {
+	background: var(--surface);
+	padding-block: 12px;
+	border-bottom: 1px solid var(--border);
+}
+
+.home-disclosure {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--text-muted);
+}
+
+.home-disclosure a {
+	color: var(--brand-link);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	text-decoration-thickness: 1px;
+}
+
+.home-disclosure a:hover,
+.home-disclosure a:focus-visible {
+	color: var(--brand-link-hover);
+}
+
+/* ==========================================================================
+   Homepage - hero (headline + positioning + freshness; no imagery, no CTA)
+   ========================================================================== */
+.home-section--hero {
+	padding-block-start: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.home-hero__title {
+	margin: 0;
+	max-width: var(--home-measure);
+	font-family: var(--font-serif);
+	font-size: clamp(2.125rem, 4.5vw, 3.25rem);
+	line-height: 1.1;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+	color: var(--text-ink);
+}
+
+.home-hero__positioning {
+	margin: 1rem 0 0;
+	max-width: var(--home-measure);
+	font-size: 1.125rem;
+	line-height: 1.6;
+	color: var(--text-muted);
+}
+
+.home-hero__updated {
+	margin: 2rem 0 0;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	color: var(--text-muted);
 }
