@@ -82,7 +82,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const card of getAllCards()) {
     entries.push({
       url: `${site.url}/${card.type}/${card.slug}`,
-      lastModified: card.date ? new Date(card.date) : now,
+      lastModified: card.dateModified
+        ? new Date(card.dateModified)
+        : card.date
+          ? new Date(card.date)
+          : now,
       changeFrequency: 'monthly',
       priority: card.type === 'trading' ? 0.8 : 0.6,
     });

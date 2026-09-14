@@ -5,6 +5,7 @@ import PostCard from '@/components/PostCard';
 export const metadata: Metadata = {
   title: 'Search',
   alternates: { canonical: '/search' },
+  robots: { index: false },
 };
 
 export default async function SearchPage({
