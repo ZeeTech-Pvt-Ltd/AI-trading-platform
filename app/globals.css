@@ -702,6 +702,11 @@ input[type="reset"],
 	gap: 24px 20px;
 }
 
+.btt-stream__grid.btt-stream__grid--1 {
+	grid-template-columns: 1fr;
+	gap: 16px;
+}
+
 .btt-card {
 	display: flex;
 	flex-direction: column;

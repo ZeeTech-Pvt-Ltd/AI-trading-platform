@@ -21,7 +21,6 @@ export default function ArticlesPage() {
       total={pages.length}
       base="/articles"
       featured
-      columns={2}
     />
   );
 }

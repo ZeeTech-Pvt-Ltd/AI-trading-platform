@@ -11,7 +11,7 @@ export default function Archive({
   total,
   base,
   featured = false,
-  columns = 3,
+  columns = 1,
 }: {
   cards: Card[];
   kicker: string;
@@ -21,7 +21,7 @@ export default function Archive({
   total: number;
   base: string;
   featured?: boolean;
-  columns?: 2 | 3;
+  columns?: 1 | 2 | 3;
 }) {
   return (
     <main id="primary" className="lucky-site-main btt-home">
