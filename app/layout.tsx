@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: site.locale,
     url: site.url,
     siteName: site.name,
     title: site.name,
@@ -82,6 +82,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             url: site.url,
             logo: `${site.url}${site.logo}`,
             sameAs: [site.twitter],
+          })}
+        />
+        <JsonLd
+          data={JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            '@id': `${site.url}/#website`,
+            url: site.url,
+            name: site.name,
+            inLanguage: 'en',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: {
+                '@type': 'EntryPoint',
+                urlTemplate: `${site.url}/search?q={search_term_string}`,
+              },
+              'query-input': 'required name=search_term_string',
+            },
           })}
         />
       </body>

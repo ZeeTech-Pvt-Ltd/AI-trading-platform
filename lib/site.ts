@@ -4,6 +4,8 @@ export const site = {
   description:
     'Independent, fact-checked reviews of AI and crypto trading platforms — what’s real, what to avoid, and how to register safely.',
   url: 'https://ai-trading-platform.com',
+  // Primary market locale for og:locale. Adjust to your main market (en_US, en_AU, …).
+  locale: 'en_GB',
   twitter: 'https://twitter.com/aitradingplfrm',
   logo: '/images/2026/07/ai-trading-platform-logo.png',
 } as const;

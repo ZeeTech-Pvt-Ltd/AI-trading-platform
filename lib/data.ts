@@ -9,6 +9,8 @@ export type Card = {
   author: string;
   authorSlug: string;
   date: string;
+  /** Last-modified date, when known. Absent in current content (falls back to `date`). */
+  dateModified?: string;
   readingTime: string;
 };
 
@@ -20,6 +22,8 @@ export type Post = {
   author: string;
   authorSlug: string;
   date: string;
+  /** Last-modified date, when known. Absent in current content (falls back to `date`). */
+  dateModified?: string;
   readingTime: string;
   categories: string[];
   excerpt: string;

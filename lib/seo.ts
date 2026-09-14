@@ -19,12 +19,13 @@ export function postMetadata(post: Post): Metadata {
     alternates: { canonical: url },
     openGraph: {
       type: 'article',
-      locale: 'en_US',
+      locale: site.locale,
       url,
       siteName: site.name,
       title: post.title,
       description,
       publishedTime: post.date || undefined,
+      modifiedTime: post.dateModified || post.date || undefined,
       ...(post.author ? { authors: [post.author] } : {}),
       images: [image],
     },
@@ -34,6 +35,11 @@ export function postMetadata(post: Post): Metadata {
       description,
       images: [ogImage],
     },
-    other: post.date ? { 'article:published_time': post.date } : undefined,
+    other: post.date
+      ? {
+          'article:published_time': post.date,
+          'article:modified_time': post.dateModified || post.date,
+        }
+      : undefined,
   };
 }

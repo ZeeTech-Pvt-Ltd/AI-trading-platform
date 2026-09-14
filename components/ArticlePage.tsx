@@ -1,5 +1,6 @@
 import type { Post } from '@/lib/data';
 import { getRelatedCards } from '@/lib/data';
+import { enrichJsonLd } from '@/lib/schema';
 import Byline from './Byline';
 import JsonLd from './JsonLd';
 import PostCard from './PostCard';
@@ -45,8 +46,12 @@ export default function ArticlePage({ post }: { post: Post }) {
           </div>
         </section>
       ) : null}
-      {post.jsonLd ? <JsonLd data={post.jsonLd} /> : null}
-      {post.reviewJsonLd ? <JsonLd data={post.reviewJsonLd} /> : null}
+      {post.jsonLd ? (
+        <JsonLd data={enrichJsonLd(post.jsonLd, post.dateModified ?? post.date)} />
+      ) : null}
+      {post.reviewJsonLd ? (
+        <JsonLd data={enrichJsonLd(post.reviewJsonLd, post.dateModified ?? post.date)} />
+      ) : null}
     </main>
   );
 }
