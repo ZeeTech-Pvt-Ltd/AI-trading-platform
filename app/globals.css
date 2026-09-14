@@ -486,8 +486,8 @@ input[type="reset"],
 
 .btt-hero {
 	position: relative;
-	background: radial-gradient(900px 420px at 78% -20%, rgba(212, 167, 23, 0.16), transparent 60%),
-		radial-gradient(700px 380px at 12% 120%, rgba(212, 167, 23, 0.06), transparent 60%),
+	background: radial-gradient(900px 420px at 78% -20%, rgba(184, 76, 14, 0.16), transparent 60%),
+		radial-gradient(700px 380px at 12% 120%, rgba(184, 76, 14, 0.06), transparent 60%),
 		var(--ink);
 	color: #fff;
 	overflow: hidden;
@@ -529,7 +529,7 @@ input[type="reset"],
 	height: 8px;
 	border-radius: 50%;
 	background: var(--brand);
-	box-shadow: 0 0 0 4px rgba(212, 167, 23, 0.2);
+	box-shadow: 0 0 0 4px rgba(184, 76, 14, 0.2);
 }
 
 .btt-hero__title {
@@ -748,6 +748,83 @@ input[type="reset"],
 	color: var(--brand-strong);
 }
 
+/* Card head — monogram logo + title + rating */
+.btt-card__head {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-bottom: 14px;
+}
+
+.btt-card__head-text {
+	flex: 1;
+	min-width: 0;
+}
+
+.btt-card__head .btt-card__title {
+	margin: 0;
+}
+
+.btt-card__logo {
+	flex-shrink: 0;
+	width: 42px;
+	height: 42px;
+	border-radius: 11px;
+	display: grid;
+	place-items: center;
+	font-size: 19px;
+	font-weight: 800;
+	line-height: 1;
+	color: #fff;
+	background:
+		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
+		linear-gradient(135deg, #d06a24 0%, var(--brand) 52%, var(--brand-strong) 100%);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), var(--shadow-sm);
+}
+
+.btt-card__logo--bitcoin {
+	background:
+		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
+		linear-gradient(135deg, #ffb347 0%, #f7931a 52%, #e07c00 100%);
+}
+
+.btt-rating {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	margin-top: 6px;
+	line-height: 1;
+}
+
+.btt-stars {
+	position: relative;
+	display: inline-block;
+	font-size: 13px;
+	letter-spacing: 1.5px;
+	line-height: 1;
+	color: var(--line-strong);
+}
+
+.btt-stars__fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	color: var(--star);
+}
+
+.btt-rating__value {
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--ink);
+}
+
+.btt-rating__max {
+	font-size: 12px;
+	color: var(--muted);
+}
+
 .btt-card__excerpt {
 	margin: 0 0 16px;
 	font-size: 15px;
@@ -828,7 +905,7 @@ input[type="reset"],
 /* Featured lead card */
 .btt-card--featured {
 	background:
-		radial-gradient(640px 220px at 92% -20%, rgba(212, 167, 23, 0.12), transparent 60%),
+		radial-gradient(640px 220px at 92% -20%, rgba(184, 76, 14, 0.12), transparent 60%),
 		var(--surface);
 	border: 1px solid var(--line);
 	border-radius: var(--radius-lg);
@@ -844,7 +921,7 @@ input[type="reset"],
 	font-size: 132px;
 	line-height: 1;
 	font-weight: 800;
-	color: rgba(212, 167, 23, 0.10);
+	color: rgba(184, 76, 14, 0.10);
 	pointer-events: none;
 	user-select: none;
 }
@@ -866,6 +943,13 @@ input[type="reset"],
 	font-size: 17px;
 	-webkit-line-clamp: 3;
 	max-width: 60ch;
+}
+
+.btt-card--featured .btt-card__logo {
+	width: 48px;
+	height: 48px;
+	border-radius: 12px;
+	font-size: 22px;
 }
 
 @media (max-width: 900px) {
@@ -1134,7 +1218,7 @@ input[type="reset"],
 
 .btt-article__content a {
 	text-decoration: underline;
-	text-decoration-color: rgba(212, 167, 23, 0.4);
+	text-decoration-color: rgba(184, 76, 14, 0.4);
 	text-underline-offset: 3px;
 }
 

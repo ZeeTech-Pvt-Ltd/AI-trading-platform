@@ -12,6 +12,8 @@ export type Card = {
   /** Last-modified date, when known. Absent in current content (falls back to `date`). */
   dateModified?: string;
   readingTime: string;
+  /** Review score (trading cards only), e.g. "4.6". Absent on bitcoin guides. */
+  ratingValue?: string;
 };
 
 export type Post = {
