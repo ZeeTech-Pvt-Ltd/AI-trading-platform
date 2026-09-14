@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // trust / informational pages
   for (const [path, priority] of [
     ['/about', 0.6],
+    ['/authors', 0.5],
     ['/how-we-review', 0.6],
     ['/contact', 0.4],
     ['/affiliate-disclosure', 0.3],
