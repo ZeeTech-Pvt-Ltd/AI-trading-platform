@@ -557,6 +557,39 @@ input[type="reset"],
 	gap: 12px;
 }
 
+.btt-hero__stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 44px;
+	row-gap: 18px;
+	list-style: none;
+	margin: 0 0 34px;
+	padding: 0;
+}
+
+.btt-hero__stat {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.btt-hero__statValue {
+	font-family: var(--font-serif);
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	color: #fff;
+}
+
+.btt-hero__statLabel {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.58);
+}
+
 .btt-hero__pill {
 	display: inline-flex;
 	align-items: center;
