@@ -22,12 +22,17 @@ export default function Header() {
                 rel="home"
                 title={site.name}
               >
-                <span className="btt-wordmark">
-                  <span className="btt-wordmark__check" aria-hidden="true">
-                    ✓
+                <span className="btt-brand__text">
+                  <span className="btt-wordmark">
+                    <span className="btt-wordmark__check" aria-hidden="true">
+                      ✓
+                    </span>
+                    <span>AI Trading</span>
+                    <span className="btt-wordmark__accent">Platform</span>
                   </span>
-                  <span>AI Trading</span>
-                  <span className="btt-wordmark__accent">Platform</span>
+                  <span className="btt-brand__tagline">
+                    reviews | legit or scam
+                  </span>
                 </span>
               </Link>
             </div>
