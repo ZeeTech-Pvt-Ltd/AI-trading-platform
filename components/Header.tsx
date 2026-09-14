@@ -31,7 +31,7 @@ export default function Header() {
                     <span className="btt-wordmark__accent">Platform</span>
                   </span>
                   <span className="btt-brand__tagline">
-                    reviews | legit or scam
+                    verified &amp; honest reviews
                   </span>
                 </span>
               </Link>

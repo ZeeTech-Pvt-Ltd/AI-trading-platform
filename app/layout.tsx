@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter, Lora } from 'next/font/google';
 import { site } from '@/lib/site';
 import Header from '@/components/Header';
@@ -26,6 +27,9 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description: site.description,
+  verification: {
+    google: 'znb9VHSilk0tpuBhwCkibH75Z7qik86PAAbTe0NKUUw',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -102,6 +106,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             },
           })}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-3Z5WCJNG8C"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3Z5WCJNG8C');`}
+        </Script>
       </body>
     </html>
   );
