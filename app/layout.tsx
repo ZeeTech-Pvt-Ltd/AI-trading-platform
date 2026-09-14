@@ -1,0 +1,87 @@
+import type { Metadata } from 'next';
+import { Inter, Lora } from 'next/font/google';
+import { site } from '@/lib/site';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import JsonLd from '@/components/JsonLd';
+import './globals.css';
+
+const lora = Lora({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-lora',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  title: {
+    default: site.name,
+    template: '%s',
+  },
+  description: site.description,
+  icons: {
+    icon: '/images/2026/07/cropped-1_UXuKD8J-lBcPO1cbHLxW_g.webp',
+    shortcut: '/images/2026/07/cropped-1_UXuKD8J-lBcPO1cbHLxW_g.webp',
+    apple: '/images/2026/07/cropped-1_UXuKD8J-lBcPO1cbHLxW_g-180x180.webp',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: site.url,
+    siteName: site.name,
+    title: site.name,
+    description: site.description,
+    images: [
+      {
+        url: `${site.url}/images/2026/07/og-default.png`,
+        width: 1200,
+        height: 630,
+        alt: site.name,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: site.name,
+    description: site.description,
+    images: [`${site.url}/images/2026/07/og-default.png`],
+  },
+  alternates: {
+    types: {
+      'application/rss+xml': `${site.url}/feed.xml`,
+    },
+  },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en-US" className={`${lora.variable} ${inter.variable}`}>
+      <body>
+        <div id="page" className="lucky-site">
+          <Header />
+          <div id="content" className="lucky-site-content">
+            {children}
+          </div>
+          <Footer />
+        </div>
+        <JsonLd
+          data={JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: site.name,
+            url: site.url,
+            logo: `${site.url}${site.logo}`,
+            sameAs: [site.twitter],
+          })}
+        />
+      </body>
+    </html>
+  );
+}

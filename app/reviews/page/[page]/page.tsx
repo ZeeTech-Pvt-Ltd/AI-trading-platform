@@ -1,0 +1,49 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { site } from '@/lib/site';
+import { getTypePages } from '@/lib/data';
+import Archive from '@/components/Archive';
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getTypePages('trading')
+    .slice(1)
+    .map((_, i) => ({ page: String(i + 2) }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ page: string }>;
+}): Promise<Metadata> {
+  const { page } = await params;
+  return {
+    title: `Crypto Platform Reviews — Page ${page}`,
+    description: `Independent, fact-checked crypto trading platform reviews on ${site.name} — Page ${page}.`,
+    alternates: { canonical: `/reviews/page/${page}` },
+  };
+}
+
+export default async function ReviewsNumbered({
+  params,
+}: {
+  params: Promise<{ page: string }>;
+}) {
+  const { page } = await params;
+  const pages = getTypePages('trading');
+  const n = Number.parseInt(page, 10);
+  if (Number.isNaN(n) || n < 2 || n > pages.length) notFound();
+
+  return (
+    <Archive
+      cards={pages[n - 1]}
+      kicker="Reviews"
+      title={`Crypto Platform Reviews — Page ${n}`}
+      description="Independent, fact-checked reviews of crypto trading platforms."
+      current={n}
+      total={pages.length}
+      base="/reviews"
+    />
+  );
+}
