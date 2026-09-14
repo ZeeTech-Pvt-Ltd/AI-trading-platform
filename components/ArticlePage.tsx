@@ -1,20 +1,32 @@
 import type { Post } from '@/lib/data';
 import { getRelatedCards } from '@/lib/data';
 import { enrichJsonLd } from '@/lib/schema';
+import { buildToc } from '@/lib/toc';
 import Byline from './Byline';
+import Breadcrumbs from './Breadcrumbs';
 import JsonLd from './JsonLd';
 import PostCard from './PostCard';
+import TableOfContents from './TableOfContents';
 
 export default function ArticlePage({ post }: { post: Post }) {
   const classes = ['btt-article', 'hentry', ...post.categories.map((c) => `category-${c}`)].join(
     ' ',
   );
 
+  const isTrading = post.type === 'trading';
+  const kicker = isTrading ? 'Platform Review' : 'Bitcoin Article';
+  const section = isTrading ? 'Reviews' : 'Articles';
+  const sectionHref = isTrading ? '/reviews' : '/articles';
+  const { items: tocItems, html } = buildToc(post.content);
+
   return (
     <main id="primary" className="lucky-site-main btt-single">
       <article className={classes}>
         <div className="btt-article__inner">
+          <Breadcrumbs section={section} sectionHref={sectionHref} title={post.title} />
+
           <header className="btt-article__header">
+            <p className="btt-article__kicker">{kicker}</p>
             <h1 className="btt-article__title">{post.title}</h1>
             <Byline
               author={post.author}
@@ -28,9 +40,11 @@ export default function ArticlePage({ post }: { post: Post }) {
             <div className="btt-excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
           ) : null}
 
+          <TableOfContents items={tocItems} label={isTrading ? 'In this review' : 'In this article'} />
+
           <div
             className="btt-article__content lucky-entry-content"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: html }}
           />
         </div>
       </article>
