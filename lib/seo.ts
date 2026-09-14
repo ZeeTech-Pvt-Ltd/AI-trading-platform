@@ -14,7 +14,7 @@ export function postMetadata(post: Post): Metadata {
   const image = { url: ogImage, width: 1200, height: 630, alt: post.title };
 
   return {
-    title: post.title,
+    title: `${post.title} | ${site.name}`,
     description,
     alternates: { canonical: url },
     openGraph: {
