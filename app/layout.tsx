@@ -27,9 +27,12 @@ export const metadata: Metadata = {
   },
   description: site.description,
   icons: {
-    icon: '/images/2026/07/cropped-1_UXuKD8J-lBcPO1cbHLxW_g.webp',
-    shortcut: '/images/2026/07/cropped-1_UXuKD8J-lBcPO1cbHLxW_g.webp',
-    apple: '/images/2026/07/cropped-1_UXuKD8J-lBcPO1cbHLxW_g-180x180.webp',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     type: 'website',
