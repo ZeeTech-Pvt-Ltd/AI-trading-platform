@@ -540,7 +540,7 @@ input[type="reset"],
 	line-height: 1.05;
 	letter-spacing: -0.03em;
 	color: #fff;
-	max-width: 14ch;
+	white-space: nowrap;
 }
 
 .btt-hero__tagline {
@@ -632,7 +632,7 @@ input[type="reset"],
 	}
 
 	.btt-hero__title {
-		font-size: 40px;
+		font-size: clamp(28px, 9vw, 40px);
 	}
 
 	.btt-home__container {
