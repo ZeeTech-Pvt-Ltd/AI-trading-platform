@@ -1,15 +1,15 @@
 /* ==========================================================================
    AI Trading Platform — Design System
-   Editorial blog + reviews site. Clean white, gold accent,
+   Editorial blog + reviews site. Clean white, burnt-orange accent,
    serif long-form reading, crisp sans UI.
    ========================================================================== */
 
 :root {
-	/* Brand — Gold */
-	--brand: #d4a017;
-	--brand-strong: #9a6e0a;
-	--brand-soft: #fcf4dc;
-	--brand-ink: #7a5606;
+	/* Brand — Burnt orange */
+	--brand: #b84c0e;
+	--brand-strong: #8f3b0a;
+	--brand-soft: #fbefe8;
+	--brand-ink: #6e2d05;
 
 	/* Warm neutrals (stone) */
 	--ink: #1c1917;
