@@ -18,10 +18,10 @@ const POSTS_PER_PAGE = 10;
 
 const NEW_AUTHORS = [
   { slug: 'danielcarter', name: 'Daniel Carter', initial: 'D', color: '#b84c0e' },
-  { slug: 'jameswhitmore', name: 'James Whitmore', initial: 'J', color: '#0e7490' },
-  { slug: 'oliviabennett', name: 'Olivia Bennett', initial: 'O', color: '#7c3aed' },
-  { slug: 'michaelbrooks', name: 'Michael Brooks', initial: 'M', color: '#15803d' },
-  { slug: 'sophiareynolds', name: 'Sophia Reynolds', initial: 'S', color: '#be185d' },
+  { slug: 'jameswhitmore', name: 'James Whitmore', initial: 'J', color: '#b84c0e' },
+  { slug: 'oliviabennett', name: 'Olivia Bennett', initial: 'O', color: '#b84c0e' },
+  { slug: 'michaelbrooks', name: 'Michael Brooks', initial: 'M', color: '#b84c0e' },
+  { slug: 'sophiareynolds', name: 'Sophia Reynolds', initial: 'S', color: '#b84c0e' },
 ];
 
 const manifestPath = 'content/manifest.json';
