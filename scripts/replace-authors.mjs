@@ -17,11 +17,11 @@ const SITE_URL = 'https://ai-trading-platform.com';
 const POSTS_PER_PAGE = 10;
 
 const NEW_AUTHORS = [
-  { slug: 'danielcarter', name: 'Daniel Carter', initial: 'D', color: '#b84c0e' },
-  { slug: 'jameswhitmore', name: 'James Whitmore', initial: 'J', color: '#b84c0e' },
-  { slug: 'oliviabennett', name: 'Olivia Bennett', initial: 'O', color: '#b84c0e' },
-  { slug: 'michaelbrooks', name: 'Michael Brooks', initial: 'M', color: '#b84c0e' },
-  { slug: 'sophiareynolds', name: 'Sophia Reynolds', initial: 'S', color: '#b84c0e' },
+  { slug: 'danielcarter', name: 'Daniel Carter', initial: 'D', color: '#dcdcd9' },
+  { slug: 'jameswhitmore', name: 'James Whitmore', initial: 'J', color: '#dcdcd9' },
+  { slug: 'oliviabennett', name: 'Olivia Bennett', initial: 'O', color: '#dcdcd9' },
+  { slug: 'michaelbrooks', name: 'Michael Brooks', initial: 'M', color: '#dcdcd9' },
+  { slug: 'sophiareynolds', name: 'Sophia Reynolds', initial: 'S', color: '#dcdcd9' },
 ];
 
 const manifestPath = 'content/manifest.json';
@@ -71,7 +71,7 @@ for (const a of NEW_AUTHORS) {
     `<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">` +
     `<rect width="120" height="120" rx="60" fill="${a.color}"/>` +
     `<text x="60" y="60" font-family="Inter,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" ` +
-    `font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">` +
+    `font-size="52" font-weight="700" fill="#1c1917" text-anchor="middle" dominant-baseline="central">` +
     `${a.initial}</text></svg>`;
   writeFileSync(path.join(avatarDir, `${a.slug}.svg`), svg);
 }
