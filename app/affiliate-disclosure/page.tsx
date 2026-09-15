@@ -23,7 +23,7 @@ export default function AffiliateDisclosurePage() {
       <h2>How this affects our reviews</h2>
       <p>
         It doesn&rsquo;t. Our editorial team decides what we review, how we rate it, and what
-        our verdict is — independently of any commercial relationship. We do not accept payment
+        our verdict is, independently of any commercial relationship. We do not accept payment
         for a review, rating, or placement, and a platform cannot buy a better score.
       </p>
 
@@ -32,14 +32,14 @@ export default function AffiliateDisclosurePage() {
         Outbound links to platforms are marked with{' '}
         <code>rel=&quot;sponsored nofollow&quot;</code> and generally open in a new tab. This
         tells search engines that the link is a paid relationship and does not pass ranking
-        credit — and it tells you, our reader, exactly which links may earn us a commission.
+        credit. It also tells you, our reader, exactly which links may earn us a commission.
       </p>
 
       <h2>Why we recommend against some platforms</h2>
       <p>
         We publish critical reviews of platforms we would not use ourselves. Where a platform
         has no verifiable regulation, makes implausible return claims, or shows signs of
-        operating as a scam, we say so plainly — regardless of whether an affiliate program
+        operating as a scam, we say so plainly, regardless of whether an affiliate program
         exists.
       </p>
 

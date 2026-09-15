@@ -25,8 +25,8 @@ export default function TermsPage() {
 
       <h2>Intellectual property</h2>
       <p>
-        Unless otherwise stated, all content on this site — text, ratings, structure, and
-        design — is owned by or licensed to {site.name} and is protected by copyright. You may
+        Unless otherwise stated, all content on this site, including text, ratings, structure, and
+        design, is owned by or licensed to {site.name} and is protected by copyright. You may
         quote brief excerpts with attribution and a link back to the source.
       </p>
 

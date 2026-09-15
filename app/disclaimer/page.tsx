@@ -16,7 +16,7 @@ export default function DisclaimerPage() {
     >
       <h2>Not financial advice</h2>
       <p>
-        All content on {site.name} — including reviews, ratings, articles, and comparisons — is
+        All content on {site.name}, including reviews, ratings, articles, and comparisons, is
         provided for general information and education only. It is <strong>not</strong>{' '}
         financial, investment, legal, or tax advice, and it is not a recommendation to buy,
         sell, or hold any asset or to use any platform.
@@ -26,8 +26,8 @@ export default function DisclaimerPage() {
       <p>
         Cryptocurrency and automated trading involve substantial risk, including the risk of
         losing some or all of your money. Prices are highly volatile. Leveraged trading can
-        amplify losses. Past performance — including any performance claims made by platforms we
-        review — is not a guarantee of future results.
+        amplify losses. Past performance, including any performance claims made by platforms we
+        review, is not a guarantee of future results.
       </p>
 
       <h2>Do your own research</h2>
