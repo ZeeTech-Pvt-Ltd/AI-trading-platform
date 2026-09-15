@@ -1,8 +1,10 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 
-// Full Review schema: @graph of Review (itemReviewed: Service + name,
-// reviewRating with best/worstRating, author, datePublished) plus FAQPage
-// when the post has FAQ items. Keep in sync with content/posts/trading/*.json.
+// Full Review schema: @graph of Review (itemReviewed: Product + name +
+// aggregateRating, reviewRating with best/worstRating, author,
+// datePublished) plus FAQPage when the post has FAQ items. itemReviewed
+// carries aggregateRating because Google requires Product to have
+// offers/review/aggregateRating. Keep in sync with content/posts/trading/*.json.
 
 const DIR = 'content/posts/trading';
 const files = readdirSync(DIR).filter((f) => f.endsWith('.json'));
@@ -57,7 +59,12 @@ for (const f of files) {
   const graph = [
     {
       '@type': 'Review',
-      itemReviewed: { '@type': 'Product', name: brand },
+      itemReviewed: {
+        '@type': 'Product',
+        name: brand,
+        // Google requires Product to carry offers/review/aggregateRating.
+        aggregateRating: { '@type': 'AggregateRating', ratingValue: rating, reviewCount: '1' },
+      },
       reviewRating: { '@type': 'Rating', ratingValue: rating, bestRating: '5', worstRating: '1' },
       author: { '@type': 'Person', name: p.author },
       datePublished: p.date,
