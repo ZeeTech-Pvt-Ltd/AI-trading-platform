@@ -28,7 +28,7 @@ const COLUMNS = [
       { label: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
       { label: 'Disclaimer', href: '/disclaimer' },
       { label: 'Privacy Policy', href: '/privacy-policy' },
-      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Terms of Service', href: '/terms-of-use' },
     ],
   },
 ];

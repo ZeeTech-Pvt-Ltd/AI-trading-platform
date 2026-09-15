@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/affiliate-disclosure', 0.3],
     ['/disclaimer', 0.3],
     ['/privacy-policy', 0.3],
-    ['/terms', 0.3],
+    ['/terms-of-use', 0.3],
   ] as const) {
     entries.push({
       url: `${site.url}${path}`,

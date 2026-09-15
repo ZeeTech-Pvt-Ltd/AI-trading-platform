@@ -12,6 +12,7 @@ const nextConfig = {
         destination: '/author/:author/page/:page',
         permanent: true,
       },
+      { source: '/terms', destination: '/terms-of-use', permanent: true },
     ];
   },
 };
