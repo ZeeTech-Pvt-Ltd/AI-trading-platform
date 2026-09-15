@@ -57,7 +57,7 @@ for (const f of files) {
   const graph = [
     {
       '@type': 'Review',
-      itemReviewed: { '@type': 'Service', name: brand },
+      itemReviewed: { '@type': 'Product', name: brand },
       reviewRating: { '@type': 'Rating', ratingValue: rating, bestRating: '5', worstRating: '1' },
       author: { '@type': 'Person', name: p.author },
       datePublished: p.date,
