@@ -13,6 +13,11 @@ const nextConfig = {
         permanent: true,
       },
       { source: '/terms', destination: '/terms-of-use', permanent: true },
+      {
+        source: '/trading/nexora-ai-review',
+        destination: '/trading/nexora-ai-platform-review',
+        permanent: true,
+      },
     ];
   },
 };
