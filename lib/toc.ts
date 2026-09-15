@@ -16,6 +16,17 @@ export interface TocResult {
   html: string;
 }
 
+const decodeEntities = (s: string): string =>
+  s
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(Number(d)))
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;|&#0?39;/g, "'")
+    .replace(/&nbsp;/g, ' ');
+
 const slugify = (text: string): string => {
   const base =
     text
@@ -30,9 +41,7 @@ export function buildToc(html: string): TocResult {
   const used = new Set<string>();
 
   const withIds = html.replace(/<h2(\s[^>]*)?>([\s\S]*?)<\/h2>/gi, (match, attrs, inner) => {
-    const text = inner
-      .replace(/<[^>]+>/g, '')
-      .replace(/&amp;/g, '&')
+    const text = decodeEntities(inner.replace(/<[^>]+>/g, ''))
       .replace(/\s+/g, ' ')
       .trim();
     if (!text) return match;
