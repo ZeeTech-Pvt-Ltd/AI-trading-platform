@@ -13,6 +13,7 @@ export default function DisclaimerPage() {
     <InfoPage
       title="Disclaimer"
       subtitle="Please read this before acting on anything you see here."
+      wide
     >
       <h2>Not financial advice</h2>
       <p>

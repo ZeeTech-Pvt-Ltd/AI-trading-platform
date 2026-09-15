@@ -13,6 +13,7 @@ export default function AffiliateDisclosurePage() {
     <InfoPage
       title="Affiliate Disclosure"
       subtitle="Transparency about how this site earns money."
+      wide
     >
       <p>
         {site.name} is free to read, but it is not free to run. To cover our costs, we may earn

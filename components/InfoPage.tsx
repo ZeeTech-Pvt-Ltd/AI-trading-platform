@@ -1,15 +1,17 @@
 export default function InfoPage({
   title,
   subtitle,
+  wide = false,
   children,
 }: {
   title: string;
   subtitle?: string;
+  wide?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <main id="primary" className="lucky-site-main btt-single">
-      <article className="btt-article">
+      <article className={`btt-article${wide ? ' btt-article--wide' : ''}`}>
         <div className="btt-article__inner">
           <header className="btt-article__header">
             <h1 className="btt-article__title">{title}</h1>

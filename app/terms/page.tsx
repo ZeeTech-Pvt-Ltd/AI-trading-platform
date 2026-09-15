@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <InfoPage title="Terms of Service" subtitle="Last updated: September 14, 2026">
+    <InfoPage title="Terms of Service" subtitle="Last updated: September 14, 2026" wide>
       <p>
         By accessing {site.name}, you agree to these Terms of Service. If you do not agree,
         please do not use the site.

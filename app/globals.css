@@ -1047,6 +1047,11 @@ input[type="reset"],
 	padding: 56px 24px 0;
 }
 
+/* Static/legal pages span the same width as the header & footer */
+.btt-article--wide .btt-article__inner {
+	max-width: var(--container);
+}
+
 /* Reviews use a wider layout (their .bd-review manages its own width) */
 .btt-article:has(.bd-review) .btt-article__inner {
 	max-width: 900px;
