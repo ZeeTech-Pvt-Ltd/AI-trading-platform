@@ -1,13 +1,28 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 
-// Minimal Review schema only: @context, @type, itemReviewed (Product + name),
-// reviewRating (Rating + ratingValue). No FAQPage/author/datePublished/
-// bestRating/worstRating - keep this in sync with content/posts/trading/*.json.
+// Full Review schema: @graph of Review (itemReviewed: Service + name,
+// reviewRating with best/worstRating, author, datePublished) plus FAQPage
+// when the post has FAQ items. Keep in sync with content/posts/trading/*.json.
 
 const DIR = 'content/posts/trading';
 const files = readdirSync(DIR).filter((f) => f.endsWith('.json'));
 
+function strip(s) {
+  return s
+    .replace(/<[^>]*>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;|&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 let updated = 0;
+let withFaq = 0;
+let faqItems = 0;
 const missingBrand = [];
 
 for (const f of files) {
@@ -28,12 +43,33 @@ for (const f of files) {
     if (n) rating = n[0];
   }
 
-  const obj = {
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    itemReviewed: { '@type': 'Product', name: brand },
-    reviewRating: { '@type': 'Rating', ratingValue: rating },
-  };
+  // FAQ items
+  const faq = [];
+  const items = p.content.match(/<div class="bd-faq__item">([\s\S]*?)<\/div>/g) || [];
+  for (const item of items) {
+    const qm = item.match(/<h3[^>]*>([\s\S]*?)<\/h3>/);
+    const q = qm ? strip(qm[1]) : '';
+    const as = [...item.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map((a) => strip(a[1])).filter(Boolean);
+    const a = as.join(' ');
+    if (q && a) faq.push({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } });
+  }
+
+  const graph = [
+    {
+      '@type': 'Review',
+      itemReviewed: { '@type': 'Service', name: brand },
+      reviewRating: { '@type': 'Rating', ratingValue: rating, bestRating: '5', worstRating: '1' },
+      author: { '@type': 'Person', name: p.author },
+      datePublished: p.date,
+    },
+  ];
+  if (faq.length) {
+    graph.push({ '@type': 'FAQPage', mainEntity: faq });
+    withFaq++;
+    faqItems += faq.length;
+  }
+
+  const obj = { '@context': 'https://schema.org', '@graph': graph };
 
   p.reviewJsonLd = JSON.stringify(obj);
   writeFileSync(fp, JSON.stringify(p));
@@ -41,4 +77,5 @@ for (const f of files) {
 }
 
 console.log(`updated posts: ${updated}`);
+console.log(`with FAQPage: ${withFaq} | total FAQ items: ${faqItems}`);
 console.log(`missing brand: ${missingBrand.length}`);
