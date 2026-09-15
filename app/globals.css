@@ -36,6 +36,9 @@
 	/* Layout */
 	--container: 1160px;
 	--prose: 720px;
+	/* Single source of truth for review pages: the header (title, breadcrumbs,
+	   TOC) and the .bd-review body share this width so their edges line up. */
+	--review-width: 800px;
 	--radius: 14px;
 	--radius-lg: 20px;
 	--shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.06);
@@ -1123,9 +1126,9 @@ input[type="reset"],
 	max-width: var(--container);
 }
 
-/* Reviews use a wider layout (their .bd-review manages its own width) */
+/* Reviews: header and .bd-review body share --review-width so edges align */
 .btt-article:has(.bd-review) .btt-article__inner {
-	max-width: 900px;
+	max-width: var(--review-width);
 }
 
 /* Breadcrumb */
@@ -1767,9 +1770,9 @@ body:has(.bd-review) {
 	--bad: var(--bad);
 	--line: #e7e5e4;
 	box-sizing: border-box;
-	max-width: 880px;
-	margin: 0 auto;
-	padding: 28px 18px 80px;
+	/* Width comes from the parent .btt-article__inner (--review-width) so the
+	   cards' outer edges line up with the title/breadcrumbs/TOC above them. */
+	padding: 28px 0 80px;
 	background: var(--paper);
 	color: var(--navy);
 	font-size: 17px;
@@ -2360,7 +2363,14 @@ body:has(.bd-review) {
 }
 
 @media (max-width: 760px) {
-	.bd-rating-bar,
+	.bd-rating-bar {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.bd-rating-bar .bd-rating-item:first-child {
+		grid-column: 1 / -1;
+	}
+
 	.bd-balance-grid,
 	.bd-verdict-card {
 		grid-template-columns: 1fr;
@@ -2379,7 +2389,7 @@ body:has(.bd-review) {
 
 @media (max-width: 520px) {
 	.bd-review {
-		padding: 16px 12px 56px;
+		padding: 16px 0 56px;
 		font-size: 16px;
 	}
 
