@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: 'Bitcoin Articles',
   description: `In-depth Bitcoin development and technical articles on ${site.name}.`,
   alternates: { canonical: '/articles' },
+  openGraph: {
+    title: 'Bitcoin Articles',
+    description: `In-depth Bitcoin development and technical articles on ${site.name}.`,
+    url: `${site.url}/articles`,
+  },
 };
 
 export default function ArticlesPage() {

@@ -3,9 +3,14 @@ import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
 export const metadata: Metadata = {
-  title: 'Disclaimer',
-  description: `Risk and liability disclaimer for ${site.name}.`,
+  title: 'Disclaimer — AI Trading Platform',
+  description: `${site.name} disclaimer: all content is for information only, not financial advice, and crypto and automated trading involve substantial risk of loss.`,
   alternates: { canonical: '/disclaimer' },
+  openGraph: {
+    title: 'Disclaimer — AI Trading Platform',
+    description: `${site.name} disclaimer: all content is for information only, not financial advice, and crypto and automated trading involve substantial risk of loss.`,
+    url: `${site.url}/disclaimer`,
+  },
 };
 
 export default function DisclaimerPage() {

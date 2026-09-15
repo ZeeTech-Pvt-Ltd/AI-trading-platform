@@ -3,9 +3,14 @@ import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: `How ${site.name} collects, uses, and protects your information.`,
+  title: 'Privacy Policy — AI Trading Platform',
+  description: `How ${site.name} collects, uses, and protects your personal information, and the choices and rights you have over your data.`,
   alternates: { canonical: '/privacy-policy' },
+  openGraph: {
+    title: 'Privacy Policy — AI Trading Platform',
+    description: `How ${site.name} collects, uses, and protects your personal information, and the choices and rights you have over your data.`,
+    url: `${site.url}/privacy-policy`,
+  },
 };
 
 export default function PrivacyPolicyPage() {

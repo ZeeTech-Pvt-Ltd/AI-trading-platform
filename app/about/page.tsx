@@ -3,9 +3,14 @@ import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description: `What ${site.name} is, what we cover, and how we stay independent.`,
+  title: 'About Us — Independent AI & Crypto Trading Platform Reviews',
+  description: `Who we are and how we review AI and crypto trading platforms — our independence, methodology, and what we cover so you can decide what to trust.`,
   alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Us — Independent AI & Crypto Trading Platform Reviews',
+    description: `Who we are and how we review AI and crypto trading platforms — our independence, methodology, and what we cover so you can decide what to trust.`,
+    url: `${site.url}/about`,
+  },
 };
 
 export default function AboutPage() {

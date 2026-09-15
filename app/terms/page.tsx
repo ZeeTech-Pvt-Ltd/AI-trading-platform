@@ -3,9 +3,14 @@ import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description: `The terms governing your use of ${site.name}.`,
+  title: 'Terms of Service — AI Trading Platform',
+  description: `The terms governing your use of ${site.name}, including acceptable use, intellectual property, and limitation of liability.`,
   alternates: { canonical: '/terms' },
+  openGraph: {
+    title: 'Terms of Service — AI Trading Platform',
+    description: `The terms governing your use of ${site.name}, including acceptable use, intellectual property, and limitation of liability.`,
+    url: `${site.url}/terms`,
+  },
 };
 
 export default function TermsPage() {

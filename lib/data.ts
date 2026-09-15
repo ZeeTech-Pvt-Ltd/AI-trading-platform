@@ -106,6 +106,28 @@ export function getTypePages(type: 'trading' | 'bitcoin'): Card[][] {
   return pages;
 }
 
+/** The Card (title/rating/author/etc.) matching a given post, if any. */
+export function getCard(type: string, slug: string): Card | undefined {
+  return getAllCards().find((c) => c.type === type && c.slug === slug);
+}
+
+/** Trading cards sorted by rating (desc), newest first among ties. */
+export function getTopRatedCards(count = 5): Card[] {
+  return getAllCards()
+    .filter((c) => c.type === 'trading' && c.ratingValue)
+    .sort((a, b) => {
+      const byRating = Number.parseFloat(b.ratingValue!) - Number.parseFloat(a.ratingValue!);
+      if (byRating !== 0) return byRating;
+      return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
+    })
+    .slice(0, count);
+}
+
+/** Most recent date across every card, for a real "last updated" stat. */
+export function getLastUpdatedDate(): string {
+  return getAllCards().reduce((latest, c) => (c.date > latest ? c.date : latest), '');
+}
+
 export function getRelatedCards(
   type: 'trading' | 'bitcoin',
   slug: string,

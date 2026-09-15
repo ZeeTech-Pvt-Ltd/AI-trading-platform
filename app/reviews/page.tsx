@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: 'Crypto Platform Reviews',
   description: `Independent, fact-checked reviews of crypto trading platforms on ${site.name}.`,
   alternates: { canonical: '/reviews' },
+  openGraph: {
+    title: 'Crypto Platform Reviews',
+    description: `Independent, fact-checked reviews of crypto trading platforms on ${site.name}.`,
+    url: `${site.url}/reviews`,
+  },
 };
 
 export default function ReviewsPage() {
@@ -20,7 +25,6 @@ export default function ReviewsPage() {
       current={1}
       total={pages.length}
       base="/reviews"
-      featured
     />
   );
 }

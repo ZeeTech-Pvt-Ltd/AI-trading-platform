@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import type { Card } from '@/lib/data';
 import { getAuthor } from '@/lib/data';
-import { formatDate } from '@/lib/format';
+import { formatDate, brandName } from '@/lib/format';
 
-/** Brand name = the part of a review title before "Review". Falls back to the full title. */
-function brandName(card: Card): string {
-  const m = card.title.match(/^(.*?)\s+Review\b/i);
-  return m ? m[1].trim() : card.title.trim();
+const LOGO_COLOR_COUNT = 8;
+
+/** Deterministic 0..N-1 index from a string, so each platform keeps the same color. */
+function colorIndex(name: string, count: number): number {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
+  return hash % count;
 }
 
 export default function PostCard({ card, featured = false }: { card: Card; featured?: boolean }) {
@@ -16,7 +19,11 @@ export default function PostCard({ card, featured = false }: { card: Card; featu
 
   const isTrading = card.type === 'trading';
   const rating = card.ratingValue;
-  const monogram = isTrading ? (brandName(card).charAt(0) || '?').toUpperCase() : '₿';
+  const name = brandName(card.title);
+  const monogram = isTrading ? (name.charAt(0) || '?').toUpperCase() : '₿';
+  const logoClass = isTrading
+    ? `btt-card__logo--trading btt-card__logo--c${colorIndex(name, LOGO_COLOR_COUNT)}`
+    : 'btt-card__logo--bitcoin';
   const ratingPct =
     rating && !Number.isNaN(Number.parseFloat(rating))
       ? `${(Math.min(5, Math.max(0, Number.parseFloat(rating))) / 5) * 100}%`
@@ -28,7 +35,7 @@ export default function PostCard({ card, featured = false }: { card: Card; featu
     >
       <div className="btt-card__body">
         <div className="btt-card__head">
-          <span className={`btt-card__logo btt-card__logo--${card.type}`} aria-hidden="true">
+          <span className={`btt-card__logo ${logoClass}`} aria-hidden="true">
             {monogram}
           </span>
           <div className="btt-card__head-text">

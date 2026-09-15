@@ -1,5 +1,6 @@
 import type { Post } from '@/lib/data';
-import { getRelatedCards } from '@/lib/data';
+import { getRelatedCards, getCard, getTopRatedCards } from '@/lib/data';
+import { brandName, ratingVerdict } from '@/lib/format';
 import { enrichJsonLd } from '@/lib/schema';
 import { buildToc } from '@/lib/toc';
 import Byline from './Byline';
@@ -7,6 +8,51 @@ import Breadcrumbs from './Breadcrumbs';
 import JsonLd from './JsonLd';
 import PostCard from './PostCard';
 import TableOfContents from './TableOfContents';
+import TopRatedWidget from './TopRatedWidget';
+
+function ReviewSidebar({ post }: { post: Post }) {
+  const card = getCard(post.type, post.slug);
+  const name = brandName(post.title);
+  const verdict = ratingVerdict(card?.ratingValue);
+  const affiliate = `https://austerio-smart-up.com/?f=${post.slug.replace(/-review$/, '')}`;
+
+  return (
+    <aside className="btt-article__sidebar">
+      <div className="btt-side-card">
+        {card?.ratingValue ? (
+          <>
+            <span className="btt-side-card__label">Our score</span>
+            <span className="btt-side-card__score">{card.ratingValue}<span>/5</span></span>
+            <span className={`btt-h-badge btt-h-badge--${verdict.tone}`}>
+              <span className="btt-h-badge__dot" aria-hidden="true" />
+              {verdict.label}
+            </span>
+          </>
+        ) : null}
+        <a
+          className="btt-h-btn btt-h-btn--primary btt-side-card__cta"
+          href={affiliate}
+          rel="sponsored nofollow noopener noreferrer"
+          target="_blank"
+        >
+          Visit {name} →
+        </a>
+        <dl className="btt-side-card__facts">
+          <div>
+            <dt>Reviewed by</dt>
+            <dd>{post.author}</dd>
+          </div>
+          <div>
+            <dt>Reading time</dt>
+            <dd>{post.readingTime}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <TopRatedWidget cards={getTopRatedCards(5)} excludeSlug={post.slug} />
+    </aside>
+  );
+}
 
 export default function ArticlePage({ post }: { post: Post }) {
   const classes = ['btt-article', 'hentry', ...post.categories.map((c) => `category-${c}`)].join(
@@ -19,33 +65,46 @@ export default function ArticlePage({ post }: { post: Post }) {
   const sectionHref = isTrading ? '/reviews' : '/articles';
   const { items: tocItems, html } = buildToc(post.content);
 
+  const main = (
+    <div className="btt-article__main">
+      <Breadcrumbs section={section} sectionHref={sectionHref} title={post.title} />
+
+      <header className="btt-article__header">
+        <p className="btt-article__kicker">{kicker}</p>
+        <h1 className="btt-article__title">{post.title}</h1>
+        <Byline
+          author={post.author}
+          authorSlug={post.authorSlug}
+          date={post.date}
+          readingTime={post.readingTime}
+        />
+      </header>
+
+      {post.excerpt ? (
+        <div className="btt-excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+      ) : null}
+
+      <TableOfContents items={tocItems} label={isTrading ? 'In this review' : 'In this article'} />
+
+      <div
+        className="btt-article__content lucky-entry-content"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </div>
+  );
+
   return (
     <main id="primary" className="lucky-site-main btt-single">
       <article className={classes}>
         <div className="btt-article__inner">
-          <Breadcrumbs section={section} sectionHref={sectionHref} title={post.title} />
-
-          <header className="btt-article__header">
-            <p className="btt-article__kicker">{kicker}</p>
-            <h1 className="btt-article__title">{post.title}</h1>
-            <Byline
-              author={post.author}
-              authorSlug={post.authorSlug}
-              date={post.date}
-              readingTime={post.readingTime}
-            />
-          </header>
-
-          {post.excerpt ? (
-            <div className="btt-excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-          ) : null}
-
-          <TableOfContents items={tocItems} label={isTrading ? 'In this review' : 'In this article'} />
-
-          <div
-            className="btt-article__content lucky-entry-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          {isTrading ? (
+            <div className="btt-article__layout">
+              {main}
+              <ReviewSidebar post={post} />
+            </div>
+          ) : (
+            main
+          )}
         </div>
       </article>
       {post.type === 'trading' ? (

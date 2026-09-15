@@ -3,9 +3,14 @@ import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: `Get in touch with the ${site.name} team.`,
+  title: 'Contact Us — AI Trading Platform',
+  description: `Get in touch with the ${site.name} team by email for corrections, feedback, press enquiries, or questions about our trading platform reviews.`,
   alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact Us — AI Trading Platform',
+    description: `Get in touch with the ${site.name} team by email for corrections, feedback, press enquiries, or questions about our trading platform reviews.`,
+    url: `${site.url}/contact`,
+  },
 };
 
 export default function ContactPage() {

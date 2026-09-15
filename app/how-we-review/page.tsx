@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: 'How We Review Trading Platforms',
   description: `The methodology and criteria ${site.name} uses to rate AI and crypto trading platforms.`,
   alternates: { canonical: '/how-we-review' },
+  openGraph: {
+    title: 'How We Review Trading Platforms',
+    description: `The methodology and criteria ${site.name} uses to rate AI and crypto trading platforms.`,
+    url: `${site.url}/how-we-review`,
+  },
 };
 
 export default function HowWeReviewPage() {
