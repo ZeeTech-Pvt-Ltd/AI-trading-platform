@@ -33,6 +33,10 @@ export type Post = {
   jsonLd: string;
   reviewJsonLd?: string;
   ogImage: string;
+  /** Override for the CTA/sidebar link when it isn't the standard affiliate
+   *  tracker URL (e.g. a platform that gets sent direct instead). Falls back
+   *  to the usual `?f=<slug>` pattern when absent. */
+  ctaUrl?: string;
 };
 
 export type Author = {

@@ -14,7 +14,8 @@ function ReviewSidebar({ post }: { post: Post }) {
   const card = getCard(post.type, post.slug);
   const name = brandName(post.title);
   const verdict = ratingVerdict(card?.ratingValue);
-  const affiliate = `https://austerio-smart-up.com/?f=${post.slug.replace(/-review$/, '')}`;
+  const affiliate =
+    post.ctaUrl || `https://austerio-smart-up.com/?f=${post.slug.replace(/-review$/, '')}`;
 
   return (
     <aside className="btt-article__sidebar">
