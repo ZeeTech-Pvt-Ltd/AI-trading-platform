@@ -830,6 +830,39 @@ input[type="reset"],
 	color: var(--brand-strong);
 }
 
+/* Bouncing cue inviting the visitor to keep scrolling past the hero */
+.btt-h-scrollcue {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	margin: 32px auto 0;
+	border-radius: 50%;
+	border: 1px solid var(--line-strong);
+	background: #fff;
+	color: var(--muted);
+	font-size: 16px;
+	line-height: 1;
+	animation: btt-scrollcue-bounce 2s ease-in-out infinite;
+}
+
+.btt-h-scrollcue:hover {
+	color: var(--brand-strong);
+	border-color: var(--brand);
+}
+
+@keyframes btt-scrollcue-bounce {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.btt-h-scrollcue {
+		animation: none;
+	}
+}
+
 @media (max-width: 900px) {
 	.btt-h-hero__inner {
 		grid-template-columns: 1fr;
@@ -838,12 +871,26 @@ input[type="reset"],
 
 @media (max-width: 640px) {
 	.btt-h-hero {
-		padding: 40px 20px 36px;
+		padding: 32px 20px 20px;
+	}
+
+	.btt-h-hero__title {
+		margin: 0 0 12px;
+	}
+
+	.btt-h-hero__lead {
+		margin: 0 0 20px;
 	}
 
 	.btt-h-stats {
 		grid-template-columns: 1fr 1fr;
 		max-width: none;
+		gap: 14px 20px;
+		margin: 0 0 22px;
+	}
+
+	.btt-h-scrollcue {
+		margin-top: 20px;
 	}
 }
 

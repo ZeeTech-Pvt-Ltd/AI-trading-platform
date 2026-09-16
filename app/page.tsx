@@ -110,7 +110,7 @@ export default function HomePage() {
               </li>
               <li className="btt-h-stat">
                 <strong>{CRITERIA.length}</strong>
-                <span>Criteria scored on every platform</span>
+                <span>Rating criteria</span>
               </li>
               <li className="btt-h-stat">
                 <strong>{authorCount}</strong>
@@ -134,11 +134,17 @@ export default function HomePage() {
 
           <TopRatedWidget cards={topRated} />
         </div>
+
+        {lead ? (
+          <a href="#lead-review" className="btt-h-scrollcue" aria-label="Scroll to the latest review">
+            ↓
+          </a>
+        ) : null}
       </section>
 
       {/* Lead review */}
       {lead ? (
-        <section className="btt-h-leadwrap">
+        <section className="btt-h-leadwrap" id="lead-review">
           <div className="btt-h-lead">
             <div className="btt-h-lead__content">
               <span className="btt-h-eyebrow btt-h-eyebrow--dark">★ Lead Review</span>
