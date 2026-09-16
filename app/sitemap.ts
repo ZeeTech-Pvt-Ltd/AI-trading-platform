@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
-import { getAllCards, getAuthors, getHomePages, getTypePages } from '@/lib/data';
+import { getAllCards, getAuthors } from '@/lib/data';
 import { getSamplePairs } from '@/lib/compare';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -48,34 +48,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // category archives (reviews + articles)
-  for (const [path, type, priority] of [
-    ['/reviews', 'trading', 0.9],
-    ['/articles', 'bitcoin', 0.7],
+  // category archives (reviews + articles) — page 1 only; page 2+ is noindexed
+  // pagination and intentionally left out of the sitemap.
+  for (const [path, priority] of [
+    ['/reviews', 0.9],
+    ['/articles', 0.7],
   ] as const) {
     entries.push({
       url: `${site.url}${path}`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority,
-    });
-    for (let i = 2; i <= getTypePages(type).length; i++) {
-      entries.push({
-        url: `${site.url}${path}/page/${i}`,
-        lastModified: now,
-        changeFrequency: 'weekly',
-        priority: 0.3,
-      });
-    }
-  }
-
-  // home pagination
-  for (let i = 2; i <= getHomePages().length; i++) {
-    entries.push({
-      url: `${site.url}/page/${i}`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.4,
     });
   }
 
@@ -93,22 +76,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // authors + author pagination
-  for (const [slug, a] of Object.entries(getAuthors())) {
+  // authors — page 1 only; page 2+ is noindexed pagination, left out of the sitemap.
+  for (const slug of Object.keys(getAuthors())) {
     entries.push({
       url: `${site.url}/author/${slug}`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.3,
     });
-    for (let i = 1; i < a.pages.length; i++) {
-      entries.push({
-        url: `${site.url}/author/${slug}/page/${i + 1}`,
-        lastModified: now,
-        changeFrequency: 'weekly',
-        priority: 0.2,
-      });
-    }
   }
 
   return entries;

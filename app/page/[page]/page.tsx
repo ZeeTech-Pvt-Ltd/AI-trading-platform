@@ -22,6 +22,7 @@ export async function generateMetadata({
     title: `${site.name} — Page ${page}`,
     description: `${site.description} — Page ${page}`,
     alternates: { canonical: `/page/${page}` },
+    robots: { index: false, follow: true },
   };
 }
 
