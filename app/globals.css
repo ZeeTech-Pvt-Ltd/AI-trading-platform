@@ -1754,7 +1754,7 @@ input[type="reset"],
 
 .btt-article__title {
 	font-family: var(--font-serif);
-	font-size: clamp(32px, 5.2vw, 46px);
+	font-size: clamp(32px, 5.2vw, 38px);
 	line-height: 1.08;
 	letter-spacing: -0.025em;
 	margin-bottom: 22px;
@@ -1765,7 +1765,7 @@ input[type="reset"],
 	padding-left: 20px;
 	border-left: 3px solid var(--brand);
 	font-family: var(--font-serif);
-	font-size: 21px;
+	font-size: 18px;
 	line-height: 1.55;
 	color: var(--ink-2);
 }
