@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: `Authors — ${site.name}`,
   description: `Meet the team behind ${site.name} — the people who research and write our reviews and guides.`,
   alternates: { canonical: '/authors' },
+  robots: { index: false, follow: true },
   openGraph: {
     title: `Authors — ${site.name}`,
     description: `Meet the team behind ${site.name} — the people who research and write our reviews and guides.`,

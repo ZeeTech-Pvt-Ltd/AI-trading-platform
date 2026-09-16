@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy — AI Trading Platform',
   description: `How ${site.name} collects, uses, and protects your personal information, and the choices and rights you have over your data.`,
   alternates: { canonical: '/privacy-policy' },
+  robots: { index: false, follow: true },
   openGraph: {
     title: 'Privacy Policy — AI Trading Platform',
     description: `How ${site.name} collects, uses, and protects your personal information, and the choices and rights you have over your data.`,

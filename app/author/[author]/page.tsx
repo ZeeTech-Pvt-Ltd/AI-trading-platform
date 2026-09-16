@@ -25,6 +25,7 @@ export async function generateMetadata({
     title: `${a.name} — ${site.name}`,
     description: `${a.name} has written ${total} articles on ${site.name}.`,
     alternates: { canonical: `/author/${author}` },
+    robots: { index: false, follow: true },
   };
 }
 

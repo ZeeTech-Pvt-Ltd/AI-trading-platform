@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
-import { getAllCards, getAuthors } from '@/lib/data';
+import { getAllCards } from '@/lib/data';
 import { getSamplePairs } from '@/lib/compare';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,16 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: site.url, lastModified: now, changeFrequency: 'daily', priority: 1 },
   ];
 
-  // trust / informational pages
+  // trust / informational pages — legal/utility pages (authors, affiliate
+  // disclosure, disclaimer, privacy policy, terms) are noindexed and
+  // intentionally left out of the sitemap.
   for (const [path, priority] of [
     ['/about', 0.6],
-    ['/authors', 0.5],
     ['/how-we-review', 0.6],
     ['/contact', 0.4],
-    ['/affiliate-disclosure', 0.3],
-    ['/disclaimer', 0.3],
-    ['/privacy-policy', 0.3],
-    ['/terms-of-use', 0.3],
   ] as const) {
     entries.push({
       url: `${site.url}${path}`,
@@ -73,16 +70,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
           : now,
       changeFrequency: 'monthly',
       priority: card.type === 'trading' ? 0.8 : 0.6,
-    });
-  }
-
-  // authors — page 1 only; page 2+ is noindexed pagination, left out of the sitemap.
-  for (const slug of Object.keys(getAuthors())) {
-    entries.push({
-      url: `${site.url}/author/${slug}`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.3,
     });
   }
 
