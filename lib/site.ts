@@ -1,8 +1,8 @@
 export const site = {
   name: 'AI Trading Platform',
-  tagline: 'Independent, fact-checked reviews of AI and crypto trading platforms.',
+  tagline: 'Independent, fact-checked reviews of AI trading platforms.',
   description:
-    'Independent, fact-checked reviews of AI and crypto trading platforms — what’s real, what to avoid, and how to register safely.',
+    'We test every AI trading platform by hand and rate it honestly, no sponsored placements. See what’s safe before you sign up.',
   url: 'https://ai-trading-platform.com',
   // Primary market locale for og:locale. Adjust to your main market (en_US, en_AU, …).
   locale: 'en_GB',

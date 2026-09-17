@@ -7,8 +7,8 @@ const YEAR = new Date().getFullYear();
 
 export function generateMetadata(): Metadata {
   const count = getAllCards().filter((c) => c.type === 'trading').length;
-  const title = `${count.toLocaleString('en-US')}+ AI & Crypto Trading Platform Reviews (${YEAR})`;
-  const description = `Browse ${count.toLocaleString('en-US')}+ independent AI and crypto trading platform reviews — real sign-up steps, minimum deposits, and payout checks, rated for ${YEAR}.`;
+  const title = `${count.toLocaleString('en-US')}+ AI Trading Platform Reviews (${YEAR})`;
+  const description = `Browse ${count.toLocaleString('en-US')}+ independent AI trading platform reviews: real sign-up steps, minimum deposits, and payout checks, rated for ${YEAR}.`;
 
   return {
     title,
@@ -29,11 +29,13 @@ export default function ReviewsPage() {
     <Archive
       cards={pages[0] ?? []}
       kicker={`${count.toLocaleString('en-US')}+ Platforms Reviewed`}
-      title="AI & Crypto Trading Platform Reviews"
-      description={`Independent, fact-checked reviews of ${count.toLocaleString('en-US')}+ AI and crypto trading platforms — what's real, what to avoid, and how to register safely. Every review is scored against the same criteria and updated as platforms change.`}
+      title="AI Trading Platform Reviews"
+      description={`Independent, fact-checked reviews of ${count.toLocaleString('en-US')}+ AI trading platforms: what's real, what to avoid, and how to register safely. Every review is scored against the same criteria and updated as platforms change.`}
       current={1}
       total={pages.length}
       base="/reviews"
+      columns={3}
+      sortable
     />
   );
 }

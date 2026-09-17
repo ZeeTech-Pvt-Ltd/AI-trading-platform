@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Card } from '@/lib/data';
 import { getAuthor } from '@/lib/data';
-import { formatDate, brandName } from '@/lib/format';
+import { formatDate, brandName, ratingVerdict } from '@/lib/format';
 
 const LOGO_COLOR_COUNT = 8;
 
@@ -28,10 +28,12 @@ export default function PostCard({ card, featured = false }: { card: Card; featu
     rating && !Number.isNaN(Number.parseFloat(rating))
       ? `${(Math.min(5, Math.max(0, Number.parseFloat(rating))) / 5) * 100}%`
       : '0%';
+  const verdict = isTrading && rating ? ratingVerdict(rating) : null;
 
   return (
     <article
       className={`btt-card btt-card--${card.type}${featured ? ' btt-card--featured' : ''} hentry`}
+      data-slug={`${card.type}/${card.slug}`}
     >
       <div className="btt-card__body">
         <div className="btt-card__head">
@@ -81,14 +83,14 @@ export default function PostCard({ card, featured = false }: { card: Card; featu
             </Link>
             <div className="btt-card__meta-sub">
               {card.date ? <time dateTime={card.date}>{formatDate(card.date)}</time> : null}
-              {card.date && card.readingTime ? (
-                <span className="btt-card__dot" aria-hidden="true">
-                  ·
-                </span>
-              ) : null}
-              {card.readingTime ? <span>{card.readingTime}</span> : null}
             </div>
           </div>
+          {verdict ? (
+            <span className={`btt-h-badge btt-h-badge--${verdict.tone} btt-card__verdict`}>
+              <span className="btt-h-badge__dot" aria-hidden="true" />
+              {verdict.label}
+            </span>
+          ) : null}
         </div>
       </div>
     </article>

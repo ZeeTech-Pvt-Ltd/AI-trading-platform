@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.clarity.ms" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <div id="page" className="lucky-site">
           <Header />
           <div id="content" className="lucky-site-content">

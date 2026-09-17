@@ -4,11 +4,11 @@ import InfoPage from '@/components/InfoPage';
 
 export const metadata: Metadata = {
   title: 'How We Review Trading Platforms',
-  description: `The methodology and criteria ${site.name} uses to rate AI and crypto trading platforms.`,
+  description: `The methodology and criteria ${site.name} uses to rate AI trading platforms.`,
   alternates: { canonical: '/how-we-review' },
   openGraph: {
     title: 'How We Review Trading Platforms',
-    description: `The methodology and criteria ${site.name} uses to rate AI and crypto trading platforms.`,
+    description: `The methodology and criteria ${site.name} uses to rate AI trading platforms.`,
     url: `${site.url}/how-we-review`,
   },
 };

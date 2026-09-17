@@ -25,7 +25,7 @@ export default function ArticlesPage() {
       current={1}
       total={pages.length}
       base="/articles"
-      featured
+      columns={3}
     />
   );
 }

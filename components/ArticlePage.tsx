@@ -66,6 +66,13 @@ export default function ArticlePage({ post }: { post: Post }) {
   const sectionHref = isTrading ? '/reviews' : '/articles';
   const { items: tocItems, html } = buildToc(post.content);
 
+  const card = isTrading ? getCard(post.type, post.slug) : undefined;
+  const name = isTrading ? brandName(post.title) : '';
+  const verdict = ratingVerdict(card?.ratingValue);
+  const affiliate = isTrading
+    ? post.ctaUrl || `https://austerio-smart-up.com/?f=${post.slug.replace(/-review$/, '')}`
+    : '';
+
   const main = (
     <div className="btt-article__main">
       <Breadcrumbs section={section} sectionHref={sectionHref} title={post.title} />
@@ -80,6 +87,32 @@ export default function ArticlePage({ post }: { post: Post }) {
           readingTime={post.readingTime}
         />
       </header>
+
+      {isTrading && card?.ratingValue ? (
+        <div className="btt-article__quickverdict">
+          <div className="btt-article__quickverdict__score">
+            <span className="btt-article__quickverdict__number">{card.ratingValue}</span>
+            <span className="btt-article__quickverdict__max">/5</span>
+          </div>
+          <div className="btt-article__quickverdict__meta">
+            <span className={`btt-h-badge btt-h-badge--${verdict.tone}`}>
+              <span className="btt-h-badge__dot" aria-hidden="true" />
+              {verdict.label}
+            </span>
+            <span className="btt-article__quickverdict__criteria">
+              Rated on regulation, security, fees, ease of use, markets &amp; support
+            </span>
+          </div>
+          <a
+            className="btt-article__quickverdict__cta"
+            href={affiliate}
+            rel="sponsored nofollow noopener noreferrer"
+            target="_blank"
+          >
+            Visit {name} →
+          </a>
+        </div>
+      ) : null}
 
       {post.excerpt ? (
         <div className="btt-excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt }} />

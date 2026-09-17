@@ -4,7 +4,7 @@ import { site } from '@/lib/site';
 const COLUMNS = [
   {
     heading: 'About',
-    text: `${site.name} publishes independent crypto and AI trading platform reviews and deep technical writing on Bitcoin development.`,
+    text: `${site.name} publishes independent AI trading platform reviews and deep technical writing on Bitcoin development.`,
   },
   {
     heading: 'Explore',

@@ -19,8 +19,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { page } = await params;
   return {
-    title: `AI & Crypto Trading Platform Reviews — Page ${page}`,
-    description: `Independent, fact-checked AI and crypto trading platform reviews on ${site.name} — page ${page}.`,
+    title: `AI Trading Platform Reviews | Page ${page}`,
+    description: `Independent, fact-checked AI trading platform reviews on ${site.name} (page ${page}).`,
     alternates: { canonical: `/reviews/page/${page}` },
     robots: { index: false, follow: true },
   };
@@ -40,8 +40,8 @@ export default async function ReviewsNumbered({
     <Archive
       cards={pages[n - 1]}
       kicker="Reviews"
-      title={`AI & Crypto Trading Platform Reviews — Page ${n}`}
-      description="Independent, fact-checked reviews of AI and crypto trading platforms."
+      title={`AI Trading Platform Reviews | Page ${n}`}
+      description="Independent, fact-checked reviews of AI trading platforms."
       current={n}
       total={pages.length}
       base="/reviews"

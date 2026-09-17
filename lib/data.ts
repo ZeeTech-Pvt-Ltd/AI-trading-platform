@@ -53,7 +53,7 @@ type Manifest = {
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
-export const POSTS_PER_PAGE = 10;
+export const POSTS_PER_PAGE = 9;
 
 let manifestCache: Manifest | null = null;
 

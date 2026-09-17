@@ -1,6 +1,7 @@
 import type { Card } from '@/lib/data';
 import PostStream from '@/components/PostStream';
 import Pagination from '@/components/Pagination';
+import SortableGrid from '@/components/SortableGrid';
 
 export default function Archive({
   cards,
@@ -12,6 +13,7 @@ export default function Archive({
   base,
   featured = false,
   columns = 2,
+  sortable = false,
 }: {
   cards: Card[];
   kicker: string;
@@ -22,7 +24,10 @@ export default function Archive({
   base: string;
   featured?: boolean;
   columns?: 1 | 2 | 3;
+  sortable?: boolean;
 }) {
+  const grid = <PostStream cards={cards} featured={featured} columns={columns} />;
+
   return (
     <main id="primary" className="lucky-site-main btt-home">
       <section className="btt-archive">
@@ -34,7 +39,7 @@ export default function Archive({
       </section>
 
       <div className="lucky-container btt-home__container">
-        <PostStream cards={cards} featured={featured} columns={columns} />
+        {sortable ? <SortableGrid cards={cards}>{grid}</SortableGrid> : grid}
         <Pagination current={current} total={total} base={base} />
       </div>
     </main>

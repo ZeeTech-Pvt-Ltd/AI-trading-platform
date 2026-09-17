@@ -19,8 +19,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { page } = await params;
   return {
-    title: `${site.name} — Page ${page}`,
-    description: `${site.description} — Page ${page}`,
+    title: `${site.name} | Page ${page}`,
+    description: `${site.description} (page ${page})`,
     alternates: { canonical: `/page/${page}` },
     robots: { index: false, follow: true },
   };

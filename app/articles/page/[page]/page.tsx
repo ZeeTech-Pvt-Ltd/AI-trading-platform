@@ -19,8 +19,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { page } = await params;
   return {
-    title: `Bitcoin Articles — Page ${page}`,
-    description: `In-depth Bitcoin development articles on ${site.name} — Page ${page}.`,
+    title: `Bitcoin Articles | Page ${page}`,
+    description: `In-depth Bitcoin development articles on ${site.name} (page ${page}).`,
     alternates: { canonical: `/articles/page/${page}` },
     robots: { index: false, follow: true },
   };
@@ -40,12 +40,12 @@ export default async function ArticlesNumbered({
     <Archive
       cards={pages[n - 1]}
       kicker="Articles"
-      title={`Bitcoin Articles — Page ${n}`}
+      title={`Bitcoin Articles | Page ${n}`}
       description="Deep technical writing on Bitcoin Core development and the open-source ecosystem."
       current={n}
       total={pages.length}
       base="/articles"
-      columns={2}
+      columns={3}
     />
   );
 }

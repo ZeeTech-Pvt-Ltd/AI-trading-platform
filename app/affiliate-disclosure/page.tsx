@@ -3,13 +3,13 @@ import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
 export const metadata: Metadata = {
-  title: 'Affiliate Disclosure — AI Trading Platform',
-  description: `How ${site.name} earns money through affiliate links, and how that does — and does not — affect our independent AI and crypto trading platform reviews.`,
+  title: 'Affiliate Disclosure | AI Trading Platform',
+  description: `How ${site.name} earns money through affiliate links, and how that does (and does not) affect our independent AI trading platform reviews.`,
   alternates: { canonical: '/affiliate-disclosure' },
   robots: { index: false, follow: true },
   openGraph: {
-    title: 'Affiliate Disclosure — AI Trading Platform',
-    description: `How ${site.name} earns money through affiliate links, and how that does — and does not — affect our independent AI and crypto trading platform reviews.`,
+    title: 'Affiliate Disclosure | AI Trading Platform',
+    description: `How ${site.name} earns money through affiliate links, and how that does (and does not) affect our independent AI trading platform reviews.`,
     url: `${site.url}/affiliate-disclosure`,
   },
 };

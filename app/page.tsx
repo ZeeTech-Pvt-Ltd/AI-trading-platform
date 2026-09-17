@@ -1,20 +1,15 @@
 import Link from 'next/link';
-import type { CSSProperties } from 'react';
 import type { Metadata } from 'next';
 import { site } from '@/lib/site';
-import {
-  getAllCards,
-  getAuthors,
-  getTopRatedCards,
-  getLastUpdatedDate,
-  getTypePages,
-} from '@/lib/data';
-import { formatDate, brandName, ratingVerdict } from '@/lib/format';
+import { getAllCards, getAuthors, getLastUpdatedDate, getTypePages } from '@/lib/data';
+import { formatDate } from '@/lib/format';
+import EditorsPicks from '@/components/EditorsPicks';
+import HeroSearch from '@/components/HeroSearch';
+import SortableGrid from '@/components/SortableGrid';
 import PostStream from '@/components/PostStream';
 import Pagination from '@/components/Pagination';
-import TopRatedWidget from '@/components/TopRatedWidget';
 
-const HOME_TITLE = 'AI Trading Platform — Independent AI & Crypto Trading Platform Reviews';
+const HOME_TITLE = 'Independent AI Trading Platform Reviews (2026)';
 
 export const metadata: Metadata = {
   title: HOME_TITLE,
@@ -77,18 +72,9 @@ export default function HomePage() {
   const authorCount = Object.keys(getAuthors()).length;
   const lastUpdated = getLastUpdatedDate();
 
-  const topRated = getTopRatedCards(5);
   const reviewPages = getTypePages('trading');
   const latest = reviewPages[0] ?? [];
-  const lead = latest[0];
-  const leadName = lead ? brandName(lead.title) : '';
-  const leadVerdict = lead ? ratingVerdict(lead.ratingValue) : null;
-  const leadAffiliate = lead
-    ? `https://austerio-smart-up.com/?f=${lead.slug.replace(/-review$/, '')}`
-    : null;
-  const leadPct = lead?.ratingValue
-    ? (Math.min(5, Math.max(0, Number.parseFloat(lead.ratingValue))) / 5) * 100
-    : 0;
+  const picks = latest.slice(0, 3);
 
   return (
     <main id="primary" className="lucky-site-main btt-home">
@@ -96,35 +82,22 @@ export default function HomePage() {
       <section className="btt-h-hero">
         <div className="btt-h-hero__inner">
           <div className="btt-h-hero__content">
-            <span className="btt-h-eyebrow">2026 Review Roundup</span>
+            <span className="btt-h-eyebrow">Updated for 2026</span>
             <h1 className="btt-h-hero__title">
-              AI trading platform reviews that read the fine print{' '}
+              We read the fine print on AI trading platforms{' '}
               <span className="btt-h-accent">so you don&rsquo;t have to.</span>
             </h1>
-            <p className="btt-h-hero__lead">{site.description}</p>
+            <p className="btt-h-hero__lead">
+              We&rsquo;re a small team and we test each platform by hand: the sign-up, the
+              minimum deposit, how support actually responds. Then we write down exactly what we
+              found. No sponsorships deciding the score, no guesswork.
+            </p>
 
-            <ul className="btt-h-stats">
-              <li className="btt-h-stat">
-                <strong>{reviewCount.toLocaleString('en-US')}</strong>
-                <span>Platforms reviewed</span>
-              </li>
-              <li className="btt-h-stat">
-                <strong>{CRITERIA.length}</strong>
-                <span>Rating criteria</span>
-              </li>
-              <li className="btt-h-stat">
-                <strong>{authorCount}</strong>
-                <span>Reviewers on the team</span>
-              </li>
-              <li className="btt-h-stat">
-                <strong>{formatDate(lastUpdated)}</strong>
-                <span>Last updated</span>
-              </li>
-            </ul>
+            <HeroSearch />
 
             <div className="btt-h-hero__ctas">
               <Link className="btt-h-btn btt-h-btn--primary" href="/reviews">
-                Browse reviews →
+                Browse all reviews →
               </Link>
               <Link className="btt-h-btn btt-h-btn--ghost" href="/how-we-review">
                 How we rate
@@ -132,75 +105,50 @@ export default function HomePage() {
             </div>
           </div>
 
-          <TopRatedWidget cards={topRated} />
-        </div>
-
-        {lead ? (
-          <a href="#lead-review" className="btt-h-scrollcue" aria-label="Scroll to the latest review">
-            ↓
-          </a>
-        ) : null}
-      </section>
-
-      {/* Lead review */}
-      {lead ? (
-        <section className="btt-h-leadwrap" id="lead-review">
-          <div className="btt-h-lead">
-            <div className="btt-h-lead__content">
-              <span className="btt-h-eyebrow btt-h-eyebrow--dark">★ Lead Review</span>
-              <h2 className="btt-h-lead__title">{lead.title}</h2>
-              {lead.excerpt ? <p className="btt-h-lead__excerpt">{lead.excerpt}</p> : null}
-              <p className="btt-h-lead__byline">
-                By {lead.author} · {formatDate(lead.date)}
-                {lead.readingTime ? ` · ${lead.readingTime}` : ''}
-              </p>
-              <div className="btt-h-lead__ctas">
-                <Link className="btt-h-btn btt-h-btn--primary" href={`/trading/${lead.slug}`}>
-                  Read the review →
-                </Link>
-                {leadAffiliate ? (
-                  <a
-                    className="btt-h-btn btt-h-btn--outline-dark"
-                    href={leadAffiliate}
-                    rel="sponsored nofollow noopener noreferrer"
-                    target="_blank"
-                  >
-                    Visit {leadName} ⧉
-                  </a>
-                ) : null}
+          <aside className="btt-h-trust">
+            <span className="btt-h-trust__head">A quick intro</span>
+            <div className="btt-h-trust__grid">
+              <div className="btt-h-trust__item">
+                <strong>{reviewCount.toLocaleString('en-US')}</strong>
+                <span>Platforms reviewed</span>
+              </div>
+              <div className="btt-h-trust__item">
+                <strong>{CRITERIA.length}</strong>
+                <span>Rating criteria</span>
+              </div>
+              <div className="btt-h-trust__item">
+                <strong>{authorCount}</strong>
+                <span>Reviewers on the team</span>
+              </div>
+              <div className="btt-h-trust__item">
+                <strong>{formatDate(lastUpdated)}</strong>
+                <span>Last updated</span>
               </div>
             </div>
-            {lead.ratingValue && leadVerdict ? (
-              <div className="btt-h-lead__score">
-                <span className="btt-h-lead__scoreLabel">Our score</span>
-                <span
-                  className="btt-h-lead__scoreRing"
-                  style={{ '--pct': `${leadPct}%` } as CSSProperties}
-                >
-                  <span className="btt-h-lead__scoreRing__inner">{lead.ratingValue}</span>
-                </span>
-                <span className={`btt-h-badge btt-h-badge--${leadVerdict.tone}`}>
-                  <span className="btt-h-badge__dot" aria-hidden="true" />
-                  {leadVerdict.label}
-                </span>
-              </div>
-            ) : null}
-          </div>
-        </section>
-      ) : null}
+            <p className="btt-h-trust__note">
+              No one pays us for a better score. Ever.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      {/* Editor's picks */}
+      <EditorsPicks cards={picks} />
 
       {/* Latest reviews */}
       <section className="btt-h-latest">
         <div className="btt-h-latest__inner">
-          <div className="btt-h-latest__head">
-            <div>
-              <span className="btt-h-eyebrow">Latest reviews</span>
-              <h2 className="btt-h-latest__title">Every platform we&rsquo;ve reviewed</h2>
-            </div>
-            <span className="btt-h-latest__note">New reviews added regularly</span>
-          </div>
-
-          <PostStream cards={latest} columns={2} />
+          <SortableGrid
+            cards={latest}
+            heading={
+              <div key="latest-heading">
+                <span className="btt-h-eyebrow">Latest reviews</span>
+                <h2 className="btt-h-latest__title">Every platform we&rsquo;ve reviewed</h2>
+              </div>
+            }
+          >
+            <PostStream cards={latest} columns={3} />
+          </SortableGrid>
 
           <Pagination current={1} total={reviewPages.length} base="/reviews" />
         </div>
