@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { site } from '@/lib/site';
-import { getAllCards, getAuthors, getLastUpdatedDate, getTypePages } from '@/lib/data';
+import { getAllCards, getAuthors, getCard, getLastUpdatedDate, getTypePages } from '@/lib/data';
 import { formatDate } from '@/lib/format';
 import EditorsPicks from '@/components/EditorsPicks';
 import HeroSearch from '@/components/HeroSearch';
@@ -10,6 +10,10 @@ import PostStream from '@/components/PostStream';
 import Pagination from '@/components/Pagination';
 
 const HOME_TITLE = 'Independent AI Trading Platform Reviews (2026)';
+
+// Manually pinned Editor's Picks slugs, most important first. Falls back to
+// the latest reviews to fill any remaining slots.
+const PINNED_PICKS: string[] = ['polar-zinsmere-review', 'zephgain-review'];
 
 export const metadata: Metadata = {
   title: HOME_TITLE,
@@ -74,7 +78,12 @@ export default function HomePage() {
 
   const reviewPages = getTypePages('trading');
   const latest = reviewPages[0] ?? [];
-  const picks = latest.slice(0, 3);
+
+  const pinnedCards = PINNED_PICKS.map((slug) => getCard('trading', slug)).filter(
+    (c): c is NonNullable<typeof c> => !!c
+  );
+  const pinnedSlugs = new Set(pinnedCards.map((c) => c.slug));
+  const picks = [...pinnedCards, ...latest.filter((c) => !pinnedSlugs.has(c.slug))].slice(0, 3);
 
   return (
     <main id="primary" className="lucky-site-main btt-home">
