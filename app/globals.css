@@ -1579,59 +1579,39 @@ input[type="reset"],
 	font-weight: 800;
 	line-height: 1;
 	color: #fff;
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #d06a24 0%, var(--brand) 52%, var(--brand-strong) 100%);
+	background: var(--brand);
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), var(--shadow-sm);
 }
 
 .btt-card__logo--bitcoin {
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #ffb347 0%, #f7931a 52%, #e07c00 100%);
+	background: #f7931a;
 }
 
-/* Trading cards: a deterministic color per platform (see PostCard's colorIndex)
-   instead of every card sharing the same orange monogram. */
+/* Trading cards: a flat, distinct single color per platform (see PostCard's
+   colorIndex) instead of a gradient — each icon is one solid, eye-friendly color. */
 .btt-card__logo--c0 {
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #d06a24 0%, var(--brand) 52%, var(--brand-strong) 100%);
+	background: #b8551f;
 }
 .btt-card__logo--c1 {
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #60a5fa 0%, #2563eb 52%, #1d4ed8 100%);
+	background: #2f6fed;
 }
 .btt-card__logo--c2 {
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #4ade80 0%, #16a34a 52%, #15803d 100%);
+	background: #16a34a;
 }
 .btt-card__logo--c3 {
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #a78bfa 0%, #7c3aed 52%, #6d28d9 100%);
+	background: #7c3aed;
 }
 .btt-card__logo--c4 {
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #2dd4bf 0%, #0d9488 52%, #0f766e 100%);
+	background: #0d9488;
 }
 .btt-card__logo--c5 {
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #f472b6 0%, #db2777 52%, #be185d 100%);
+	background: #db2777;
 }
 .btt-card__logo--c6 {
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #fbbf24 0%, #d97706 52%, #b45309 100%);
+	background: #b45309;
 }
 .btt-card__logo--c7 {
-	background:
-		radial-gradient(130% 130% at 18% 12%, rgba(255, 255, 255, 0.32), transparent 46%),
-		linear-gradient(135deg, #64748b 0%, #334155 52%, #1e293b 100%);
+	background: #475569;
 }
 
 .btt-rating {
