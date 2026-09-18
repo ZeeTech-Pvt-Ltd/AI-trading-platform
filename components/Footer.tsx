@@ -9,7 +9,7 @@ const COLUMNS = [
   {
     heading: 'Explore',
     links: [
-      { label: 'Crypto Platform Reviews', href: '/reviews' },
+      { label: 'AI Trading Platform Reviews', href: '/reviews' },
       { label: 'Bitcoin Articles', href: '/articles' },
       { label: 'All Authors', href: '/authors' },
     ],
