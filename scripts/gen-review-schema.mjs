@@ -45,9 +45,22 @@ for (const f of files) {
   const p = JSON.parse(readFileSync(fp, 'utf8'));
   if (typeof p.content !== 'string') continue;
 
-  // brand from title
-  const bm = p.title.match(/^(.*?)\s+Review\b/i);
-  const brand = bm ? bm[1].trim() : p.title.trim();
+  // brand from title — a few title formulas put "Review" at the end of the
+  // sentence instead of right after the name, so try those forms first.
+  const brandPatterns = [
+    /^Is\s+(.+?)\s+Legit\?/i,
+    /^Is\s+(.+?)\s+Worth\s+It\b/i,
+    /^(.+?)\s+Scam\s+or\s+Legit\?/i,
+  ];
+  let brand = '';
+  for (const re of brandPatterns) {
+    const bm = p.title.match(re);
+    if (bm) { brand = bm[1].trim(); break; }
+  }
+  if (!brand) {
+    const bm = p.title.match(/^(.*?)\s+Review\b/i);
+    brand = bm ? bm[1].trim() : p.title.trim();
+  }
   if (!brand) missingBrand.push(f);
 
   // rating value from verdict card
