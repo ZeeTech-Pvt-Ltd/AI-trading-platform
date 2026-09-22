@@ -90,7 +90,7 @@ export default function ComparePage({ a, b }: { a: CompareSide; b: CompareSide }
                 </tr>
               </thead>
               <tbody>
-                <Row label="Editor score" a={a.score > 0 ? a.score.toFixed(1) : '—'} b={b.score > 0 ? b.score.toFixed(1) : '—'} />
+                <Row label="Editor score" a={a.score > 0 ? a.score.toFixed(1) : 'N/A'} b={b.score > 0 ? b.score.toFixed(1) : 'N/A'} />
                 <Row label="Minimum deposit" a={a.minDeposit} b={b.minDeposit} />
                 <Row label="Demo account" a={a.demo} b={b.demo} />
                 <Row label="Customer support" a={a.support} b={b.support} />
@@ -136,8 +136,8 @@ export default function ComparePage({ a, b }: { a: CompareSide; b: CompareSide }
             {a.name} and {b.name} follow the same automated-trading model: a web-based platform with
             a beginner-friendly minimum deposit, a demo account, and AI-assisted trade analysis.
             Neither can guarantee profits, and both carry a high risk of loss. The practical
-            difference usually comes down to the small print — fees, payout speed and broker
-            oversight — so read both full reviews and start with a demo account before risking real
+            difference usually comes down to the small print: fees, payout speed and broker
+            oversight, so read both full reviews and start with a demo account before risking real
             money.
           </p>
         </section>

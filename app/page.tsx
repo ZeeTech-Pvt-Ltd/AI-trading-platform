@@ -188,7 +188,7 @@ export default function HomePage() {
 
           <p className="btt-h-disclosure">
             <strong>Disclosure.</strong> Our editorial team decides what we review and what our
-            verdict is, independently of any commercial relationship — a platform cannot buy a
+            verdict is, independently of any commercial relationship: a platform cannot buy a
             better score. Some outbound links are affiliate links, marked{' '}
             <code>rel=&quot;sponsored&quot;</code>. Nothing on this site is financial advice, and
             trading involves risk. See our{' '}

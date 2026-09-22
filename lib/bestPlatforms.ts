@@ -40,7 +40,7 @@ export const BEST_PLATFORMS: BestPlatform[] = [
       'The $250 minimum is real money; only fund what you can afford to lose.',
     ],
     verdict:
-      'Immediate Edge is the closest thing to a reference point in this category. The demo account and clear withdrawal process are genuine strengths, but the profit claims around it are marketing, not a promise — treat the $250 minimum as a test budget, not an investment.',
+      'Immediate Edge is the closest thing to a reference point in this category. The demo account and clear withdrawal process are genuine strengths, but the profit claims around it are marketing, not a promise. Treat the $250 minimum as a test budget, not an investment.',
   },
   {
     rank: 2,
@@ -63,7 +63,7 @@ export const BEST_PLATFORMS: BestPlatform[] = [
       'Auto mode should not be run fully unattended.',
     ],
     verdict:
-      'Aurum Valdoria earns its high score on caution rather than flash. It does not offer the widest asset range, but it does the basics of onboarding and risk management better than most — a sensible first step if you are new to automated trading.',
+      'Aurum Valdoria earns its high score on caution rather than flash. It does not offer the widest asset range, but it does the basics of onboarding and risk management better than most, a sensible first step if you are new to automated trading.',
   },
   {
     rank: 3,
@@ -76,7 +76,7 @@ export const BEST_PLATFORMS: BestPlatform[] = [
     support: '24/7',
     payout: '1–2 business days',
     pros: [
-      'Genuinely wider market coverage — commodities and FX beyond the usual crypto pairs.',
+      'Genuinely wider market coverage: commodities and FX beyond the usual crypto pairs.',
       'Demo account is fully featured rather than a trimmed preview.',
       'No account-opening fee, so the barrier is the deposit itself.',
     ],
@@ -201,7 +201,7 @@ export const BEST_PLATFORMS: BestPlatform[] = [
       'Support claims of 24/7 are hard to substantiate at scale.',
     ],
     verdict:
-      'Albix Prime is competent but unremarkable. It does not fail in any obvious way, yet it gives you little concrete reason to choose it over the higher-ranked options — its main asset is simply that the barrier to entry is low.',
+      'Albix Prime is competent but unremarkable. It does not fail in any obvious way, yet it gives you little concrete reason to choose it over the higher-ranked options. Its main asset is simply that the barrier to entry is low.',
   },
   {
     rank: 9,
@@ -247,6 +247,6 @@ export const BEST_PLATFORMS: BestPlatform[] = [
       'Asset availability is not listed before funding.',
     ],
     verdict:
-      'Equity Guard Capital works, but its most important detail — who regulates the broker behind it — is missing. That alone keeps it at the bottom of our list despite a serviceable product.',
+      'Equity Guard Capital works, but its most important detail, who regulates the broker behind it, is missing. That alone keeps it at the bottom of our list despite a serviceable product.',
   },
 ];

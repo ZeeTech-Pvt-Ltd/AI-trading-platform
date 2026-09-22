@@ -27,8 +27,8 @@ export async function generateMetadata({
   const a = getAuthor(author);
   if (!a) return { title: 'Not Found' };
   return {
-    title: `${a.name} — ${site.name} — Page ${page}`,
-    description: `${a.name}'s articles on ${site.name} — Page ${page}.`,
+    title: `${a.name} | ${site.name} | Page ${page}`,
+    description: `${a.name}'s articles on ${site.name}, page ${page}.`,
     alternates: { canonical: `/author/${author}/page/${page}` },
     robots: { index: false, follow: true },
   };

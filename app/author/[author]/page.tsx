@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!a) return { title: 'Not Found' };
   const total = a.pages.reduce((sum, p) => sum + p.length, 0);
   return {
-    title: `${a.name} — ${site.name}`,
+    title: `${a.name} | ${site.name}`,
     description: `${a.name} has written ${total} articles on ${site.name}.`,
     alternates: { canonical: `/author/${author}` },
   };

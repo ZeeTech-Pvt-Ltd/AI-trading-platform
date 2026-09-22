@@ -20,7 +20,7 @@ export async function generateMetadata({
   if (!sides) return { title: 'Comparison not found' };
   const [a, b] = sides;
   const title = `${a.name} vs ${b.name}: Which Should You Choose?`;
-  const description = `We compare ${a.name} and ${b.name} side by side — minimum deposit, demo account, support, strengths and weaknesses — so you can decide which automated trading platform fits.`;
+  const description = `We compare ${a.name} and ${b.name} side by side: minimum deposit, demo account, support, strengths and weaknesses, so you can decide which automated trading platform fits.`;
   return {
     title,
     description,

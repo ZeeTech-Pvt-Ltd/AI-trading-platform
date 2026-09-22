@@ -4,12 +4,12 @@ import { site } from '@/lib/site';
 import { getAuthors } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: `Authors — ${site.name}`,
-  description: `Meet the team behind ${site.name} — the people who research and write our reviews and guides.`,
+  title: `Authors | ${site.name}`,
+  description: `Meet the team behind ${site.name}, the people who research and write our reviews and guides.`,
   alternates: { canonical: '/authors' },
   openGraph: {
-    title: `Authors — ${site.name}`,
-    description: `Meet the team behind ${site.name} — the people who research and write our reviews and guides.`,
+    title: `Authors | ${site.name}`,
+    description: `Meet the team behind ${site.name}, the people who research and write our reviews and guides.`,
     url: `${site.url}/authors`,
   },
 };

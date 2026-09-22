@@ -17,7 +17,7 @@ export default function HowWeReviewPage() {
   return (
     <InfoPage
       title="How We Review Trading Platforms"
-      subtitle="Our methodology, rating criteria, and process — so you can trust the verdict."
+      subtitle="Our methodology, rating criteria, and process, so you can trust the verdict."
     >
       <p>
         Every platform we cover is assessed against the same six criteria. We score each on a
@@ -65,13 +65,13 @@ export default function HowWeReviewPage() {
       <h2>What our ratings mean</h2>
       <ul>
         <li>
-          <strong>4.5&ndash;5.0</strong> — Strong overall; transparent and worth considering.
+          <strong>4.5&ndash;5.0</strong>: Strong overall; transparent and worth considering.
         </li>
         <li>
-          <strong>3.5&ndash;4.4</strong> — Has real strengths and notable trade-offs.
+          <strong>3.5&ndash;4.4</strong>: Has real strengths and notable trade-offs.
         </li>
         <li>
-          <strong>Below 3.5</strong> — Significant concerns; approach with caution.
+          <strong>Below 3.5</strong>: Significant concerns; approach with caution.
         </li>
       </ul>
 

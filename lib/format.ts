@@ -13,7 +13,7 @@ export function formatDate(iso: string): string {
 /**
  * Short verdict label derived from the score itself, using the same bands
  * published on /how-we-review (4.5+, 3.5-4.4, below 3.5). Mechanical, not an
- * independent editorial claim — no per-platform wording is invented here.
+ * independent editorial claim, no per-platform wording is invented here.
  */
 /**
  * Platform name = the part of a review title before "Review". Falls back to

@@ -3,11 +3,11 @@ import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
 export const metadata: Metadata = {
-  title: 'Contact Us — AI Trading Platform',
+  title: 'Contact Us | AI Trading Platform',
   description: `Get in touch with the ${site.name} team by email for corrections, feedback, press enquiries, or questions about our trading platform reviews.`,
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Contact Us — AI Trading Platform',
+    title: 'Contact Us | AI Trading Platform',
     description: `Get in touch with the ${site.name} team by email for corrections, feedback, press enquiries, or questions about our trading platform reviews.`,
     url: `${site.url}/contact`,
   },
@@ -29,7 +29,7 @@ export default function ContactPage() {
           its fees or regulation? Tell us and we&rsquo;ll verify and update the review.
         </li>
         <li>
-          <strong>Review requests.</strong> Want us to review a specific platform? Let us know —
+          <strong>Review requests.</strong> Want us to review a specific platform? Let us know,
           we cannot promise coverage or a particular outcome, but we consider every request.
         </li>
         <li>

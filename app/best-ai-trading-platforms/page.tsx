@@ -4,7 +4,7 @@ import BestOfPage from '@/components/BestOfPage';
 
 const title = 'Best AI Trading Platforms 2026: Ranked & Reviewed';
 const description =
-  'We ranked the top 10 AI trading platforms for 2026 by onboarding, demo quality, transparency and risk controls. See which ones are worth your deposit — and which to avoid.';
+  'We ranked the top 10 AI trading platforms for 2026 by onboarding, demo quality, transparency and risk controls. See which ones are worth your deposit, and which to avoid.';
 
 export const metadata: Metadata = {
   title,

@@ -2,7 +2,7 @@
  * Build a table of contents from the h2 headings in a post's HTML,
  * and inject stable anchor ids into those headings so the links resolve.
  *
- * Pure string transform — safe for SSG (no DOM needed).
+ * Pure string transform, safe for SSG (no DOM needed).
  */
 
 export interface TocItem {

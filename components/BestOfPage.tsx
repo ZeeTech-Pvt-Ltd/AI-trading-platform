@@ -76,7 +76,7 @@ export default function BestOfPage({
         <aside className="btt-best__disclosure" role="note">
           <strong>Disclosure:</strong> Some links on this page are affiliate links. If you open an
           account through them, we may earn a commission at no cost to you. This never affects our
-          rankings, which are editorial. Automated trading is high-risk — most retail traders lose
+          rankings, which are editorial. Automated trading is high-risk: most retail traders lose
           money.
         </aside>
 

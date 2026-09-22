@@ -1,7 +1,7 @@
 /**
  * Post-process baked JSON-LD from the content files to add signals the scrape
  * pipeline doesn't emit yet. Applied at render time (SSG) so nothing is
- * fabricated — `dateModified` falls back to the real publish date until an
+ * fabricated: `dateModified` falls back to the real publish date until an
  * actual modified date is supplied in the content.
  */
 export function enrichJsonLd(jsonLd: string, dateModified?: string): string {

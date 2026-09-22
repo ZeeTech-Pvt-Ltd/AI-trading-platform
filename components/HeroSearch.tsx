@@ -12,7 +12,7 @@ type Result = {
 };
 
 // Most visitors land already holding a specific platform name in mind
-// ("is X legit?") — this puts that check front and center in the hero
+// ("is X legit?"), this puts that check front and center in the hero
 // instead of making them scroll or find the header search icon.
 // The <form> submits to the existing /search page (works with no JS);
 // the dropdown is a client-side enhancement on top of that.
@@ -83,7 +83,7 @@ export default function HeroSearch() {
             <p className="btt-h-search__hint">Searching…</p>
           ) : results.length === 0 ? (
             <p className="btt-h-search__hint">
-              No review found for &ldquo;{query}&rdquo; yet — press Enter to search anyway.
+              No review found for &ldquo;{query}&rdquo; yet. Press Enter to search anyway.
             </p>
           ) : (
             results.slice(0, 6).map((r) => (
