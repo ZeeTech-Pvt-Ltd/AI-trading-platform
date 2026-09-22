@@ -18,6 +18,11 @@ const nextConfig = {
         destination: '/trading/nexora-ai-platform-review',
         permanent: true,
       },
+      {
+        source: '/trading/phospherai-review',
+        destination: '/trading/phospher-ai-review',
+        permanent: true,
+      },
     ];
   },
 };
