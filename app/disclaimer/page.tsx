@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   title: 'Disclaimer — AI Trading Platform',
   description: `${site.name} disclaimer: all content is for information only, not financial advice, and crypto and automated trading involve substantial risk of loss.`,
   alternates: { canonical: '/disclaimer' },
-  robots: { index: false, follow: true },
   openGraph: {
     title: 'Disclaimer — AI Trading Platform',
     description: `${site.name} disclaimer: all content is for information only, not financial advice, and crypto and automated trading involve substantial risk of loss.`,

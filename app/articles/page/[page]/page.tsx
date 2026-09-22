@@ -22,7 +22,6 @@ export async function generateMetadata({
     title: `Bitcoin Articles | Page ${page}`,
     description: `In-depth Bitcoin development articles on ${site.name} (page ${page}).`,
     alternates: { canonical: `/articles/page/${page}` },
-    robots: { index: false, follow: true },
   };
 }
 

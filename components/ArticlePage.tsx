@@ -100,7 +100,7 @@ export default function ArticlePage({ post }: { post: Post }) {
               {verdict.label}
             </span>
             <span className="btt-article__quickverdict__criteria">
-              Rated on regulation, security, fees, ease of use, markets &amp; support
+              Rated on ease of use, features, value &amp; support
             </span>
           </div>
           <a

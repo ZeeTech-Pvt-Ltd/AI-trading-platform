@@ -22,7 +22,6 @@ export async function generateMetadata({
     title: `AI Trading Platform Reviews | Page ${page}`,
     description: `Independent, fact-checked AI trading platform reviews on ${site.name} (page ${page}).`,
     alternates: { canonical: `/reviews/page/${page}` },
-    robots: { index: false, follow: true },
   };
 }
 

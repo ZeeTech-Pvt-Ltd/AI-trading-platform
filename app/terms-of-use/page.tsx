@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   title: 'Terms of Service — AI Trading Platform',
   description: `The terms governing your use of ${site.name}, including acceptable use, intellectual property, and limitation of liability.`,
   alternates: { canonical: '/terms-of-use' },
-  robots: { index: false, follow: true },
   openGraph: {
     title: 'Terms of Service — AI Trading Platform',
     description: `The terms governing your use of ${site.name}, including acceptable use, intellectual property, and limitation of liability.`,

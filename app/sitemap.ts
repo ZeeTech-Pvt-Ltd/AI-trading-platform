@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
-import { getAllCards } from '@/lib/data';
+import { getAllCards, getAuthors, getTypePages } from '@/lib/data';
 import { getSamplePairs } from '@/lib/compare';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,19 +11,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: site.url, lastModified: now, changeFrequency: 'daily', priority: 1 },
   ];
 
-  // trust / informational pages — legal/utility pages (authors, affiliate
-  // disclosure, disclaimer, privacy policy, terms) are noindexed and
-  // intentionally left out of the sitemap.
+  // trust / informational pages
   for (const [path, priority] of [
     ['/about', 0.6],
     ['/how-we-review', 0.6],
     ['/contact', 0.4],
+    ['/authors', 0.5],
+    ['/affiliate-disclosure', 0.3],
+    ['/disclaimer', 0.3],
+    ['/privacy-policy', 0.3],
+    ['/terms-of-use', 0.3],
+    ['/reviews/a-z', 0.6],
   ] as const) {
     entries.push({
       url: `${site.url}${path}`,
       lastModified: now,
       changeFrequency: 'yearly',
       priority,
+    });
+  }
+
+  // individual author pages
+  for (const slug of Object.keys(getAuthors())) {
+    entries.push({
+      url: `${site.url}/author/${slug}`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.5,
     });
   }
 
@@ -45,11 +59,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // category archives (reviews + articles) — page 1 only; page 2+ is noindexed
-  // pagination and intentionally left out of the sitemap.
-  for (const [path, priority] of [
-    ['/reviews', 0.9],
-    ['/articles', 0.7],
+  // category archives (reviews + articles), including numbered pages —
+  // each has its own self-canonical and is indexable.
+  for (const [path, type, priority] of [
+    ['/reviews', 'trading', 0.9],
+    ['/articles', 'bitcoin', 0.7],
   ] as const) {
     entries.push({
       url: `${site.url}${path}`,
@@ -57,6 +71,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority,
     });
+    const pageCount = getTypePages(type).length;
+    for (let n = 2; n <= pageCount; n++) {
+      entries.push({
+        url: `${site.url}${path}/page/${n}`,
+        lastModified: now,
+        changeFrequency: 'weekly',
+        priority: Math.max(priority - 0.2, 0.3),
+      });
+    }
   }
 
   // posts (reviews + articles)
