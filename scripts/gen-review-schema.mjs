@@ -1,21 +1,14 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 
-// Full Review schema: @graph of Review (itemReviewed: Product + name +
-// aggregateRating, reviewRating with best/worstRating, author,
-// datePublished) plus FAQPage when the post has FAQ items. itemReviewed
-// carries aggregateRating because Google requires Product to have
-// offers/review/aggregateRating. Keep in sync with content/posts/trading/*.json.
+// Full Review schema: @graph of Review (itemReviewed: Product + name,
+// reviewRating with best/worstRating, author, datePublished) plus FAQPage
+// when the post has FAQ items. No aggregateRating/reviewCount: we only
+// have our own single editorial rating, not a real multi-user average, so
+// claiming a reviewCount would misrepresent it. Keep in sync with
+// content/posts/trading/*.json.
 
 const DIR = 'content/posts/trading';
 const files = readdirSync(DIR).filter((f) => f.endsWith('.json'));
-
-// Deterministic per-slug pseudo-random reviewCount in [15, 40], so the
-// number is stable across re-runs instead of reshuffling on every build.
-function reviewCountFor(slug) {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
-  return 15 + (hash % 26);
-}
 
 function strip(s) {
   return s
@@ -88,12 +81,6 @@ for (const f of files) {
       itemReviewed: {
         '@type': 'Product',
         name: brand,
-        // Google requires Product to carry offers/review/aggregateRating.
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: rating,
-          reviewCount: String(reviewCountFor(p.slug)),
-        },
       },
       reviewRating: { '@type': 'Rating', ratingValue: rating, bestRating: '5', worstRating: '1' },
       author: { '@type': 'Person', name: p.author },
