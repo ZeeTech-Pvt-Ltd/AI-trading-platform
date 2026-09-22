@@ -21,7 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/disclaimer', 0.3],
     ['/privacy-policy', 0.3],
     ['/terms-of-use', 0.3],
-    ['/reviews/a-z', 0.6],
   ] as const) {
     entries.push({
       url: `${site.url}${path}`,
@@ -59,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // category archives (reviews + articles), including numbered pages —
+  // category archives (reviews + articles), including numbered pages,
   // each has its own self-canonical and is indexable.
   for (const [path, type, priority] of [
     ['/reviews', 'trading', 0.9],

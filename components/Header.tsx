@@ -9,7 +9,6 @@ const NAV = [
   { label: 'Home', href: '/' },
   { label: 'Best Platforms', href: '/best-ai-trading-platforms' },
   { label: 'Reviews', href: '/reviews' },
-  { label: 'A-Z', href: '/reviews/a-z' },
   { label: 'Articles', href: '/articles' },
 ];
 
