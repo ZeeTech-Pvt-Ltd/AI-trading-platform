@@ -15,7 +15,7 @@ function ReviewSidebar({ post }: { post: Post }) {
   const name = brandName(post.title);
   const verdict = ratingVerdict(card?.ratingValue);
   const affiliate =
-    post.ctaUrl || `https://austerio-smart-up.com/?f=${post.slug.replace(/-review$/, '')}&subid=BIT&src=TAI`;
+    post.ctaUrl || `https://austerio-smart-up.com/?f=${post.slug.replace(/-review$/, '')}&subid=BIT&src=ATP`;
 
   return (
     <aside className="btt-article__sidebar">
@@ -70,7 +70,7 @@ export default function ArticlePage({ post }: { post: Post }) {
   const name = isTrading ? brandName(post.title) : '';
   const verdict = ratingVerdict(card?.ratingValue);
   const affiliate = isTrading
-    ? post.ctaUrl || `https://austerio-smart-up.com/?f=${post.slug.replace(/-review$/, '')}&subid=BIT&src=TAI`
+    ? post.ctaUrl || `https://austerio-smart-up.com/?f=${post.slug.replace(/-review$/, '')}&subid=BIT&src=ATP`
     : '';
 
   const main = (
