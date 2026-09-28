@@ -72,6 +72,27 @@ function normalizeSupport(v: string): string {
   return t || 'Not disclosed';
 }
 
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Different review templates use different label text for the same field.
+// Anchored on a leading <td> so a label like "Support" can't accidentally
+// match inside an unrelated row such as "Mobile Support".
+function scrapeAny(content: string, labels: string[]): string {
+  for (const label of labels) {
+    const re = new RegExp(`<td>${escapeRegExp(label)}</td>\\s*<td>([^<]+)<`);
+    const v = scrape(content, re);
+    if (v) return v;
+  }
+  return '';
+}
+
+const DEPOSIT_LABELS = ['Initial Funding', 'Minimum Deposit', 'Starting Deposit', 'Entry Deposit'];
+const DEMO_LABELS = ['Trial Account', 'Demo Account', 'Practice Account'];
+const SUPPORT_LABELS = ['Customer Support', 'Help Desk', 'Support'];
+const PAYOUT_LABELS = ['Payout Time', 'Withdrawal Time'];
+
 function extractSide(slug: string): CompareSide | null {
   const post = readPost(slug);
   if (!post) return null;
@@ -83,10 +104,10 @@ function extractSide(slug: string): CompareSide | null {
     slug,
     name,
     score,
-    minDeposit: scrape(c, /Initial Funding<\/td>\s*<td>([^<]+)</) || 'Not disclosed',
-    demo: scrape(c, /Trial Account<\/td>\s*<td>([^<]+)</) || 'Not disclosed',
-    support: normalizeSupport(scrape(c, /Customer Support<\/td>\s*<td>([^<]+)</)),
-    payout: scrape(c, /Payout Time<\/td>\s*<td>([^<]+)</) || 'Not disclosed',
+    minDeposit: scrapeAny(c, DEPOSIT_LABELS) || 'Not disclosed',
+    demo: scrapeAny(c, DEMO_LABELS) || 'Not disclosed',
+    support: normalizeSupport(scrapeAny(c, SUPPORT_LABELS)),
+    payout: scrapeAny(c, PAYOUT_LABELS) || 'Not disclosed',
     pros: listItems(c, 'bd-panel--pros'),
     cons: listItems(c, 'bd-panel--cons'),
   };
