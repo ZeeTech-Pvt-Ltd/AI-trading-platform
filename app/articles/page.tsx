@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { site } from '@/lib/site';
 import { getTypePages } from '@/lib/data';
 import Archive from '@/components/Archive';
+import ArchiveReviewsPromo from '@/components/ArchiveReviewsPromo';
 
 export const metadata: Metadata = {
   title: 'Bitcoin Articles',
@@ -26,6 +27,7 @@ export default function ArticlesPage() {
       total={pages.length}
       base="/articles"
       columns={3}
+      extra={<ArchiveReviewsPromo />}
     />
   );
 }

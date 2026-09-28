@@ -193,3 +193,29 @@ export function getRelatedCards(
 
   return out;
 }
+
+/**
+ * Trading reviews to cross-link from a bitcoin article's body content.
+ * Purely hash-seeded (the source slug isn't itself in the trading list, so
+ * there's no natural "position" to build a ring from) — each article gets a
+ * different, deterministic set of reviews rather than every article linking
+ * to the same handful.
+ */
+export function getReviewsForArticle(articleSlug: string, count = 3): Card[] {
+  const all = getManifest()
+    .homePages.flat()
+    .filter((c) => c.type === 'trading');
+  const n = all.length;
+  if (n === 0) return [];
+  const baseHash = hashString(`article:${articleSlug}`);
+  const seen = new Set<string>();
+  const out: Card[] = [];
+  for (let k = 0; out.length < count && k < n; k++) {
+    const c = all[(baseHash + k * 104729) % n];
+    if (!seen.has(c.slug)) {
+      seen.add(c.slug);
+      out.push(c);
+    }
+  }
+  return out;
+}

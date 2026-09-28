@@ -1,5 +1,5 @@
 import type { Post } from '@/lib/data';
-import { getRelatedCards, getCard, getTopRatedCards } from '@/lib/data';
+import { getRelatedCards, getReviewsForArticle, getCard, getTopRatedCards } from '@/lib/data';
 import { brandName, ratingVerdict } from '@/lib/format';
 import { enrichJsonLd } from '@/lib/schema';
 import { buildToc } from '@/lib/toc';
@@ -124,6 +124,20 @@ export default function ArticlePage({ post }: { post: Post }) {
         className="btt-article__content lucky-entry-content"
         dangerouslySetInnerHTML={{ __html: html }}
       />
+
+      {!isTrading ? (
+        <section className="btt-article-crosslink" aria-label="AI trading platform reviews">
+          <h2 className="btt-article-crosslink__title">Looking to trade instead?</h2>
+          <p className="btt-article-crosslink__desc">
+            We also review AI-powered trading platforms &mdash; here are a few worth a look.
+          </p>
+          <div className="btt-stream__grid">
+            {getReviewsForArticle(post.slug, 3).map((c) => (
+              <PostCard key={`${c.type}/${c.slug}`} card={c} />
+            ))}
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 

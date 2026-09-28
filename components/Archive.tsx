@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { Card } from '@/lib/data';
 import PostStream from '@/components/PostStream';
 import Pagination from '@/components/Pagination';
@@ -14,6 +15,7 @@ export default function Archive({
   featured = false,
   columns = 2,
   sortable = false,
+  extra,
 }: {
   cards: Card[];
   kicker: string;
@@ -25,6 +27,7 @@ export default function Archive({
   featured?: boolean;
   columns?: 1 | 2 | 3;
   sortable?: boolean;
+  extra?: ReactNode;
 }) {
   const grid = <PostStream cards={cards} featured={featured} columns={columns} />;
 
@@ -41,6 +44,7 @@ export default function Archive({
       <div className="lucky-container btt-home__container">
         {sortable ? <SortableGrid cards={cards}>{grid}</SortableGrid> : grid}
         <Pagination current={current} total={total} base={base} />
+        {extra}
       </div>
     </main>
   );

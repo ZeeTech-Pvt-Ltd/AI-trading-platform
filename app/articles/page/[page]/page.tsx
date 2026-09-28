@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { site } from '@/lib/site';
 import { getTypePages } from '@/lib/data';
 import Archive from '@/components/Archive';
+import ArchiveReviewsPromo from '@/components/ArchiveReviewsPromo';
 
 export const dynamicParams = false;
 
@@ -45,6 +46,7 @@ export default async function ArticlesNumbered({
       total={pages.length}
       base="/articles"
       columns={3}
+      extra={<ArchiveReviewsPromo />}
     />
   );
 }

@@ -1424,6 +1424,44 @@ input[type="reset"],
 	max-width: 60ch;
 }
 
+/* ---------- Cross-link promo on the articles archive ---------- */
+
+.btt-archive-promo {
+	margin-top: 48px;
+	padding-top: 40px;
+	border-top: 1px solid var(--line);
+	max-width: 560px;
+}
+
+.btt-archive-promo__head {
+	margin-bottom: 20px;
+}
+
+.btt-archive-promo__title {
+	font-family: var(--font-serif);
+	font-size: 24px;
+	line-height: 1.2;
+	margin-bottom: 8px;
+}
+
+.btt-archive-promo__desc {
+	font-size: 15px;
+	color: var(--muted);
+}
+
+.btt-archive-promo__more {
+	display: inline-block;
+	margin-top: 16px;
+	font-weight: 700;
+	font-size: 14.5px;
+	color: var(--brand);
+	text-decoration: none;
+}
+
+.btt-archive-promo__more:hover {
+	text-decoration: underline;
+}
+
 /* ---------- About page ---------- */
 
 .btt-about-stats {
@@ -2545,6 +2583,25 @@ input[type="reset"],
 	font-size: 26px;
 	letter-spacing: -0.02em;
 	margin-bottom: 20px;
+}
+
+.btt-article-crosslink {
+	margin-top: 48px;
+	padding-top: 32px;
+	border-top: 1px solid var(--line);
+}
+
+.btt-article-crosslink__title {
+	font-family: var(--font-serif);
+	font-size: 22px;
+	letter-spacing: -0.02em;
+	margin-bottom: 6px;
+}
+
+.btt-article-crosslink__desc {
+	font-size: 15px;
+	color: var(--muted);
+	margin-bottom: 18px;
 }
 
 /* ==========================================================================
