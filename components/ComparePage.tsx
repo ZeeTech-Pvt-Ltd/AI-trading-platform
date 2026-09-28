@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { CompareSide } from '@/lib/compare';
 import { affiliateToken } from '@/lib/bestPlatforms';
 
-const AFFILIATE_BASE = 'https://austerio-smart-up.com/?f=';
+const AFFILIATE_BASE = 'https://vectorai360.com/?f=';
 
 function ctaHref(slug: string): string {
   return `${AFFILIATE_BASE}${affiliateToken(slug)}`;

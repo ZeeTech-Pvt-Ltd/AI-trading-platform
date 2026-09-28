@@ -2,7 +2,7 @@ import Link from 'next/link';
 import JsonLd from './JsonLd';
 import { BEST_PLATFORMS, affiliateToken } from '@/lib/bestPlatforms';
 
-const AFFILIATE_BASE = 'https://austerio-smart-up.com/?f=';
+const AFFILIATE_BASE = 'https://vectorai360.com/?f=';
 
 function ctaHref(slug: string): string {
   return `${AFFILIATE_BASE}${affiliateToken(slug)}`;
