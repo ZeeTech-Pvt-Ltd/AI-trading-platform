@@ -2295,6 +2295,14 @@ input[type="reset"],
 	color: var(--muted);
 }
 
+.btt-author-hero__bio {
+	margin-top: 10px;
+	font-size: 15.5px;
+	line-height: 1.5;
+	color: var(--ink);
+	max-width: 60ch;
+}
+
 @media (max-width: 640px) {
 	.btt-author-hero__inner {
 		flex-direction: column;
@@ -2356,6 +2364,12 @@ input[type="reset"],
 
 .btt-author-card__count {
 	font-size: 13.5px;
+	color: var(--muted);
+}
+
+.btt-author-card__bio {
+	font-size: 13.5px;
+	line-height: 1.45;
 	color: var(--muted);
 }
 

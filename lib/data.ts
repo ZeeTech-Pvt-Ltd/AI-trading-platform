@@ -43,6 +43,7 @@ export type Author = {
   slug: string;
   name: string;
   avatar: string;
+  bio?: string;
   pages: Card[][];
 };
 

@@ -2,10 +2,12 @@ export default function AuthorHero({
   name,
   avatar,
   count,
+  bio,
 }: {
   name: string;
   avatar: string;
   count: number;
+  bio?: string;
 }) {
   return (
     <header className="btt-author-hero">
@@ -26,6 +28,7 @@ export default function AuthorHero({
         <div className="btt-author-hero__info">
           <h1 className="btt-author-hero__name">{name}</h1>
           <p className="btt-author-hero__stats">{count} articles</p>
+          {bio ? <p className="btt-author-hero__bio">{bio}</p> : null}
         </div>
       </div>
     </header>

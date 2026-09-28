@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
-import { getAllCards, getAuthors, getTypePages, getLastUpdatedDate } from '@/lib/data';
+import { getAllCards, getTypePages, getLastUpdatedDate } from '@/lib/data';
 import { getSamplePairs } from '@/lib/compare';
 
 /** Most recent date (dateModified, falling back to date) among a set of cards. */
@@ -43,18 +43,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // individual author pages — lastModified from that author's own most
-  // recent post, a genuine signal instead of build time.
-  const authors = getAuthors();
-  for (const [slug, author] of Object.entries(authors)) {
-    const cards = author.pages.flat();
-    entries.push({
-      url: `${site.url}/author/${slug}`,
-      lastModified: latestOf(cards),
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    });
-  }
+  // individual author pages are noindex, so they're intentionally left out
+  // of the sitemap — listing a noindex URL sends search engines a
+  // contradictory signal.
 
   // comparison pages (X vs Y) — no tracked edit history, omit lastModified.
   for (const pair of getSamplePairs()) {

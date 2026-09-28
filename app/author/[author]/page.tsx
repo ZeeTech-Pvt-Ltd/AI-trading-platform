@@ -23,8 +23,9 @@ export async function generateMetadata({
   const total = a.pages.reduce((sum, p) => sum + p.length, 0);
   return {
     title: `${a.name} | ${site.name}`,
-    description: `${a.name} has written ${total} articles on ${site.name}.`,
+    description: a.bio || `${a.name} has written ${total} articles on ${site.name}.`,
     alternates: { canonical: `/author/${author}` },
+    robots: { index: false, follow: true },
   };
 }
 
@@ -42,7 +43,7 @@ export default async function AuthorPage({
 
   return (
     <main id="primary" className="lucky-site-main btt-home">
-      <AuthorHero name={a.name} avatar={a.avatar} count={total} />
+      <AuthorHero name={a.name} avatar={a.avatar} count={total} bio={a.bio} />
       <div className="lucky-container btt-home__container">
         <PostStream cards={cards} featured />
         <Pagination current={1} total={a.pages.length} base={`/author/${author}`} />

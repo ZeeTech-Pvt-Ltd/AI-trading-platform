@@ -46,6 +46,7 @@ export default function AuthorsPage() {
                 ) : null}
                 <span className="btt-author-card__name">{a.name}</span>
                 <span className="btt-author-card__count">{a.count} articles</span>
+                {a.bio ? <span className="btt-author-card__bio">{a.bio}</span> : null}
               </Link>
             </li>
           ))}

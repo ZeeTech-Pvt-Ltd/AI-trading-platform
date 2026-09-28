@@ -51,7 +51,7 @@ export default async function AuthorPageNumbered({
 
   return (
     <main id="primary" className="lucky-site-main btt-home">
-      <AuthorHero name={a.name} avatar={a.avatar} count={total} />
+      <AuthorHero name={a.name} avatar={a.avatar} count={total} bio={a.bio} />
       <div className="lucky-container btt-home__container">
         <PostStream cards={cards} />
         <Pagination current={n} total={a.pages.length} base={`/author/${author}`} />
