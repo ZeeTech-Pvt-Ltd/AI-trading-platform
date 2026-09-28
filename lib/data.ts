@@ -133,6 +133,30 @@ export function getLastUpdatedDate(): string {
   return getAllCards().reduce((latest, c) => (c.date > latest ? c.date : latest), '');
 }
 
+/** Cheap deterministic hash for a string, used to pick a stable pseudo-random offset per slug. */
+function hashString(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = (Math.imul(h, 31) + s.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+}
+
+/**
+ * Related cards for a review's "More Platform Reviews" section.
+ *
+ * Half the links are "ring" neighbors (the next few cards in list order,
+ * wrapping around) — a cycle through every card, so the whole set of
+ * reviews forms a single connected graph no matter how many there are.
+ * The other half are hash-based "spread" links, jumping to a different,
+ * pseudo-random part of the list per slug, so pages a few positions apart
+ * don't all link to the same neighbors and equity moves across the site
+ * faster than the ring alone would.
+ *
+ * (A fixed arithmetic step here previously split the whole set into many
+ * disconnected islands whenever the step evenly divided the list length —
+ * e.g. exactly 6-card clusters with zero links between them at N=1398.)
+ */
 export function getRelatedCards(
   type: 'trading' | 'bitcoin',
   slug: string,
@@ -144,15 +168,28 @@ export function getRelatedCards(
   if (all.length <= 1) return [];
   const idx = all.findIndex((c) => c.slug === slug);
   const start = idx === -1 ? 0 : idx;
-  const step = Math.max(1, Math.floor(all.length / count));
-  const seen = new Set<string>();
+  const n = all.length;
+  const ringCount = Math.ceil(count / 2);
+  const seen = new Set<string>([slug]);
   const out: Card[] = [];
-  for (let k = 1; out.length < count && k <= all.length; k++) {
-    const c = all[(start + k * step) % all.length];
-    if (c.slug !== slug && !seen.has(c.slug)) {
+
+  for (let k = 1; out.length < ringCount && k < n; k++) {
+    const c = all[(start + k) % n];
+    if (!seen.has(c.slug)) {
       seen.add(c.slug);
       out.push(c);
     }
   }
+
+  const baseHash = hashString(slug);
+  for (let k = 0; out.length < count && k < n; k++) {
+    const jump = 1 + ((baseHash + k * 104729) % (n - 1));
+    const c = all[(start + jump) % n];
+    if (!seen.has(c.slug)) {
+      seen.add(c.slug);
+      out.push(c);
+    }
+  }
+
   return out;
 }
