@@ -5,7 +5,7 @@ import { BEST_PLATFORMS, affiliateToken } from '@/lib/bestPlatforms';
 const AFFILIATE_BASE = 'https://vectorai360.com/?f=';
 
 function ctaHref(slug: string): string {
-  return `${AFFILIATE_BASE}${affiliateToken(slug)}`;
+  return `${AFFILIATE_BASE}${affiliateToken(slug)}&subid=BIT&src=ATP`;
 }
 
 function stars(score: number): string {
@@ -33,11 +33,11 @@ export default function BestOfPage({
     },
     {
       q: 'Do I need experience to use an automated trading platform?',
-      a: 'No, these platforms are designed for beginners and include demo accounts. However, automation does not remove risk: the AI executes trades, but you remain responsible for what you deposit and for your risk settings.',
+      a: 'No, these platforms are designed for beginners. Where a demo account is available, use it to learn the interface before going live. However, automation does not remove risk: the AI executes trades, but you remain responsible for what you deposit and for your risk settings.',
     },
     {
       q: 'How did you rank these platforms?',
-      a: 'We score each platform on onboarding, demo-account quality, transparency of fees, support responsiveness, and the strength of its risk controls. Profit claims from the platforms themselves are not factored into the score because they are not independently verifiable.',
+      a: 'We score each platform on onboarding, transparency of fees, and the strength of its risk controls, and we weigh demo-account quality and support responsiveness where we could verify them. Profit claims from the platforms themselves are not factored into the score because they are not independently verifiable.',
     },
   ];
 
