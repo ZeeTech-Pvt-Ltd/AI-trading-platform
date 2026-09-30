@@ -81,7 +81,7 @@ export default function BestOfPage({
         </aside>
 
         <div className="btt-best__body">
-          <h2 className="btt-best__h2">The top 10, at a glance</h2>
+          <h2 className="btt-best__h2">All 49 platforms, at a glance</h2>
           <div className="btt-table-wrap">
             <table className="btt-best__table">
               <thead>
