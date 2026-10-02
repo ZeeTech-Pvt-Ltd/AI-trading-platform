@@ -1,13 +1,22 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 
 // Full Review schema: @graph of Review (itemReviewed: SoftwareApplication +
-// name, reviewRating with best/worstRating, author, datePublished) plus FAQPage
+// name, reviewRating with best/worstRating, author = site Organization, datePublished) plus FAQPage
 // when the post has FAQ items. No aggregateRating/reviewCount: we only
 // have our own single editorial rating, not a real multi-user average, so
 // claiming a reviewCount would misrepresent it. Keep in sync with
 // content/posts/trading/*.json.
 
 const DIR = 'content/posts/trading';
+
+// Reviews are credited to the site itself in structured data (Review.author is
+// required by Google; the visible byline still names the writer on the page).
+const ORG = {
+  '@type': 'Organization',
+  '@id': 'https://ai-trading-platform.com/#organization',
+  name: 'AI Trading Platform',
+  url: 'https://ai-trading-platform.com',
+};
 
 // Sites that state they are marketing / lead-generation / education pages
 // and do not offer trading themselves are not applications, so they are
@@ -66,8 +75,13 @@ for (const f of files) {
   }
   if (!brand) missingBrand.push(f);
 
-  // rating value from verdict card
+  // rating value from verdict card; reviews without one (keyword-only batch)
+  // keep the rating already stored in their reviewJsonLd instead of resetting.
   let rating = '4.5';
+  try {
+    const prev = JSON.parse(p.reviewJsonLd || '{}')['@graph']?.find((n) => n['@type'] === 'Review');
+    if (prev?.reviewRating?.ratingValue) rating = String(prev.reviewRating.ratingValue);
+  } catch {}
   const vm = p.content.match(/bd-verdict-card__number[^>]*>([\s\S]*?)<\/div>/);
   if (vm) {
     const n = vm[1].replace(/<[^>]+>/g, ' ').match(/[\d]+(?:\.[\d]+)?/);
@@ -77,6 +91,15 @@ for (const f of files) {
   // FAQ items
   const faq = [];
   const items = p.content.match(/<div class="bd-faq__item">([\s\S]*?)<\/div>/g) || [];
+  if (!items.length) {
+    // Plain-markup FAQ (keyword-only batch): <h3>question</h3><p>answer</p> pairs
+    // after the "Frequently Asked Questions" heading.
+    const at = p.content.search(/<h2[^>]*>\s*Frequently Asked Questions\s*<\/h2>/i);
+    if (at !== -1) {
+      const tail = p.content.slice(at);
+      items.push(...(tail.match(/<h3[^>]*>[\s\S]*?<\/h3>\s*<p[^>]*>[\s\S]*?<\/p>/g) || []));
+    }
+  }
   for (const item of items) {
     const qm = item.match(/<h3[^>]*>([\s\S]*?)<\/h3>/);
     const q = qm ? strip(qm[1]) : '';
@@ -98,7 +121,7 @@ for (const f of files) {
             operatingSystem: 'Web',
           },
       reviewRating: { '@type': 'Rating', ratingValue: rating, bestRating: '5', worstRating: '1' },
-      author: { '@type': 'Person', name: p.author },
+      author: ORG,
       datePublished: p.date,
     },
   ];

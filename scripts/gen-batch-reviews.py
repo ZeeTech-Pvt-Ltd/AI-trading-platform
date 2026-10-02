@@ -13,7 +13,7 @@ import json, re, os, glob
 from datetime import datetime, timedelta, timezone
 
 SITE = "https://ai-trading-platform.com"
-PERSON_HASH = "94793f09d7c22f4e6fb56c51c5ff20fc"  # shared leftover from the scrape
+ORG = {"@type": "Organization", "@id": f"{SITE}/#organization", "name": "AI Trading Platform", "url": SITE}
 BASE_DATE = datetime(2026, 9, 30, 23, 50, tzinfo=timezone.utc)
 
 AUTHORS = [
@@ -140,7 +140,7 @@ def article_jsonld(name, title, desc, author_name, author_slug, slug, date, wc):
                 "@type": "Article",
                 "@id": f"{SITE}/trading/{slug}#article",
                 "isPartOf": {"@id": f"{SITE}/trading/{slug}"},
-                "author": {"name": author_name, "@id": f"{SITE}/#/schema/person/{PERSON_HASH}"},
+                "author": dict(ORG),
                 "headline": title,
                 "datePublished": date,
                 "mainEntityOfPage": {"@id": f"{SITE}/trading/{slug}"},
@@ -160,7 +160,7 @@ def article_jsonld(name, title, desc, author_name, author_slug, slug, date, wc):
                 "name": title,
                 "isPartOf": {"@id": f"{SITE}/#website"},
                 "datePublished": date,
-                "author": {"@id": f"{SITE}/#/schema/person/{PERSON_HASH}"},
+                "author": dict(ORG),
                 "description": desc,
                 "breadcrumb": {"@id": f"{SITE}/trading/{slug}#breadcrumb"},
                 "inLanguage": "en-US",
@@ -175,33 +175,6 @@ def article_jsonld(name, title, desc, author_name, author_slug, slug, date, wc):
                     {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"},
                     {"@type": "ListItem", "position": 2, "name": title},
                 ],
-            },
-            {
-                "@type": "WebSite",
-                "@id": f"{SITE}/#website",
-                "url": f"{SITE}/",
-                "name": "AI Trading Platform",
-                "description": "All About Bitcoin Development",
-                "potentialAction": [
-                    {"@type": "SearchAction",
-                     "target": {"@type": "EntryPoint", "urlTemplate": f"{SITE}/?s={{search_term_string}}"},
-                     "query-input": {"@type": "PropertyValueSpecification", "valueRequired": True, "valueName": "search_term_string"}},
-                ],
-                "inLanguage": "en-US",
-            },
-            {
-                "@type": "Person",
-                "@id": f"{SITE}/#/schema/person/{PERSON_HASH}",
-                "name": author_name,
-                "image": {
-                    "@type": "ImageObject",
-                    "inLanguage": "en-US",
-                    "@id": f"{SITE}/images/authors/{author_slug}.svg",
-                    "url": f"{SITE}/images/authors/{author_slug}.svg",
-                    "contentUrl": f"{SITE}/images/authors/{author_slug}.svg",
-                    "caption": author_name,
-                },
-                "url": f"{SITE}/@chriscoverdale",
             },
         ],
     }, ensure_ascii=True)
@@ -220,7 +193,7 @@ def review_jsonld(name, rating, author_name, date):
                     "operatingSystem": "Web",
                 },
                 "reviewRating": {"@type": "Rating", "ratingValue": str(rating), "bestRating": "5", "worstRating": "1"},
-                "author": {"@type": "Person", "name": author_name},
+                "author": dict(ORG),
                 "datePublished": date,
             },
             {

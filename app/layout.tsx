@@ -87,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           data={JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Organization',
+            '@id': `${site.url}/#organization`,
             name: site.name,
             url: site.url,
             logo: `${site.url}${site.logo}`,
