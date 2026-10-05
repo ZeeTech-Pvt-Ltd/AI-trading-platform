@@ -1,3 +1,10 @@
+import fs from 'node:fs';
+
+// Reviews whose slug was corrected (accented letters used to be dropped): old -> new.
+const legacySlugs = JSON.parse(
+  fs.readFileSync(new URL('./content/legacy-slugs.json', import.meta.url), 'utf8'),
+);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -6,6 +13,11 @@ const nextConfig = {
   // Preserve the old Medium-style author URLs (/@author) via 301s.
   async redirects() {
     return [
+      ...Object.entries(legacySlugs).map(([from, to]) => ({
+        source: `/trading/${from}`,
+        destination: `/trading/${to}`,
+        permanent: true,
+      })),
       { source: '/@:author', destination: '/author/:author', permanent: true },
       {
         source: '/@:author/page/:page',

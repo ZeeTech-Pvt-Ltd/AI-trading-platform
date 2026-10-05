@@ -229,7 +229,7 @@ export const BEST_PLATFORMS: BestPlatform[] = [
   {
     rank: 10,
     name: 'Fort Trésorique',
-    slug: 'fort-trsorique-review',
+    slug: 'fort-tresorique-review',
     score: 4.2,
     tagline: 'A browser-based AI trading platform with a $250 starting deposit.',
     minDeposit: '$250',
@@ -574,7 +574,7 @@ export const BEST_PLATFORMS: BestPlatform[] = [
   {
     rank: 25,
     name: 'Solide Négocerine',
-    slug: 'solide-ngocerine-review',
+    slug: 'solide-negocerine-review',
     score: 4.2,
     tagline: 'A browser-based AI trading platform with a $250 starting deposit.',
     minDeposit: '$250',
@@ -597,7 +597,7 @@ export const BEST_PLATFORMS: BestPlatform[] = [
   {
     rank: 26,
     name: 'Sommélor Wealth',
-    slug: 'sommlor-wealth-review',
+    slug: 'sommelor-wealth-review',
     score: 4.3,
     tagline: 'One of many AI trading platforms in this category, with a $250 entry.',
     minDeposit: '$250',
@@ -712,7 +712,7 @@ export const BEST_PLATFORMS: BestPlatform[] = [
   {
     rank: 31,
     name: 'Vívida Cuentavesa',
-    slug: 'vvida-cuentavesa-review',
+    slug: 'vivida-cuentavesa-review',
     score: 4.4,
     tagline: 'A browser-based AI trading platform with a $250 starting deposit.',
     minDeposit: '$250',

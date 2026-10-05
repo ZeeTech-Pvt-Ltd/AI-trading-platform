@@ -17,6 +17,18 @@ export type CompareSide = {
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
+let legacyCache: Record<string, string> | null = null;
+function legacySlugs(): Record<string, string> {
+  if (!legacyCache) {
+    try {
+      legacyCache = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, 'legacy-slugs.json'), 'utf8'));
+    } catch {
+      legacyCache = {};
+    }
+  }
+  return legacyCache!;
+}
+
 function readPost(slug: string): Post | null {
   try {
     const file = path.join(CONTENT_DIR, 'posts', 'trading', slug + '.json');
@@ -148,4 +160,20 @@ export function getSamplePairs(count = 120): string[] {
     pairs.push(`${slugs[i]}-vs-${slugs[j]}`);
   }
   return pairs;
+}
+
+/** If a compare URL uses a review slug that was renamed, return the corrected pair segment. */
+export function legacyPair(pair: string): string | null {
+  const parts = pair.split('-vs-');
+  if (parts.length !== 2) return null;
+  const map = legacySlugs();
+  let changed = false;
+  const fixed = parts.map((raw) => {
+    const part = raw.trim();
+    const hit = map[part] ?? map[normalizeSlug(part)];
+    if (!hit) return part;
+    changed = true;
+    return hit;
+  });
+  return changed ? fixed.join('-vs-') : null;
 }

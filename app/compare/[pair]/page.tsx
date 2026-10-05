@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { site } from '@/lib/site';
-import { getCompareSides, getSamplePairs } from '@/lib/compare';
+import { getCompareSides, getSamplePairs, legacyPair } from '@/lib/compare';
 import ComparePage from '@/components/ComparePage';
 
 export const dynamicParams = true;
@@ -48,6 +48,8 @@ export default async function Page({
   params: Promise<{ pair: string }>;
 }) {
   const { pair } = await params;
+  const renamed = legacyPair(pair);
+  if (renamed) permanentRedirect(`/compare/${renamed}`);
   const sides = getCompareSides(pair);
   if (!sides) notFound();
   return <ComparePage a={sides[0]} b={sides[1]} />;
