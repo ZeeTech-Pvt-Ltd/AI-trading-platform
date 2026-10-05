@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import { site } from '@/lib/site';
-import { getCompareSides, getSamplePairs, legacyPair } from '@/lib/compare';
+import {
+  canonicalPair,
+  getCompareSides,
+  getSamplePairs,
+  isIndexablePair,
+  legacyPair,
+} from '@/lib/compare';
 import ComparePage from '@/components/ComparePage';
 
 export const dynamicParams = true;
@@ -24,11 +30,12 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `${site.url}/compare/${pair}` },
+    alternates: { canonical: `${site.url}/compare/${canonicalPair(pair) ?? pair}` },
+    robots: isIndexablePair(pair) ? undefined : { index: false, follow: true },
     openGraph: {
       title,
       description,
-      url: `${site.url}/compare/${pair}`,
+      url: `${site.url}/compare/${canonicalPair(pair) ?? pair}`,
       type: 'article',
       images: [
         {

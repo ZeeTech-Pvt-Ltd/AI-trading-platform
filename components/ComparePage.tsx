@@ -66,6 +66,9 @@ export default function ComparePage({ a, b }: { a: CompareSide; b: CompareSide }
                   <dd>{side.payout}</dd>
                 </div>
               </dl>
+              <Link className="btt-compare__review" href={`/trading/${side.slug}`}>
+                Read the full {side.name} review →
+              </Link>
               <a
                 className="btt-compare__cta"
                 href={ctaHref(side.slug)}

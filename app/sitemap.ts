@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
 import { getAllCards, getTypePages, getLastUpdatedDate } from '@/lib/data';
-import { getSamplePairs } from '@/lib/compare';
+import { getIndexablePairs } from '@/lib/compare';
 
 /** Most recent date (dateModified, falling back to date) among a set of cards. */
 function latestOf(cards: { date: string; dateModified?: string }[]): Date | undefined {
@@ -47,8 +47,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // of the sitemap — listing a noindex URL sends search engines a
   // contradictory signal.
 
-  // comparison pages (X vs Y) — no tracked edit history, omit lastModified.
-  for (const pair of getSamplePairs()) {
+  // comparison pages (X vs Y): only the indexable ones; the rest are noindex and stay
+  // out of the sitemap. No tracked edit history, so lastModified is omitted.
+  for (const pair of getIndexablePairs()) {
     entries.push({
       url: `${site.url}/compare/${pair}`,
       changeFrequency: 'monthly',

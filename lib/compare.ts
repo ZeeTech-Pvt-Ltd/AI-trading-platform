@@ -177,3 +177,35 @@ export function legacyPair(pair: string): string | null {
   });
   return changed ? fixed.join('-vs-') : null;
 }
+
+let indexableCache: Set<string> | null = null;
+
+/** Canonical form of a compare URL segment: both slugs carry the "-review" suffix. */
+export function canonicalPair(pair: string): string | null {
+  const parsed = parsePair(pair);
+  return parsed ? `${parsed[0]}-vs-${parsed[1]}` : null;
+}
+
+/**
+ * Only the comparison pairs listed in content/compare-indexable.json (the ones that already
+ * earn search clicks) are indexable. Every other pair is noindex so the review pages themselves
+ * are what search engines rank.
+ */
+export function getIndexablePairs(): string[] {
+  if (!indexableCache) {
+    try {
+      const list = JSON.parse(
+        fs.readFileSync(path.join(CONTENT_DIR, 'compare-indexable.json'), 'utf8'),
+      ) as string[];
+      indexableCache = new Set(list);
+    } catch {
+      indexableCache = new Set();
+    }
+  }
+  return Array.from(indexableCache);
+}
+
+export function isIndexablePair(pair: string): boolean {
+  const canon = canonicalPair(pair);
+  return canon ? getIndexablePairs().includes(canon) : false;
+}

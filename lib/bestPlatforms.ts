@@ -13,9 +13,17 @@ export type BestPlatform = {
   verdict: string;
 };
 
+import legacySlugs from '../content/legacy-slugs.json';
+
+const LEGACY_BY_NEW: Record<string, string> = Object.fromEntries(
+  Object.entries(legacySlugs as Record<string, string>).map(([from, to]) => [to, from]),
+);
+
 /** Affiliate token is the kebab-case brand name, i.e. the slug minus the "-review" suffix. */
 export function affiliateToken(slug: string): string {
-  return slug.replace(/-review$/, '');
+  // Renamed reviews keep the token their CTA links have always used (partner attribution).
+  const original = LEGACY_BY_NEW[slug] ?? slug;
+  return original.replace(/-review$/, '');
 }
 
 export const BEST_PLATFORMS: BestPlatform[] = [

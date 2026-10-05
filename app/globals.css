@@ -4007,3 +4007,22 @@ body:has(.bd-review) {
 		transition: none;
 	}
 }
+
+/* Comparison cards: link through to the full review */
+.btt-compare__review {
+	display: block;
+	text-align: center;
+	font-weight: 600;
+	font-size: 15px;
+	padding: 11px 18px;
+	margin-bottom: 10px;
+	border: 1px solid var(--brand);
+	border-radius: 8px;
+	color: var(--brand-strong);
+	text-decoration: none;
+	transition: background 0.15s ease, color 0.15s ease;
+}
+.btt-compare__review:hover {
+	background: var(--brand-soft);
+	color: var(--brand-ink);
+}

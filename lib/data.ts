@@ -143,6 +143,28 @@ function hashString(s: string): number {
 }
 
 /**
+ * Reviews to push internally: they rank just off page one (positions 8-10) with impressions
+ * but no clicks, so extra internal links give them the best chance of moving up.
+ */
+const PRIORITY_SLUGS = [
+  'loyal-fructoire-review',
+  'model-maxalt-opt-review',
+  'spotlight-evocorex-review',
+  'should-veltron-review',
+  'rang-nganminh-review',
+  'profition-review',
+  'citadelstrades-review',
+  'verdant-kapitholt-review',
+  'kestrel-fundast-ai-review',
+  'capital-aura-growth-review',
+  'clair-finances-review',
+  'trxvector-review',
+  'immediate-path-ai-review',
+  'ching-x-sgx-fin-review',
+  'forgreserve-ai-review',
+];
+
+/**
  * Related cards for a review's "More Platform Reviews" section.
  *
  * Half the links are "ring" neighbors (the next few cards in list order,
@@ -182,6 +204,20 @@ export function getRelatedCards(
   }
 
   const baseHash = hashString(slug);
+
+  // Two "priority" reviews (ones sitting just off page one in search) get a link from every
+  // review page. Only slugs that exist in the manifest are used, so a removed or renamed
+  // review can never produce a dead link.
+  const byslug = new Map(all.map((c) => [c.slug, c]));
+  const priority = PRIORITY_SLUGS.filter((s) => byslug.has(s));
+  for (let k = 0; k < priority.length && out.length < Math.min(count, ringCount + 2); k++) {
+    const c = byslug.get(priority[(baseHash + k * 7) % priority.length])!;
+    if (!seen.has(c.slug)) {
+      seen.add(c.slug);
+      out.push(c);
+    }
+  }
+
   for (let k = 0; out.length < count && k < n; k++) {
     const jump = 1 + ((baseHash + k * 104729) % (n - 1));
     const c = all[(start + jump) % n];
