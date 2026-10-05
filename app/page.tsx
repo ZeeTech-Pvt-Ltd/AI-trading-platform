@@ -13,7 +13,7 @@ const HOME_TITLE = 'Independent AI Trading Platform Reviews (2026)';
 
 // Manually pinned Editor's Picks slugs, most important first. Falls back to
 // the latest reviews to fill any remaining slots.
-const PINNED_PICKS: string[] = ['polar-zinsmere-review', 'zephgain-review'];
+const PINNED_PICKS: string[] = ['zephgain-review'];
 
 export const metadata: Metadata = {
   title: HOME_TITLE,

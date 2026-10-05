@@ -130,7 +130,7 @@ export default function ArticlePage({ post }: { post: Post }) {
         <section className="btt-article-crosslink" aria-label="AI trading platform reviews">
           <h2 className="btt-article-crosslink__title">Looking to trade instead?</h2>
           <p className="btt-article-crosslink__desc">
-            We also review AI-powered trading platforms &mdash; here are a few worth a look.
+            We also review AI-powered trading platforms. Here are a few worth a look.
           </p>
           <div className="btt-stream__grid">
             {getReviewsForArticle(post.slug, 3).map((c) => (

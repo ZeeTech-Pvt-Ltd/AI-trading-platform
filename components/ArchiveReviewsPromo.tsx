@@ -8,7 +8,7 @@ export default function ArchiveReviewsPromo() {
       <div className="btt-archive-promo__head">
         <h2 className="btt-archive-promo__title">Looking to trade instead?</h2>
         <p className="btt-archive-promo__desc">
-          We also review AI-powered trading platforms &mdash; here are our top-rated picks.
+          We also review AI-powered trading platforms. Here are our top-rated picks.
         </p>
       </div>
       <div className="btt-archive-promo__widget">
