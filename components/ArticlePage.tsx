@@ -8,6 +8,7 @@ import Byline from './Byline';
 import Breadcrumbs from './Breadcrumbs';
 import JsonLd from './JsonLd';
 import PostCard from './PostCard';
+import ReviewCtaBar from './ReviewCtaBar';
 import TableOfContents from './TableOfContents';
 import TopRatedWidget from './TopRatedWidget';
 
@@ -156,6 +157,9 @@ export default function ArticlePage({ post }: { post: Post }) {
           )}
         </div>
       </article>
+      {isTrading ? (
+        <ReviewCtaBar slug={post.slug} name={name} href={affiliate} score={card?.ratingValue} />
+      ) : null}
       {post.type === 'trading' ? (
         <section className="btt-related" aria-label="More platform reviews">
           <div className="btt-related__inner">

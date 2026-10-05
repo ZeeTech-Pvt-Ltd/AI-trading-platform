@@ -3943,3 +3943,67 @@ body:has(.bd-review) {
 	margin: 0 0 24px;
 	color: var(--muted);
 }
+
+/* Mobile sticky CTA on review pages (hidden above 960px, where the sidebar CTA is sticky) */
+.btt-sticky-cta {
+	display: none;
+}
+
+@media (max-width: 960px) {
+	.btt-sticky-cta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 50;
+		padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+		background: #fff;
+		border-top: 1px solid var(--line);
+		box-shadow: 0 -4px 16px rgba(28, 25, 23, 0.1);
+		transform: translateY(110%);
+		visibility: hidden;
+		transition: transform 0.25s ease, visibility 0.25s;
+	}
+
+	.btt-sticky-cta.is-visible {
+		transform: translateY(0);
+		visibility: visible;
+	}
+
+	.btt-sticky-cta__info {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+	}
+
+	.btt-sticky-cta__name {
+		font-weight: 700;
+		font-size: 15px;
+		color: var(--ink);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.btt-sticky-cta__score {
+		font-size: 12px;
+		color: var(--muted);
+	}
+
+	.btt-sticky-cta__btn {
+		flex: none;
+		padding: 11px 18px;
+		font-size: 14px;
+		white-space: nowrap;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.btt-sticky-cta {
+		transition: none;
+	}
+}
