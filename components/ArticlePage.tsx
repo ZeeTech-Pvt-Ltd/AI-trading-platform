@@ -2,6 +2,7 @@ import type { Post } from '@/lib/data';
 import { getRelatedCards, getReviewsForArticle, getCard, getTopRatedCards } from '@/lib/data';
 import { brandName, ratingVerdict } from '@/lib/format';
 import { enrichJsonLd } from '@/lib/schema';
+import { site } from '@/lib/site';
 import { buildToc } from '@/lib/toc';
 import Byline from './Byline';
 import Breadcrumbs from './Breadcrumbs';
@@ -168,7 +169,7 @@ export default function ArticlePage({ post }: { post: Post }) {
         </section>
       ) : null}
       {post.jsonLd ? (
-        <JsonLd data={enrichJsonLd(post.jsonLd, post.dateModified ?? post.date)} />
+        <JsonLd data={enrichJsonLd(post.jsonLd, post.dateModified ?? post.date, `${site.url}/${post.type}/${post.slug}/opengraph-image`)} />
       ) : null}
       {post.reviewJsonLd ? (
         <JsonLd data={enrichJsonLd(post.reviewJsonLd, post.dateModified ?? post.date)} />
