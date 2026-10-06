@@ -20,13 +20,14 @@ function ctaPosition(link: HTMLAnchorElement, content: Element | null): string {
   if (link.closest('.btt-sticky-cta')) return 'sticky_mobile';
   if (link.closest('.btt-side-card')) return 'sidebar';
   if (link.closest('.btt-article__quickverdict')) return 'top_quickverdict';
-  if (link.closest('.bd-banner-cta')) return 'content_banner';
   if (content && content.contains(link)) {
     const box = content.getBoundingClientRect();
     const at = link.getBoundingClientRect().top - box.top;
     const ratio = box.height > 0 ? at / box.height : 0;
-    return ratio < 0.34 ? 'content_top' : ratio < 0.67 ? 'content_mid' : 'content_bottom';
+    const zone = ratio < 0.34 ? 'top' : ratio < 0.67 ? 'mid' : 'bottom';
+    return link.closest('.bd-banner-cta') ? `content_banner_${zone}` : `content_${zone}`;
   }
+  if (link.closest('.bd-banner-cta')) return 'content_banner';
   return 'other';
 }
 

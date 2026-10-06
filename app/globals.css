@@ -3434,6 +3434,15 @@ body:has(.bd-review) {
 		flex-direction: column;
 		align-items: stretch;
 	}
+
+	/* In a column layout the 200px flex-basis becomes a 200px height, which left
+	   the banner about 500px tall on phones. Let each part size to its content. */
+	.bd-cta-bar__copy,
+	.bd-banner-cta__copy,
+	.bd-cta-bar > div:last-child,
+	.bd-banner-cta > div:last-child {
+		flex: 0 0 auto;
+	}
 }
 
 @media (max-width: 520px) {
