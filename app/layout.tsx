@@ -74,6 +74,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.clarity.ms" />
+        {/* Google Analytics 4 (gtag.js), placed in <head> as Google recommends. The inline part
+            defines gtag() immediately, so events such as CTA clicks are queued even before
+            gtag.js has finished loading. */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3Z5WCJNG8C" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-3Z5WCJNG8C');`,
+          }}
+        />
       </head>
       <body suppressHydrationWarning>
         <div id="page" className="lucky-site">
@@ -112,16 +124,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             },
           })}
         />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-3Z5WCJNG8C"
-          strategy="lazyOnload"
-        />
-        <Script id="ga4-init" strategy="lazyOnload">
-          {`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-3Z5WCJNG8C');`}
-        </Script>
         <Script id="clarity-init" strategy="lazyOnload">
           {`(function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
