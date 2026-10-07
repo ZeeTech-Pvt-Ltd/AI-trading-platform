@@ -196,6 +196,11 @@ def check(post, manifest_card, fix):
             problem("published date is in the future")
     except Exception:  # noqa: BLE001
         problem("unreadable date")
+    # 7b. house style: never call a platform "unverified" (say that trading involves risk instead)
+    for key in ("title", "description", "excerpt", "content", "reviewJsonLd"):
+        if re.search(r"\bunverified\b", plain(post.get(key, "")), re.I):
+            problem(f'the word "unverified" appears in {key}')
+            break
     # 8. banned content
     if s not in CELEB_EXEMPT and CELEB.search(plain(c)):
         problem("celebrity / deepfake wording")

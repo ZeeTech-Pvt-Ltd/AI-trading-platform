@@ -78,8 +78,8 @@ function listItems(content: string, panelClass: string): string[] {
     .slice(0, 5);
 }
 
-// Shown when a review does not state the value; the review simply has not verified it.
-const NOT_VERIFIED = 'Not verified';
+// Shown when a review does not state the value.
+const NOT_VERIFIED = 'N/A';
 
 function normalizeSupport(v: string): string {
   const t = v.trim();
