@@ -90,7 +90,7 @@ export default function ArticlePage({ post }: { post: Post }) {
         />
       </header>
 
-      {isTrading && card?.ratingValue ? (
+      {isTrading && card?.ratingValue && !post.hideQuickVerdict ? (
         <div className="btt-article__quickverdict">
           <div className="btt-article__quickverdict__score">
             <span className="btt-article__quickverdict__number">{card.ratingValue}</span>
@@ -125,7 +125,7 @@ export default function ArticlePage({ post }: { post: Post }) {
       )}
 
       <div
-        className="btt-article__content lucky-entry-content"
+        className={`btt-article__content lucky-entry-content${post.plainLayout ? ' bd-plain' : ''}`}
         dangerouslySetInnerHTML={{ __html: html }}
       />
 

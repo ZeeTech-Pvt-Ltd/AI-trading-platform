@@ -39,6 +39,10 @@ export type Post = {
   ctaUrl?: string;
   /** Hide the "In this review" table of contents on this post only. */
   hideToc?: boolean;
+  /** Hide the score box at the top of the page on this post only. */
+  hideQuickVerdict?: boolean;
+  /** Render the review sections as plain text instead of white cards, on this post only. */
+  plainLayout?: boolean;
 };
 
 export type Author = {

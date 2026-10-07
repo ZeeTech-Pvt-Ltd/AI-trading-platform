@@ -4070,3 +4070,34 @@ h3,
 .btt-card__title {
 	overflow-wrap: anywhere;
 }
+
+/* Plain-text layout (opt-in per post with plainLayout): sections lose their white cards */
+.btt-article__content.bd-plain .bd-review {
+	background: transparent;
+	padding: 0 0 40px;
+}
+
+.btt-article__content.bd-plain .bd-section {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	padding: 0;
+	margin: 0 0 30px;
+}
+
+.btt-article__content.bd-plain .bd-faq {
+	gap: 10px;
+}
+
+.btt-article__content.bd-plain .bd-faq__item {
+	background: #f3f2f0;
+	border: 0;
+	border-radius: 12px;
+	padding: 14px 18px 8px;
+}
+
+.btt-article__content.bd-plain .bd-faq__item .bd-subheading {
+	font-size: 1.08em;
+	margin: 0 0 0.3em;
+}

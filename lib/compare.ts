@@ -144,7 +144,10 @@ function extractSide(slug: string): CompareSide | null {
   if (!post) return null;
   const c = post.content;
   const name = post.title.split(' Review')[0].trim();
-  const scoreRaw = c.match(/bd-stars" aria-label="([\d.]+) out of 5"/);
+  // The rating bar is not on every page, so fall back to the verdict card's stars.
+  const scoreRaw =
+    c.match(/bd-stars" aria-label="([\d.]+) out of 5"/) ??
+    c.match(/bd-stars[^"]*" aria-label="([\d.]+) out of 5"/);
   const score = scoreRaw ? Number(scoreRaw[1]) : 0;
   return {
     slug,
