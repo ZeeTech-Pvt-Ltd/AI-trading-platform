@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import JsonLd from './JsonLd';
 import { BEST_PLATFORMS, affiliateToken } from '@/lib/bestPlatforms';
-import AffiliateNote from './AffiliateNote';
 
 const AFFILIATE_BASE = 'https://vectorai360.com/?f=';
 
@@ -73,7 +72,6 @@ export default function BestOfPage({
           <h1 className="btt-best__title">{title}</h1>
           <p className="btt-best__subtitle">{subtitle}</p>
         </header>
-        <AffiliateNote />
 
         <aside className="btt-best__disclosure" role="note">
           <strong>Disclosure:</strong> Some links on this page are affiliate links. If you open an
@@ -176,7 +174,7 @@ export default function BestOfPage({
                     rel="sponsored nofollow noopener noreferrer"
                     target="_blank"
                   >
-                    Open an account (partner link)
+                    Open an account
                   </a>
                   <Link className="btt-best__review-link" href={`/trading/${p.slug}`}>
                     Read full review

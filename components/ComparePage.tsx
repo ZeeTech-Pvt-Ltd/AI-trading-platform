@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import type { CompareSide } from '@/lib/compare';
 import { affiliateToken } from '@/lib/bestPlatforms';
-import AffiliateNote from './AffiliateNote';
 
 const AFFILIATE_BASE = 'https://vectorai360.com/?f=';
 
@@ -32,8 +31,6 @@ export default function ComparePage({ a, b }: { a: CompareSide; b: CompareSide }
             accounts, support and the key strengths and weaknesses before you register either one.
           </p>
         </header>
-
-        <AffiliateNote />
 
         <div className="btt-compare__grid">
           {[a, b].map((side) => (
@@ -78,7 +75,7 @@ export default function ComparePage({ a, b }: { a: CompareSide; b: CompareSide }
                 rel="sponsored nofollow noopener noreferrer"
                 target="_blank"
               >
-                Open an account (partner link)
+                Open an account
               </a>
             </article>
           ))}

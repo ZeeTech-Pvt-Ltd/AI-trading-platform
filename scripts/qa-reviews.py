@@ -23,7 +23,7 @@ from datetime import datetime, timezone
 
 POSTS = "content/posts/trading"
 MANIFEST = "content/manifest.json"
-CTA_LABEL = "Open an Account (Partner Link)"
+CTA_LABEL = "Open an Account"
 EM = "—"
 
 COST = re.compile(r"cost|fee|pric|deposit|charge|spread", re.I)
