@@ -4,6 +4,7 @@ import { brandName, ratingVerdict } from '@/lib/format';
 import { enrichJsonLd } from '@/lib/schema';
 import { site } from '@/lib/site';
 import { buildToc } from '@/lib/toc';
+import AffiliateNote from './AffiliateNote';
 import Byline from './Byline';
 import Breadcrumbs from './Breadcrumbs';
 import JsonLd from './JsonLd';
@@ -38,8 +39,9 @@ function ReviewSidebar({ post }: { post: Post }) {
           rel="sponsored nofollow noopener noreferrer"
           target="_blank"
         >
-          Visit {name} →
+          Open an account (partner link) →
         </a>
+        <AffiliateNote compact />
         <dl className="btt-side-card__facts">
           <div>
             <dt>Reviewed by</dt>
@@ -90,6 +92,8 @@ export default function ArticlePage({ post }: { post: Post }) {
         />
       </header>
 
+      {isTrading ? <AffiliateNote name={name} /> : null}
+
       {isTrading && card?.ratingValue ? (
         <div className="btt-article__quickverdict">
           <div className="btt-article__quickverdict__score">
@@ -111,7 +115,7 @@ export default function ArticlePage({ post }: { post: Post }) {
             rel="sponsored nofollow noopener noreferrer"
             target="_blank"
           >
-            Visit {name} →
+            Open an account (partner link) →
           </a>
         </div>
       ) : null}

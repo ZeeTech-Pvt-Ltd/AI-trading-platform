@@ -113,7 +113,7 @@ export default function ReviewCtaBar({ slug, name, href, score }: Props) {
     >
       <div className="btt-sticky-cta__info">
         <span className="btt-sticky-cta__name">{name}</span>
-        {score ? <span className="btt-sticky-cta__score">Our score: {score}/5</span> : null}
+        <span className="btt-sticky-cta__score">Partner link{score ? ` · Our score: ${score}/5` : ''}</span>
       </div>
       <a
         className="btt-h-btn btt-h-btn--primary btt-sticky-cta__btn"
@@ -122,7 +122,7 @@ export default function ReviewCtaBar({ slug, name, href, score }: Props) {
         target="_blank"
         tabIndex={visible ? 0 : -1}
       >
-        Visit {name} →
+        Open an account →
       </a>
     </div>
   );

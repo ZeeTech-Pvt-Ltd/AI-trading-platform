@@ -4070,3 +4070,30 @@ h3,
 .btt-card__title {
 	overflow-wrap: anywhere;
 }
+
+/* Advertising disclosure next to affiliate CTAs */
+.btt-affnote {
+	margin: 0 0 18px;
+	padding: 10px 14px;
+	border-left: 3px solid var(--line-strong);
+	background: var(--surface-2);
+	border-radius: 4px;
+	color: var(--ink-2);
+	font-family: var(--font-sans);
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.btt-affnote a {
+	color: var(--brand-strong);
+	text-decoration: underline;
+}
+
+.btt-affnote--compact {
+	margin: 8px 0 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	font-size: 12px;
+	color: var(--muted);
+}

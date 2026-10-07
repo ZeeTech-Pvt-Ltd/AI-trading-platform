@@ -78,10 +78,13 @@ function listItems(content: string, panelClass: string): string[] {
     .slice(0, 5);
 }
 
+// Shown when a review does not state the value; the review simply has not verified it.
+const NOT_VERIFIED = 'Not verified';
+
 function normalizeSupport(v: string): string {
   const t = v.trim();
   if (/^(7|24|24\/7)$/.test(t)) return '24/7';
-  return t || 'Not disclosed';
+  return t || NOT_VERIFIED;
 }
 
 function escapeRegExp(s: string): string {
@@ -93,17 +96,48 @@ function escapeRegExp(s: string): string {
 // match inside an unrelated row such as "Mobile Support".
 function scrapeAny(content: string, labels: string[]): string {
   for (const label of labels) {
-    const re = new RegExp(`<td>${escapeRegExp(label)}</td>\\s*<td>([^<]+)<`);
-    const v = scrape(content, re);
-    if (v) return v;
+    // The value cell may contain inline markup, so capture up to </td> and strip tags.
+    const re = new RegExp(`<td>${escapeRegExp(label)}</td>\\s*<td>([\\s\\S]*?)</td>`);
+    const m = content.match(re);
+    const clean = m ? plainText(m[1]) : '';
+    if (clean) return clean;
   }
   return '';
 }
 
-const DEPOSIT_LABELS = ['Initial Funding', 'Minimum Deposit', 'Starting Deposit', 'Entry Deposit'];
-const DEMO_LABELS = ['Trial Account', 'Demo Account', 'Practice Account'];
+function plainText(html: string): string {
+  return html
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&#8217;/g, '\u2019')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const AMOUNT = '([$\\u00a3\\u20ac]\\s?\\d[\\d,]*(?:\\.\\d+)?)';
+
+/**
+ * Reviews without an overview table still state the minimum deposit in their prose
+ * (banner "Minimum deposit $250", "The minimum deposit is $250", FAQ answers).
+ */
+function depositFromText(content: string): string {
+  const t = plainText(content);
+  const patterns = [
+    new RegExp(`Minimum deposit\\s*${AMOUNT}`, 'i'),
+    new RegExp(`minimum (?:deposit|funding|start(?:ing)? (?:deposit|amount))\\s*(?:is|of|:)?\\s*${AMOUNT}`, 'i'),
+    new RegExp(`(?:start(?:ing)? (?:deposit|amount)|entry deposit)\\s*(?:is|of|:)?\\s*${AMOUNT}`, 'i'),
+  ];
+  for (const re of patterns) {
+    const m = t.match(re);
+    if (m) return m[1].replace(/\s+/g, '');
+  }
+  return '';
+}
+
+const DEPOSIT_LABELS = ['Initial Funding', 'Minimum Deposit', 'Starting Deposit', 'Entry Deposit', 'Starting Amount'];
+const DEMO_LABELS = ['Trial Account', 'Demo Account', 'Practice Account', 'Demo Mode'];
 const SUPPORT_LABELS = ['Customer Support', 'Help Desk', 'Support'];
-const PAYOUT_LABELS = ['Payout Time', 'Withdrawal Time'];
+const PAYOUT_LABELS = ['Payout Time', 'Withdrawal Time', 'Withdrawals', 'Payout Timing'];
 
 function extractSide(slug: string): CompareSide | null {
   const post = readPost(slug);
@@ -116,10 +150,10 @@ function extractSide(slug: string): CompareSide | null {
     slug,
     name,
     score,
-    minDeposit: scrapeAny(c, DEPOSIT_LABELS) || 'Not disclosed',
-    demo: scrapeAny(c, DEMO_LABELS) || 'Not disclosed',
+    minDeposit: scrapeAny(c, DEPOSIT_LABELS) || depositFromText(c) || NOT_VERIFIED,
+    demo: scrapeAny(c, DEMO_LABELS) || NOT_VERIFIED,
     support: normalizeSupport(scrapeAny(c, SUPPORT_LABELS)),
-    payout: scrapeAny(c, PAYOUT_LABELS) || 'Not disclosed',
+    payout: scrapeAny(c, PAYOUT_LABELS) || NOT_VERIFIED,
     pros: listItems(c, 'bd-panel--pros'),
     cons: listItems(c, 'bd-panel--cons'),
   };
