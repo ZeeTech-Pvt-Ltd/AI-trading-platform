@@ -37,6 +37,8 @@ export type Post = {
    *  tracker URL (e.g. a platform that gets sent direct instead). Falls back
    *  to the usual `?f=<slug>` pattern when absent. */
   ctaUrl?: string;
+  /** Hide the "In this review" table of contents on this post only. */
+  hideToc?: boolean;
 };
 
 export type Author = {
