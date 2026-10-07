@@ -36,6 +36,8 @@ BTN_PATTERNS = [
     re.compile(r'(<a [^>]*class="bd-cta-bar__btn"[^>]*>)(.*?)(<span class="bd-ext")', re.S),
 ]
 # The keyword itself contains a name, so that review (written earlier, without any endorsement claim) is allowed.
+# Pages whose banner CTAs were placed by hand at the owner's request; the position check and --fix skip them.
+CTA_LAYOUT_EXEMPT = {"striluxon-review"}
 CELEB_EXEMPT = {"quantum-ai-mike-cannon-brookes-review"}
 CELEB = re.compile(r"kohler|greenwood|albanese|rinehart|stefanovic|chalmers|bullock|koch\b|deepfake|cannon-brookes", re.I)
 
@@ -142,7 +144,9 @@ def check(post, manifest_card, fix):
         problem("slug is not plain ascii kebab-case")
     # 5. CTAs: banner before first section and cost section, standard label, one link
     hs = h2s(c)
-    if hs and BANNER_RE.search(c):
+    if s in CTA_LAYOUT_EXEMPT:
+        pass
+    elif hs and BANNER_RE.search(c):
         ev = sorted([(p, "H:" + t) for p, t in hs] + [(m.start(), "B") for m in re.finditer(r'<div class="bd-banner-cta">', c)])
         seq = [t for _, t in ev]
         fi = next(i for i, t in enumerate(seq) if t.startswith("H:"))
