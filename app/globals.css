@@ -4101,3 +4101,55 @@ h3,
 	font-size: 1.08em;
 	margin: 0 0 0.3em;
 }
+
+/* Call-to-action buttons: a soft light sweep that passes over the button every few seconds */
+.bd-banner-cta__btn,
+.bd-product-link a,
+.bd-cta-bar__btn,
+.btt-side-card__cta,
+.btt-sticky-cta__btn,
+.btt-article__quickverdict__cta {
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
+}
+
+.bd-banner-cta__btn::after,
+.bd-product-link a::after,
+.bd-cta-bar__btn::after,
+.btt-side-card__cta::after,
+.btt-sticky-cta__btn::after,
+.btt-article__quickverdict__cta::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -70%;
+	width: 45%;
+	height: 100%;
+	background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.55) 50%, transparent 100%);
+	transform: skewX(-20deg);
+	pointer-events: none;
+	animation: btt-cta-shine 3.8s ease-in-out infinite;
+}
+
+@keyframes btt-cta-shine {
+	0%,
+	55% {
+		left: -70%;
+	}
+	100% {
+		left: 135%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bd-banner-cta__btn::after,
+	.bd-product-link a::after,
+	.bd-cta-bar__btn::after,
+	.btt-side-card__cta::after,
+	.btt-sticky-cta__btn::after,
+	.btt-article__quickverdict__cta::after {
+		animation: none;
+		display: none;
+	}
+}

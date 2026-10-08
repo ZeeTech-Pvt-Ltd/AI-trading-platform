@@ -24,6 +24,7 @@ from datetime import datetime, timezone
 POSTS = "content/posts/trading"
 MANIFEST = "content/manifest.json"
 CTA_LABEL = "Open an Account"
+JOURNEY_LABELS = {"Open an Account", "Create Your Account", "Continue to Sign-Up", "Discover More", "Learn More"}  # plus "Explore <name>" and "Learn More About <name>"
 EM = "—"
 
 COST = re.compile(r"cost|fee|pric|deposit|charge|spread", re.I)
@@ -146,6 +147,14 @@ def check(post, manifest_card, fix):
     hs = h2s(c)
     if s in CTA_LAYOUT_EXEMPT:
         pass
+    elif post.get("journeyLayout"):
+        # intro, quick answer, CTA, at a glance ... login, CTA, withdrawal ... verdict, CTA, compare
+        ev = sorted([(p, "H") for p, _ in hs] + [(m.start(), "B") for m in re.finditer(r'<div class="bd-banner-cta">', c)])
+        seq = "".join(t for _, t in ev)
+        if not seq.startswith("HBH") or seq.count("B") != 3 or "BB" in seq:
+            problem("journey layout: CTAs must follow the quick answer, the login section and the verdict")
+        if [x for x in (plain(m.group(2)) for pat in BTN_PATTERNS for m in pat.finditer(c)) if x not in JOURNEY_LABELS and not x.startswith(("Explore ", "Learn More About "))]:
+            problem("non-standard CTA button label")
     elif hs and BANNER_RE.search(c):
         ev = sorted([(p, "H:" + t) for p, t in hs] + [(m.start(), "B") for m in re.finditer(r'<div class="bd-banner-cta">', c)])
         seq = [t for _, t in ev]
