@@ -101,7 +101,7 @@ BTN_PATTERNS = [
 ]
 # The keyword itself contains a name, so that review (written earlier, without any endorsement claim) is allowed.
 # Pages whose banner CTAs were placed by hand at the owner's request; the position check and --fix skip them.
-CTA_LAYOUT_EXEMPT = {"striluxon-review"}
+CTA_LAYOUT_EXEMPT = {"striluxon-review", "clear-accrudance-review"}
 CELEB_EXEMPT = {"quantum-ai-mike-cannon-brookes-review"}
 CELEB = re.compile(r"kohler|greenwood|albanese|rinehart|stefanovic|chalmers|bullock|koch\b|deepfake|cannon-brookes", re.I)
 
