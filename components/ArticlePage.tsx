@@ -38,7 +38,7 @@ function ReviewSidebar({ post }: { post: Post }) {
           rel="sponsored nofollow noopener noreferrer"
           target="_blank"
         >
-          Open an account →
+          Learn More →
         </a>
         <dl className="btt-side-card__facts">
           <div>
