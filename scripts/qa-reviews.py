@@ -25,6 +25,69 @@ POSTS = "content/posts/trading"
 MANIFEST = "content/manifest.json"
 CTA_LABEL = "Open an Account"
 JOURNEY_LABELS = {"Open an Account", "Create Your Account", "Continue to Sign-Up", "Discover More", "Learn More"}  # plus "Explore <name>" and "Learn More About <name>"
+
+
+def label_ok(x):
+    return x in JOURNEY_LABELS or x.startswith(("Explore ", "Learn More About "))
+
+
+# Section-aware CTA copy: the button label follows the section it sits under.
+LABEL_FAMILIES = [
+    (re.compile(r"verify|checks?|steps to complete|checklist|before your first|before starting|set ?up|getting started|process", re.I), "Explore {N}"),
+    (re.compile(r"overview|explained|built|closer look|understanding|markets|assets|\bwho\b|best for|aimed", re.I), "Discover More"),
+    (re.compile(r"credible|dependable|reliable|trust|legit|safe|mistake|pitfall|error|avoid|cost|fee|pric|deposit", re.I), "Learn More"),
+]
+BANNER_COPY = [
+    ("Want to look at it yourself?", None, "Discover More"),          # None keeps the page's own deposit line
+    ("Ready to take a closer look?", "Start small and read the terms first", "Explore {N}"),
+    ("Still deciding?", "Whatever you choose, start small", "Learn More About {N}"),
+]
+BAN_COPY_RE = re.compile(r'(<div class="bd-banner-cta__copy">\s*<div><strong>)(.*?)(</strong></div>\s*<div>)(.*?)(</div>\s*</div>\s*<div><a class="bd-banner-cta__btn"[^>]*>)(.*?)(<span class="bd-ext")', re.S)
+
+
+def btn_name(name):
+    """Very long platform names would turn a button into a block of text."""
+    return name if len(name) <= 22 else "This Platform"
+
+
+def fix_cta_copy(c, name):
+    """Give every CTA of a legacy-layout review copy that fits the section it sits in."""
+    ms = list(BAN_COPY_RE.finditer(c))
+    if ms and not plain(ms[0].group(2)).startswith("Want to look at it yourself"):
+        copy = BANNER_COPY if len(ms) >= 3 else [BANNER_COPY[0], BANNER_COPY[2]][: len(ms)]
+        out, last = [], 0
+        for m, (head, sub, btn) in zip(ms, copy):
+            out.append(c[last:m.start()])
+            out.append(m.group(1) + head + m.group(3) + (sub or m.group(4)) + m.group(5) + btn.format(N=btn_name(name)) + m.group(7))
+            last = m.end()
+        out.append(c[last:])
+        c = "".join(out)
+
+    def label_for(heading):
+        if not heading:
+            return "Discover More"  # a button above the first section
+        for rx, lab in LABEL_FAMILIES:
+            if rx.search(heading):
+                return lab.format(N=btn_name(name))
+        return "Learn More"
+
+    # button-only CTAs take the label of the section above them
+    out, last, heading = [], 0, ""
+    events = sorted([(m.start(), "h", plain(m.group(1))) for m in re.finditer(r"<h2[^>]*>(.*?)</h2>", c, re.S)]
+                    + [(m.start(), "p", m) for m in re.finditer(r'<div class="bd-product-link"><a [^>]*>(.*?)(?=<span class="bd-ext")', c, re.S)])
+    for pos, kind, val in events:
+        if kind == "h":
+            heading = val
+        else:
+            out.append(c[last:val.start(1)])
+            out.append(label_for(heading))
+            last = val.end(1)
+    out.append(c[last:])
+    c = "".join(out)
+    # the fact bar keeps its facts and gets a plain label
+    c = re.sub(r'(<a class="bd-cta-bar__btn"[^>]*>)(.*?)(<span class="bd-ext")', lambda m: m.group(1) + "Learn More" + m.group(3), c, flags=re.S)
+    return c
+
 EM = "—"
 
 COST = re.compile(r"cost|fee|pric|deposit|charge|spread", re.I)
@@ -96,7 +159,7 @@ def fix_cta(c):
     for a, z in sorted(ops, reverse=True):
         c = c[:a] + banner + c[z:]
     for pat in BTN_PATTERNS:
-        c = pat.sub(lambda m: m.group(1) + CTA_LABEL + m.group(3), c)
+        c = pat.sub(lambda m: m.group(0) if label_ok(plain(m.group(2))) else m.group(1) + CTA_LABEL + m.group(3), c)
     return c
 
 
@@ -130,6 +193,16 @@ def check(post, manifest_card, fix):
             else:
                 problem(f"em-dash in {key}")
     c = post["content"]  # may have just been repaired above
+    if fix and not post.get("journeyLayout") and s not in CTA_LAYOUT_EXEMPT:
+        try:
+            nm = next(n for n in json.loads(post["reviewJsonLd"]).get("@graph", []) if n.get("@type") == "Review")["itemReviewed"]["name"]
+            new_c = fix_cta_copy(c, nm)
+            if new_c != c:
+                post["content"] = c = new_c
+                changed = True
+                fixed.append("section-wise CTA copy applied")
+        except Exception:  # noqa: BLE001
+            pass
     # 3. truncated 24/7
     if re.search(r"<td>(?:Help Desk|Customer Support|Support)</td>\s*<td>24</td>", c) or re.search(
         r"(?<![\d/.:\-])24 (?:customer |live )?support\b", plain(c)
@@ -163,7 +236,7 @@ def check(post, manifest_card, fix):
         ci = next((i for i, t in enumerate(seq) if t.startswith("H:") and COST.search(t) and not SKIP.search(t) and i > fi), None)
         bad = bad or (ci is not None and seq[ci - 1] != "B")
         labels = [plain(m.group(2)) for pat in BTN_PATTERNS for m in pat.finditer(c)]
-        bad_label = [x for x in labels if x != CTA_LABEL]
+        bad_label = [x for x in labels if not label_ok(x)]
         if bad or bad_label:
             if fix:
                 post["content"] = c = fix_cta(c)
