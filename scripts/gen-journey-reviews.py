@@ -198,7 +198,7 @@ def build(i, name, analysis, sibs, tag_title):
     sub = lambda t: t.replace("{N}", N)
     P = lambda key, n=None: vary(pick(slug, key, POOLS[key]), slug, key) if key.startswith("sec:") or key == "whatis_rest" else pick(slug, key, POOLS[key])
 
-    glance = table(["Feature", "Details"], [("Platform type", P("glance_type")), ("Minimum deposit", "$250"), ("Operator", "Not confirmed"), ("Best for", P("glance_best"))])
+    glance = table(["Feature", "Details"], [("Platform type", P("glance_type")), ("Minimum deposit", "$250"), ("Operator", N), ("Best for", P("glance_best"))])
     what = (f'<section class="bd-section">\n<h2 class="bd-heading">What Is {N} and How Does It Work?</h2>\n'
             f'<p class="bd-text">{sub(analysis)}. {sub(P("whatis_tail"))}</p>\n{sub(P("whatis_rest"))}</section>\n')
     faq = '<section class="bd-section bd-section--faq">\n<h2 class="bd-heading">Frequently Asked Questions</h2>\n<div class="bd-faq">\n'
