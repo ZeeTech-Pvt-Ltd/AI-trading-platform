@@ -3963,67 +3963,133 @@ table.btt-compare__table {
 	color: var(--muted);
 }
 
-/* Mobile sticky CTA on review pages (hidden above 960px, where the sidebar CTA is sticky) */
+/* Sticky CTA bar on review pages: always visible at the bottom on every screen size */
 .btt-sticky-cta {
-	display: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 50;
+	padding: 12px 16px calc(18px + env(safe-area-inset-bottom));
+	background: #1c1917;
+	border-top: 3px solid var(--brand);
+	box-shadow: 0 -6px 24px rgba(28, 25, 23, 0.35);
+	transform: translateY(110%);
+	visibility: hidden;
+	transition: transform 0.25s ease, visibility 0.25s;
 }
 
-@media (max-width: 960px) {
-	.btt-sticky-cta {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 12px;
-		position: fixed;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 50;
-		padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-		background: #fff;
-		border-top: 1px solid var(--line);
-		box-shadow: 0 -4px 16px rgba(28, 25, 23, 0.1);
-		transform: translateY(110%);
-		visibility: hidden;
-		transition: transform 0.25s ease, visibility 0.25s;
-	}
+.btt-sticky-cta.is-visible {
+	transform: translateY(0);
+	visibility: visible;
+}
 
-	.btt-sticky-cta.is-visible {
-		transform: translateY(0);
-		visibility: visible;
+.btt-sticky-cta__info {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.btt-sticky-cta__name {
+	font-weight: 700;
+	font-size: 17px;
+	color: #fff;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.btt-sticky-cta__score {
+	font-size: 14px;
+	line-height: 1.35;
+	color: #e7e5e4;
+}
+
+.btt-sticky-cta__btn {
+	flex: none;
+	padding: 16px 28px;
+	font-size: 16px;
+	font-weight: 800;
+	border-radius: 999px;
+	box-shadow: 0 6px 0 var(--brand-strong);
+	white-space: nowrap;
+	animation: btt-sticky-ring 1.5s ease-out infinite;
+}
+
+.btt-sticky-cta__btn:hover {
+	animation-play-state: paused;
+}
+
+@keyframes btt-sticky-ring {
+	0% {
+		box-shadow: 0 6px 0 var(--brand-strong), 0 0 0 0 rgba(255, 255, 255, 0.55);
+	}
+	70%,
+	100% {
+		box-shadow: 0 6px 0 var(--brand-strong), 0 0 0 14px rgba(255, 255, 255, 0);
+	}
+}
+
+@media (max-width: 480px) {
+	.btt-sticky-cta__btn {
+		padding: 14px 20px;
+	}
+}
+
+/* keep the end of the page clear of the fixed bar */
+body:has(.btt-sticky-cta) {
+	padding-bottom: 96px;
+}
+
+@media (min-width: 961px) {
+	.btt-sticky-cta {
+		justify-content: center;
+		gap: 28px;
 	}
 
 	.btt-sticky-cta__info {
-		display: flex;
-		flex-direction: column;
-		min-width: 0;
+		max-width: 520px;
 	}
+}
 
-	.btt-sticky-cta__name {
-		font-weight: 700;
-		font-size: 15px;
-		color: var(--ink);
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+@media (max-width: 600px) {
+	.btt-sticky-cta {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 8px;
 	}
 
 	.btt-sticky-cta__score {
-		font-size: 12px;
-		color: var(--muted);
+		display: none;
+	}
+
+	.btt-sticky-cta__name {
+		white-space: normal;
+		text-align: center;
+		font-size: 16px;
+	}
+
+	body:has(.btt-sticky-cta) {
+		padding-bottom: 120px;
 	}
 
 	.btt-sticky-cta__btn {
-		flex: none;
-		padding: 11px 18px;
-		font-size: 14px;
-		white-space: nowrap;
+		width: 100%;
+		text-align: center;
 	}
 }
 
 @media (prefers-reduced-motion: reduce) {
 	.btt-sticky-cta {
 		transition: none;
+	}
+
+	.btt-sticky-cta__btn {
+		animation: none;
 	}
 }
 

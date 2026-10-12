@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 
 type Props = {
   slug: string;
@@ -31,10 +31,10 @@ function ctaPosition(link: HTMLAnchorElement, content: Element | null): string {
   return 'other';
 }
 
-export default function ReviewCtaBar({ slug, name, href, score }: Props) {
-  const [visible, setVisible] = useState(false);
-  const pastHero = useRef(false);
-  const nearEnd = useRef(false);
+// The bottom sticky bar is switched off for now; set to true to bring it back. Click tracking below always runs.
+const SHOW_STICKY_BAR = false;
+
+export default function ReviewCtaBar({ slug, name, href }: Props) {
 
   // Click tracking: one GA4 event for every outbound click on this review's affiliate link.
   useEffect(() => {
@@ -71,58 +71,23 @@ export default function ReviewCtaBar({ slug, name, href, score }: Props) {
     return () => document.removeEventListener('click', onClick, true);
   }, [slug, href]);
 
-  // Mobile bar: appears once the reader scrolls past the intro, hides again near the
-  // closing banner and the related reviews so it never sits on top of another CTA.
-  useEffect(() => {
-    const update = () => setVisible(pastHero.current && !nearEnd.current);
+  if (!SHOW_STICKY_BAR) return null;
 
-    const onScroll = () => {
-      pastHero.current = window.scrollY > 600;
-      update();
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    const watched = Array.from(
-      document.querySelectorAll('.bd-banner-cta, .btt-related'),
-    );
-    const inView = new Set<Element>();
-    let observer: IntersectionObserver | undefined;
-    if (typeof IntersectionObserver !== 'undefined' && watched.length) {
-      observer = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) inView.add(entry.target);
-          else inView.delete(entry.target);
-        }
-        nearEnd.current = inView.size > 0;
-        update();
-      });
-      watched.forEach((el) => observer!.observe(el));
-    }
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      observer?.disconnect();
-    };
-  }, []);
+  const who = name.length > 22 ? 'this platform' : name;
 
   return (
-    <div
-      className={`btt-sticky-cta${visible ? ' is-visible' : ''}`}
-      aria-hidden={!visible}
-    >
+    <div className="btt-sticky-cta is-visible">
       <div className="btt-sticky-cta__info">
-        <span className="btt-sticky-cta__name">{name}</span>
-        {score ? <span className="btt-sticky-cta__score">Our score: {score}/5</span> : null}
+        <span className="btt-sticky-cta__name">Curious about {who}? See it for yourself.</span>
+        <span className="btt-sticky-cta__score">Create a free account with just your name and email, and get a free consultation to ask your questions before you decide.</span>
       </div>
       <a
         className="btt-h-btn btt-h-btn--primary btt-sticky-cta__btn"
         href={href}
         rel="sponsored nofollow noopener noreferrer"
         target="_blank"
-        tabIndex={visible ? 0 : -1}
       >
-        Open an account →
+        RESERVE YOUR FREE SEAT
       </a>
     </div>
   );
