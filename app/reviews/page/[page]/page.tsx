@@ -22,6 +22,7 @@ export async function generateMetadata({
     title: `AI Trading Platform Reviews | Page ${page}`,
     description: `Page ${page} of our independent AI trading platform reviews: minimum deposits, fees and what we could confirm about each platform, rated for 2026.`,
     alternates: { canonical: `/reviews/page/${page}` },
+    robots: { index: false, follow: true },
   };
 }
 

@@ -57,9 +57,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // category archives (reviews + articles), including numbered pages —
-  // each has its own self-canonical and is indexable. lastModified is the
-  // most recent post actually listed on that specific page.
+  // category archives (reviews + articles). Numbered pages (/page/N) are noindex and
+  // stay out of the sitemap; the posts themselves are listed below.
   for (const [path, type, priority] of [
     ['/reviews', 'trading', 0.9],
     ['/articles', 'bitcoin', 0.7],
@@ -71,14 +70,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority,
     });
-    for (let n = 2; n <= pages.length; n++) {
-      entries.push({
-        url: `${site.url}${path}/page/${n}`,
-        lastModified: latestOf(pages[n - 1] ?? []),
-        changeFrequency: 'weekly',
-        priority: Math.max(priority - 0.2, 0.3),
-      });
-    }
   }
 
   // posts (reviews + articles)
