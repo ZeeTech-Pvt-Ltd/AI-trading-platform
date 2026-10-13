@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ogDefault } from '@/lib/seo';
 import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
@@ -7,6 +8,8 @@ export const metadata: Metadata = {
   description: `The terms governing your use of ${site.name}, including acceptable use, intellectual property, and limitation of liability.`,
   alternates: { canonical: '/terms-of-use' },
   openGraph: {
+    type: 'website',
+    images: ogDefault,
     title: 'Terms of Service | AI Trading Platform',
     description: `The terms governing your use of ${site.name}, including acceptable use, intellectual property, and limitation of liability.`,
     url: `${site.url}/terms-of-use`,

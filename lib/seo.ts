@@ -7,11 +7,22 @@ import { site } from './site';
 // out of view, so drop the suffix rather than let it eat the truncation.
 const TITLE_MAX = 60;
 
+/** Default share image for pages that have no image of their own. */
+export const ogDefault = [
+  {
+    url: `${site.url}/images/2026/07/og-default.png`,
+    width: 1200,
+    height: 630,
+    alt: site.name,
+  },
+];
+
 export function postMetadata(post: Post): Metadata {
   const url = `${site.url}/${post.type}/${post.slug}`;
   const description = post.description || undefined;
-  const titleWithBrand = `${post.title} | ${site.name}`;
-  const title = titleWithBrand.length <= TITLE_MAX ? titleWithBrand : post.title;
+  const base = post.seoTitle || post.title;
+  const titleWithBrand = `${base} | ${site.name}`;
+  const title = titleWithBrand.length <= TITLE_MAX ? titleWithBrand : base;
 
   // A real, curated image wins when one is set on the post. Otherwise leave
   // `images` unset so the route's opengraph-image.tsx (a generated image

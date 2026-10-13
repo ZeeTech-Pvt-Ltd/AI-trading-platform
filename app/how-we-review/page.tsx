@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
+import { ogDefault } from '@/lib/seo';
 import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
 export const metadata: Metadata = {
   title: 'How We Review Trading Platforms',
-  description: `The methodology and criteria ${site.name} uses to rate AI trading platforms.`,
+  description: `How ${site.name} rates AI trading platforms: the criteria we check, how each score is weighted, and what a rating does and does not mean.`,
   alternates: { canonical: '/how-we-review' },
   openGraph: {
+    type: 'website',
+    images: ogDefault,
     title: 'How We Review Trading Platforms',
-    description: `The methodology and criteria ${site.name} uses to rate AI trading platforms.`,
+    description: `How ${site.name} rates AI trading platforms: the criteria we check, how each score is weighted, and what a rating does and does not mean.`,
     url: `${site.url}/how-we-review`,
   },
 };

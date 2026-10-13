@@ -21,7 +21,7 @@ export async function generateMetadata({
   const { page } = await params;
   return {
     title: `Bitcoin Articles | Page ${page}`,
-    description: `In-depth Bitcoin development articles on ${site.name} (page ${page}).`,
+    description: `Page ${page} of our Bitcoin development articles: protocol, Bitcoin Core, transaction fees and the open-source ecosystem, from ${site.name}.`,
     alternates: { canonical: `/articles/page/${page}` },
   };
 }

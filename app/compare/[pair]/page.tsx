@@ -25,8 +25,23 @@ export async function generateMetadata({
   const sides = getCompareSides(pair);
   if (!sides) return { title: 'Comparison not found' };
   const [a, b] = sides;
-  const title = `${a.name} vs ${b.name}: Which Should You Choose?`;
-  const description = `We compare ${a.name} and ${b.name} side by side: minimum deposit, demo account, support, strengths and weaknesses, so you can decide which automated trading platform fits.`;
+  const titleOptions = [
+    `${a.name} vs ${b.name}: Which Should You Choose?`,
+    `${a.name} vs ${b.name}: Which Is Better?`,
+    `${a.name} vs ${b.name} Compared`,
+    `${a.name} vs ${b.name}`,
+  ];
+  const title = titleOptions.find((t) => t.length <= 60) ?? titleOptions[titleOptions.length - 1];
+  const descOptions = [
+    `We compare ${a.name} and ${b.name} side by side: minimum deposit, demo account, support, strengths and weaknesses.`,
+    `${a.name} vs ${b.name} side by side: minimum deposit, demo account, support, strengths and weaknesses compared.`,
+    `${a.name} vs ${b.name}: minimum deposit, demo account, support, strengths and weaknesses.`,
+    `${a.name} vs ${b.name}: deposit, support, strengths and weaknesses compared.`,
+  ];
+  const description =
+    descOptions.find((d) => d.length >= 125 && d.length <= 155) ??
+    descOptions.find((d) => d.length <= 155) ??
+    descOptions[descOptions.length - 1];
   return {
     title,
     description,

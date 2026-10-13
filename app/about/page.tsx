@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { ogDefault } from '@/lib/seo';
 import { site } from '@/lib/site';
 import { getAllCards, getAuthors, getLastUpdatedDate } from '@/lib/data';
 import { formatDate } from '@/lib/format';
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
     'Who we are and how we review AI trading platforms: our independence, our process, and what we cover so you can decide what to trust.',
   alternates: { canonical: '/about' },
   openGraph: {
+    type: 'website',
+    images: ogDefault,
     title: 'About Us | Independent AI Trading Platform Reviews',
     description:
       'Who we are and how we review AI trading platforms: our independence, our process, and what we cover so you can decide what to trust.',

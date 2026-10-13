@@ -31,6 +31,8 @@ export type Post = {
   excerpt: string;
   content: string;
   jsonLd: string;
+  /** Shorter <title> than the visible heading, when the heading runs past 60 characters. */
+  seoTitle?: string;
   reviewJsonLd?: string;
   ogImage: string;
   /** Override for the CTA/sidebar link when it isn't the standard affiliate

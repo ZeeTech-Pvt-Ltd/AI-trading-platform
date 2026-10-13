@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ogDefault } from '@/lib/seo';
 import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
@@ -7,6 +8,8 @@ export const metadata: Metadata = {
   description: `Get in touch with the ${site.name} team by email for corrections, feedback, press enquiries, or questions about our trading platform reviews.`,
   alternates: { canonical: '/contact' },
   openGraph: {
+    type: 'website',
+    images: ogDefault,
     title: 'Contact Us | AI Trading Platform',
     description: `Get in touch with the ${site.name} team by email for corrections, feedback, press enquiries, or questions about our trading platform reviews.`,
     url: `${site.url}/contact`,

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ogDefault } from '@/lib/seo';
 import { site } from '@/lib/site';
 import { getAllCards, getTypePages } from '@/lib/data';
 import Archive from '@/components/Archive';
@@ -15,6 +16,8 @@ export function generateMetadata(): Metadata {
     description,
     alternates: { canonical: '/reviews' },
     openGraph: {
+      type: 'website',
+      images: ogDefault,
       title,
       description,
       url: `${site.url}/reviews`,

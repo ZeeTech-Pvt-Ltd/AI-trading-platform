@@ -1,15 +1,18 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { ogDefault } from '@/lib/seo';
 import { site } from '@/lib/site';
 import { getAuthors } from '@/lib/data';
 
 export const metadata: Metadata = {
   title: `Authors | ${site.name}`,
-  description: `Meet the team behind ${site.name}, the people who research and write our reviews and guides.`,
+  description: `Meet the team behind ${site.name}: the writers who research and review AI trading platforms, with the reviews each of them has published.`,
   alternates: { canonical: '/authors' },
   openGraph: {
+    type: 'website',
+    images: ogDefault,
     title: `Authors | ${site.name}`,
-    description: `Meet the team behind ${site.name}, the people who research and write our reviews and guides.`,
+    description: `Meet the team behind ${site.name}: the writers who research and review AI trading platforms, with the reviews each of them has published.`,
     url: `${site.url}/authors`,
   },
 };

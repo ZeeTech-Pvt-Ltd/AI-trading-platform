@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ogDefault } from '@/lib/seo';
 import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
@@ -7,6 +8,8 @@ export const metadata: Metadata = {
   description: `${site.name} disclaimer: all content is for information only, not financial advice, and crypto and automated trading involve substantial risk of loss.`,
   alternates: { canonical: '/disclaimer' },
   openGraph: {
+    type: 'website',
+    images: ogDefault,
     title: 'Disclaimer | AI Trading Platform',
     description: `${site.name} disclaimer: all content is for information only, not financial advice, and crypto and automated trading involve substantial risk of loss.`,
     url: `${site.url}/disclaimer`,

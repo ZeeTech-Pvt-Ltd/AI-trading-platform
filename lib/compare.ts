@@ -143,7 +143,15 @@ function extractSide(slug: string): CompareSide | null {
   const post = readPost(slug);
   if (!post) return null;
   const c = post.content;
-  const name = post.title.split(' Review')[0].trim();
+  // Brand name comes from the review schema; many titles ("Is X Legit? Full 2026 Review") do not start with it.
+  let name = post.title.split(' Review')[0].trim();
+  try {
+    const graph = (JSON.parse(post.reviewJsonLd ?? '{}')['@graph'] ?? []) as Array<Record<string, any>>;
+    const brand = graph.find((n) => n['@type'] === 'Review')?.itemReviewed?.name;
+    if (typeof brand === 'string' && brand.trim()) name = brand.trim();
+  } catch {
+    // keep the title-based name
+  }
   // The rating bar is not on every page, so fall back to the verdict card's stars.
   const scoreRaw =
     c.match(/bd-stars" aria-label="([\d.]+) out of 5"/) ??

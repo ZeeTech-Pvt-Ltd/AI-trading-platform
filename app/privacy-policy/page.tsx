@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ogDefault } from '@/lib/seo';
 import { site } from '@/lib/site';
 import InfoPage from '@/components/InfoPage';
 
@@ -7,6 +8,8 @@ export const metadata: Metadata = {
   description: `How ${site.name} collects, uses, and protects your personal information, and the choices and rights you have over your data.`,
   alternates: { canonical: '/privacy-policy' },
   openGraph: {
+    type: 'website',
+    images: ogDefault,
     title: 'Privacy Policy | AI Trading Platform',
     description: `How ${site.name} collects, uses, and protects your personal information, and the choices and rights you have over your data.`,
     url: `${site.url}/privacy-policy`,
