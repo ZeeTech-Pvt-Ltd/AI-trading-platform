@@ -282,6 +282,20 @@ def check(post, manifest_card, fix):
             problem("published date is in the future")
     except Exception:  # noqa: BLE001
         problem("unreadable date")
+    # 7c. the verdict tag must agree with the text: no "Recommended" when the operator/regulator is unconfirmed,
+    #     and the manifest card must carry the same label
+    try:
+        _t = re.search(r'bd-verdict-card__tag">(.*?)<', c)
+        _card = manifest_card.get(s)
+        if _t and _t.group(1) == "Recommended" and re.search(
+            r"could not (?:independently )?(?:confirm|verify)|no confirmed (?:operator|licen[cs]e|regulator)|not something we could confirm",
+            plain(c), re.I,
+        ):
+            problem('verdict tag "Recommended" on a page that says the operator or regulator could not be confirmed (run scripts/sync-verdict-labels.py)')
+        if _t and _card and _card.get("verdict") != _t.group(1):
+            problem(f"manifest verdict {_card.get('verdict')} != verdict card {_t.group(1)} (run scripts/sync-verdict-labels.py)")
+    except Exception as e:  # noqa: BLE001
+        problem(f"verdict check failed: {e}")
     # 7a. article and spacing typos ("an browser-based", "system , here")
     try:
         import importlib.util as _iu

@@ -9,13 +9,14 @@ import Breadcrumbs from './Breadcrumbs';
 import JsonLd from './JsonLd';
 import PostCard from './PostCard';
 import ReviewCtaBar from './ReviewCtaBar';
+import { quickFacts } from '@/lib/quickFacts';
 import TableOfContents from './TableOfContents';
 import TopRatedWidget from './TopRatedWidget';
 
 function ReviewSidebar({ post }: { post: Post }) {
   const card = getCard(post.type, post.slug);
   const name = brandName(post.title);
-  const verdict = ratingVerdict(card?.ratingValue);
+  const verdict = ratingVerdict(card?.ratingValue, card?.verdict);
   const affiliate =
     post.ctaUrl || `https://vectorai360.com/?f=${post.slug.replace(/-review$/, '')}&subid=BIT&src=ATP`;
 
@@ -70,7 +71,8 @@ export default function ArticlePage({ post }: { post: Post }) {
 
   const card = isTrading ? getCard(post.type, post.slug) : undefined;
   const name = isTrading ? brandName(post.title) : '';
-  const verdict = ratingVerdict(card?.ratingValue);
+  const verdict = ratingVerdict(card?.ratingValue, card?.verdict);
+  const facts = isTrading ? quickFacts(post.content) : [];
   const affiliate = isTrading
     ? post.ctaUrl || `https://vectorai360.com/?f=${post.slug.replace(/-review$/, '')}&subid=BIT&src=ATP`
     : '';
@@ -113,6 +115,16 @@ export default function ArticlePage({ post }: { post: Post }) {
           >
             Open an account →
           </a>
+          {facts.length ? (
+            <ul className="btt-article__quickfacts">
+              {facts.map((f) => (
+                <li key={f.label}>
+                  <span>{f.label}</span>
+                  {f.value}
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       ) : null}
 

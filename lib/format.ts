@@ -36,7 +36,9 @@ export function brandName(title: string): string {
   return m ? m[1].trim() : title.trim();
 }
 
-export function ratingVerdict(ratingValue?: string): { label: string; tone: 'ok' | 'mid' | 'bad' } {
+export function ratingVerdict(ratingValue?: string, label?: string): { label: string; tone: 'ok' | 'mid' | 'bad' } {
+  // A label stored with the review wins, so the badge never contradicts the verdict card.
+  if (label) return { label, tone: label === 'Recommended' ? 'ok' : label === 'Caution' ? 'bad' : 'mid' };
   const n = ratingValue ? Number.parseFloat(ratingValue) : NaN;
   if (Number.isNaN(n)) return { label: 'Unrated', tone: 'mid' };
   if (n >= 4.5) return { label: 'Recommended', tone: 'ok' };

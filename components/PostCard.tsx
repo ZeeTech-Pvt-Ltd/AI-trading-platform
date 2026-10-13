@@ -28,7 +28,7 @@ export default function PostCard({ card, featured = false }: { card: Card; featu
     rating && !Number.isNaN(Number.parseFloat(rating))
       ? `${(Math.min(5, Math.max(0, Number.parseFloat(rating))) / 5) * 100}%`
       : '0%';
-  const verdict = isTrading && rating ? ratingVerdict(rating) : null;
+  const verdict = isTrading && rating ? ratingVerdict(rating, card.verdict) : null;
 
   return (
     <article

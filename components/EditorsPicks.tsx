@@ -12,7 +12,7 @@ export default function EditorsPicks({ cards }: { cards: Card[] }) {
         <span className="btt-h-eyebrow btt-h-eyebrow--dark">★ Editor&rsquo;s Picks</span>
         <div className="btt-h-picks__grid">
           {cards.map((card) => {
-            const verdict = ratingVerdict(card.ratingValue);
+            const verdict = ratingVerdict(card.ratingValue, card.verdict);
             const pct = card.ratingValue
               ? (Math.min(5, Math.max(0, Number.parseFloat(card.ratingValue))) / 5) * 100
               : 0;

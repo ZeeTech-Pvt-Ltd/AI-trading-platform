@@ -14,6 +14,8 @@ export type Card = {
   readingTime: string;
   /** Review score (trading cards only), e.g. "4.6". Absent on bitcoin guides. */
   ratingValue?: string;
+  /** Verdict label shown on the review (its verdict-card tag), so every badge says the same thing. */
+  verdict?: string;
 };
 
 export type Post = {

@@ -11,7 +11,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const card = getCard('trading', slug);
   const name = post ? brandName(post.title) : slug;
   const rating = card?.ratingValue;
-  const verdict = ratingVerdict(rating);
+  const verdict = ratingVerdict(rating, card?.verdict);
 
   return new ImageResponse(
     (

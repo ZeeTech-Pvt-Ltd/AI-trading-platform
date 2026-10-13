@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Add stated facts (fees, payment methods, support, withdrawals, app) to the journey-layout reviews,
-always attributed and never written as our own finding.
+Add stated facts (fees, payment methods, support, withdrawals, app) to reviews in the reference layout
+(overview table, pricing, getting started, FAQ), always attributed and never written as our own finding.
 
 Fill in platform-facts-template.csv (one row per platform) and run
 
@@ -79,6 +79,8 @@ def apply(post, f, dry):
             return pick(slug, "cs", ["24/7", "Available 24/7", "Round the clock (24/7)", "24/7 support"])
         if key == "fee" and low in ("free", "no fee", "none"):
             return pick(slug, "cf", ["Free", "Free to register", "No registration fee"])
+        if key == "app" and "browser" in low:
+            return v[0].upper() + v[1:]
         if key == "app" and re.search(r"\bno\b", low) and "app" in low:
             return pick(slug, "ca", ["No mobile app", "There is no mobile app", "Not available"])
         if key == "payments":
@@ -103,59 +105,76 @@ def apply(post, f, dry):
         c = re.sub(r"(<td>Regulator</td>\s*<td>)(.*?)(</td>)", lambda m: m.group(1) + esc(f["regulator"]) + m.group(3), c, count=1, flags=re.S)
         log.append("regulator")
     if rows:
-        m = re.search(r"</tbody>\s*</table>\s*</div>\n", c)
-        assert m, "at a glance table not found"
-        c = c[: m.start()] + "".join(rows) + c[m.start():]
-        end = c.index("</div>\n", c.index("</tbody>")) + len("</div>\n")
+        ov = c.find("bd-section--overview")
+        assert ov >= 0, "overview section not found"
+        tb = c.index("</tbody>", ov)
+        add = ""
+        for r in rows:
+            label = re.search(r"<td>(.*?)</td>", r, re.S).group(1)
+            m = re.search(r"(<td>" + re.escape(label) + r"</td>\s*<td>)(.*?)(</td>)", c[ov:tb], re.S)
+            if m:
+                val = re.search(r"<td>.*?</td>\s*<td>(.*?)</td>", r, re.S).group(1)
+                a = ov + m.start(2)
+                c = c[:a] + val + c[ov + m.end(2):]
+                tb = c.index("</tbody>", ov)
+            else:
+                add += r
+        c = c[:tb] + add + c[tb:]
+        end = c.index("</div>\n", c.index("</tbody>", ov)) + len("</div>\n")
         where = f" ({esc(host)})" if host else ""
         note = '<p class="bd-text bd-note" data-facts="1">' + pick(slug, "note", [
             f"Details such as fees, payment methods, support and app availability are as stated by {A}{where}. We have not tested them ourselves.",
             f"The fees, payment methods, support and app details above come from {A}{where}, and we have not tested them ourselves.",
             f"These details were provided by {A}{where} and have not been tested by us."]) + "</p>\n"
         c = c[:end] + note + c[end:]
-        log.append("at a glance rows")
+        log.append("overview table rows")
 
-    # fees section
-    m = re.search(r"(<h2 class=\"bd-heading\">[^<]*Fees and Minimum Deposit</h2>\n<p class=\"bd-text\">.*?</p>\n)", c, re.S)
-    if m and (f.get("fee") or f.get("payments")):
+    # fees and payment methods go into the pricing section, after its first paragraph
+    pr = c.find("bd-section--pricing")
+    if pr >= 0 and (f.get("fee") or f.get("payments")):
         add = ""
         if f.get("fee"):
             add += f'<p class="bd-text" data-facts="1">{S("fee", ["According to {A}, registration is free.", "Registration is free, according to {A}.", "{a} states that there is no registration fee.", "There is no charge to register, as stated by {A}.", "Opening an account costs nothing, {A} says.", "{a} says registration does not cost anything."])}</p>\n'
         if f.get("payments"):
             p_ = esc(f["payments"])
             add += f'<p class="bd-text" data-facts="1">{S("pay", ["According to {A}, you can fund the account by " + p_ + ".", "Accepted payment methods, as stated by {A}: " + p_ + ".", "{a} lists " + p_ + " as payment options.", "{a} says deposits can be made with " + p_ + ".", "Funding options listed by {A} include " + p_ + ".", "You can pay in with " + p_ + ", according to {A}."])}</p>\n'
-        sec_end = c.index("</section>", m.end())
-        ul_end = c.find("</ul>\n", m.end(), sec_end)
-        at = ul_end + len("</ul>\n") if ul_end != -1 else m.end()
+        # after the first list (the "look for" checklist), never between a lead-in and its bullets
+        h2_end = c.index("</h2>\n", pr) + len("</h2>\n")
+        sec_end = c.index("</section>", pr)
+        ul_end = c.find("</ul>\n", h2_end, sec_end)
+        at = ul_end + len("</ul>\n") if ul_end != -1 else c.index("</p>\n", h2_end) + len("</p>\n")
         c = c[:at] + add + c[at:]
         log.append("fees and payment methods")
 
-    # login, registration and app section: support line and the app paragraph
-    base = c.find("Login, Registration and App")
+    # support line and the app paragraph live in the getting-started section
+    base = c.find("bd-section--getting-started")
+    sec_end = c.index("</section>", base) if base >= 0 else -1
     if base >= 0 and f.get("support"):
-        end = c.index("</section>", base)
         sup = esc(f["support"])
         line = S("sup", ["According to {A}, support is available " + sup + ".", "{a} says support is available " + sup + ".", "Support is available " + sup + ", according to {A}.", "{a} states that its support team is available " + sup + ".", "You can reach support " + sup + ", says {A}.", "As stated by {A}, support runs " + sup + "."])
-        c = c[:end] + f'<p class="bd-text" data-facts="1">{line}</p>\n' + c[end:]
+        c = c[:sec_end] + f'<p class="bd-text" data-facts="1">{line}</p>\n' + c[sec_end:]
+        sec_end = c.index("</section>", base)
         log.append("support")
     if base >= 0 and f.get("app"):
         pat = re.compile(r"<p class=\"bd-text\">[^<]*(?:mobile app|app in app stores|a [^<]{0,40} app)[^<]*</p>\n")
-        m = pat.search(c, base)
+        m = pat.search(c, base, sec_end)
+        ap = lower_first(esc(f["app"])).rstrip(".")
+        txt = S("app", ["According to {A}, " + ap + ".", "{a} says " + ap + ".", ap.capitalize() + ", according to {A}.", "As stated by {A}, " + ap + ".", "Per {A}, " + ap + "."])
         if m:
             orig = html.escape(c[m.start():m.end()].rstrip("\n"), quote=True)
-            ap = lower_first(esc(f["app"])).rstrip(".")
-            txt = S("app", ["According to {A}, " + ap + ".", "{a} says " + ap + ".", ap.capitalize() + ", according to {A}.", "As stated by {A}, " + ap + ".", "Per {A}, " + ap + "."])
             c = c[: m.start()] + f'<p class="bd-text" data-facts="1" data-orig="{orig}">{txt} Be careful of fake apps that use the {esc(name)} name in app stores.</p>\n' + c[m.end():]
             log.append("app")
+        else:
+            c = c[:sec_end] + f'<p class="bd-text" data-facts="1">{txt} Be careful of fake apps that use the {esc(name)} name in app stores.</p>\n' + c[sec_end:]
+            log.append("app")
 
-    # withdrawal section
-    if f.get("withdrawal"):
-        m = re.search(r"(<h2 class=\"bd-heading\">[^<]*Withdrawal Process</h2>\n)", c)
-        if m:
-            w = lower_first(esc(f["withdrawal"])).rstrip(".")
-            line = S("wd", ["According to {A}, " + w + ".", "{a} states that " + w + ".", w.capitalize() + ", according to {A}.", "{a} says " + w + ".", "As stated by {A}, " + w + ".", "Per {A}, " + w + "."])
-            c = c[: m.end()] + f'<p class="bd-text" data-facts="1">{line}</p>\n' + c[m.end():]
-            log.append("withdrawal")
+    # withdrawal line closes the pricing section
+    if f.get("withdrawal") and pr >= 0:
+        w = lower_first(esc(f["withdrawal"])).rstrip(".")
+        line = S("wd", ["According to {A}, " + w + ".", "{a} states that " + w + ".", w.capitalize() + ", according to {A}.", "{a} says " + w + ".", "As stated by {A}, " + w + ".", "Per {A}, " + w + "."])
+        pe = c.index("</section>", c.find("bd-section--pricing"))
+        c = c[:pe] + f'<p class="bd-text" data-facts="1">{line}</p>\n' + c[pe:]
+        log.append("withdrawal")
 
     # FAQ answers
     def faq(q_start, answer):
@@ -168,11 +187,11 @@ def apply(post, f, dry):
 
     if f.get("app"):
         ap = lower_first(esc(f["app"])).rstrip(".")
-        if faq(f"Does {name} have a mobile app", S("fa", ["According to {A}, " + ap + ".", "{a} says " + ap + ".", ap.capitalize() + ", according to {A}.", "As stated by {A}, " + ap + "."])):
+        if faq(f"Does {name} have a mobile app", S("fa", ["According to {A}, " + ap + ".", "{a} says " + ap + ".", ap.capitalize() + ", according to {A}.", "As stated by {A}, " + ap + "."]) + " If you see an app with this name, treat it with caution."):
             log.append("faq app")
     if f.get("withdrawal"):
         w = lower_first(esc(f["withdrawal"])).rstrip(".")
-        if faq(f"How long does a {name} withdrawal take", S("fw", ["According to {A}, " + w + ".", "{a} states that " + w + ".", w.capitalize() + ", according to {A}.", "As stated by {A}, " + w + ".", "Per {A}, " + w + "."])):
+        if faq(f"How long does a {name} withdrawal take", S("fw", ["According to {A}, " + w + ".", "{a} states that " + w + ".", w.capitalize() + ", according to {A}.", "As stated by {A}, " + w + ".", "Per {A}, " + w + "."]) + " Check the withdrawal terms for any minimum amount, fee or identity (KYC) step."):
             log.append("faq withdrawal")
     if f.get("deposit") and faq(f"What is the {name} minimum deposit", f"The minimum deposit is {esc(f['deposit'])}."):
         log.append("faq deposit")
@@ -200,8 +219,8 @@ def main():
             continue
         path = f"{POSTS}/{slug}.json"
         post = json.load(open(path))
-        if not post.get("journeyLayout"):
-            print(f"{slug}: skipped, not a journey-layout page")
+        if "bd-section--overview" not in post["content"]:
+            print(f"{slug}: skipped, no overview section (not in the reference layout)")
             skipped += 1
             continue
         log = apply(post, f, dry)
