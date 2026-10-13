@@ -185,7 +185,7 @@ def check(post, manifest_card, fix):
     # 2. em-dash anywhere, including JSON-LD strings where it is escaped
     for key in ("title", "description", "excerpt", "content", "jsonLd", "reviewJsonLd"):
         v = post.get(key, "")
-        if EM in v or "\\u2014" in v:
+        if EM in v or "\\u2014" in v or "&#8212;" in v or "&mdash;" in v:
             if fix and key in ("excerpt", "content", "jsonLd", "reviewJsonLd"):
                 post[key] = fix_emdash(v.replace("\\u2014", EM))
                 changed = True
@@ -282,6 +282,22 @@ def check(post, manifest_card, fix):
             problem("published date is in the future")
     except Exception:  # noqa: BLE001
         problem("unreadable date")
+    # 7a. article and spacing typos ("an browser-based", "system , here")
+    try:
+        import importlib.util as _iu
+        _sp = _iu.spec_from_file_location("fix_review_typos", "scripts/fix-review-typos.py")
+        _m = _iu.module_from_spec(_sp)
+        _sp.loader.exec_module(_m)
+        _fixed = _m.fix_html(post["content"])
+        if _fixed != post["content"]:
+            if fix:
+                post["content"] = c = _fixed
+                changed = True
+                fixed.append("a/an and spacing typos repaired")
+            else:
+                problem("a/an or spacing typo (run scripts/fix-review-typos.py)")
+    except Exception as e:  # noqa: BLE001
+        problem(f"typo check failed: {e}")
     # 7b. house style: never call a platform "unverified" (say that trading involves risk instead)
     for key in ("title", "description", "excerpt", "content", "reviewJsonLd"):
         if re.search(r"\bunverified\b", plain(post.get(key, "")), re.I):

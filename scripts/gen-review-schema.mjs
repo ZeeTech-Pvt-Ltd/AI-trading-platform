@@ -43,6 +43,13 @@ function strip(s) {
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&nbsp;/g, ' ')
+    .replace(/&pound;/g, '£')
+    .replace(/&euro;/g, '€')
+    .replace(/&yen;/g, '¥')
+    .replace(/&cent;/g, '¢')
+    .replace(/&hellip;/g, '...')
+    .replace(/&#8230;/g, '...')
+    .replace(/&times;/g, 'x')
     .replace(/\s+/g, ' ')
     .trim();
 }
