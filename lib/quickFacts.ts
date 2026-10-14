@@ -25,14 +25,14 @@ export function quickFacts(content: string): QuickFact[] {
   let deposit = '';
   for (const label of DEPOSIT_LABELS) {
     const m = content.match(new RegExp(`<td>${label}</td>\\s*<td>([\\s\\S]*?)</td>`));
-    const v = m ? text(m[1]).match(/\$\s?\d[\d,]*(?:\.\d+)?/) : null;
+    const v = m ? text(m[1]).match(/(?:\$|£|€|AUD|USD|GBP|EUR)\s?\d[\d,]*(?:\.\d+)?/) : null;
     if (v) {
       deposit = v[0].replace(/\s/g, '');
       break;
     }
   }
   if (!deposit) {
-    const m = text(content).match(/minimum (?:deposit|funding)[^$]{0,30}(\$\s?\d[\d,]*)/i);
+    const m = text(content).match(/minimum (?:deposit|funding)[^$£€\d]{0,30}((?:\$|£|€|AUD|USD|GBP|EUR)\s?\d[\d,]*)/i);
     if (m) deposit = m[1].replace(/\s/g, '');
   }
   if (deposit) facts.push({ label: 'Minimum deposit', value: deposit });
