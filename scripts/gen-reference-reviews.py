@@ -78,7 +78,9 @@ def step(t, body):
 
 def build(s, i):
     N = s["name"]
-    slug = re.sub(r"[^a-z0-9]+", "-", N.lower()).strip("-") + "-review"
+    import unicodedata
+    folded = unicodedata.normalize("NFKD", N).encode("ascii", "ignore").decode()
+    slug = re.sub(r"[^a-z0-9]+", "-", folded.lower()).strip("-") + "-review"
     f = slug[: -len("-review")]
     url = f"https://vectorai360.com/?f={f}&subid=BIT&src=ATP"
     short = N if len(N) <= 22 else "This Platform"
@@ -313,6 +315,83 @@ def build(s, i):
     print(f"{slug:32s} {rating} {s['author'][0][:8]:8s} {s['time']} {words}w title={len(title)} desc={len(desc)}")
 
 
+# ---- batch 2: twenty platforms from a second fact-sheet list --------------------------------------------------------------
+# (name, platform type, technology, asset type, payment methods, withdrawal wording, mobile wording, registration wording, fees wording, reach)
+BATCH2 = [
+    ("HeluxKiApp", "browser-based trading platform", "AI technology", "bonds", "digital wallets", "usually within a day", "smartphone-compatible", "no registration fee", "no transaction fees", "most countries worldwide"),
+    ("Cytcrop", "online trading platform", "intelligent automation", "cryptocurrencies", "local wire transfers", "generally within 24 hours", "mobile-friendly", "no sign-up fees", "fee-free transactions", "wide international access"),
+    ("MetreturnETH", "internet-based trading platform", "intelligent automation", "derivatives", "e-wallets", "within 24 hours", "mobile-friendly", "no registration charges", "no trading fees", "numerous global locations"),
+    ("Loxaris", "internet-based trading platform", "artificial intelligence", "commodities", "local wire transfers", "generally within 24 hours", "device-accessible", "free registration", "no trading fees", "most countries worldwide"),
+    ("Eisnouvo AI", "browser-based trading platform", "artificial intelligence", "forex pairs", "bank cards", "usually within a day", "cross-device compatible", "free registration", "no processing charges", "wide international access"),
+    ("Carlos Capital", "internet-based trading platform", "smart algorithms", "cryptocurrencies", "debit cards", "up to 24 hours", "smartphone-compatible", "no sign-up fees", "fee-free transactions", "most countries worldwide"),
+    ("Krest Phuntgrowe", "web-based trading platform", "AI technology", "stocks", "debit cards", "usually within a day", "smartphone-compatible", "no sign-up fees", "no processing charges", "numerous global locations"),
+    ("Davlat dasturi", "web-based trading platform", "smart algorithms", "bonds", "bank cards", "generally within 24 hours", "smartphone-compatible", "no sign-up fees", "no transaction fees", "numerous global locations"),
+    ("Adroite Capitorc", "web-based trading platform", "smart algorithms", "shares", "electronic payment methods", "within 24 hours", "smartphone-compatible", "no registration charges", "fee-free transactions", "numerous global locations"),
+    ("Billz Edge", "web-based trading platform", "AI technology", "derivatives", "credit cards", "up to 24 hours", "mobile-friendly", "no registration charges", "no processing charges", "many regions globally"),
+    ("Gyors Piacit\u00e1r", "internet-based trading platform", "intelligent automation", "derivatives", "debit cards", "within 24 hours", "mobile-friendly", "no registration fee", "fee-free transactions", "numerous global locations"),
+    ("Bold Gainorelle", "internet-based trading platform", "AI technology", "futures", "e-wallets", "within 24 hours", "smartphone-compatible", "free registration", "no processing charges", "many regions globally"),
+    ("Meer Dividbrook", "internet-based trading platform", "artificial intelligence", "bonds", "e-wallets", "usually within a day", "mobile-friendly", "no registration charges", "no trading fees", "wide international access"),
+    ("Granite Equitorage", "internet-based trading platform", "artificial intelligence", "futures", "bank cards", "generally within 24 hours", "mobile-friendly", "no sign-up fees", "no transaction fees", "most countries worldwide"),
+    ("Echo Intelligence", "online trading platform", "smart algorithms", "commodities", "digital wallets", "usually within a day", "mobile-friendly", "no registration charges", "no transaction fees", "wide international access"),
+    ("CapitalX Broking", "online trading platform", "smart algorithms", "stocks", "local wire transfers", "generally within 24 hours", "mobile-friendly", "free registration", "no processing charges", "numerous global locations"),
+    ("Bistar Rastanstvo", "browser-based trading platform", "artificial intelligence", "cryptocurrencies", "debit cards", "usually within a day", "device-accessible", "no registration fee", "no trading fees", "many regions globally"),
+    ("BKY Capital", "online trading platform", "artificial intelligence", "commodities", "digital wallets", "usually within a day", "cross-device compatible", "no registration fee", "no transaction fees", "wide international access"),
+    ("Champlain Capital", "browser-based trading platform", "artificial intelligence", "futures", "e-wallets", "generally within 24 hours", "device-accessible", "no registration fee", "no trading fees", "most countries worldwide"),
+]
+TITLE_POOL = [
+    "{N} Review 2026: Legit or Scam?", "{N} Review 2026: Is It Safe to Sign Up?", "Is {N} Legit? Full 2026 Review",
+    "{N} Review: Should You Trust It in 2026?", "{N} Review 2026: Pros, Cons & Honest Verdict", "{N} Scam or Legit? What We Found in 2026",
+    "Is {N} Worth It in 2026? Full Review", "{N} Review 2026: Red Flags, Fees & Real Verdict", "{N} Review 2026: Can You Actually Trust This Platform?",
+    "{N} Review 2026: What They Don't Tell You", "{N} Review 2026: Sign Up or Stay Away?", "{N} Review 2026: Minimum Deposit, Fees & Safety Check",
+    "{N} Review 2026: Is It Regulated or a Red Flag?", "{N} Review 2026: Everything You Need to Know Before You Register",
+]
+DESC_A = [
+    "{N} review: $250 minimum deposit, {a} trading, demo account and free registration. Here is what we could and could not confirm.",
+    "{N} review: the $250 minimum deposit, {a}, {p} and withdrawal claims, plus what the platform leaves out about its operator.",
+    "{N} review: how it works, the $250 minimum deposit, {a} trading and the fee and payout details to check before you register.",
+]
+DESC_B = [
+    "Thinking of signing up with {N}? We break down its $250 minimum, {a} trading, payments and what the platform leaves unclear.",
+    "Is {N} worth a $250 deposit? We cover its {a} trading, fees, payments and withdrawals, and what to check before you register.",
+    "Wondering if {N} is legit? We cover the $250 minimum deposit, {a}, payments and what we could not confirm about the operator.",
+]
+AUTHORS = [("Michael Brooks", "michaelbrooks"), ("Olivia Bennett", "oliviabennett"), ("James Whitmore", "jameswhitmore"),
+           ("Daniel Carter", "danielcarter"), ("Sophia Reynolds", "sophiareynolds")]
+
+
+def batch2_specs(start_minutes_ago=100, step=3):
+    import hashlib
+    import unicodedata
+    from datetime import datetime, timedelta, timezone
+    now = datetime.now(timezone.utc)
+    out = []
+    for i, row in enumerate(BATCH2):
+        name, platform, tech, assets, pay, wd, mobile, reg, fees, reach = row
+        folded = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+        key = re.sub(r"[^a-z0-9]+", "-", folded.lower()).strip("-")
+        h = int(hashlib.md5(key.encode()).hexdigest(), 16)
+        title = None
+        for k in range(len(TITLE_POOL)):
+            t = TITLE_POOL[(i * 3 + k) % len(TITLE_POOL)].replace("{N}", name)
+            if len(t) <= 60:
+                title = t
+                break
+        pool = (DESC_A if i % 2 == 0 else DESC_B) + (DESC_B if i % 2 == 0 else DESC_A)
+        desc = None
+        for k in range(len(pool)):
+            d = pool[(h + k) % len(pool)].replace("{N}", name).replace("{a}", assets).replace("{p}", pay)
+            if 125 <= len(d) <= 155:
+                desc = d
+                break
+        when = now - timedelta(minutes=start_minutes_ago - i * step)
+        out.append(dict(name=name, platform=platform, tech=tech, assets=assets, pay=pay, wd=wd, mobile=mobile, reg=reg, fees=fees, reach=reach,
+                        author=AUTHORS[i % 5], time=when.strftime("%H:%M"), rating=[4.2, 4.3, 4.4, 4.5, 4.6, 4.7][h % 6],
+                        title=title, desc=desc, analysis=""))
+    return out
+
+
 if __name__ == "__main__":
-    for i, s in enumerate(SPECS):
+    import sys
+    specs = batch2_specs() if "--batch2" in sys.argv else SPECS
+    for i, s in enumerate(specs):
         build(s, i)
