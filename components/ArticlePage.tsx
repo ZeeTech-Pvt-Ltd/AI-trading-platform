@@ -9,6 +9,7 @@ import Breadcrumbs from './Breadcrumbs';
 import JsonLd from './JsonLd';
 import PostCard from './PostCard';
 import ReviewCtaBar from './ReviewCtaBar';
+import ReviewPopup from './ReviewPopup';
 import { quickFacts } from '@/lib/quickFacts';
 import TableOfContents from './TableOfContents';
 import TopRatedWidget from './TopRatedWidget';
@@ -172,7 +173,10 @@ export default function ArticlePage({ post }: { post: Post }) {
         </div>
       </article>
       {isTrading ? (
-        <ReviewCtaBar slug={post.slug} name={name} href={affiliate} score={card?.ratingValue} />
+        <>
+          <ReviewCtaBar slug={post.slug} name={name} href={affiliate} score={card?.ratingValue} />
+          <ReviewPopup slug={post.slug} name={name} href={affiliate} />
+        </>
       ) : null}
       {post.type === 'trading' ? (
         <section className="btt-related" aria-label="More platform reviews">

@@ -17,6 +17,7 @@ declare global {
 
 // Which part of the review page an outbound CTA click came from.
 function ctaPosition(link: HTMLAnchorElement, content: Element | null): string {
+  if (link.closest('.btt-popup')) return 'popup';
   if (link.closest('.btt-sticky-cta')) return 'sticky_mobile';
   if (link.closest('.btt-side-card')) return 'sidebar';
   if (link.closest('.btt-article__quickverdict')) return 'top_quickverdict';
