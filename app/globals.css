@@ -3348,6 +3348,11 @@ body:has(.bd-review) {
 	border-left: 6px solid var(--brand);
 }
 
+/* Reviews with a plain FAQ block: items sit apart with no accent border */
+.bd-faq--plain .bd-faq__item {
+	border-left: 0;
+}
+
 .bd-faq__item .bd-subheading {
 	margin: 0 0 0.35em;
 }
