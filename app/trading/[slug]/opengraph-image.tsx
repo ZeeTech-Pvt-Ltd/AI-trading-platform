@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { getPost, getCard } from '@/lib/data';
-import { brandName, ratingVerdict } from '@/lib/format';
+import { ratingVerdict } from '@/lib/format';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
@@ -9,7 +9,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const { slug } = await params;
   const post = getPost('trading', slug);
   const card = getCard('trading', slug);
-  const name = post ? brandName(post.title) : slug;
+  const title = post?.title ?? slug;
   const rating = card?.ratingValue;
   const verdict = ratingVerdict(rating, card?.verdict);
 
@@ -55,8 +55,16 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           >
             Platform Review
           </div>
-          <div style={{ display: 'flex', fontSize: 68, fontWeight: 800, color: '#1c1917', lineHeight: 1.1 }}>
-            {name}
+          <div
+            style={{
+              display: 'flex',
+              fontSize: title.length > 52 ? 52 : 64,
+              fontWeight: 800,
+              color: '#1c1917',
+              lineHeight: 1.15,
+            }}
+          >
+            {title}
           </div>
         </div>
 
