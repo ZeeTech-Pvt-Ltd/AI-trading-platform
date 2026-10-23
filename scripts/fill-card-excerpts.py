@@ -74,6 +74,34 @@ def hook(post):
     return opts[md5i(slug) % len(opts)]
 
 
+def cryptic(excerpt):
+    """Meta-commentary such as 'The page asks "scam or safe?" without answering.' does not tell a reader what the review covers."""
+    return excerpt.startswith("The page ")
+
+
+def readable_pass(man, posts):
+    """Decode the HTML entities stored in excerpts and swap cryptic ones for the review's own meta description."""
+    swapped = decoded = 0
+
+    def fix(cards):
+        nonlocal swapped, decoded
+        for c in cards:
+            ex = c.get("excerpt", "")
+            if "&" in ex:
+                c["excerpt"] = html.unescape(ex)
+                decoded += 1
+            if cryptic(c.get("excerpt", "")) and c["slug"] in posts and posts[c["slug"]].get("description"):
+                c["excerpt"] = html.unescape(posts[c["slug"]]["description"])
+                swapped += 1
+
+    for pg in man["homePages"]:
+        fix(pg)
+    for a in man["authors"].values():
+        for pg in a["pages"]:
+            fix(pg)
+    print(f"entities decoded: {decoded}, cryptic excerpts replaced with description: {swapped}")
+
+
 def main():
     dry = "--dry-run" in sys.argv
     posts = {}
@@ -81,6 +109,7 @@ def main():
         p = json.load(open(f))
         posts[p["slug"]] = p
     man = json.load(open(MANIFEST))
+    readable_pass(man, posts)
     used = {c["excerpt"] for pg in man["homePages"] for c in pg if c.get("excerpt")}
     filled, text = 0, {}
 
