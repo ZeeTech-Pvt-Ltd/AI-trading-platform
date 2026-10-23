@@ -23,7 +23,7 @@ export async function generateMetadata({
   const total = a.pages.reduce((sum, p) => sum + p.length, 0);
   return {
     title: `${a.name} | ${site.name}`,
-    description: a.bio || `${a.name} has written ${total} articles on ${site.name}.`,
+    description: a.bio || `${a.name} has written ${total} reviews on ${site.name}. Each one covers the deposit, fees and sign-up checks for that platform.`,
     alternates: { canonical: `/author/${author}` },
     robots: { index: false, follow: true },
   };

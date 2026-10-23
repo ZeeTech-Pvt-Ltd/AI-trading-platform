@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (!a) return { title: 'Not Found' };
   return {
     title: `${a.name} | ${site.name} | Page ${page}`,
-    description: `${a.name}'s articles on ${site.name}, page ${page}.`,
+    description: `${a.name} reviews on ${site.name}, page ${page} of ${a.pages.length}. Each entry covers the deposit, fees and sign-up checks for that platform.`,
     alternates: { canonical: `/author/${author}/page/${page}` },
     robots: { index: false, follow: true },
   };
