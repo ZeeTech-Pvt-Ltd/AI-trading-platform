@@ -360,7 +360,8 @@ def main():
     if not wanted:
         slugs = {p["slug"] for _, p in posts}
         if set(card) - {c["slug"] for pg in manifest["homePages"] for c in pg if c["type"] != "trading"} != slugs:
-            missing = slugs - set(card)
+            # noindex posts are deliberately left off the home and author listings
+            missing = {p["slug"] for _, p in posts if not p.get("noindex")} - set(card)
             extra = {s for s, c in card.items() if c["type"] == "trading"} - slugs
             if missing:
                 problems["post missing from manifest (run update-manifest-batch.py)"] += sorted(missing)
