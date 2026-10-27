@@ -41,6 +41,7 @@ export function postMetadata(post: Post): Metadata {
     title,
     description,
     alternates: { canonical: url },
+    ...(post.noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: 'article',
       locale: site.locale,

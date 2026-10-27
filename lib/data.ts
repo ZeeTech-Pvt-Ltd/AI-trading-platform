@@ -33,6 +33,8 @@ export type Post = {
   excerpt: string;
   content: string;
   jsonLd: string;
+  /** Keep this page out of search results and the sitemap (robots noindex, follow). */
+  noindex?: boolean;
   /** Shorter <title> than the visible heading, when the heading runs past 60 characters. */
   seoTitle?: string;
   reviewJsonLd?: string;

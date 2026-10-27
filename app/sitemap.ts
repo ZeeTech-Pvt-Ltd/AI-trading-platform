@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
-import { getAllCards, getTypePages, getLastUpdatedDate } from '@/lib/data';
+import { getAllCards, getTypePages, getLastUpdatedDate, getPost } from '@/lib/data';
 import { getIndexablePairs } from '@/lib/compare';
 
 /** Most recent date (dateModified, falling back to date) among a set of cards. */
@@ -74,6 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // posts (reviews + articles)
   for (const card of getAllCards()) {
+    if (getPost(card.type, card.slug)?.noindex) continue;
     entries.push({
       url: `${site.url}/${card.type}/${card.slug}`,
       lastModified: latestOf([card]),
