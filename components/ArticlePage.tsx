@@ -95,36 +95,40 @@ export default function ArticlePage({ post }: { post: Post }) {
 
       {isTrading && card?.ratingValue && !post.hideQuickVerdict ? (
         <div className="btt-article__quickverdict">
-          <div className="btt-article__quickverdict__score">
-            <span className="btt-article__quickverdict__number">{card.ratingValue}</span>
-            <span className="btt-article__quickverdict__max">/5</span>
+          <div className="btt-article__quickverdict__left">
+            <div className="btt-article__quickverdict__score">
+              <span className="btt-article__quickverdict__number">{card.ratingValue}</span>
+              <span className="btt-article__quickverdict__max">/5</span>
+            </div>
+            <div className="btt-article__quickverdict__meta">
+              <span className={`btt-h-badge btt-h-badge--${verdict.tone}`}>
+                <span className="btt-h-badge__dot" aria-hidden="true" />
+                {verdict.label}
+              </span>
+              <span className="btt-article__quickverdict__criteria">
+                Rated on ease of use, features, value &amp; support
+              </span>
+            </div>
+            <a
+              className="btt-article__quickverdict__cta"
+              href={affiliate}
+              rel="sponsored nofollow noopener noreferrer"
+              target="_blank"
+            >
+              Open an account →
+            </a>
           </div>
-          <div className="btt-article__quickverdict__meta">
-            <span className={`btt-h-badge btt-h-badge--${verdict.tone}`}>
-              <span className="btt-h-badge__dot" aria-hidden="true" />
-              {verdict.label}
-            </span>
-            <span className="btt-article__quickverdict__criteria">
-              Rated on ease of use, features, value &amp; support
-            </span>
-          </div>
-          <a
-            className="btt-article__quickverdict__cta"
-            href={affiliate}
-            rel="sponsored nofollow noopener noreferrer"
-            target="_blank"
-          >
-            Open an account →
-          </a>
           {facts.length ? (
-            <ul className="btt-article__quickfacts">
-              {facts.map((f) => (
-                <li key={f.label}>
-                  <span>{f.label}</span>
-                  {f.value}
-                </li>
-              ))}
-            </ul>
+            <div className="btt-article__quickverdict__right">
+              <ul className="btt-article__quickfacts">
+                {facts.map((f) => (
+                  <li key={f.label}>
+                    <span>{f.label}</span>
+                    {f.value}
+                  </li>
+                ))}
+              </ul>
+            </div>
           ) : null}
         </div>
       ) : null}

@@ -2089,15 +2089,27 @@ input[type="reset"],
 
 /* Quick verdict strip — surfaces the score/CTA right at the top, before the reader scrolls */
 .btt-article__quickverdict {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	align-items: center;
 	gap: 20px;
-	flex-wrap: wrap;
 	background: linear-gradient(135deg, var(--brand-soft), #fff);
 	border: 1px solid var(--line);
 	border-radius: var(--radius-lg);
 	padding: 18px 22px;
 	margin: 0 0 24px;
+}
+
+.btt-article__quickverdict__left {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 16px 20px;
+	min-width: 0;
+}
+
+.btt-article__quickverdict__right {
+	min-width: 0;
 }
 
 .btt-article__quickverdict__score {
@@ -2157,6 +2169,10 @@ input[type="reset"],
 
 @media (max-width: 560px) {
 	.btt-article__quickverdict {
+		grid-template-columns: 1fr;
+	}
+
+	.btt-article__quickverdict__left {
 		flex-direction: column;
 		align-items: flex-start;
 	}
