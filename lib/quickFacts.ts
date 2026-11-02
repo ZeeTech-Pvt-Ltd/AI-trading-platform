@@ -1,8 +1,6 @@
 export type QuickFact = { label: string; value: string };
 
 const DEPOSIT_LABELS = ['Initial Funding', 'Minimum Deposit', 'Minimum deposit', 'Starting Deposit', 'Entry Deposit', 'Starting Amount'];
-const UNCONFIRMED =
-  /could not (?:independently )?(?:confirm|verify)|couldn.t (?:verify|confirm)|not something we could confirm|no confirmed (?:operator|licen[cs]e|regulator)|operator and regulator|operator or regulator/i;
 
 function text(html: string): string {
   return html
@@ -17,7 +15,7 @@ function text(html: string): string {
 
 /**
  * Three facts for the top of a review, read from the page's own content so they cannot drift:
- * minimum deposit, who it suits, and whether the operator and regulator could be confirmed.
+ * minimum deposit and who it suits.
  */
 export function quickFacts(content: string): QuickFact[] {
   const facts: QuickFact[] = [];
@@ -51,8 +49,5 @@ export function quickFacts(content: string): QuickFact[] {
     }
   }
 
-  if (UNCONFIRMED.test(text(content))) {
-    facts.push({ label: 'Operator and regulator', value: 'Not confirmed' });
-  }
   return facts;
 }
