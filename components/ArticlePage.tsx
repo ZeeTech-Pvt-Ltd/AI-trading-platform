@@ -129,7 +129,7 @@ export default function ArticlePage({ post }: { post: Post }) {
         </div>
       ) : null}
 
-      {post.excerpt ? (
+      {post.excerpt && !isTrading ? (
         <div className="btt-excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
       ) : null}
 
