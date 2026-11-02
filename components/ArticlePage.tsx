@@ -74,6 +74,7 @@ export default function ArticlePage({ post }: { post: Post }) {
   const name = isTrading ? brandName(post.title) : '';
   const verdict = ratingVerdict(card?.ratingValue, card?.verdict);
   const facts = isTrading ? quickFacts(post.content) : [];
+  const minimumDeposit = facts.filter((f) => f.label === 'Minimum deposit');
   const affiliate = isTrading
     ? post.ctaUrl || `https://vectorai360.com/?f=${post.slug.replace(/-review$/, '')}&subid=BIT&src=ATP`
     : '';
@@ -109,19 +110,11 @@ export default function ArticlePage({ post }: { post: Post }) {
                 Rated on ease of use, features, value &amp; support
               </span>
             </div>
-            <a
-              className="btt-article__quickverdict__cta"
-              href={affiliate}
-              rel="sponsored nofollow noopener noreferrer"
-              target="_blank"
-            >
-              Open an account →
-            </a>
           </div>
-          {facts.length ? (
+          {minimumDeposit.length ? (
             <div className="btt-article__quickverdict__right">
               <ul className="btt-article__quickfacts">
-                {facts.map((f) => (
+                {minimumDeposit.map((f) => (
                   <li key={f.label}>
                     <span>{f.label}</span>
                     {f.value}
