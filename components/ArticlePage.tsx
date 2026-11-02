@@ -130,8 +130,8 @@ export default function ArticlePage({ post }: { post: Post }) {
         <div className="btt-excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
       ) : null}
 
-      {post.hideToc ? null : (
-        <TableOfContents items={tocItems} label={isTrading ? 'In this review' : 'In this article'} />
+      {post.hideToc || isTrading ? null : (
+        <TableOfContents items={tocItems} label="In this article" />
       )}
 
       <div
