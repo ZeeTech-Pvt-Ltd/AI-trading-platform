@@ -4424,7 +4424,20 @@ h3,
 	padding-top: 0;
 }
 
+.bd-review--flat > .bd-section:first-child > .bd-heading:first-child {
+	margin-top: 0;
+}
+
 /* Lighter verdict card, set per post with the bd-verdict-card--light class */
 .bd-verdict-card--light {
 	background: #44403c;
+}
+
+/* Pros and cons icons in a flat review: the wrapper's own --ok/--bad tokens are self-referencing, so use the colours directly */
+.bd-review--flat .bd-ico-check {
+	background: #16a34a;
+}
+
+.bd-review--flat .bd-ico-x {
+	background: #dc2626;
 }
