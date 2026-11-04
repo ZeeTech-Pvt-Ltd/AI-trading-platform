@@ -45,6 +45,8 @@ export type Post = {
   hideToc?: boolean;
   /** Hide the score box at the top of the page on this post only. */
   hideQuickVerdict?: boolean;
+  /** Show only these facts (by label, e.g. "Minimum deposit") in the score card on this post only. */
+  quickFactLabels?: string[];
   /** Render the review sections as plain text instead of white cards, on this post only. */
   plainLayout?: boolean;
 };
@@ -104,6 +106,44 @@ export function getAllPostSlugs(type: string): string[] {
     .readdirSync(dir)
     .filter((f) => f.endsWith('.json'))
     .map((f) => f.replace(/\.json$/, ''));
+}
+
+/* Danish (da-DK) posts live in content/posts-da/<type>/<slug>.json. Each file sets
+ * `englishSlug` to the English review it translates (when one exists) so the two
+ * pages can be linked with hreflang. */
+const DA_DIR = path.join(CONTENT_DIR, 'posts-da');
+
+export function getDanishPost(type: string, slug: string): Post | null {
+  try {
+    const file = path.join(DA_DIR, type, slug + '.json');
+    return JSON.parse(fs.readFileSync(file, 'utf8')) as Post;
+  } catch {
+    return null;
+  }
+}
+
+export function getAllDanishPostSlugs(type: string): string[] {
+  try {
+    return fs
+      .readdirSync(path.join(DA_DIR, type))
+      .filter((f) => f.endsWith('.json'))
+      .map((f) => f.replace(/\.json$/, ''));
+  } catch {
+    return [];
+  }
+}
+
+/** Map of English slug -> Danish slug for every Danish post that names an englishSlug. */
+let danishPairCache: Map<string, string> | null = null;
+export function getDanishSlugForEnglish(type: string, englishSlug: string): string | undefined {
+  if (!danishPairCache) {
+    danishPairCache = new Map();
+    for (const da of getAllDanishPostSlugs('trading')) {
+      const post = getDanishPost('trading', da) as (Post & { englishSlug?: string }) | null;
+      if (post?.englishSlug) danishPairCache.set(post.englishSlug, da);
+    }
+  }
+  return type === 'trading' ? danishPairCache.get(englishSlug) : undefined;
 }
 
 export function getAllCards(): Card[] {

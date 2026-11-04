@@ -59,7 +59,7 @@ function ReviewSidebar({ post }: { post: Post }) {
   );
 }
 
-export default function ArticlePage({ post }: { post: Post }) {
+export default function ArticlePage({ post, locale = 'en' }: { post: Post; locale?: 'en' | 'da' }) {
   const classes = ['btt-article', 'hentry', ...post.categories.map((c) => `category-${c}`)].join(
     ' ',
   );
@@ -73,7 +73,9 @@ export default function ArticlePage({ post }: { post: Post }) {
   const card = isTrading ? getCard(post.type, post.slug) : undefined;
   const name = isTrading ? brandName(post.title) : '';
   const verdict = ratingVerdict(card?.ratingValue, card?.verdict);
-  const facts = isTrading ? quickFacts(post.content) : [];
+  const facts = isTrading
+    ? quickFacts(post.content).filter((f) => !post.quickFactLabels || post.quickFactLabels.includes(f.label))
+    : [];
   const affiliate = isTrading
     ? post.ctaUrl || `https://vectorai360.com/?f=${post.slug.replace(/-review$/, '')}&subid=BIT&src=ATP`
     : '';
@@ -117,7 +119,7 @@ export default function ArticlePage({ post }: { post: Post }) {
             Open an account →
           </a>
           {facts.length ? (
-            <ul className="btt-article__quickfacts">
+            <ul className={`btt-article__quickfacts${post.quickFactLabels ? ' btt-article__quickfacts--inline' : ''}`}>
               {facts.map((f) => (
                 <li key={f.label}>
                   <span>{f.label}</span>
@@ -191,10 +193,10 @@ export default function ArticlePage({ post }: { post: Post }) {
         </section>
       ) : null}
       {post.jsonLd ? (
-        <JsonLd data={enrichJsonLd(post.jsonLd, post.dateModified ?? post.date, `${site.url}/${post.type}/${post.slug}/opengraph-image`)} />
+        <JsonLd data={enrichJsonLd(post.jsonLd, post.dateModified ?? post.date, `${site.url}/${post.type}/${post.slug}/opengraph-image`, locale)} />
       ) : null}
       {post.reviewJsonLd ? (
-        <JsonLd data={enrichJsonLd(post.reviewJsonLd, post.dateModified ?? post.date)} />
+        <JsonLd data={enrichJsonLd(post.reviewJsonLd, post.dateModified ?? post.date, undefined, locale)} />
       ) : null}
     </main>
   );

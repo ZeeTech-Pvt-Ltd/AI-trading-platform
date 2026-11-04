@@ -1,6 +1,13 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
-import { getAllCards, getTypePages, getLastUpdatedDate } from '@/lib/data';
+import {
+  getAllCards,
+  getAllDanishPostSlugs,
+  getDanishPost,
+  getDanishSlugForEnglish,
+  getTypePages,
+  getLastUpdatedDate,
+} from '@/lib/data';
 import { getIndexablePairs } from '@/lib/compare';
 
 /** Most recent date (dateModified, falling back to date) among a set of cards. */
@@ -72,13 +79,47 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // posts (reviews + articles)
+  // posts (reviews + articles). English reviews with a Danish version list both
+  // languages (hreflang) so search engines can pair them.
   for (const card of getAllCards()) {
+    const danish = card.type === 'trading' ? getDanishSlugForEnglish('trading', card.slug) : undefined;
     entries.push({
       url: `${site.url}/${card.type}/${card.slug}`,
       lastModified: latestOf([card]),
       changeFrequency: 'monthly',
       priority: card.type === 'trading' ? 0.8 : 0.6,
+      ...(danish
+        ? {
+            alternates: {
+              languages: {
+                'en-GB': `${site.url}/trading/${card.slug}`,
+                'da-DK': `${site.url}/da/trading/${danish}`,
+              },
+            },
+          }
+        : {}),
+    });
+  }
+
+  // Danish posts (content/posts-da). Listed with their English pair when they name one.
+  for (const slug of getAllDanishPostSlugs('trading')) {
+    const post = getDanishPost('trading', slug) as (ReturnType<typeof getDanishPost> & { englishSlug?: string }) | null;
+    if (!post) continue;
+    entries.push({
+      url: `${site.url}/da/trading/${slug}`,
+      lastModified: post.dateModified || post.date ? new Date(post.dateModified || post.date) : undefined,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      ...(post.englishSlug
+        ? {
+            alternates: {
+              languages: {
+                'en-GB': `${site.url}/trading/${post.englishSlug}`,
+                'da-DK': `${site.url}/da/trading/${slug}`,
+              },
+            },
+          }
+        : {}),
     });
   }
 

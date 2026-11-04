@@ -17,8 +17,27 @@ export const ogDefault = [
   },
 ];
 
-export function postMetadata(post: Post): Metadata {
-  const url = `${site.url}/${post.type}/${post.slug}`;
+/** Locale for a post page: English (default) or Danish. Danish pages live under /da. */
+export type PostLocale = 'en' | 'da';
+
+export function postMetadata(
+  post: Post,
+  opts: { locale?: PostLocale; englishSlug?: string; danishSlug?: string } = {},
+): Metadata {
+  const locale: PostLocale = opts.locale ?? 'en';
+  const prefix = locale === 'da' ? '/da' : '';
+  const url = `${site.url}${prefix}/${post.type}/${post.slug}`;
+  // hreflang pairs: only emitted when both language versions exist.
+  const languages: Record<string, string> = {};
+  if (opts.englishSlug && locale === 'da') {
+    languages['en-GB'] = `${site.url}/${post.type}/${opts.englishSlug}`;
+    languages['da-DK'] = url;
+    languages['x-default'] = `${site.url}/${post.type}/${opts.englishSlug}`;
+  } else if (opts.danishSlug && locale === 'en') {
+    languages['en-GB'] = url;
+    languages['da-DK'] = `${site.url}/da/${post.type}/${opts.danishSlug}`;
+    languages['x-default'] = url;
+  }
   const description = post.description || undefined;
   const base = post.seoTitle || post.title;
   const titleWithBrand = `${base} | ${site.name}`;
@@ -40,10 +59,13 @@ export function postMetadata(post: Post): Metadata {
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      ...(Object.keys(languages).length ? { languages } : {}),
+    },
     openGraph: {
       type: 'article',
-      locale: site.locale,
+      locale: locale === 'da' ? 'da_DK' : site.locale,
       url,
       siteName: site.name,
       title: post.title,

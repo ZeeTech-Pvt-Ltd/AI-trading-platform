@@ -52,6 +52,7 @@ ANALYSES = [
     ("Sovereign Wertholm", f"{{N}} pairs {q('sovereign')}, a word that suggests authority and stability, with an invented {q('wertholm')} built on {q('wert')}, German for value"),
     ("Stone Rendive", f"{{N}} pairs {q('stone')}, a word that signals permanence, with an invented {q('rendive')}"),
     ("Turbo Hiberix AI", f"{{N}} adds an {q('AI')} tag to {q('turbo')} and an invented {q('hiberix')}, a name that signals speed and automation without describing the product"),
+    ("Immediate Akpro", f"{{N}} pairs {q('immediate')}, a word that signals speed, with an invented {q('akpro')} that has no obvious meaning"),
 ]
 TITLES = [
     "{N} Review 2026: Legit or Scam?",
