@@ -4370,3 +4370,61 @@ h3,
 		animation: none;
 	}
 }
+
+
+/* Minimal FAQ (set per post in the FAQ wrapper): no cards, just a question, an answer and a hairline between items */
+.bd-faq--minimal .bd-faq__item {
+	background: none;
+	border-left: 0;
+	border-radius: 0;
+	padding: 16px 0;
+	border-bottom: 1px solid var(--line);
+}
+
+/* Asset list shown as small badges (set per post on the list): one chip per coin */
+.bd-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	list-style: none;
+	padding: 0;
+	margin: 12px 0 16px;
+}
+
+/* Coin and flag icons inside the chips */
+.bd-chips img {
+	width: 18px;
+	height: 18px;
+	flex: none;
+}
+
+/* Flat review body, set per post on the bd-review wrapper: sections sit on the page with no box */
+.bd-review--flat .bd-section {
+	background: none;
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+	margin: 0 0 28px;
+	box-shadow: none;
+}
+
+/* Hoverable data table: the row under the pointer is highlighted (set per post on the table wrapper) */
+.bd-table-wrap--hover .bd-specs tbody tr {
+	transition: background 0.15s ease;
+}
+
+/* Header row in the same dark tone as the conclusion card */
+.bd-table-wrap--hover .bd-specs thead th {
+	background: #44403c;
+	color: #fff;
+}
+
+/* First heading of a flat review sits right under the table of contents */
+.bd-review--flat {
+	padding-top: 0;
+}
+
+/* Lighter verdict card, set per post with the bd-verdict-card--light class */
+.bd-verdict-card--light {
+	background: #44403c;
+}

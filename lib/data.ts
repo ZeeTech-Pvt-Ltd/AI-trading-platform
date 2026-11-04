@@ -45,6 +45,8 @@ export type Post = {
   ctaUrl?: string;
   /** Hide the "In this review" table of contents on this post only. */
   hideToc?: boolean;
+  /** Show the "In this review" table of contents on a review page that hides it by default. */
+  showToc?: boolean;
   /** Hide the score box at the top of the page on this post only. */
   hideQuickVerdict?: boolean;
   /** Render the review sections as plain text instead of white cards, on this post only. */
